@@ -26,6 +26,7 @@ Route::middleware(['auth', 'IsManager'])->prefix('manager')->name('manager.')->g
     Route::get('/', [\App\Http\Controllers\Manager\HomeController::class, 'index'])->name('home');
     Route::resource('appointments', \App\Http\Controllers\Manager\AppointmentController::class);
     Route::resource('estates', \App\Http\Controllers\Manager\EstateController::class);
+    Route::resource('owners', \App\Http\Controllers\Manager\OwnerController::class);
 
 });
 

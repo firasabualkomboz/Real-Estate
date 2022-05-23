@@ -18,7 +18,6 @@ class EstateController extends Controller
 
     public function create()
     {
-  
         $owners = User::where('type', '2')->get();
         return view('manager.estate.create', compact('owners'), [
             'estate' => new Estate(),
@@ -40,7 +39,7 @@ class EstateController extends Controller
             'image' => $data['image']
         ]);
         $estate->save();
-        Alert::success('Congrats', 'You\'ve Successfully Added');
+        toastr()->success('Added Successfully');
         return redirect()->back();
 
     }
