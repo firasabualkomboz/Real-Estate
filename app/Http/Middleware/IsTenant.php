@@ -20,6 +20,7 @@ class IsTenant
             return $next($request);
         }
 
+//        return redirect()->route('login');
         abort(403);
     }
 }

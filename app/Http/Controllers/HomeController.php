@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
 {
@@ -38,6 +41,15 @@ class HomeController extends Controller
 
     public function tenantHome()
     {
-        return view('tenant.index');
+        return view('welcome');
+    }
+
+    public function main()
+    {
+
+        $todayAppointments = Appointment::where('date', '=', Carbon::today())->get();
+
+        $appointments = Appointment::where('status', 'available')->where('date' , '!=' , Carbon::today())->get();
+        return view('welcome', compact('appointments', 'todayAppointments'));
     }
 }

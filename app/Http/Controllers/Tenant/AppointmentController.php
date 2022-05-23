@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Manager;
+namespace App\Http\Controllers\Tenant;
 
 use App\Http\Controllers\Controller;
 use App\Models\Appointment;
@@ -15,8 +15,8 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::where('status','booked')->with('user')->paginate(10);
-        return view('manager.appointment.index', compact('appointments'));
+        $appointments = Appointment::where('status', 'available')->paginate(10);
+        return view('manager.tenant.index', compact('appointments'));
     }
 
     /**
@@ -26,8 +26,6 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-
-        return view('manager.appointment.create');
     }
 
     /**
@@ -38,24 +36,8 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'date' => 'required',
-            'start_at' => 'required',
-            'end_at' => 'required',
-            'status' => 'available'
-        ]);
 
-        $appointments = new Appointment([
 
-            'date' => $request->date,
-            'start_at' => $request->start_at,
-            'end_at' => $request->end_at,
-            'status' => 'available'
-
-        ]);
-
-        $appointments->save();
-        return view('manager.appointment.index');
     }
 
     /**
@@ -89,7 +71,17 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
+        $appointments = Appointment::findOrFail($id);
+
+        $appointments->update([
+            'tenant_id' => auth()->id(),
+            'status' => 'booked'
+        ]);
+        return redirect()->route('welcome');
+
+
     }
 
     /**

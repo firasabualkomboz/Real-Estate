@@ -25,6 +25,8 @@
     <!--end::Layout Themes-->
     <link rel="shortcut icon" href="{{asset('assets_dashboard')}}/assets/media/logos/favicon.ico"/>
 </head>
+@include('sweetalert::alert')
+
 <!--end::Head-->
 <!--begin::Body-->
 <body id="kt_body"
@@ -465,7 +467,7 @@
                                 </div>
                             </form>
                             <!--end::Form-->
-                            <h3 class="p-2 p-lg-3 my-1 my-lg-3">Projects</h3>
+                            <h3 class="p-2 p-lg-3 my-1 my-lg-3">Real Estate</h3>
                             <!--begin::List-->
                             <div class="list list-hover">
                                 <!--begin::Item-->
@@ -482,9 +484,8 @@
                                         <!--end::Symbol-->
                                         <!--begin::Text-->
                                         <div class="d-flex flex-column flex-grow-1 mr-2">
-                                            <span class="text-dark-75 font-size-h6 mb-0">Bravio Application</span>
-                                            <a href="#" class="text-muted text-hover-primary font-weight-bold">By
-                                                James</a>
+                                            <span class="text-dark-75 font-size-h6 mb-0">Real Estate List</span>
+                                            <a href="#" class="text-muted text-hover-primary font-weight-bold"></a>
                                         </div>
                                         <!--begin::End-->
                                     </div>

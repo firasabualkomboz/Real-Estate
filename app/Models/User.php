@@ -50,5 +50,10 @@ class User extends Authenticatable
         return $this->hasMany(Appointment::class);
     }
 
+    public function estate()
+    {
+        return $this->hasMany(Estate::class, 'owner_id', 'id');
+    }
+
 
 }

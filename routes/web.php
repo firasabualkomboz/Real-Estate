@@ -14,9 +14,8 @@ use App\Http\Controllers\Manager\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'main'])->name('welcome');
+
 
 Auth::routes();
 
@@ -26,6 +25,7 @@ Route::middleware(['auth', 'IsManager'])->prefix('manager')->name('manager.')->g
 
     Route::get('/', [\App\Http\Controllers\Manager\HomeController::class, 'index'])->name('home');
     Route::resource('appointments', \App\Http\Controllers\Manager\AppointmentController::class);
+    Route::resource('estates', \App\Http\Controllers\Manager\EstateController::class);
 
 });
 
@@ -35,9 +35,10 @@ Route::middleware(['auth', 'IsOwner'])->prefix('owner')->name('owner.')->group(f
 
 Route::middleware(['auth', 'IsTenant'])->name('tenant.')->prefix('tenant')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'tenantHome'])->name('home');
-    Route::get('/IsTenant', function () {
-        return "wow this is a tenant";
-    });
+    Route::get('/appointment-list', [App\Http\Controllers\HomeController::class, 'appointmentList'])->name('appointmentList');
+    Route::resource('appointments', \App\Http\Controllers\Tenant\AppointmentController::class);
+
+
 });
 
 
