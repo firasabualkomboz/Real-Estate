@@ -1,124 +1,9 @@
-{{--@extends('layouts.app')--}}
-
-{{--@section('content')--}}
-{{--<div class="container">--}}
-{{--    <div class="row justify-content-center">--}}
-{{--        <div class="col-md-8">--}}
-{{--            <div class="card">--}}
-{{--                <div class="card-header">{{ __('Register') }}</div>--}}
-
-{{--                <div class="card-body">--}}
-{{--                    @if ($errors->any())--}}
-{{--                        <div class="alert alert-danger">--}}
-{{--                            <ul>--}}
-{{--                                @foreach ($errors->all() as $error)--}}
-{{--                                    <li>{{ $error }}</li>--}}
-{{--                                @endforeach--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                    @endif--}}
-{{--                    <form method="POST" action="{{ route('register') }}">--}}
-{{--                        @csrf--}}
-
-{{--                        <div class="row mb-3">--}}
-{{--                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>--}}
-
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>--}}
-
-{{--                                @error('name')--}}
-{{--                                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="row mb-3">--}}
-{{--                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>--}}
-
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">--}}
-
-{{--                                @error('email')--}}
-{{--                                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="row mb-3">--}}
-{{--                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>--}}
-
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">--}}
-
-{{--                                @error('password')--}}
-{{--                                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="row mb-3">--}}
-{{--                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>--}}
-
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="row mb-3">--}}
-{{--                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>--}}
-
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="phone" type="number" class="form-control @error('phone') is-invalid @enderror" name="phone">--}}
-
-{{--                                @error('phone')--}}
-{{--                                <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-
-{{--                        <div class="row mb-0">--}}
-{{--                            <div class="col-md-6 offset-md-4">--}}
-{{--                                <button type="submit" class="btn btn-primary">--}}
-{{--                                    {{ __('Register') }}--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </form>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
-{{--@endsection--}}
-
-
-<!--
-Template Name: Metronic - Bootstrap 4 HTML, React, Angular 9 & VueJS Admin Dashboard Theme
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: https://1.envato.market/EA4JP
-Renew Support: https://1.envato.market/EA4JP
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 <html lang="en">
 <!--begin::Head-->
 <head>
     <base href="../../../">
     <meta charset="utf-8"/>
-    <title>Metronic | Login Page 6</title>
+    <title>Real Estate | Register</title>
     <meta name="description" content="Login page example"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <!--begin::Fonts-->
@@ -164,15 +49,52 @@ License: You must have a valid license purchased only from themeforest(the above
                             <p class="text-muted font-weight-bold">Enter your username and password</p>
                         </div>
                         <!--begin::Form-->
-                        <form class="form" novalidate="novalidate">
-                            <div class="form-group py-3 m-0">
-                                <input class="form-control h-auto border-0 px-0 placeholder-dark-75" type="Email"
-                                       placeholder="Email" name="username" autocomplete="off"/>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
                             </div>
+                        @endif
 
+
+                        <form method="POST" action="{{ route('register') }}" class="form">
+                            @csrf
+                            <div class="form-group py-3 m-0">
+                                <input
+                                    class="form-control @error('name') is-invalid @enderror h-auto border-0 px-0 placeholder-dark-75"
+                                    type="text"
+                                    placeholder="Name" name="name"/>
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+
+                            </div>
                             <div class="form-group py-3 border-top m-0">
-                                <input class="form-control h-auto border-0 px-0 placeholder-dark-75" type="phone"
-                                       placeholder="Phone" name="phone"/>
+                                <input
+                                    class="form-control @error('email') is-invalid @enderror h-auto border-0 px-0 placeholder-dark-75"
+                                    type="Email"
+                                    placeholder="Email" name="email" autocomplete="off"/>
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                            <div class="form-group py-3 border-top m-0">
+                                <input
+                                    class="form-control @error('phone') is-invalid @enderror h-auto border-0 px-0 placeholder-dark-75"
+                                    type="phone"
+                                    placeholder="Phone" name="phone"/>
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
 
                             <div class="form-group py-3 border-top m-0">
@@ -187,67 +109,38 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <label class="radio radio-rounded radio-success">
                                         <input value="2" name="type" type="radio">Owner
                                         <span></span></label>
+                                    @error('type')
+                                    <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                                </span>
+                                    @enderror
+
 
                                 </div>
-
                             </div>
-
 
                             <div class="form-group py-3 border-top m-0">
                                 <input class="form-control h-auto border-0 px-0 placeholder-dark-75" type="Password"
                                        placeholder="Password" name="password"/>
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
 
                             <div class="form-group py-3 border-top m-0">
                                 <input class="form-control h-auto border-0 px-0 placeholder-dark-75" type="Password"
-                                       placeholder="Password" name="password"/>
+                                       placeholder="Confirm Password" name="password_confirmation" required
+                                       autocomplete="new-password"/>
+                                @error('password_confirmation')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
 
 
-                            <div class="form-group d-flex flex-wrap justify-content-between align-items-center mt-3">
-                                <label class="checkbox checkbox-outline m-0 text-muted">
-                                    <input type="checkbox" name="remember"/>Remember me
-                                    <span></span></label>
-                                <a href="javascript:;" id="kt_login_forgot" class="text-muted text-hover-primary">Forgot
-                                    Password ?</a>
-                            </div>
-                            <div class="form-group d-flex flex-wrap justify-content-between align-items-center mt-2">
-                                <div class="my-3 mr-2">
-                                    <span class="text-muted mr-2">Do you have an account? </span>
-                                    <a href="javascript:;" id="kt_login_signup" class="font-weight-bold">Signin</a>
-                                </div>
-                                <button id="kt_login_signin_submit"
-                                        class="btn btn-primary font-weight-bold px-9 py-4 my-3">Sign Up
-                                </button>
-                            </div>
-                        </form>
-                        <!--end::Form-->
-                    </div>
-                    <!--end::Signin-->
-                    <!--begin::Signup-->
-                    <div class="login-form login-signup">
-                        <div class="text-center mb-10 mb-lg-20">
-                            <h3 class="">Sign Up</h3>
-                            <p class="text-muted font-weight-bold">Enter your details to create your account</p>
-                        </div>
-                        <!--begin::Form-->
-                        <form class="form" novalidate="novalidate">
-                            <div class="form-group py-3 m-0">
-                                <input class="form-control h-auto border-0 px-0 placeholder-dark-75" type="text"
-                                       placeholder="Fullname" name="fullname" autocomplete="off"/>
-                            </div>
-                            <div class="form-group py-3 border-top m-0">
-                                <input class="form-control h-auto border-0 px-0 placeholder-dark-75" type="password"
-                                       placeholder="Email" name="email" autocomplete="off"/>
-                            </div>
-                            <div class="form-group py-3 border-top m-0">
-                                <input class="form-control h-auto border-0 px-0 placeholder-dark-75" type="password"
-                                       placeholder="Password" name="password" autocomplete="off"/>
-                            </div>
-                            <div class="form-group py-3 border-top m-0">
-                                <input class="form-control h-auto border-0 px-0 placeholder-dark-75" type="password"
-                                       placeholder="Confirm password" name="rpassword" autocomplete="off"/>
-                            </div>
                             <div class="form-group mt-5">
                                 <label class="checkbox checkbox-outline">
                                     <input type="checkbox" name="agree"/>I Agree the
@@ -255,8 +148,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <span></span></label>
                             </div>
                             <div class="form-group d-flex flex-wrap flex-center">
-                                <button id="kt_login_signup_submit"
-                                        class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-2">Submit
+                                <button type="submit" class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-2">
+                                    Submit
                                 </button>
                                 <button id="kt_login_signup_cancel"
                                         class="btn btn-outline-primary font-weight-bold px-9 py-4 my-3 mx-2">Cancel
@@ -265,31 +158,8 @@ License: You must have a valid license purchased only from themeforest(the above
                         </form>
                         <!--end::Form-->
                     </div>
-                    <!--end::Signup-->
-                    <!--begin::Forgot-->
-                    <div class="login-form login-forgot">
-                        <div class="text-center mb-10 mb-lg-20">
-                            <h3 class="">Forgotten Password ?</h3>
-                            <p class="text-muted font-weight-bold">Enter your email to reset your password</p>
-                        </div>
-                        <!--begin::Form-->
-                        <form class="form" novalidate="novalidate">
-                            <div class="form-group py-3 border-bottom mb-10">
-                                <input class="form-control h-auto border-0 px-0 placeholder-dark-75" type="email"
-                                       placeholder="Email" name="email" autocomplete="off"/>
-                            </div>
-                            <div class="form-group d-flex flex-wrap flex-center">
-                                <button id="kt_login_forgot_submit"
-                                        class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-2">Submit
-                                </button>
-                                <button id="kt_login_forgot_cancel"
-                                        class="btn btn-light-primary font-weight-bold px-9 py-4 my-3 mx-2">Cancel
-                                </button>
-                            </div>
-                        </form>
-                        <!--end::Form-->
-                    </div>
-                    <!--end::Forgot-->
+                    <!--end::Signin-->
+
                 </div>
                 <!--end::Aside body-->
                 <!--begin: Aside footer for desktop-->
@@ -325,61 +195,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--end::Login-->
 </div>
 <!--end::Main-->
-<script>var HOST_URL = "https://keenthemes.com/metronic/tools/preview";</script>
-<!--begin::Global Config(global config for global JS scripts)-->
-<script>var KTAppSettings = {
-        "breakpoints": {"sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1200},
-        "colors": {
-            "theme": {
-                "base": {
-                    "white": "#ffffff",
-                    "primary": "#1BC5BD",
-                    "secondary": "#E5EAEE",
-                    "success": "#1BC5BD",
-                    "info": "#6993FF",
-                    "warning": "#FFA800",
-                    "danger": "#F64E60",
-                    "light": "#F3F6F9",
-                    "dark": "#212121"
-                },
-                "light": {
-                    "white": "#ffffff",
-                    "primary": "#1BC5BD",
-                    "secondary": "#ECF0F3",
-                    "success": "#C9F7F5",
-                    "info": "#E1E9FF",
-                    "warning": "#FFF4DE",
-                    "danger": "#FFE2E5",
-                    "light": "#F3F6F9",
-                    "dark": "#D6D6E0"
-                },
-                "inverse": {
-                    "white": "#ffffff",
-                    "primary": "#ffffff",
-                    "secondary": "#212121",
-                    "success": "#ffffff",
-                    "info": "#ffffff",
-                    "warning": "#ffffff",
-                    "danger": "#ffffff",
-                    "light": "#464E5F",
-                    "dark": "#ffffff"
-                }
-            },
-            "gray": {
-                "gray-100": "#F3F6F9",
-                "gray-200": "#ECF0F3",
-                "gray-300": "#E5EAEE",
-                "gray-400": "#D6D6E0",
-                "gray-500": "#B5B5C3",
-                "gray-600": "#80808F",
-                "gray-700": "#464E5F",
-                "gray-800": "#1B283F",
-                "gray-900": "#212121"
-            }
-        },
-        "font-family": "Poppins"
-    };</script>
-<!--end::Global Config-->
+
 <!--begin::Global Theme Bundle(used by all pages)-->
 <script src="{{asset('assets_dashboard')}}/assets/plugins/global/plugins.bundle.js"></script>
 <script src="{{asset('assets_dashboard')}}/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>

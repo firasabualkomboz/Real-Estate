@@ -20,18 +20,24 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware(['auth', 'IsOwner']);
 
-Route::middleware(['auth', 'user-access:manager'])->prefix('manager')->group(function () {
+Route::middleware(['auth', 'IsManager'])->prefix('manager')->name('manager.')->group(function () {
 
-    Route::get('/', [\App\Http\Controllers\Manager\HomeController::class, 'index']);
-
-});
-
-Route::middleware(['auth', 'user-access:owner'])->group(function () {
+    Route::get('/', [\App\Http\Controllers\Manager\HomeController::class, 'index'])->name('home');
+    Route::resource('appointments', \App\Http\Controllers\Manager\AppointmentController::class);
 
 });
 
-Route::middleware(['auth', 'user-access:tenant'])->group(function () {
-
+Route::middleware(['auth', 'IsOwner'])->prefix('owner')->name('owner.')->group(function () {
+    Route::get('/', [\App\Http\Controllers\Owner\HomeController::class, 'index'])->name('home');
 });
+
+Route::middleware(['auth', 'IsTenant'])->name('tenant.')->prefix('tenant')->group(function () {
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'tenantHome'])->name('home');
+    Route::get('/IsTenant', function () {
+        return "wow this is a tenant";
+    });
+});
+
+

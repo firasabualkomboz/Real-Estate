@@ -14,11 +14,10 @@ class UserAccess
      * @param \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, $userType)
+    public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->type = $userType) {
-            return $next($request);
-        }
-        return response()->json(['You do not have permission to access for this page.']);
+        
+        return $next($request);
+
     }
 }

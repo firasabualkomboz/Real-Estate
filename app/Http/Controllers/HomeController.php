@@ -25,4 +25,19 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function managerHome()
+    {
+        return view('manager');
+    }
+
+    public function ownerHome()
+    {
+        return view('owner.index');
+    }
+
+    public function tenantHome()
+    {
+        return view('tenant.index');
+    }
 }
