@@ -53,9 +53,7 @@ class EstateController extends Controller
             'image' => $data['image'],
             'location' => $request->location
         ]);
-        $estate->save();
-//        toastr()->success('Added Successfully');
-//        return redirect()->back();
+
         return redirect()->back()->with(
             array(
                 'alert-type' => 'success',
