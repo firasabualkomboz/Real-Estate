@@ -110,45 +110,67 @@
                                         </div>
                                     </div>
 
-
                                     <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Type</label>
+                                        <label for="example-date-input" class="col-3 col-form-label">Features</label>
                                         <div class="col-8">
-
-
-                                            <label class="radio radio-rounded radio-success">
-                                                <input type="radio" value="rent" name="type" checked="checked">Rent
-                                                <span></span></label>
-
-                                            <label class="radio radio-rounded radio-success">
-                                                <input value="sale" name="type" type="radio">Sale
-                                                <span></span></label>
-                                            @error('type')
-                                            <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-
+                                            <textarea class="form-control" name="features"
+                                                      rows="3"></textarea>
                                         </div>
                                     </div>
 
-
                                     <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Count Floor</label>
+                                        <label for="example-date-input" class="col-3 col-form-label">Year Built</label>
                                         <div class="col-8">
-                                            <input class="form-control" type="number" name="floors"
+                                            <input class="form-control" type="text" name="year_built"
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="example-date-input" class="col-3 col-form-label">Space</label>
+                                        <div class="col-8">
+                                            <input class="form-control" type="text" name="space"
                                             >
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Count
-                                            Apartments</label>
+                                        <label for="example-date-input" class="col-3 col-form-label">Count
+                                            Rooms </label>
                                         <div class="col-8">
-                                            <input class="form-control" type="number" name="apartments"
-                                            >
+                                            <select name="rooms" class="form-control" id="exampleSelect1">
+                                                @for($i = 1 ; $i<= 10; $i++)
+                                                    <option value="{{$i}}">{{$i}}</option>
+                                                @endfor
+                                            </select>
+
                                         </div>
                                     </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-date-input" class="col-3 col-form-label">Count
+                                            Bathroom </label>
+                                        <div class="col-8">
+                                            <select name="bathroom" class="form-control" id="exampleSelect1">
+                                                @for($i = 1 ; $i<= 5; $i++)
+                                                    <option value="{{$i}}">{{$i}}</option>
+                                                @endfor
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-date-input" class="col-3 col-form-label">On The
+                                            Floor </label>
+                                        <div class="col-8">
+                                            <select name="on_floor" class="form-control" id="exampleSelect1">
+                                                @for($i = 1 ; $i<= 20; $i++)
+                                                    <option value="{{$i}}">{{$i}}</option>
+                                                @endfor
+                                            </select>
+
+                                        </div>
+                                    </div>
+
 
                                     <div class="form-group row">
                                         <label for="example-time-input" class="col-3 col-form-label">Type Estate</label>
