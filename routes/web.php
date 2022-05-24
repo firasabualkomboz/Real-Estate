@@ -30,6 +30,7 @@ Route::middleware(['auth', 'IsManager'])->prefix('manager')->name('manager.')->g
     Route::resource('estates', \App\Http\Controllers\Manager\EstateController::class);
     Route::resource('owners', \App\Http\Controllers\Manager\OwnerController::class);
     Route::resource('tenants', \App\Http\Controllers\Manager\TenantController::class);
+    Route::resource('apartments', \App\Http\Controllers\Manager\ApartmentController::class);
 
 });
 

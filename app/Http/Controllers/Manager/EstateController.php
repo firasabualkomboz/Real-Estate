@@ -54,8 +54,15 @@ class EstateController extends Controller
             'location' => $request->location
         ]);
         $estate->save();
-        toastr()->success('Added Successfully');
-        return redirect()->back();
+//        toastr()->success('Added Successfully');
+//        return redirect()->back();
+        return redirect()->back()->with(
+            array(
+                'alert-type' => 'success',
+                'message' => 'Added Successfully',
+            )
+        );
+
 
     }
 
