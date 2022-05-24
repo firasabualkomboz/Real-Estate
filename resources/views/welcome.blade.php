@@ -36,7 +36,7 @@
                             <div class="logo">
                                 <a href="#" title="">
                                     <i class="fa fa-get-pocket"></i>
-                                    <span>Kwitara</span>
+                                    <span>Estate </span>
                                     <strong>RENT PROPERTIES</strong>
                                 </a>
                             </div><!-- LOGO -->
@@ -301,35 +301,41 @@
                     </div>
                     <div class="properties-sec">
                         <div class="carousel-prop">
-                            <div class="properties-box">
-                                <div class="properties-thumb">
-                                    <img src="{{asset('assets_front')}}/img/demo/property1.jpg" alt=""/>
-                                    <span class="spn-status"> For Rent </span>
-                                    <span class="spn-save"> <i class="ti ti-heart"></i> </span>
-                                    <ul class="property-info">
-                                        <li>
-                                            <i class="fa  fa-retweet"> </i> <span>1913 sqft </span>
-                                        </li>
-                                        <li class="li-rl"></li>
-                                        <li>
-                                            <i class="fa  fa-bed"></i><span>  5   </span>
-                                        </li>
-                                        <li class="li-rl"></li>
-                                        <li>
-                                            <i class="fa  fa-building"> </i> <span>3   </span>
-                                        </li>
-                                    </ul>
-                                    <div class="user-preview">
-                                        <a class="col" href="agent.html">
-                                            <img alt="Camilė" class="avatar avatar-small"
-                                                 src="{{asset('assets_front')}}/img/4.png" title="Camilė">
-                                        </a>
+
+                            @foreach($estates as $estate)
+                                <div class="properties-box">
+                                    <div class="properties-thumb">
+                                        <img src="{{$estate->imageurl}}" alt=""/>
+                                        <span class="spn-status"> For Rent </span>
+                                        <span class="spn-save"> <i class="ti ti-heart"></i> </span>
+                                        <ul class="property-info">
+                                            <li>
+                                                <i class="fa  fa-retweet"> </i> <span>1913 sqft </span>
+                                            </li>
+                                            <li class="li-rl"></li>
+                                            <li>
+                                                <i class="fa  fa-bed"></i><span>  5   </span>
+                                            </li>
+                                            <li class="li-rl"></li>
+                                            <li>
+                                                <i class="fa  fa-building"> </i> <span>3   </span>
+                                            </li>
+                                        </ul>
+                                        <div class="user-preview">
+                                            <a class="col" href="agent.html">
+                                                <img alt="Camilė" class="avatar avatar-small"
+                                                     src="{{$estate->imageurl}}" title="Camilė">
+                                            </a>
+                                        </div>
+                                        <a class="proeprty-sh-more" href="{{route('showEstate' , $estate->id)}}"><i
+                                                class="ti ti-share"> </i></a>
                                     </div>
-                                    <a class="proeprty-sh-more" href="property.html"><i class="ti ti-share"> </i></a>
+                                    <h3><a href="property.html" title="The Helux villa">The Helux villa</a></h3>
+                                    <span class="price">$340000</span>
                                 </div>
-                                <h3><a href="property.html" title="The Helux villa">The Helux villa</a></h3>
-                                <span class="price">$340000</span>
-                            </div>
+                            @endforeach
+
+
                             <div class="properties-box">
                                 <div class="properties-thumb">
                                     <img src="{{asset('assets_front')}}/img/demo/property2.jpg" alt=""/>

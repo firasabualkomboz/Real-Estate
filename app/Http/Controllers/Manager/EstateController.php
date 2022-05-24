@@ -19,6 +19,9 @@ class EstateController extends Controller
     public function create()
     {
         $owners = User::where('type', '2')->get();
+        if ($owners->count() == 0) {
+            return view('manager.owners.create');
+        }
         return view('manager.estate.create', compact('owners'), [
             'estate' => new Estate(),
         ]);
@@ -26,6 +29,16 @@ class EstateController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'type' => 'required',
+            'floors' => 'required',
+            'apartments' => 'required',
+            'owner_id' => 'required',
+            'image' => 'required',
+            'location' => 'required'
+        ]);
         $data = $request->except('image');
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $data['image'] = $request->file('image')->store('/', 'uploads');
@@ -34,9 +47,11 @@ class EstateController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'type' => $request->type,
-            'space' => $request->space,
+            'floors' => $request->floors,
+            'apartments' => $request->apartments,
             'owner_id' => $request->owner_id,
-            'image' => $data['image']
+            'image' => $data['image'],
+            'location' => $request->location
         ]);
         $estate->save();
         toastr()->success('Added Successfully');

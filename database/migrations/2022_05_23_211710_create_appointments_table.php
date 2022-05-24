@@ -16,10 +16,11 @@ class CreateAppointmentsTable extends Migration
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->time('start_at');
-            $table->time('end_at');
-            $table->enum('status', ['available', 'booked'])->default('available');
+            $table->time('time');
+            $table->enum('status', ['pending', 'completed'])->default('pending');
+            $table->foreignId('estate_id')->nullable()->constrained('estates')->cascadeOnDelete();
             $table->foreignId('tenant_id')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

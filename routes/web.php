@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Estate;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Manager\HomeController;
 
@@ -14,7 +15,13 @@ use App\Http\Controllers\Manager\HomeController;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'main'])->name('welcome');
+Route::get('/', [\App\Http\Controllers\front\GeneralController::class, 'index'])->name('welcome');
+Route::get('/estate{id}', [\App\Http\Controllers\front\GeneralController::class, 'showEstate'])->name('showEstate');
+
+
+//Route::get('/', [\App\Http\Controllers\HomeController::class, 'main'])->name('welcome');
+
+//Route::get('/estate/{id}', [\App\Http\Controllers\HomeController::class, 'showEstate'])->name('showEstate');
 
 
 Auth::routes();
@@ -37,6 +44,7 @@ Route::middleware(['auth', 'IsOwner'])->prefix('owner')->name('owner.')->group(f
 
 Route::middleware(['auth', 'IsTenant'])->name('tenant.')->prefix('tenant')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'tenantHome'])->name('home');
+    Route::post('/makeAppointment', [App\Http\Controllers\HomeController::class, 'makeAppointment'])->name('makeAppointment');
     Route::get('/appointment-list', [App\Http\Controllers\HomeController::class, 'appointmentList'])->name('appointmentList');
     Route::resource('appointments', \App\Http\Controllers\Tenant\AppointmentController::class);
 

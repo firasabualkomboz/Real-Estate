@@ -163,20 +163,14 @@
             <!--begin::Container-->
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
+
+                    <div class="col-md-12">
 
                         <!--begin::Card-->
                         <div class="card card-custom example example-compact">
                             <div class="card-header">
-                                <h3 class="card-title">Add Real Estate</h3>
-                                <div class="card-toolbar">
-                                    <div class="example-tools justify-content-center">
-                                        <span class="example-toggle" data-toggle="tooltip" title=""
-                                              data-original-title="View code"></span>
-                                        <span class="example-copy" data-toggle="tooltip" title=""
-                                              data-original-title="Copy code"></span>
-                                    </div>
-                                </div>
+                                <h3 class="card-title">Add Owner</h3>
+
                             </div>
 
 
@@ -203,40 +197,32 @@
 
 
                                     <div class="form-group row">
-
-                                        <div class="col-10">
-                                            <label class=" col-form-label">Name</label>
+                                        <label for="example-date-input" class="col-3 col-form-label">Name</label>
+                                        <div class="col-8">
                                             <input class="form-control" type="text" name="name"
                                             >
                                         </div>
                                     </div>
 
-
                                     <div class="form-group row">
-
-                                        <div class="col-10">
-                                            <label class=" col-form-label">Email</label>
+                                        <label for="example-date-input" class="col-3 col-form-label">Email</label>
+                                        <div class="col-8">
                                             <input class="form-control" type="email" name="email"
                                             >
                                         </div>
                                     </div>
 
-
                                     <div class="form-group row">
-
-                                        <div class="col-10">
-                                            <label class=" col-form-label">Phone</label>
+                                        <label for="example-date-input" class="col-3 col-form-label">Phone</label>
+                                        <div class="col-8">
                                             <input class="form-control" type="number" name="phone"
                                             >
                                         </div>
                                     </div>
-
-
                                     <div class="form-group row">
-
-                                        <div class="col-10">
-                                            <label class=" col-form-label">Password</label>
-                                            <input class="form-control" type="text" name="password"
+                                        <label for="example-date-input" class="col-3 col-form-label">Password</label>
+                                        <div class="col-8">
+                                            <input class="form-control" type="password" name="password"
                                             >
                                         </div>
                                     </div>
@@ -257,14 +243,11 @@
                         <!--end::Card-->
                     </div>
 
-
                 </div>
             </div>
             <!--end::Container-->
         </div>
         <!--end::Entry-->
     </div>
-    @push('custom-scripts')
-        <script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/file-upload/image-input.js"></script>
-    @endpush
+
 @endsection

@@ -18,9 +18,11 @@ class CreateEstatesTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->enum('type', ['rent', 'sale']);
-            $table->integer('space');
+            $table->integer('floors');
+            $table->integer('apartments');
             $table->foreignId('owner_id')->constrained('users')->cascadeOnDelete();
             $table->string('image');
+            $table->string('location')->nullable();
             $table->timestamps();
         });
     }

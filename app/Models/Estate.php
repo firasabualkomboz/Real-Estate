@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Estate extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'type', 'space', 'owner_id', 'image'];
+    protected $fillable = ['name', 'description', 'type', 'floors', 'apartments', 'owner_id', 'image','location'];
 
     public function owner()
     {
         return $this->belongsTo(User::class);
     }
+
 
     public function getImageUrlAttribute()
     {
@@ -22,6 +23,12 @@ class Estate extends Model
         }
         //   return ($this->image);
         return asset('uploads/' . $this->image);
+    }
+
+
+    public function appointment()
+    {
+        return $this->hasMany(Estate::class);
     }
 
 

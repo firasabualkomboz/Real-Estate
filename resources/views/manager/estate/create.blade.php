@@ -9,7 +9,7 @@
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline mr-5">
                         <!--begin::Page     Title-->
-                        <h2 class="subheader-title text-dark font-weight-bold my-2 mr-3">Base Controls</h2>
+                        <h2 class="subheader-title text-dark font-weight-bold my-2 mr-3">Real Estate</h2>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold my-2 p-0">
@@ -50,109 +50,8 @@
                                         <!--end::Svg Icon-->
 									</span>New Member</a>
                     <!--end::Button-->
-                    <!--begin::Dropdown-->
-                    <div class="dropdown dropdown-inline" data-toggle="tooltip" title="" data-placement="left"
-                         data-original-title="Quick actions">
-                        <a href="#" class="btn btn-fh btn-white btn-hover-primary font-weight-bold px-2 px-lg-5 mr-2"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										<span class="svg-icon svg-icon-success svg-icon-lg">
-											<!--begin::Svg Icon | path:assets/media/svg/icons/Files/File.svg-->
-											<svg xmlns="http://www.w3.org/2000/svg"
-                                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
-                                                 viewBox="0 0 24 24" version="1.1">
-												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-													<polygon points="0 0 24 0 24 24 0 24"></polygon>
-													<path
-                                                        d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z"
-                                                        fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
-													<rect fill="#000000" x="6" y="11" width="9" height="2"
-                                                          rx="1"></rect>
-													<rect fill="#000000" x="6" y="15" width="5" height="2"
-                                                          rx="1"></rect>
-												</g>
-											</svg>
-                                            <!--end::Svg Icon-->
-										</span>New Report</a>
-                        <div class="dropdown-menu p-0 m-0 dropdown-menu-md dropdown-menu-right">
-                            <!--begin::Navigation-->
-                            <ul class="navi navi-hover">
-                                <li class="navi-header font-weight-bold py-4">
-                                    <span class="font-size-lg">Choose Label:</span>
-                                    <i class="flaticon2-information icon-md text-muted" data-toggle="tooltip"
-                                       data-placement="right" title="" data-original-title="Click to learn more..."></i>
-                                </li>
-                                <li class="navi-separator mb-3 opacity-70"></li>
-                                <li class="navi-item">
-                                    <a href="#" class="navi-link">
-														<span class="navi-text">
-															<span
-                                                                class="label label-xl label-inline label-light-success">Customer</span>
-														</span>
-                                    </a>
-                                </li>
-                                <li class="navi-item">
-                                    <a href="#" class="navi-link">
-														<span class="navi-text">
-															<span
-                                                                class="label label-xl label-inline label-light-danger">Partner</span>
-														</span>
-                                    </a>
-                                </li>
-                                <li class="navi-item">
-                                    <a href="#" class="navi-link">
-														<span class="navi-text">
-															<span
-                                                                class="label label-xl label-inline label-light-warning">Suplier</span>
-														</span>
-                                    </a>
-                                </li>
-                                <li class="navi-item">
-                                    <a href="#" class="navi-link">
-														<span class="navi-text">
-															<span
-                                                                class="label label-xl label-inline label-light-primary">Member</span>
-														</span>
-                                    </a>
-                                </li>
-                                <li class="navi-item">
-                                    <a href="#" class="navi-link">
-														<span class="navi-text">
-															<span class="label label-xl label-inline label-light-dark">Staff</span>
-														</span>
-                                    </a>
-                                </li>
-                                <li class="navi-separator mt-3 opacity-70"></li>
-                                <li class="navi-footer py-4">
-                                    <a class="btn btn-clean font-weight-bold btn-sm" href="#">
-                                        <i class="ki ki-plus icon-sm"></i>Add new</a>
-                                </li>
-                            </ul>
-                            <!--end::Navigation-->
-                        </div>
-                    </div>
-                    <!--end::Dropdown-->
-                    <!--begin::Button-->
-                    <a href="#" class="btn btn-success btn-icon font-weight-bold" data-toggle="modal"
-                       data-target="#kt_chat_modal">
-										<span class="svg-icon svg-icon-lg">
-											<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Group-chat.svg-->
-											<svg xmlns="http://www.w3.org/2000/svg"
-                                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
-                                                 viewBox="0 0 24 24" version="1.1">
-												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-													<rect x="0" y="0" width="24" height="24"></rect>
-													<path
-                                                        d="M16,15.6315789 L16,12 C16,10.3431458 14.6568542,9 13,9 L6.16183229,9 L6.16183229,5.52631579 C6.16183229,4.13107011 7.29290239,3 8.68814808,3 L20.4776218,3 C21.8728674,3 23.0039375,4.13107011 23.0039375,5.52631579 L23.0039375,13.1052632 L23.0206157,17.786793 C23.0215995,18.0629336 22.7985408,18.2875874 22.5224001,18.2885711 C22.3891754,18.2890457 22.2612702,18.2363324 22.1670655,18.1421277 L19.6565168,15.6315789 L16,15.6315789 Z"
-                                                        fill="#000000"></path>
-													<path
-                                                        d="M1.98505595,18 L1.98505595,13 C1.98505595,11.8954305 2.88048645,11 3.98505595,11 L11.9850559,11 C13.0896254,11 13.9850559,11.8954305 13.9850559,13 L13.9850559,18 C13.9850559,19.1045695 13.0896254,20 11.9850559,20 L4.10078614,20 L2.85693427,21.1905292 C2.65744295,21.3814685 2.34093638,21.3745358 2.14999706,21.1750444 C2.06092565,21.0819836 2.01120804,20.958136 2.01120804,20.8293182 L2.01120804,18.32426 C1.99400175,18.2187196 1.98505595,18.1104045 1.98505595,18 Z M6.5,14 C6.22385763,14 6,14.2238576 6,14.5 C6,14.7761424 6.22385763,15 6.5,15 L11.5,15 C11.7761424,15 12,14.7761424 12,14.5 C12,14.2238576 11.7761424,14 11.5,14 L6.5,14 Z M9.5,16 C9.22385763,16 9,16.2238576 9,16.5 C9,16.7761424 9.22385763,17 9.5,17 L11.5,17 C11.7761424,17 12,16.7761424 12,16.5 C12,16.2238576 11.7761424,16 11.5,16 L9.5,16 Z"
-                                                        fill="#000000" opacity="0.3"></path>
-												</g>
-											</svg>
-                                            <!--end::Svg Icon-->
-										</span>
-                    </a>
-                    <!--end::Button-->
+
+
                 </div>
                 <!--end::Toolbar-->
             </div>
@@ -163,20 +62,13 @@
             <!--begin::Container-->
             <div class="container">
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-12">
 
                         <!--begin::Card-->
                         <div class="card card-custom example example-compact">
                             <div class="card-header">
                                 <h3 class="card-title">Add Real Estate</h3>
-                                <div class="card-toolbar">
-                                    <div class="example-tools justify-content-center">
-                                        <span class="example-toggle" data-toggle="tooltip" title=""
-                                              data-original-title="View code"></span>
-                                        <span class="example-copy" data-toggle="tooltip" title=""
-                                              data-original-title="Copy code"></span>
-                                    </div>
-                                </div>
+
                             </div>
 
 
@@ -203,16 +95,16 @@
 
 
                                     <div class="form-group row">
-                                        <label for="example-date-input" class="col-2 col-form-label">Name</label>
-                                        <div class="col-10">
+                                        <label for="example-date-input" class="col-3 col-form-label">Name</label>
+                                        <div class="col-8">
                                             <input class="form-control" type="text" name="name"
                                             >
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="example-date-input" class="col-2 col-form-label">Description</label>
-                                        <div class="col-10">
+                                        <label for="example-date-input" class="col-3 col-form-label">Description</label>
+                                        <div class="col-8">
                                             <textarea class="form-control" name="description"
                                                       rows="3"></textarea>
                                         </div>
@@ -220,8 +112,8 @@
 
 
                                     <div class="form-group row">
-                                        <label for="example-time-input" class="col-2 col-form-label">Space</label>
-                                        <div class="col-10">
+                                        <label for="example-time-input" class="col-3 col-form-label">Type</label>
+                                        <div class="col-8">
 
 
                                             <label class="radio radio-rounded radio-success">
@@ -242,27 +134,39 @@
 
 
                                     <div class="form-group row">
-                                        <label for="example-time-input" class="col-2 col-form-label">Space</label>
-                                        <div class="col-10">
-                                            <input class="form-control" type="number" name="space"
+                                        <label for="example-time-input" class="col-3 col-form-label">Count Floor</label>
+                                        <div class="col-8">
+                                            <input class="form-control" type="number" name="floors"
                                             >
                                         </div>
                                     </div>
 
-
-                                    <div class="form-group">
-                                        <label for="exampleSelect1">Select Owner</label>
-                                        <select name="owner_id" class="form-control" id="exampleSelect1">
-                                            @foreach($owners as $owner)
-                                                <option value="{{$owner->id}}">{{$owner->name}}</option>
-                                            @endforeach
-                                        </select>
+                                    <div class="form-group row">
+                                        <label for="example-time-input" class="col-3 col-form-label">Count
+                                            Apartments</label>
+                                        <div class="col-8">
+                                            <input class="form-control" type="number" name="apartments"
+                                            >
+                                        </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="example-time-input" class="col-2 col-form-label">Image </label>
+                                        <label for="example-time-input" class="col-3 col-form-label">Select
+                                            Owner</label>
+                                        <div class="col-8">
+                                            <select name="owner_id" class="form-control" id="exampleSelect1">
+                                                @foreach($owners as $owner)
+                                                    <option value="{{$owner->id}}">{{$owner->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
 
-                                        <div class="col-lg-9 col-xl-6">
+
+                                    <div class="form-group row">
+                                        <label for="example-time-input" class="col-3 col-form-label">Image </label>
+
+                                        <div class="col-lg-8 col-xl-6">
                                             <div class="image-input image-input-outline" id="kt_image_1">
                                                 <div class="image-input-wrapper"
                                                      style="background-image: url(assets/media/users/100_1.jpg)"></div>
@@ -286,6 +190,16 @@
                                     </div>
 
 
+                                    <div class="form-group row">
+                                        <label for="example-time-input" class="col-3 col-form-label">Location
+                                        </label>
+                                        <div class="col-8">
+                                            <input type="text" name="location" id="pac-input" class="form-control">
+                                            <div id="map" class="mt-3" style="height: 500px;width: 750px;"></div>
+                                        </div>
+                                    </div>
+
+
                                 </div>
                                 <div class="card-footer">
                                     <div class="row">
@@ -301,68 +215,6 @@
                         <!--end::Card-->
                     </div>
 
-                    <div class="col-md-5">
-
-                        <!--begin::Card-->
-                        <div class="card card-custom example example-compact">
-                            <div class="card-header">
-                                <h3 class="card-title">Owner Details </h3>
-
-                            </div>
-
-
-                            <!--begin::Form-->
-                            <form method="post" action="{{route('manager.appointments.store')}}">
-                                @csrf
-                                <div class="card-body">
-
-                                    <div class="form-group row">
-
-                                        <div class="col-10">
-                                            <label class=" col-form-label">Name</label>
-                                            <input class="form-control" type="text" name="name"
-                                            >
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group row">
-
-                                        <div class="col-10">
-                                            <label class=" col-form-label">Email</label>
-                                            <input class="form-control" type="number" name="space"
-                                            >
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group row">
-
-                                        <div class="col-10">
-                                            <label class=" col-form-label">Phone</label>
-                                            <input class="form-control" type="number" name="space"
-                                            >
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group row">
-
-                                        <div class="col-10">
-                                            <label class=" col-form-label">Password</label>
-                                            <input class="form-control" type="number" name="space"
-                                            >
-                                        </div>
-                                    </div>
-
-
-                                </div>
-
-                            </form>
-                        </div>
-                        <!--end::Card-->
-                    </div>
-
                 </div>
             </div>
             <!--end::Container-->
@@ -370,6 +222,200 @@
         <!--end::Entry-->
     </div>
     @push('custom-scripts')
+
+        <script>
+            $("#pac-input").focusin(function () {
+                $(this).val('');
+            });
+            $('#latitude').val('');
+            $('#longitude').val('');
+            // This example adds a search box to a map, using the Google Place Autocomplete
+            // feature. People can enter geographical searches. The search box will return a
+            // pick list containing a mix of places and predicted search terms.
+            // This example requires the Places library. Include the libraries=places
+            // parameter when you first load the API. For example:
+            // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+            function initAutocomplete() {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: 24.740691, lng: 46.6528521},
+                    zoom: 13,
+                    mapTypeId: 'roadmap'
+                });
+                // move pin and current location
+                infoWindow = new google.maps.InfoWindow;
+                geocoder = new google.maps.Geocoder();
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        map.setCenter(pos);
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(pos),
+                            map: map,
+                            title: 'موقعك الحالي'
+                        });
+                        markers.push(marker);
+                        marker.addListener('click', function () {
+                            geocodeLatLng(geocoder, map, infoWindow, marker);
+                        });
+                        // to get current position address on load
+                        google.maps.event.trigger(marker, 'click');
+                    }, function () {
+                        handleLocationError(true, infoWindow, map.getCenter());
+                    });
+                } else {
+                    // Browser doesn't support Geolocation
+                    console.log('dsdsdsdsddsd');
+                    handleLocationError(false, infoWindow, map.getCenter());
+                }
+                var geocoder = new google.maps.Geocoder();
+                google.maps.event.addListener(map, 'click', function (event) {
+                    SelectedLatLng = event.latLng;
+                    geocoder.geocode({
+                        'latLng': event.latLng
+                    }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            if (results[0]) {
+                                deleteMarkers();
+                                addMarkerRunTime(event.latLng);
+                                SelectedLocation = results[0].formatted_address;
+                                console.log(results[0].formatted_address);
+                                splitLatLng(String(event.latLng));
+                                $("#pac-input").val(results[0].formatted_address);
+                            }
+                        }
+                    });
+                });
+
+                function geocodeLatLng(geocoder, map, infowindow, markerCurrent) {
+                    var latlng = {lat: markerCurrent.position.lat(), lng: markerCurrent.position.lng()};
+                    /* $('#branch-latLng').val("("+markerCurrent.position.lat() +","+markerCurrent.position.lng()+")");*/
+                    $('#latitude').val(markerCurrent.position.lat());
+                    $('#longitude').val(markerCurrent.position.lng());
+                    geocoder.geocode({'location': latlng}, function (results, status) {
+                        if (status === 'OK') {
+                            if (results[0]) {
+                                map.setZoom(8);
+                                var marker = new google.maps.Marker({
+                                    position: latlng,
+                                    map: map
+                                });
+                                markers.push(marker);
+                                infowindow.setContent(results[0].formatted_address);
+                                SelectedLocation = results[0].formatted_address;
+                                $("#pac-input").val(results[0].formatted_address);
+                                infowindow.open(map, marker);
+                            } else {
+                                window.alert('No results found');
+                            }
+                        } else {
+                            window.alert('Geocoder failed due to: ' + status);
+                        }
+                    });
+                    SelectedLatLng = (markerCurrent.position.lat(), markerCurrent.position.lng());
+                }
+
+                function addMarkerRunTime(location) {
+                    var marker = new google.maps.Marker({
+                        position: location,
+                        map: map
+                    });
+                    markers.push(marker);
+                }
+
+                function setMapOnAll(map) {
+                    for (var i = 0; i < markers.length; i++) {
+                        markers[i].setMap(map);
+                    }
+                }
+
+                function clearMarkers() {
+                    setMapOnAll(null);
+                }
+
+                function deleteMarkers() {
+                    clearMarkers();
+                    markers = [];
+                }
+
+                // Create the search box and link it to the UI element.
+                var input = document.getElementById('pac-input');
+                $("#pac-input").val("أبحث هنا ");
+                var searchBox = new google.maps.places.SearchBox(input);
+                map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
+                // Bias the SearchBox results towards current map's viewport.
+                map.addListener('bounds_changed', function () {
+                    searchBox.setBounds(map.getBounds());
+                });
+                var markers = [];
+                // Listen for the event fired when the user selects a prediction and retrieve
+                // more details for that place.
+                searchBox.addListener('places_changed', function () {
+                    var places = searchBox.getPlaces();
+                    if (places.length == 0) {
+                        return;
+                    }
+                    // Clear out the old markers.
+                    markers.forEach(function (marker) {
+                        marker.setMap(null);
+                    });
+                    markers = [];
+                    // For each place, get the icon, name and location.
+                    var bounds = new google.maps.LatLngBounds();
+                    places.forEach(function (place) {
+                        if (!place.geometry) {
+                            console.log("Returned place contains no geometry");
+                            return;
+                        }
+                        var icon = {
+                            url: place.icon,
+                            size: new google.maps.Size(100, 100),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(17, 34),
+                            scaledSize: new google.maps.Size(25, 25)
+                        };
+                        // Create a marker for each place.
+                        markers.push(new google.maps.Marker({
+                            map: map,
+                            icon: icon,
+                            title: place.name,
+                            position: place.geometry.location
+                        }));
+                        $('#latitude').val(place.geometry.location.lat());
+                        $('#longitude').val(place.geometry.location.lng());
+                        if (place.geometry.viewport) {
+                            // Only geocodes have viewport.
+                            bounds.union(place.geometry.viewport);
+                        } else {
+                            bounds.extend(place.geometry.location);
+                        }
+                    });
+                    map.fitBounds(bounds);
+                });
+            }
+
+            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                infoWindow.setPosition(pos);
+                infoWindow.setContent(browserHasGeolocation ?
+                    'Error: The Geolocation service failed.' :
+                    'Error: Your browser doesn\'t support geolocation.');
+                infoWindow.open(map);
+            }
+
+            function splitLatLng(latLng) {
+                var newString = latLng.substring(0, latLng.length - 1);
+                var newString2 = newString.substring(1);
+                var trainindIdArray = newString2.split(',');
+                var lat = trainindIdArray[0];
+                var Lng = trainindIdArray[1];
+                $("#latitude").val(lat);
+                $("#longitude").val(Lng);
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS_WLni5YfR2VHwzTzf50iFsb4hmv9Vw8&libraries=places&callback=initAutocomplete&language=ar&region=PS
+    async defer"></script>
         <script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/file-upload/image-input.js"></script>
     @endpush
 @endsection
