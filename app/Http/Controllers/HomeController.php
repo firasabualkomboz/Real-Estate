@@ -54,25 +54,4 @@ class HomeController extends Controller
         return view('welcome', compact('appointments', 'todayAppointments', 'estates'));
     }
 
-
-
-    public function makeAppointment(Request $request)
-    {
-        $request->validate([
-            'date' => 'required',
-            'time' => 'required',
-            'note' => 'nullable',
-        ]);
-
-        $appointments = new Appointment([
-
-            'date' => $request->date,
-            'time' => $request->time,
-            'note' => $request->note
-
-        ]);
-
-        $appointments->save();
-        return redirect()->back();
-    }
 }

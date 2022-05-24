@@ -378,6 +378,16 @@
                                                 <div class="heading3">
                                                     <h3>Book An Appointment</h3>
                                                 </div>
+                                                @if ($errors->any())
+                                                    <div class="alert alert-danger">
+                                                        <ul>
+                                                            @foreach ($errors->all() as $error)
+                                                                <li>{{ $error }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                @endif
+
                                                 <form method="post" action="{{route('tenant.makeAppointment')}}">
                                                     @csrf
                                                     <input type="hidden" name="estate_id" value="{{$estate->id}}"/>
@@ -386,20 +396,21 @@
                                                         <div class="col-md-12">
                                                             <label>
                                                                 <i class="fa fa-user"></i>
-                                                                <input type="date" placeholder="Date"/>
+                                                                <input type="date" name="date" placeholder="Date"/>
                                                             </label>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <label>
                                                                 <i class="fa fa-at"></i>
-                                                                <input type="time" placeholder="Time"/>
+                                                                <input type="time" name="time" placeholder="Time"/>
                                                             </label>
                                                         </div>
 
                                                         <div class="col-md-12">
                                                             <label>
                                                                 <i class="fa fa-pencil"></i>
-                                                                <textarea name="note" placeholder="Your Note"></textarea>
+                                                                <textarea name="note"
+                                                                          placeholder="Your Note"></textarea>
                                                             </label>
                                                         </div>
                                                         <div class="col-md-12">
@@ -409,8 +420,6 @@
                                                 </form>
                                             </div>
                                         </div>
-
-
 
 
                                     </div><!-- Blog Post -->

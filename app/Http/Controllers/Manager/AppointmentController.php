@@ -15,7 +15,7 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::where('status','booked')->with('user')->paginate(10);
+        $appointments = Appointment::where('status', 'pending')->with('user')->paginate(10);
         return view('manager.appointment.index', compact('appointments'));
     }
 
@@ -26,8 +26,6 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-
-        return view('manager.appointment.create');
     }
 
     /**
@@ -38,24 +36,6 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'date' => 'required',
-            'start_at' => 'required',
-            'end_at' => 'required',
-            'status' => 'available'
-        ]);
-
-        $appointments = new Appointment([
-
-            'date' => $request->date,
-            'start_at' => $request->start_at,
-            'end_at' => $request->end_at,
-            'status' => 'available'
-
-        ]);
-
-        $appointments->save();
-        return view('manager.appointment.index');
     }
 
     /**
