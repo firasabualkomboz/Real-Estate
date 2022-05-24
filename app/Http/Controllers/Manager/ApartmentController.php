@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Manager\ApartmentRequest;
 use App\Models\Apartment;
 use App\Models\Estate;
 use App\Models\Property;
@@ -14,7 +15,8 @@ class ApartmentController extends Controller
     {
         $properties = Property::all();
         $estates = Estate::all();
-        return view('manager.apartments.index', compact('properties', 'estates'));
+        $apartments = Apartment::with('estate','property')->get();
+        return view('manager.apartments.index', compact('properties', 'estates','apartments'));
     }
 
     public function create()
@@ -28,22 +30,8 @@ class ApartmentController extends Controller
         return view('manager.apartments.create', compact('properties', 'estates', 'apartment'));
     }
 
-    public function store(Request $request)
+    public function store(ApartmentRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'features' => 'required',
-            'year_built' => 'required',
-            'apartments' => 'required',
-            'space' => 'required',
-            'rooms' => 'required',
-            'bathroom' => 'required',
-            'on_floor' => 'required',
-            'image' => 'required',
-            'property_id' => 'required',
-            'estate_id' => 'required',
-        ]);
         $data = $request->except('image');
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $data['image'] = $request->file('image')->store('/', 'uploads');
@@ -54,7 +42,6 @@ class ApartmentController extends Controller
             'description' => $request->description,
             'features' => $request->features,
             'year_built' => $request->year_built,
-            'apartments' => $request->apartments,
             'space' => $request->space,
             'rooms' => $request->rooms,
             'bathroom' => $request->bathroom,
@@ -68,10 +55,17 @@ class ApartmentController extends Controller
 //        toastr()->success('Added Successfully');
         return redirect()->back()->with(
             array(
-                'message' => 'Edit Successfully',
+                'message' => 'Added Successfully',
                 'alert-type' => 'success'
             )
         );
+
+    }
+
+    public function show($id)
+    {
+        $apartment = Apartment::with('estate','property')->findOrFail($id);
+        return view('manager.apartments.show', compact('apartment'));
 
     }
 

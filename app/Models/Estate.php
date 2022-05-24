@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Estate extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'type', 'floors', 'apartments', 'owner_id', 'image','location'];
+    protected $fillable = ['name', 'description', 'type', 'floors', 'apartments', 'owner_id', 'image', 'location'];
 
     public function owner()
     {
@@ -29,6 +29,11 @@ class Estate extends Model
     public function appointment()
     {
         return $this->hasMany(Estate::class);
+    }
+
+    public function apartment()
+    {
+        return $this->hasMany(Apartment::class);
     }
 
 

@@ -15,6 +15,22 @@ class Apartment extends Model
 
     public function property()
     {
-        return $this->hasMany(Apartment::class);
+        return $this->belongsTo(Apartment::class);
     }
+
+    public function estate()
+    {
+        return $this->belongsTo(Estate::class);
+    }
+
+    public function getImageUrlAttribute()
+    {
+        if (empty($this->image)) {
+            return asset('admin_files/assets/img/backgrounds/02.png');
+        }
+        //   return ($this->image);
+        return asset('uploads/' . $this->image);
+    }
+
+
 }

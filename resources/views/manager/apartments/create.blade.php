@@ -74,12 +74,12 @@
 
                             <!--begin::Form-->
                             <form method="post" enctype="multipart/form-data"
-                                  action="{{route('manager.estates.store')}}">
+                                  action="{{route('manager.apartments.store')}}">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group mb-8">
                                         @if ($errors->any())
-                                            <div class="alert alert-custom alert-default" role="alert">
+                                            <div class="alert alert-custom alert-danger" role="alert">
 
                                                 <div class="alert-icon">
                                                     <ul>
@@ -128,7 +128,7 @@
                                     <div class="form-group row">
                                         <label for="example-date-input" class="col-3 col-form-label">Space</label>
                                         <div class="col-8">
-                                            <input class="form-control" type="text" name="space"
+                                            <input class="form-control" type="number" name="space"
                                             >
                                         </div>
                                     </div>
@@ -187,7 +187,7 @@
                                         <label for="example-time-input" class="col-3 col-form-label">Select
                                             Property</label>
                                         <div class="col-8">
-                                            <select name="$property_id" class="form-control" id="exampleSelect1">
+                                            <select name="property_id" class="form-control" id="exampleSelect1">
                                                 @foreach($properties as $property)
                                                     <option value="{{$property->id}}">{{$property->name}}</option>
                                                 @endforeach

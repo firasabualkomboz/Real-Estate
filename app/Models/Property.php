@@ -11,8 +11,10 @@ class Property extends Model
 
     protected $fillable = ['name'];
 
+
     public function apartment()
     {
-        return $this->belongsTo(Apartment::class);
+        return $this->hasMany(Apartment::class);
     }
+
 }
