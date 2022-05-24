@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Manager\EstateRequest;
 use App\Models\Estate;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -27,18 +28,9 @@ class EstateController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(EstateRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'type' => 'required',
-            'floors' => 'required',
-            'apartments' => 'required',
-            'owner_id' => 'required',
-            'image' => 'required',
-            'location' => 'required'
-        ]);
+
         $data = $request->except('image');
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $data['image'] = $request->file('image')->store('/', 'uploads');
@@ -54,14 +46,18 @@ class EstateController extends Controller
             'location' => $request->location
         ]);
 
-        return redirect()->back()->with(
-            array(
-                'alert-type' => 'success',
-                'message' => 'Added Successfully',
-            )
+        return $this->successMsg();
+
+
+    }
+
+    function successMsg()
+    {
+        $msg = array(
+            'alert-type' => 'success',
+            'message' => 'Added Successfully',
         );
-
-
+        return redirect()->back()->with($msg);
     }
 
 }

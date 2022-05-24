@@ -377,7 +377,12 @@
                                     <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
                                             style="width: 110px;">Time</span></th>
                                     <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Space</span></th>
+                                            style="width: 110px;">Type</span></th>
+                                    <th data-field="Deposit Paid" class="datatable-cell datatable-cell-sort"><span
+                                            style="width: 110px;">Count Floor</span></th>
+
+                                    <th data-field="Deposit Paid" class="datatable-cell datatable-cell-sort"><span
+                                            style="width: 110px;">Count Apartments</span></th>
                                     <th data-field="Deposit Paid" class="datatable-cell datatable-cell-sort"><span
                                             style="width: 110px;">Owner</span></th>
                                     <th data-field="Order Date" class="datatable-cell datatable-cell-sort"
@@ -405,7 +410,12 @@
                                                 style="width: 110px;">{{$estate->name}}
 </span></td>
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;">{{$estate->space}}</span></td>
+                                                style="width: 110px;">{{$estate->type}}</span></td>
+                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
+                                                style="width: 110px;">{{$estate->floors}}</span></td>
+                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
+
+                                                style="width: 110px;">{{$estate->apartments}}</span></td>
                                         <td data-field="Deposit Paid" aria-label="$22672.60"
                                             class="datatable-cell"><span
                                                 style="width: 110px;">{{$estate->owner->name}}</span></td>
