@@ -245,10 +245,7 @@
                                                 style="width: 110px;">
                                                 <a href="{{route('manager.apartments.show' , $apartment->id)}}" >  <i class="fa fa-eye"></i> </a>
                                             </span></td>
-                                        <td> <?php foreach (json_decode($apartment->photos)as $picture) { ?>
-                                            <img src="{{ asset('/uploads/'.$picture) }}" style="height:50px; border-radius: 4px"/>
-                                            <?php } ?>
-                                        </td>
+
 
 
                                     </tr>

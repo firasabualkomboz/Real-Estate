@@ -208,6 +208,24 @@
                                 </div>
                                 <!--end::Item-->
 
+     <!--begin::Item-->
+                                <div class="d-flex align-items-center mb-10">
+
+                                    <!--begin::Text-->
+                                    <div class="d-flex flex-column font-weight-bold">
+                                        <a class="text-dark text-hover-primary mb-1 font-size-lg"> Photos Apartment </a>
+                                        <span class="text-muted">
+                                              <?php foreach (json_decode($apartment->photos)as $picture) { ?>
+                                            <img src="{{ asset('/uploads/'.$picture) }}" width="100%" class="border"/>
+
+                                            <?php } ?>
+
+                                        </span>
+                                    </div>
+                                    <!--end::Text-->
+                                </div>
+                                <!--end::Item-->
+
 
 
 
