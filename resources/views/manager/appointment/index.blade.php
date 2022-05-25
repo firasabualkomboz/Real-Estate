@@ -302,8 +302,10 @@
 
                                     <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
                                             style="width: 110px;">Date</span></th>
+
                                     <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
                                             style="width: 110px;">Time</span></th>
+
                                     <th data-field="Deposit Paid" class="datatable-cell datatable-cell-sort"><span
                                             style="width: 110px;">Tenant</span></th>
                                     <th data-field="Order Date" class="datatable-cell datatable-cell-sort"
@@ -319,6 +321,9 @@
                                         <td class="datatable-cell datatable-toggle-detail"><a
                                                 class="datatable-toggle-detail" href=""><i
                                                     class="fa fa-caret-right"></i></a></td>
+                                        <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
+                                                style="width: 110px;">{{$appointment->id}}</span></td>
+
                                         <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
                                                 style="width: 110px;">{{$appointment->date}}</span></td>
 

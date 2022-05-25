@@ -9,6 +9,8 @@ use App\Models\Estate;
 use App\Models\Property;
 use App\Models\User;
 use Illuminate\Http\Request;
+use function app\Helper\errorMessage;
+use function app\Helper\successMessage;
 
 class ApartmentController extends Controller
 {
@@ -74,13 +76,7 @@ class ApartmentController extends Controller
             'photos' => json_encode($data_photos),
         ]);
         $apartment->save();
-//        toastr()->success('Added Successfully');
-        return redirect()->back()->with(
-            array(
-                'message' => 'Added Successfully',
-                'alert-type' => 'success'
-            )
-        );
+        return successMessage();
 
     }
 
@@ -91,5 +87,11 @@ class ApartmentController extends Controller
 
     }
 
+    public function destroy($id)
+    {
+        $apartment = Apartment::find($id);
+        $apartment->delete();
+        return errorMessage();
+    }
 
 }

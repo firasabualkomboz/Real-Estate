@@ -197,7 +197,6 @@
                                             style="width: 110px;">Action </span></th>
 
 
-
                                 </tr>
                                 </thead>
                                 <tbody style="" class="datatable-body">
@@ -223,8 +222,6 @@
                                         </td>
 
 
-
-
                                         <td data-field="Deposit Paid" aria-label="$22672.60"
                                             class="datatable-cell"><span
                                                 style="width: 110px;">                                            <span
@@ -241,11 +238,26 @@
                                             </span></td>
 
                                         <td data-field="Deposit Paid" aria-label="$22672.60"
-                                            class="datatable-cell"><span
-                                                style="width: 110px;">
-                                                <a href="{{route('manager.apartments.show' , $apartment->id)}}" >  <i class="fa fa-eye"></i> </a>
-                                            </span></td>
+                                            class="datatable-cell">
 
+                                            <span
+                                                style="width: 110px;">
+                                                <a href="{{route('manager.apartments.show' , $apartment->id)}}">  <i
+                                                        class="fa fa-eye"></i> </a>
+                                            </span>
+{{--                                            <span>--}}
+{{--                                                <form method="post"--}}
+{{--                                                      action="{{route('manager.apartments.destroy' , $apartment->id)}}">--}}
+{{--                                                @method('DELETE')--}}
+{{--                                                    @csrf--}}
+{{--                                              <button class="btn btn-sm" type="submit">   <i class="fa fa-trash"></i></button>--}}
+{{--                                            </form>--}}
+
+
+{{--                                            </span>--}}
+
+
+                                        </td>
 
 
                                     </tr>

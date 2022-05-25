@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Manager;
 use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class AppointmentController extends Controller
 {
@@ -15,7 +16,10 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::where('status', 'pending')->with('user')->paginate(10);
+//        $appointments = Appointment::where('status', 'pending')->with('user')->paginate(10);
+        $appointments = Cache::remember('appointments', 120, function () {
+            return Appointment::where('status', 'pending')->with('user','estate')->paginate(10);
+        });
         return view('manager.appointment.index', compact('appointments'));
     }
 

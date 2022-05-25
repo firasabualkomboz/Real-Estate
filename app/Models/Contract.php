@@ -20,5 +20,15 @@ class Contract extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function getImageUrlAttribute()
+    {
+        if (empty($this->image)) {
+            return asset('admin_files/assets/img/backgrounds/02.png');
+        }
+        //   return ($this->image);
+        return asset('uploads/' . $this->image);
+    }
+
+
 
 }
