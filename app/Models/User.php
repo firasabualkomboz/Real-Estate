@@ -55,5 +55,9 @@ class User extends Authenticatable
         return $this->hasMany(Estate::class, 'owner_id', 'id');
     }
 
+    public function contract()
+    {
+        return $this->hasMany(Contract::class);
+    }
 
 }

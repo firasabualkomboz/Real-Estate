@@ -45,6 +45,7 @@ class EstateController extends Controller
             'image' => $data['image'],
             'location' => $request->location
         ]);
+        $estate->save();
 
         return $this->successMsg();
 

@@ -377,7 +377,7 @@
                                     <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
                                             style="width: 110px;">Time</span></th>
                                     <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Type</span></th>
+                                            style="width: 110px;">Location</span></th>
                                     <th data-field="Deposit Paid" class="datatable-cell datatable-cell-sort"><span
                                             style="width: 110px;">Count Floor</span></th>
 
@@ -410,7 +410,7 @@
                                                 style="width: 110px;">{{$estate->name}}
 </span></td>
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;">{{$estate->type}}</span></td>
+                                                style="width: 110px;">{{$estate->location}}</span></td>
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
                                                 style="width: 110px;">{{$estate->floors}}</span></td>
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span

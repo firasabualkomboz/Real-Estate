@@ -197,11 +197,10 @@
                                             style="width: 110px;">Action </span></th>
 
 
-
                                 </tr>
                                 </thead>
                                 <tbody style="" class="datatable-body">
-                                @foreach($apartments as $apartment)
+                                @foreach($contracts as $contract)
                                     <tr data-row="0" class="datatable-row" style="left: 0px;">
                                         <td class="datatable-cell datatable-toggle-detail"><a
                                                 class="datatable-toggle-detail" href=""><i
@@ -209,26 +208,24 @@
 
 
                                         <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
-                                                style="width: 110px;">{{$apartment->id}}</span></td>
+                                                style="width: 110px;">{{$contract->id}}</span></td>
 
                                         <td data-field="Car Model" aria-label="Range Rover" class="datatable-cell"><span
-                                                style="width: 110px;">{{$apartment->name}}
+                                                style="width: 110px;">{{$contract->estate->name}}
 </span></td>
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;">{{$apartment->year_built}}</span></td>
+                                                style="width: 110px;">{{$contract->tenant->name}}</span></td>
 
 
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;"> <strong> {{$apartment->space}} </strong> - m2</span>
+                                                style="width: 110px;"> <strong> {{$contract->start_at}} </strong> - m2</span>
                                         </td>
-
-
 
 
                                         <td data-field="Deposit Paid" aria-label="$22672.60"
                                             class="datatable-cell"><span
                                                 style="width: 110px;">                                            <span
-                                                    class="label font-weight-bold label-lg  label-light-info label-inline">{{$apartment->property->name}}</span>
+                                                    class="label font-weight-bold label-lg  label-light-info label-inline">{{$contract->end_at}}</span>
 </span>
                                         </td>
 
@@ -237,18 +234,15 @@
                                             class="datatable-cell"><span
                                                 style="width: 110px;">
                                             <span
-                                                class="label font-weight-bold label-lg  label-light-success label-inline">{{$apartment->estate->name}}</span>
+                                                class="label font-weight-bold label-lg  label-light-success label-inline">{{$contract->price}}</span>
                                             </span></td>
 
                                         <td data-field="Deposit Paid" aria-label="$22672.60"
                                             class="datatable-cell"><span
                                                 style="width: 110px;">
-                                                <a href="{{route('manager.apartments.show' , $apartment->id)}}" >  <i class="fa fa-eye"></i> </a>
+                                                <a href="{{route('manager.apartments.show' , $apartment->id)}}">  <i
+                                                        class="fa fa-eye"></i> </a>
                                             </span></td>
-                                        <td> <?php foreach (json_decode($apartment->photos)as $picture) { ?>
-                                            <img src="{{ asset('/uploads/'.$picture) }}" style="height:50px; border-radius: 4px"/>
-                                            <?php } ?>
-                                        </td>
 
 
                                     </tr>

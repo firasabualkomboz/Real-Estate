@@ -11,7 +11,7 @@ class Apartment extends Model
 
     protected $fillable =
         ['name', 'description', 'features', 'year_built', 'space',
-            'rooms', 'bathroom', 'on_floor', 'image', 'property_id', 'estate_id'];
+            'rooms', 'bathroom', 'on_floor', 'image', 'property_id', 'estate_id','photos'];
 
     public function property()
     {
@@ -32,5 +32,9 @@ class Apartment extends Model
         return asset('uploads/' . $this->image);
     }
 
+    public function contract()
+    {
+        return $this->hasMany(Contract::class);
+    }
 
 }

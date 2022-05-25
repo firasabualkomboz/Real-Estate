@@ -24,8 +24,10 @@ class CreateApartmentsTable extends Migration
             $table->integer('bathroom');
             $table->integer('on_floor');
             $table->string('image');
+            $table->string('photos');
             $table->foreignId('property_id')->constrained('estates')->cascadeOnDelete();
             $table->foreignId('estate_id')->constrained('estates')->cascadeOnDelete();
+
             $table->timestamps();
         });
     }

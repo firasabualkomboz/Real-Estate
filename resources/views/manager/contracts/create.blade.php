@@ -14,14 +14,12 @@
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold my-2 p-0">
                             <li class="breadcrumb-item">
-                                <a href="" class="text-muted">Forms</a>
+                                <a href="" class="text-muted">Contracts</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="" class="text-muted">Form Controls</a>
+                                <a href="" class="text-muted">Add Contract</a>
                             </li>
-                            <li class="breadcrumb-item">
-                                <a href="" class="text-muted">Base Inputs</a>
-                            </li>
+
                         </ul>
                         <!--end::Breadcrumb-->
                     </div>
@@ -67,14 +65,14 @@
                         <!--begin::Card-->
                         <div class="card card-custom example example-compact">
                             <div class="card-header">
-                                <h3 class="card-title">Add Real Estate</h3>
+                                <h3 class="card-title">Add Contract</h3>
 
                             </div>
 
 
                             <!--begin::Form-->
                             <form method="post" enctype="multipart/form-data"
-                                  action="{{route('manager.apartments.store')}}">
+                                  action="{{route('manager.contracts.store')}}">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group mb-8">
@@ -94,114 +92,63 @@
                                     </div>
 
 
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Name</label>
-                                        <div class="col-8">
-                                            <input class="form-control" type="text" name="name"
-                                            >
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Description</label>
-                                        <div class="col-8">
-                                            <textarea class="form-control" name="description"
-                                                      rows="3"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Features</label>
-                                        <div class="col-8">
-                                            <textarea class="form-control" name="features"
-                                                      rows="3"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Year Built</label>
-                                        <div class="col-8">
-                                            <input class="form-control" type="text" name="year_built"
-                                            >
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Space</label>
-                                        <div class="col-8">
-                                            <input class="form-control" type="number" name="space"
-                                            >
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Photos</label>
-                                        <div class="col-8">
-                                            <input class="form-control" type="file" name="photos[]" multiple
-                                            >
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Count
-                                            Rooms </label>
-                                        <div class="col-8">
-                                            <select name="rooms" class="form-control" id="exampleSelect1">
-                                                @for($i = 1 ; $i<= 10; $i++)
-                                                    <option value="{{$i}}">{{$i}}</option>
-                                                @endfor
-                                            </select>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Count
-                                            Bathroom </label>
-                                        <div class="col-8">
-                                            <select name="bathroom" class="form-control" id="exampleSelect1">
-                                                @for($i = 1 ; $i<= 5; $i++)
-                                                    <option value="{{$i}}">{{$i}}</option>
-                                                @endfor
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">On The
-                                            Floor </label>
-                                        <div class="col-8">
-                                            <select name="on_floor" class="form-control" id="exampleSelect1">
-                                                @for($i = 1 ; $i<= 20; $i++)
-                                                    <option value="{{$i}}">{{$i}}</option>
-                                                @endfor
-                                            </select>
-
-                                        </div>
-                                    </div>
-
 
                                     <div class="form-group row">
                                         <label for="example-time-input" class="col-3 col-form-label">Type Estate</label>
                                         <div class="col-8">
-                                            <select name="estate_id" class="form-control" id="exampleSelect1">
-                                                @foreach($estates as $estate)
-                                                    <option value="{{$estate->id}}">{{$estate->name}}</option>
+                                            <select name="apartment_id" class="form-control" id="exampleSelect1">
+                                                @foreach($apartments as $apartment)
+                                                    <option value="{{$apartment->id}}">{{$apartment->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Select
-                                            Property</label>
+                                        <label for="example-time-input" class="col-3 col-form-label">Type Estate</label>
                                         <div class="col-8">
-                                            <select name="property_id" class="form-control" id="exampleSelect1">
-                                                @foreach($properties as $property)
-                                                    <option value="{{$property->id}}">{{$property->name}}</option>
+                                            <select name="tenant_id" class="form-control" id="exampleSelect1">
+                                                @foreach($tenants as $tenant)
+                                                    <option value="{{$tenant->id}}">{{$tenant->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
+
+
+
+                                    <div class="form-group row">
+                                        <label for="example-date-input" class="col-3 col-form-label">Start At </label>
+                                        <div class="col-8">
+                                            <input class="form-control" type="date" name="start_at"
+                                            >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-date-input" class="col-3 col-form-label">End At</label>
+                                        <div class="col-8">
+                                            <input class="form-control" type="date" name="end_at"
+                                            >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                    <label for="example-date-input" class="col-3 col-form-label">Price</label>
+                                    <div class="col-8">
+                                    <input class="form-control" type="number" name="price"
+                                    >
+                                    </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                    <label for="example-date-input" class="col-3 col-form-label">Commission %</label>
+                                    <div class="col-8">
+                                    <input class="form-control" type="number" name="commission"
+                                    >
+                                    </div>
+                                    </div>
+
 
 
                                     <div class="form-group row">
@@ -228,24 +175,7 @@
                                             </div>
 
                                         </div>
-
-
                                     </div>
-
-
-
-                                    <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Photos </label>
-                                        <div class="col-lg-9 col-md-9 col-sm-12">
-                                            <div class="dropzone dropzone-default  dropzone-primary dz-clickable" id="kt_dropzone_2">
-                                                <div class="dropzone-msg dz-message needsclick">
-                                                    <h3 class="dropzone-msg-title">Drop files here or click to upload.</h3>
-                                                    <span class="dropzone-msg-desc">Upload up to 10 files</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
 
 
                                 </div>
@@ -269,10 +199,8 @@
         </div>
         <!--end::Entry-->
     </div>
-
     @push('custom-scripts')
 
-
+        <script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/file-upload/image-input.js"></script>
     @endpush
-
 @endsection

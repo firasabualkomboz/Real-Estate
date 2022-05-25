@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use function app\Helper\successMessage;
 
 class OwnerController extends Controller
 {
@@ -47,8 +48,7 @@ class OwnerController extends Controller
             'phone' => $request['phone'],
             'type' => '2',
         ]);
-        toastr()->success('Added Successfully');
-        return redirect()->back();
+        return successMessage();
     }
 
     /**
