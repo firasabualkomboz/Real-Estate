@@ -15,6 +15,9 @@ class CreateAppointmentsTable extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('phone');
+            $table->string('email');
             $table->date('date');
             $table->time('time');
             $table->enum('status', ['pending', 'completed'])->default('pending');

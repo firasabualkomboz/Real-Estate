@@ -1,6 +1,10 @@
 <?php
 
 namespace app\Helper;
+
+use App\Models\Contract;
+use App\Models\User;
+
 function successMessage()
 {
     $message = array(
@@ -12,6 +16,24 @@ function successMessage()
 
 function errorMessage()
 {
-    $message = ['message' => 'Removed Successfully', 'alert-type' => 'warning'];
+    $message = ['message' => 'Removed Successfully', 'alert-type' => 'info'];
     return redirect()->back()->with($message);
+}
+
+function updateMessage()
+{
+    $message = ['message' => 'Updated Successfully', 'alert-type' => 'warning'];
+    return redirect()->back()->with($message);
+}
+
+function getIncomeOwnerBeforeTax(Contract $contract, User $user)
+{
+
+    $OwnerID = Contract::select('owner_id')->get();
+
+}
+
+function getIncomeOwnerAfterTex(Contract $contract, User $user)
+{
+
 }

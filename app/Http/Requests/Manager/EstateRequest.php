@@ -25,13 +25,23 @@ class EstateRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'description' => 'required',
-            'type' => 'required',
-            'floors' => 'required',
-            'apartments' => 'required',
+            'rent' => 'required',
+            'property_id' => 'required|int|exists:properties,id',
             'owner_id' => 'required',
-            'image' => 'required',
-            'location' => 'required'
+            'area' => 'required',
+            'commission' => 'required',
+            'description' => 'required',
+            'location' => 'required',
+            'notes' => 'required',
+            'estate_age' => 'required',
+            'rooms' => 'required',
+            'bedrooms' => 'required',
+            'bathrooms' => 'required',
+            'images' => 'required|image',
+            'tags' => 'array'
         ];
     }
 }
+
+
+

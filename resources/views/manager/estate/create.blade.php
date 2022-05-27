@@ -14,14 +14,10 @@
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold my-2 p-0">
                             <li class="breadcrumb-item">
-                                <a href="" class="text-muted">Forms</a>
+                                <a href="" class="text-muted">Estates</a>
                             </li>
-                            <li class="breadcrumb-item">
-                                <a href="" class="text-muted">Form Controls</a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="" class="text-muted">Base Inputs</a>
-                            </li>
+
+
                         </ul>
                         <!--end::Breadcrumb-->
                     </div>
@@ -61,161 +57,320 @@
         <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
 
-                        <!--begin::Card-->
-                        <div class="card card-custom example example-compact">
-                            <div class="card-header">
-                                <h3 class="card-title">Add Real Estate</h3>
-
+                <div class="card card-custom card-transparent">
+                    <div class="card-body p-0">
+                        <!--begin: Wizard-->
+                        <div class="wizard wizard-4" id="kt_wizard_v4" data-wizard-state="first" data-wizard-clickable="true">
+                            <!--begin: Wizard Nav-->
+                            <div class="wizard-nav">
+                                <div class="wizard-steps">
+                                    <!--begin::Wizard Step 1 Nav-->
+                                    <div class="wizard-step" data-wizard-type="step" data-wizard-state="current">
+                                        <div class="wizard-wrapper">
+                                            <div class="wizard-number">1</div>
+                                            <div class="wizard-label">
+                                                <div class="wizard-title">Basic Details</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Wizard Step 1 Nav-->
+                                    <!--begin::Wizard Step 2 Nav-->
+                                    <div class="wizard-step" data-wizard-type="step" data-wizard-state="pending">
+                                        <div class="wizard-wrapper">
+                                            <div class="wizard-number">2</div>
+                                            <div class="wizard-label">
+                                                <div class="wizard-title">Location </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Wizard Step 2 Nav-->
+                                    <!--begin::Wizard Step 3 Nav-->
+                                    <div class="wizard-step" data-wizard-type="step" data-wizard-state="pending">
+                                        <div class="wizard-wrapper">
+                                            <div class="wizard-number">3</div>
+                                            <div class="wizard-label">
+                                                <div class="wizard-title">Features</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Wizard Step 3 Nav-->
+                                    <!--begin::Wizard Step 4 Nav-->
+                                    <div class="wizard-step" data-wizard-type="step" data-wizard-state="pending">
+                                        <div class="wizard-wrapper">
+                                            <div class="wizard-number">4</div>
+                                            <div class="wizard-label">
+                                                <div class="wizard-title">Estate Images</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Wizard Step 4 Nav-->
+                                </div>
                             </div>
+                            <!--end: Wizard Nav-->
+                            <!--begin: Wizard Body-->
+                            <div class="card card-custom card-shadowless rounded-top-0">
+                                <div class="card-body p-0">
+                                    <div class="row justify-content-center py-8 px-8 py-lg-15 px-lg-10">
+                                        <div class="col-xl-12 col-xxl-7">
+                                            <!--begin: Wizard Form-->
+                                            @if ($errors->any())
+                                                <div class="alert alert-custom alert-default" role="alert">
 
+                                                    <div class="alert-icon">
+                                                        <ul>
+                                                            @foreach ($errors->all() as $error)
+                                                                <li>{{ $error }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
 
-                            <!--begin::Form-->
-                            <form method="post" enctype="multipart/form-data"
-                                  action="{{route('manager.estates.store')}}">
-                                @csrf
-                                <div class="card-body">
-                                    <div class="form-group mb-8">
-                                        @if ($errors->any())
-                                            <div class="alert alert-custom alert-default" role="alert">
-
-                                                <div class="alert-icon">
-                                                    <ul>
-                                                        @foreach ($errors->all() as $error)
-                                                            <li>{{ $error }}</li>
-                                                        @endforeach
-                                                    </ul>
                                                 </div>
+                                            @endif
 
-                                            </div>
-                                        @endif
-                                    </div>
-
-
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Name</label>
-                                        <div class="col-8">
-                                            <input class="form-control" type="text" name="name"
+                                            <form class="form mt-0 mt-lg-10 fv-plugins-bootstrap fv-plugins-framework" method="post" id="kt_form"
+                                                  enctype="multipart/form-data"
+                                                  action="{{route('manager.estates.store')}}"
                                             >
+                                                @csrf
+
+
+                                                <!--begin: Wizard Step 1-->
+                                                <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
+
+
+                                                    <div class="row">
+                                                        <div class="col-xl-6">
+                                                            <div class="form-group fv-plugins-icon-container">
+                                                                <label>Estate Name <span style="color: red"> * </span></label>
+                                                                <input type="text" class="form-control form-control-solid form-control-lg" name="name">
+
+                                                                <div class="fv-plugins-message-container"></div></div>
+
+                                                        </div>
+
+
+                                                        <div class="col-xl-6">
+                                                            <div class="form-group fv-plugins-icon-container">
+                                                                <label>Select Property Type <span style="color: red"> * </span></label>
+                                                                <select name="property_id" class="form-control form-control-solid form-control-lg">
+                                                                    @foreach ($properties as $property)
+
+                                                                        <option value="{{ $property->id }}"  @if ($property->id == old('property_id' , $estate->property_id ) ) selected @endif >
+                                                                            {{ $property->name }}
+                                                                        </option>
+
+                                                                    @endforeach
+
+                                                                </select>
+
+                                                                <div class="fv-plugins-message-container"></div></div>
+
+                                                        </div>
+
+
+                                                    </div>
+
+                                                    <!--end::Input-->
+                                                    <div class="row">
+                                                        <div class="col-xl-6">
+                                                            <div class="form-group fv-plugins-icon-container">
+                                                                <label>Select Owner <span style="color: red"> * </span></label>
+                                                                <select name="owner_id" class="form-control form-control-solid form-control-lg">
+                                                                    @foreach ($owners as $owner)
+
+                                                                        <option value="{{ $owner->id }}"  @if ($owner->id == old('owner_id' , $estate->owner_id ) ) selected @endif >
+                                                                            {{ $owner->name }}
+                                                                        </option>
+
+                                                                    @endforeach
+
+                                                                </select>
+
+
+                                                                <div class="fv-plugins-message-container"></div></div>
+
+                                                        </div>
+                                                        <div class="col-xl-6">
+                                                            <!--begin::Input-->
+                                                            <div class="form-group fv-plugins-icon-container">
+                                                                <label>Area</label>
+                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="area" placeholder="200 sqmt">
+                                                                <div class="fv-plugins-message-container"></div></div>
+                                                            <!--end::Input-->
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <div class="col-xl-6">
+                                                            <div class="form-group fv-plugins-icon-container">
+                                                                <label>Company Commissions <span style="color: red"> * </span></label>
+                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="commission" placeholder="20%">
+
+                                                                <div class="fv-plugins-message-container"></div></div>
+
+                                                        </div>
+
+                                                        <div class="col-xl-6">
+                                                            <!--begin::Input-->
+                                                            <div class="form-group fv-plugins-icon-container">
+                                                                <label>Rent</label>
+                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="rent" placeholder="100$/month">
+                                                                <div class="fv-plugins-message-container"></div></div>
+                                                            <!--end::Input-->
+                                                        </div>
+
+
+                                                    </div>
+
+
+                                                    <!--begin::Input-->
+                                                    <div class="form-group fv-plugins-icon-container">
+                                                        <label>Description <span style="color: red">*</span></label>
+                                                        <textarea  class="form-control form-control-solid form-control-lg" name="description" id="" cols="10" rows="10"></textarea>
+                                                        <div class="fv-plugins-message-container"></div>
+
+
+                                                    </div>
+                                                    <!--end::Input-->
+
+
+                                                </div>
+                                                <!--end: Wizard Step 1-->
+                                                <!--begin: Wizard Step 2-->
+                                                <div class="pb-5" data-wizard-type="step-content">
+
+                                                    <!--begin::Input-->
+                                                    <div class="form-group">
+                                                        <label>Select Estate Location</label>
+                                                        <input type="text" class="form-control form-control-solid form-control-lg" name="location">
+
+                                                        <div id="map" class="mt-3" style="height: 500px;width: 650px;"></div>
+
+                                                    </div>
+
+
+                                                </div>
+                                                <!--end: Wizard Step 2-->
+                                                <!--begin: Wizard Step 3-->
+                                                <div class="pb-5" data-wizard-type="step-content">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <!--begin::Input-->
+                                                            <!--begin::Input-->
+                                                            <div class="form-group fv-plugins-icon-container">
+                                                                <label>Estate Notes <span style="color: red">*</span></label>
+                                                                <textarea  class="form-control form-control-solid form-control-lg" name="notes" id="" cols="10" rows="10"></textarea>
+                                                                <div class="fv-plugins-message-container"></div>
+
+
+                                                            </div>
+                                                            <!--end::Input-->
+                                                            <!--end::Input-->
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xl-3">
+                                                            <!--begin::Input-->
+                                                            <div class="form-group fv-plugins-icon-container">
+                                                                <label>Estate Age </label>
+                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="estate_age">
+                                                                <div class="fv-plugins-message-container"></div></div>
+                                                            <!--end::Input-->
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <!--begin::Input-->
+                                                            <div class="form-group fv-plugins-icon-container">
+                                                                <label>Rooms </label>
+                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="rooms" >
+                                                                <div class="fv-plugins-message-container"></div></div>
+                                                            <!--end::Input-->
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <!--begin::Input-->
+                                                            <div class="form-group fv-plugins-icon-container">
+                                                                <label>BadRooms</label>
+                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="bedrooms">
+                                                                <div class="fv-plugins-message-container"></div></div>
+                                                            <!--end::Input-->
+                                                        </div>
+                                                        <div class="col-xl-3">
+                                                            <!--begin::Input-->
+                                                            <div class="form-group fv-plugins-icon-container">
+                                                                <label>BathRooms</label>
+                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="bathrooms" >
+                                                                <div class="fv-plugins-message-container"></div></div>
+                                                            <!--end::Input-->
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <div class="form-group">
+                                                                <label>Inline Checkboxes</label>
+                                                                <div class="checkbox-inline">
+
+                                                                    @foreach ($tags as $tag)
+
+                                                                    <label class="checkbox">
+                                                                        <input type="checkbox"  name="tag[]"  value="{{$tag->id}}" @if (in_array($tag->id , $estate_tag))
+                                                                            checked
+                                                                            @endif>{{$tag->name}}
+                                                                        <span></span></label>
+                                                                    @endforeach
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--end: Wizard Step 3-->
+                                                <!--begin: Wizard Step 4-->
+                                                <div class="pb-5" data-wizard-type="step-content">
+
+                                                    <div class="row">
+
+
+                                                        <div class="col-xl-12">
+                                                            <!--begin::Input-->
+                                                            <div class="form-group fv-plugins-icon-container">
+                                                                <label>Estate Images </label>
+                                                                <input type="file" class="form-control form-control-solid form-control-lg" name="images">
+                                                                <div class="fv-plugins-message-container"></div></div>
+                                                            <!--end::Input-->
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <!--end: Wizard Step 4-->
+                                                <!--begin: Wizard Actions-->
+                                                <div class="d-flex justify-content-between border-top mt-5 pt-10">
+                                                    <div class="mr-2">
+                                                        <button class="btn btn-light-primary font-weight-bold text-uppercase px-9 py-4" data-wizard-type="action-prev">Previous</button>
+                                                    </div>
+                                                    <div>
+                                                        <button class="btn btn-success font-weight-bold text-uppercase px-9 py-4" type="submit" >Submit</button>
+                                                        <button class="btn btn-primary font-weight-bold text-uppercase px-9 py-4" data-wizard-type="action-next">Next Step</button>
+                                                    </div>
+                                                </div>
+                                                <!--end: Wizard Actions-->
+                                                <div></div><div></div><div></div></form>
+                                            <!--end: Wizard Form-->
                                         </div>
                                     </div>
-
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Description</label>
-                                        <div class="col-8">
-                                            <textarea class="form-control" name="description"
-                                                      rows="3"></textarea>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Type</label>
-                                        <div class="col-8">
-
-
-                                            <label class="radio radio-rounded radio-success">
-                                                <input type="radio" value="rent" name="type" checked="checked">Rent
-                                                <span></span></label>
-
-                                            <label class="radio radio-rounded radio-success">
-                                                <input value="sale" name="type" type="radio">Sale
-                                                <span></span></label>
-                                            @error('type')
-                                            <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Count Floor</label>
-                                        <div class="col-8">
-                                            <input class="form-control" type="number" name="floors"
-                                            >
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Count
-                                            Apartments</label>
-                                        <div class="col-8">
-                                            <input class="form-control" type="number" name="apartments"
-                                            >
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Select
-                                            Owner</label>
-                                        <div class="col-8">
-                                            <select name="owner_id" class="form-control" id="exampleSelect1">
-                                                @foreach($owners as $owner)
-                                                    <option value="{{$owner->id}}">{{$owner->name}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Image </label>
-
-                                        <div class="col-lg-8 col-xl-6">
-                                            <div class="image-input image-input-outline" id="kt_image_1">
-                                                <div class="image-input-wrapper"
-                                                     style="background-image: url(assets/media/users/100_1.jpg)"></div>
-                                                <label
-                                                    class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
-                                                    data-action="change" data-toggle="tooltip" title=""
-                                                    data-original-title="Change avatar">
-                                                    <i class="fa fa-pen icon-sm text-muted"></i>
-                                                    <input type="file" name="image" accept=".png, .jpg, .jpeg">
-                                                    <input type="hidden" name="image">
-                                                </label>
-                                                <span
-                                                    class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
-                                                    data-action="cancel" data-toggle="tooltip" title=""
-                                                    data-original-title="Cancel avatar">
-															<i class="ki ki-bold-close icon-xs text-muted"></i>
-														</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Location
-                                        </label>
-                                        <div class="col-8">
-                                            <input type="text" name="location" id="pac-input" class="form-control">
-                                            <div id="map" class="mt-3" style="height: 500px;width: 750px;"></div>
-                                        </div>
-                                    </div>
-
-
                                 </div>
-                                <div class="card-footer">
-                                    <div class="row">
-                                        <div class="col-2"></div>
-                                        <div class="col-10">
-                                            <button type="submit" class="btn btn-success mr-2">Submit</button>
-                                            <button type="reset" class="btn btn-secondary">Cancel</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
+                            </div>
+                            <!--end: Wizard Bpdy-->
                         </div>
-                        <!--end::Card-->
+                        <!--end: Wizard-->
                     </div>
-
                 </div>
+
+
             </div>
             <!--end::Container-->
         </div>
@@ -416,6 +571,8 @@
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS_WLni5YfR2VHwzTzf50iFsb4hmv9Vw8&libraries=places&callback=initAutocomplete&language=ar&region=PS
     async defer"></script>
+        <script src="{{asset('assets_dashboard')}}/assets/js/pages/custom/wizard/wizard-4.js"></script>
+
         <script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/file-upload/image-input.js"></script>
     @endpush
 @endsection

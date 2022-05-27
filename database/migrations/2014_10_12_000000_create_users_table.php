@@ -20,8 +20,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('phone');
+            $table->string('address')->nullable();
+            $table->string('document')->nullable();
             $table->boolean('is_manager')->default(0);
-            $table->enum('type',[0,1,2]);/* tenant= 0 , owner = 2 , manager = 1   */
+            $table->enum('type', [0, 1, 2]);/* tenant= 0 , owner = 2 , manager = 1   */
             $table->rememberToken();
             $table->timestamps();
         });

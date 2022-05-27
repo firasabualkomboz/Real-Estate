@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Estate extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'type', 'floors', 'apartments', 'owner_id', 'image', 'location'];
+
+
+
+    protected $fillable = ['name',  'rent' ,  'property_id' , 'owner_id', 'area' ,
+        'commission', 'description', 'location', 'notes', 'estate_age' , 'rooms' , '
+        bedrooms' ,'bathrooms' , 'images'];
 
     public function owner()
     {
@@ -34,6 +39,20 @@ class Estate extends Model
     public function apartment()
     {
         return $this->hasMany(Apartment::class);
+    }
+
+//    protected function tags()
+//    {
+//        return $this->belongsToMany(Tag::class, 'estate_tag',
+//            'estate_id'  , 'tag_id',
+//            'id', 'id')->withPivot([
+//                'estate_id' , 'tag_id'
+//        ]);
+//    }
+
+    protected function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'estate_tag');
     }
 
 

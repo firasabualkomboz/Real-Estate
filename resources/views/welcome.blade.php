@@ -23,7 +23,7 @@
 </head>
 <body>
 <!-- /.preloader -->
-<div id="preloader"></div>
+{{--<div id="preloader"></div>--}}
 <div class="theme-layout">
 
 
@@ -92,21 +92,8 @@
         </div>
     </div><!-- Account Popup Sec -->
 
-    <header class="simple-header for-sticky white ">
-        <div class="top-bar">
-            <div class="container">
-                <ul class="contact-item">
-                    <li><i class="fa fa-envelope-o"></i>yourcompnay@email.com</li>
-                    <li><i class="fa fa-mobile"></i>+1 333 44 555 / +1 333 44 500</li>
-                </ul>
-                <div class="choose-language">
-                    <a href="#" title="">FR</a>
-                    <a href="#" title="">DE</a>
-                    <a href="#" title="">EN</a>
-                    <a href="#" title="">jp</a>
-                </div>
-            </div>
-        </div><!-- Top bar -->
+    <header class="simple-header for-sticky white">
+
         <div class="menu">
             <div class="container">
                 <div class="logo">
@@ -143,38 +130,7 @@
                         </li>
                         <li><a href="property.html" title="">PROPERTY</a></li>
 
-                        <li class="menu-item-has-children mega">
-                            <a href="#" title="">PAGES</a>
-                            <ul>
-                                <li><a href="comingsoon.html" title="">Coming Soon</a></li>
-                                <li><a href="agents-listing.html" title="">Agent Listing </a></li>
-                                <li><a href="terms-conditions.html" title="">Terms & conditions</a></li>
 
-                                <li><a href="agent.html" title="">Agent page</a></li>
-                                <li><a href="agent2.html" title="">Agent 2 page</a></li>
-                                <li><a href="agent3.html" title="">Agent 3 page</a></li>
-
-                                <li><a href="my-profile.html" title="">Profile page</a></li>
-                                <li><a href="submit.html" title="">Submit page</a></li>
-                                <li><a href="login.html" title="">Login page</a></li>
-
-                                <li><a href="contact.html" title="">Contact Us</a></li>
-                                <li><a href="404.html" title="">404 Error </a></li>
-                                <li><a href="faq.html" title="">FAQ page</a></li>
-                                <li><a href="faq.html" title="">PROPERTY LEFT SIDE</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="menu-item-has-children">
-                            <a href="#" title="">BLOG PAGES</a>
-                            <ul>
-                                <li><a href="blog.html" title="">Blog Page</a></li>
-                                <li><a href="blog-sidebar.html" title="">Blog left Sidebar</a></li>
-                                <li><a href="single.html" title="">Single Post</a></li>
-                                <li><a href="single-left-sidebar.html" title="">Single Left sidebar</a></li>
-                                <li><a href="single-no-sidebar.html" title="">Single No Sidebar</a></li>
-                            </ul>
-                        </li>
 
                         <li><a href="contact.html" title="">CONTACT</a></li>
                     </ul>
@@ -484,253 +440,51 @@
     <section class="block">
         <div class="container">
             <div class="heading4">
-                <h2>FEATURED PROPERTIES</h2>
+                <h2>FEATURED APARTMENTS</h2>
                 <span>Lorem ipsum dolor consectetu</span>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="properties-sec">
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="properties-box">
-                                    <div class="properties-thumb">
-                                        <img src="{{asset('assets_front')}}/img/demo/property4.jpg" alt=""/>
-                                        <span class="spn-status"> For Rent </span>
-                                        <span class="spn-save"> <i class="ti ti-heart"></i> </span>
-                                        <ul class="property-info">
-                                            <li>
-                                                <i class="fa  fa-retweet"> </i> <span>1913 sqft </span>
-                                            </li>
-                                            <li class="li-rl"></li>
-                                            <li>
-                                                <i class="fa  fa-bed"></i><span>  5   </span>
-                                            </li>
-                                            <li class="li-rl"></li>
-                                            <li>
-                                                <i class="fa  fa-building"> </i> <span>3   </span>
-                                            </li>
-                                        </ul>
-                                        <div class="user-preview">
-                                            <a class="col" href="agent.html">
-                                                <img alt="Camilė" class="avatar avatar-small"
-                                                     src="{{asset('assets_front')}}/img/4.png" title="Camilė">
-                                            </a>
-                                        </div>
-                                        <a class="proeprty-sh-more" href="property.html"><i
-                                                class="ti ti-share"> </i></a>
+                            @foreach($apartments as $apartment)
+                                <div class="col-md-4">
+                                    <div class="properties-box">
+                                        <div class="properties-thumb">
+                                            <img src="{{$apartment->imageurl}}" alt=""/>
+                                            <span class="spn-status"> For Rent </span>
+                                            <span class="spn-save"> <i class="ti ti-heart"></i> </span>
+                                            <ul class="property-info">
+                                                <li>
+                                                    <i class="fa fa-home"> </i> <span> {{$apartment->rooms}} </span>
+                                                </li>
+                                                <li class="li-rl"></li>
+                                                <li>
+                                                    <i class="fa  fa-bed"></i><span> {{$apartment->on_floor}}  </span>
+                                                </li>
+                                                <li class="li-rl"></li>
+                                                <li>
+                                                    <i class="fa  fa-building"> </i> <span>{{$apartment->on_floor}}   </span>
+                                                </li>
+                                            </ul>
+                                            <div class="user-preview">
+                                                <a class="col" href="{{route('showEstate' , $apartment->estate->id)}}">
+                                                    <img alt="{{$apartment->estate->name}}" class="avatar avatar-small"
+                                                         src="{{$apartment->estate->imageurl}}" title="{{$apartment->estate->name}}">
+                                                </a>
+                                            </div>
+                                            <a class="proeprty-sh-more" href="{{route('showApartment' , $apartment->id)}}"><i
+                                                    class="ti ti-eye"> </i></a>
 
-                                    </div>
-                                    <h3><a href="property.html" title="">The Helux villa</a></h3>
-                                    <span class="price">$444000</span>
-                                    <span class="rate-it">
-                                            <i title="nice" class="ti ti-star star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star  star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star off star-off-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star off star-off-png"></i>
-                                        </span>
-                                </div><!-- prop Box -->
-                            </div>
-                            <div class="col-md-4">
-                                <div class="properties-box">
-                                    <div class="properties-thumb">
-                                        <img src="{{asset('assets_front')}}/img/demo/property3.jpg" alt=""/>
-                                        <span class="spn-status"> For Rent </span>
-                                        <span class="spn-save"> <i class="ti ti-heart"></i> </span>
-                                        <ul class="property-info">
-                                            <li>
-                                                <i class="fa  fa-retweet"> </i> <span>1913 sqft </span>
-                                            </li>
-                                            <li class="li-rl"></li>
-                                            <li>
-                                                <i class="fa  fa-bed"></i><span>  5   </span>
-                                            </li>
-                                            <li class="li-rl"></li>
-                                            <li>
-                                                <i class="fa  fa-building"> </i> <span>3   </span>
-                                            </li>
-                                        </ul>
-                                        <div class="user-preview">
-                                            <a class="col" href="agent.html">
-                                                <img alt="Camilė" class="avatar avatar-small"
-                                                     src="{{asset('assets_front')}}/img/1.png" title="Camilė">
-                                            </a>
                                         </div>
-                                        <a class="proeprty-sh-more" href="property.html"><i
-                                                class="ti ti-share"> </i></a>
+                                        <h3><a href="property.html" title="">{{$apartment->name}}</a></h3>
+                                        <span class="price">$444000  <small style="color: #000">  /  month</small> </span>
 
-                                    </div>
-                                    <h3><a href="property.html" title="The Helux villa">The Helux villa</a></h3>
-                                    <span class="price">$789000</span>
-                                    <span class="rate-it">
-                                            <i title="nice" class="ti ti-star star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star  star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star off star-off-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star off star-off-png"></i>
-                                        </span>
-                                </div><!-- prop Box -->
-                            </div>
-                            <div class="col-md-4">
-                                <div class="properties-box">
-                                    <div class="properties-thumb">
-                                        <img src="{{asset('assets_front')}}/img/demo/property2.jpg" alt=""/>
-                                        <span class="spn-status"> For Rent </span>
-                                        <span class="spn-save"> <i class="ti ti-heart"></i> </span>
-                                        <ul class="property-info">
-                                            <li>
-                                                <i class="fa  fa-retweet"> </i> <span>1913 sqft </span>
-                                            </li>
-                                            <li class="li-rl"></li>
-                                            <li>
-                                                <i class="fa  fa-bed"></i><span>  5   </span>
-                                            </li>
-                                            <li class="li-rl"></li>
-                                            <li>
-                                                <i class="fa  fa-building"> </i> <span>3   </span>
-                                            </li>
-                                        </ul>
-                                        <div class="user-preview">
-                                            <a class="col" href="agent.html">
-                                                <img alt="Camilė" class="avatar avatar-small"
-                                                     src="{{asset('assets_front')}}/img/2.png" title="Camilė">
-                                            </a>
-                                        </div>
-                                        <a class="proeprty-sh-more" href="property.html"><i
-                                                class="ti ti-share"> </i></a>
+                                    </div><!-- prop Box -->
+                                </div>
 
-                                    </div>
-                                    <h3><a href="property.html" title="The Helux villa">The Helux villa</a></h3>
-                                    <span class="price">$380000</span>
-                                    <span class="rate-it">
-                                            <i title="nice" class="ti ti-star star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star  star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star off star-off-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star off star-off-png"></i>
-                                        </span>
-                                </div><!-- prop Box -->
-                            </div>
-                            <div class="col-md-4">
-                                <div class="properties-box">
-                                    <div class="properties-thumb">
-                                        <img src="{{asset('assets_front')}}/img/demo/property4.jpg" alt=""/>
-                                        <span class="spn-status"> For Rent </span>
-                                        <span class="spn-save"> <i class="ti ti-heart"></i> </span>
-                                        <ul class="property-info">
-                                            <li>
-                                                <i class="fa  fa-retweet"> </i> <span>1913 sqft </span>
-                                            </li>
-                                            <li class="li-rl"></li>
-                                            <li>
-                                                <i class="fa  fa-bed"></i><span>  5   </span>
-                                            </li>
-                                            <li class="li-rl"></li>
-                                            <li>
-                                                <i class="fa  fa-building"> </i> <span>3   </span>
-                                            </li>
-                                        </ul>
-                                        <div class="user-preview">
-                                            <a class="col" href="agent.html">
-                                                <img alt="Camilė" class="avatar avatar-small"
-                                                     src="{{asset('assets_front')}}/img/4.png" title="Camilė">
-                                            </a>
-                                        </div>
-                                        <a class="proeprty-sh-more" href="property.html"><i
-                                                class="ti ti-share"> </i></a>
+                            @endforeach
 
-                                    </div>
-                                    <h3><a href="property.html" title="The Helux villa">The Helux villa</a></h3>
-                                    <span class="price">$1000000</span>
-                                    <span class="rate-it">
-                                            <i title="nice" class="ti ti-star star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star  star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star off star-off-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star off star-off-png"></i>
-                                        </span>
-                                </div><!-- prop Box -->
-                            </div>
-                            <div class="col-md-4">
-                                <div class="properties-box">
-                                    <div class="properties-thumb">
-                                        <img src="{{asset('assets_front')}}/img/demo/property5.jpg" alt=""/>
-                                        <span class="spn-status"> For Rent </span>
-                                        <span class="spn-save"> <i class="ti ti-heart"></i> </span>
-                                        <ul class="property-info">
-                                            <li>
-                                                <i class="fa  fa-retweet"> </i> <span>1913 sqft </span>
-                                            </li>
-                                            <li class="li-rl"></li>
-                                            <li>
-                                                <i class="fa  fa-bed"></i><span>  5   </span>
-                                            </li>
-                                            <li class="li-rl"></li>
-                                            <li>
-                                                <i class="fa  fa-building"> </i> <span>3   </span>
-                                            </li>
-                                        </ul>
-                                        <div class="user-preview">
-                                            <a class="col" href="agent.html">
-                                                <img alt="Camilė" class="avatar avatar-small"
-                                                     src="{{asset('assets_front')}}/img/3.png" title="Camilė">
-                                            </a>
-                                        </div>
-                                        <a class="proeprty-sh-more" href="property.html"><i
-                                                class="ti ti-share"> </i></a>
-
-                                    </div>
-                                    <h3><a href="property.html" title="The Helux villa">The Helux villa</a></h3>
-                                    <span class="price">$500000</span>
-                                    <span class="rate-it">
-                                            <i title="nice" class="ti ti-star star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star  star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star off star-off-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star off star-off-png"></i>
-                                        </span>
-                                </div><!-- prop Box -->
-                            </div>
-                            <div class="col-md-4">
-                                <div class="properties-box">
-                                    <div class="properties-thumb">
-                                        <img src="{{asset('assets_front')}}/img/demo/property3.jpg" alt=""/>
-                                        <span class="spn-status"> For Rent </span>
-                                        <span class="spn-save"> <i class="ti ti-heart"></i> </span>
-                                        <ul class="property-info">
-                                            <li>
-                                                <i class="fa  fa-retweet"> </i> <span>1913 sqft </span>
-                                            </li>
-                                            <li class="li-rl"></li>
-                                            <li>
-                                                <i class="fa  fa-bed"></i><span>  5   </span>
-                                            </li>
-                                            <li class="li-rl"></li>
-                                            <li>
-                                                <i class="fa  fa-building"> </i> <span>3   </span>
-                                            </li>
-                                        </ul>
-                                        <div class="user-preview">
-                                            <a class="col" href="agent.html">
-                                                <img alt="Camilė" class="avatar avatar-small"
-                                                     src="{{asset('assets_front')}}/img/2.png" title="Camilė">
-                                            </a>
-                                        </div>
-                                        <a class="proeprty-sh-more" href="property.html"><i
-                                                class="ti ti-share"> </i></a>
-
-                                    </div>
-                                    <h3><a href="property.html" title="The Helux villa">The Helux villa</a></h3>
-                                    <span class="price">$340000</span>
-                                    <span class="rate-it">
-                                            <i title="nice" class="ti ti-star star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star  star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star star-on-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star off star-off-png"></i>&nbsp;
-                                            <i title="nice" class="ti ti-star off star-off-png"></i>
-                                        </span>
-                                </div><!-- prop Box -->
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -739,158 +493,6 @@
     </section>
 
 
-    <section class="block">
-        <div
-            style="background: transparent url(&quot;img/call-to-action-big.jpg&quot;) repeat scroll 50% 0px; background-attachment: fixed;"
-            class="parallax scrolly-invisible  whitish"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="heading4">
-                        <h2>OUR AGENTS</h2>
-                        <span>Lorem ipsum dolor</span>
-                    </div>
-                    <div class="agents-carousal-sec">
-                        <ul class="carousel">
-                            <li>
-                                <div class="agent-content">
-                                    <a href="agent.html"><img src="{{asset('assets_front')}}/img/agents/agent1.jpg"
-                                                              alt=""/></a>
-                                    <h3>SUPER AGENT</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur <br> sed do eiusmod tempor incidid</p>
-
-                                    <div class="agent-social-wrap">
-                                        <div class="social-list agent-social">
-                                            <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                            <a href="#" title="Twitter" target="_blank"><i
-                                                    class="fa fa-twitter"></i></a>
-                                            <a href="#" title="Google +" target="_blank"><i
-                                                    class="fa fa-google-plus"></i></a>
-                                            <a href="#" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                            <a href="#" title="Pinterest" target="_blank"><i
-                                                    class="fa fa-pinterest"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="agent-content">
-                                    <a href="agent.html"><img src="{{asset('assets_front')}}/img/agents/agent3.jpg"
-                                                              alt=""/></a>
-                                    <h3>SUPER AGENT</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur <br> sed do eiusmod tempor incidid</p>
-
-                                    <div class="agent-social-wrap">
-                                        <div class="social-list agent-social">
-                                            <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                            <a href="#" title="Twitter" target="_blank"><i
-                                                    class="fa fa-twitter"></i></a>
-                                            <a href="#" title="Google +" target="_blank"><i
-                                                    class="fa fa-google-plus"></i></a>
-                                            <a href="#" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                            <a href="#" title="Pinterest" target="_blank"><i
-                                                    class="fa fa-pinterest"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="agent-content">
-                                    <a href="agent.html"><img src="{{asset('assets_front')}}/img/agents/agent5.jpg"
-                                                              alt=""/></a>
-                                    <h3>SUPER AGENT</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur <br> sed do eiusmod tempor incidid</p>
-
-                                    <div class="agent-social-wrap">
-                                        <div class="social-list agent-social">
-                                            <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                            <a href="#" title="Twitter" target="_blank"><i
-                                                    class="fa fa-twitter"></i></a>
-                                            <a href="#" title="Google +" target="_blank"><i
-                                                    class="fa fa-google-plus"></i></a>
-                                            <a href="#" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                            <a href="#" title="Pinterest" target="_blank"><i
-                                                    class="fa fa-pinterest"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="agent-content">
-                                    <a href="agent.html"><img src="{{asset('assets_front')}}/img/agents/agent4.jpg"
-                                                              alt=""/></a>
-                                    <h3>SUPER AGENT</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur <br> sed do eiusmod tempor incidid</p>
-
-                                    <div class="agent-social-wrap">
-                                        <div class="social-list agent-social">
-                                            <a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                            <a href="#" title="Twitter" target="_blank"><i
-                                                    class="fa fa-twitter"></i></a>
-                                            <a href="#" title="Google +" target="_blank"><i
-                                                    class="fa fa-google-plus"></i></a>
-                                            <a href="#" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                            <a href="#" title="Pinterest" target="_blank"><i
-                                                    class="fa fa-pinterest"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="block">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="agents-carousal-sec">
-                        <div class="heading4">
-                            <h2>OUR PARTNERS </h2>
-                            <span>Lorem ipsum dolor</span>
-                        </div>
-                        <div class="our-clients-sec">
-                            <ul class="carousel-client">
-                                <li>
-                                    <a href="#" title=""><img
-                                            src="{{asset('assets_front')}}/img/clients/our-client1.jpg" alt=""/></a>
-                                </li>
-                                <li>
-                                    <a href="#" title=""><img
-                                            src="{{asset('assets_front')}}/img/clients/our-client2.jpg" alt=""/></a>
-                                </li>
-                                <li>
-                                    <a href="#" title=""><img
-                                            src="{{asset('assets_front')}}/img/clients/our-client3.jpg" alt=""/></a>
-                                </li>
-                                <li>
-                                    <a href="#" title=""><img
-                                            src="{{asset('assets_front')}}/img/clients/our-client4.jpg" alt=""/></a>
-                                </li>
-                                <li>
-                                    <a href="#" title=""><img
-                                            src="{{asset('assets_front')}}/img/clients/our-client5.jpg" alt=""/></a>
-                                </li>
-                                <li>
-                                    <a href="#" title=""><img
-                                            src="{{asset('assets_front')}}/img/clients/our-client1.jpg" alt=""/></a>
-                                </li>
-                                <li>
-                                    <a href="#" title=""><img
-                                            src="{{asset('assets_front')}}/img/clients/our-client3.jpg" alt=""/></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     @if(isset($appointments))

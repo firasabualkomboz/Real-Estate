@@ -46,14 +46,14 @@ class ContractController extends Controller
         };
         $apartment = new Contract([
 
-            'apartment_id'  => $request->apartment_id,
-            'tenant_id'     => $request->tenant_id,
-            'price'         => $request->price,
-            'commission'    => $request->commission,
-            'start_at'      => $request->start_at,
-            'end_at'        => $request->end_at,
+            'apartment_id' => $request->apartment_id,
+            'tenant_id' => $request->tenant_id,
+            'price' => $request->price,
+            'commission' => $request->commission,
+            'start_at' => $request->start_at,
+            'end_at' => $request->end_at,
 //            'status'      => $request->status,
-            'image' =>      $data['image'],
+            'image' => $data['image'],
 
         ]);
         $apartment->save();
@@ -73,7 +73,6 @@ class ContractController extends Controller
         $contract->delete();
         return errorMessage();
     }
-
 
 
 }

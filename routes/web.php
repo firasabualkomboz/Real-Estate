@@ -17,6 +17,8 @@ use App\Http\Controllers\Manager\HomeController;
 
 Route::get('/', [\App\Http\Controllers\front\GeneralController::class, 'index'])->name('welcome');
 Route::get('/estate{id}', [\App\Http\Controllers\front\GeneralController::class, 'showEstate'])->name('showEstate');
+Route::get('/support', [\App\Http\Controllers\front\GeneralController::class, 'support'])->name('support');
+Route::get('/apartment/{id}', [\App\Http\Controllers\front\GeneralController::class, 'showApartment'])->name('showApartment');
 
 
 Auth::routes();
@@ -27,6 +29,7 @@ Route::middleware(['auth', 'IsManager'])->prefix('manager')->name('manager.')->g
 
     Route::get('/', [\App\Http\Controllers\Manager\HomeController::class, 'index'])->name('home');
     Route::resource('appointments', \App\Http\Controllers\Manager\AppointmentController::class);
+    Route::resource('properties', \App\Http\Controllers\Manager\PropertyController::class);
     Route::resource('estates', \App\Http\Controllers\Manager\EstateController::class);
     Route::resource('owners', \App\Http\Controllers\Manager\OwnerController::class);
     Route::resource('tenants', \App\Http\Controllers\Manager\TenantController::class);
@@ -44,7 +47,6 @@ Route::middleware(['auth', 'IsTenant'])->name('tenant.')->prefix('tenant')->grou
     Route::post('/makeAppointment', [\App\Http\Controllers\front\GeneralController::class, 'makeAppointment'])->name('makeAppointment');
     Route::get('/appointment-list', [App\Http\Controllers\HomeController::class, 'appointmentList'])->name('appointmentList');
     Route::resource('appointments', \App\Http\Controllers\Tenant\AppointmentController::class);
-
 
 });
 

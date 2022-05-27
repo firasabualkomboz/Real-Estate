@@ -127,7 +127,7 @@
                             @csrf
 
 
-                            <div class="form-group py-3 border-top m-0">
+                            <div class="form-group py-3 m-0">
                                 <input
                                     class="form-control @error('email') is-invalid @enderror h-auto border-0 px-0 placeholder-dark-75"
                                     type="Email"
@@ -139,17 +139,6 @@
                                 @enderror
                             </div>
 
-{{--                            <div class="form-group py-3 border-top m-0">--}}
-{{--                                <input--}}
-{{--                                    class="form-control @error('phone') is-invalid @enderror h-auto border-0 px-0 placeholder-dark-75"--}}
-{{--                                    type="phone"--}}
-{{--                                    placeholder="Phone" name="phone"/>--}}
-{{--                                @error('phone')--}}
-{{--                                <span class="invalid-feedback" role="alert">--}}
-{{--                                <strong>{{ $message }}</strong>--}}
-{{--                                </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
 
 
                             <div class="form-group py-3 border-top m-0">

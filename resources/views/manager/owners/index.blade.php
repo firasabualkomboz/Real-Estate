@@ -10,19 +10,15 @@
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline mr-5">
                         <!--begin::Page Title-->
-                        <h2 class="subheader-title text-dark font-weight-bold my-2 mr-3">Local Sort</h2>
+                        <h2 class="subheader-title text-dark font-weight-bold my-2 mr-3">Real Estate</h2>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold my-2 p-0">
+
                             <li class="breadcrumb-item">
-                                <a href="" class="text-muted">KTDatatable</a>
+                                <a href="" class="text-muted">Owners</a>
                             </li>
-                            <li class="breadcrumb-item">
-                                <a href="" class="text-muted">Base</a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="" class="text-muted">Local Sort</a>
-                            </li>
+
                         </ul>
                         <!--end::Breadcrumb-->
                     </div>
@@ -41,15 +37,14 @@
                 <div class="card card-custom">
                     <div class="card-header flex-wrap border-0 pt-6 pb-0">
                         <div class="card-title">
-                            <h3 class="card-label">Estates List
-                                <span
-                                    class="d-block text-muted pt-2 font-size-sm">Datatable initialized from HTML table</span>
+                            <h3 class="card-label">Owners List
+
                             </h3>
                         </div>
                         <div class="card-toolbar">
 
                             <!--begin::Button-->
-                            <a href="{{route('manager.estates.create')}}" class="btn btn-primary font-weight-bolder">
+                            <a href="{{route('manager.owners.create')}}" class="btn btn-primary font-weight-bolder">
 											<span class="svg-icon svg-icon-md">
 												<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
 												<svg xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +59,7 @@
 													</g>
 												</svg>
                                                 <!--end::Svg Icon-->
-											</span>New Estate</a>
+											</span>Add Owner</a>
                             <!--end::Button-->
                         </div>
                     </div>
@@ -169,49 +164,88 @@
                                 <thead class="datatable-head">
 
                                 <tr class="datatable-row" style="left: 0px;">
-                                    <th class="datatable-cell datatable-toggle-detail"><span></span></th>
                                     <th data-field="Order ID" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">#ID</span></th>
+                                            >#ID</span></th>
 
                                     <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
                                             style="width: 110px;">Name</span></th>
-                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Phone</span></th>
                                     <th data-field="Deposit Paid" class="datatable-cell datatable-cell-sort"><span
                                             style="width: 110px;">Email</span></th>
+
+                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
+                                            style="width: 110px;">Phone</span></th>
+                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
+                                            style="width: 110px;">address</span></th>
+
+                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
+                                            style="width: 110px;">Statistics</span></th>        <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
+                                            style="width: 110px;">Action</span></th>
+
                                     <th data-field="Order Date" class="datatable-cell datatable-cell-sort"
-                                        style="display: none;"><span style="width: 110px;">Order Date</span></th>
+                                        style="display: none;"><span style="width: 110px;">Action</span></th>
 
 
-                                    <th data-field="Status" data-autohide-disabled="false"
-                                        class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Count Estate</span></th>
 
                                 </tr>
                                 </thead>
                                 <tbody style="" class="datatable-body">
                                 @foreach($owners as $owner)
                                     <tr data-row="0" class="datatable-row" style="left: 0px;">
-                                        <td class="datatable-cell datatable-toggle-detail"><a
-                                                class="datatable-toggle-detail" href=""><i
-                                                    class="fa fa-caret-right"></i></a></td>
+
                                         <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
-                                                style="width: 110px;">{{$owner->id}}</span></td>
+                                               >{{$owner->id}}</span></td>
 
                                         <td data-field="Car Model" aria-label="Range Rover" class="datatable-cell"><span
                                                 style="width: 110px;">{{$owner->name}}
 </span></td>
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
+                                                style="width: 110px;">{{$owner->email}}</span></td>
+                                        <td data-field="Deposit Paid" aria-label="$22672.60"
+                                            class="datatable-cell"><span
                                                 style="width: 110px;">{{$owner->phone}}</span></td>
                                         <td data-field="Deposit Paid" aria-label="$22672.60"
                                             class="datatable-cell"><span
-                                                style="width: 110px;">{{$owner->email}}</span></td>
+                                                style="width: 110px;">{{$owner->address}}</span></td>
+
+                                        <td data-field="Deposit Paid" aria-label="$22672.60"
+                                            class="datatable-cell"><span
+                                                style="width: 110px;">Estates :  <span
+                                                    class="label font-weight-bold label-lg label-light-primary label-inline">{{$owner->type}}</span> <br> <br> Estates :  <span
+                                                    class="label font-weight-bold label-lg label-light-primary label-inline">{{$owner->type}}</span> </span></td>
 
 
-                                        <td data-field="Status" data-autohide-disabled="false" aria-label="3"
-                                            class="datatable-cell"><span style="width: 110px;"><span
-                                                    class="label font-weight-bold label-lg label-light-primary label-inline">{{$owner->type}}</span></span>
+                                        <td data-field="Actions" data-autohide-disabled="false" aria-label="null"
+                                            class="datatable-cell">
+                    <span
+                        style="overflow: visible; position: relative; width: 125px; display: inline ">
+
+                        <button class="btn btn-sm"> <a style="color: #fff"
+                                                       href="{{route('manager.owners.show' , $owner->id)}}">
+
+                                <i class="fa fa-eye"></i>
+                            </a> </button>
+
+
+                        <button class="btn btn-sm"> <a style="color: #fff"
+                                                       href="{{route('manager.owners.edit' , $owner->id)}}">
+
+                                <i class="fa fa-edit"></i>
+                            </a> </button>
+
+
+                        <form method="post" style="display: inline"
+                              action="{{route('manager.owners.destroy' , $owner->id)}}">
+                        @method('DELETE')
+                            @csrf
+                            <button class="btn btn-sm" type="submit"><i class="fa fa-trash"></i></button>
+                        </form>
+
+                    </span>
+
                                         </td>
+
+
+
 
                                     </tr>
                                 @endforeach

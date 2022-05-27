@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Apartment;
 use App\Models\Appointment;
 use App\Models\Estate;
 use App\Models\User;
@@ -14,13 +15,20 @@ class GeneralController extends Controller
     public function index()
     {
         $estates = Estate::all();
-        return view('welcome', compact('estates'));
+        $apartments = Apartment::with('estate')->get();
+        return view('welcome', compact('estates', 'apartments'));
     }
 
     public function showEstate($id)
     {
         $estate = Estate::findOrFail($id);
         return view('estate_details', compact('estate'));
+    }
+
+    public function showApartment($id)
+    {
+        $apartment = Apartment::findOrFail($id);
+        return view('apartment_details', compact('apartment'));
     }
 
     public function makeAppointment(Request $request)
@@ -46,5 +54,10 @@ class GeneralController extends Controller
         }
         abort(404);
 
+    }
+
+    public function support()
+    {
+        return view('supports');
     }
 }

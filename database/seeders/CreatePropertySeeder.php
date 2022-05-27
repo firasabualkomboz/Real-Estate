@@ -15,8 +15,9 @@ class CreatePropertySeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('properties')->delete();
-        $properties = ['Apartment', 'land'];
+        $properties = ['Apartment', 'land', 'villa', 'castle', 'Building', 'Farm', 'break', 'chalet', 'duplex'];
         foreach ($properties as $property) {
             Property::create(
                 [

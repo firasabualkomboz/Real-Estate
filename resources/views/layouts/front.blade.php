@@ -20,6 +20,7 @@
     <!-- REVOLUTION STYLE SHEETS -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets_front')}}/js/rs-plugin/css/settings.css">
 
+
 </head>
 <body>
 

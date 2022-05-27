@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Manager\OwnerRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -39,15 +40,23 @@ class OwnerController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OwnerRequest $request)
     {
+        $data = $request->except('document');
+        if ($request->hasFile('document') && $request->file('document')->isValid()) {
+            $data['document'] = $request->file('document')->store('/', 'uploads');
+        };
+
         $owner = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
             'phone' => $request['phone'],
             'type' => '2',
+            'address' => $request->address,
+            'document' => $data['document']
         ]);
+        // send email to owner contain all information account
         return successMessage();
     }
 
@@ -59,7 +68,8 @@ class OwnerController extends Controller
      */
     public function show($id)
     {
-        //
+        $owner = User::findOrFail($id);
+        return view('manager.owners.show', compact('owner'));
     }
 
     /**

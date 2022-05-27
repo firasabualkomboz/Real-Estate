@@ -23,7 +23,9 @@ class User extends Authenticatable
         'email',
         'password',
         'type',
-        'phone'
+        'phone',
+        'address',
+        'document'
     ];
 
     /**
@@ -58,6 +60,17 @@ class User extends Authenticatable
     public function contract()
     {
         return $this->hasMany(Contract::class);
+    }
+    public function support()
+    {
+        return $this->hasMany(Support::class);
+    }
+    public function getImageUrlAttribute()
+    {
+        if (empty($this->document)) {
+            return asset('admin_files/assets/img/backgrounds/02.png');
+        }
+        return asset('uploads/' . $this->document);
     }
 
 }
