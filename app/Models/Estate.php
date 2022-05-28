@@ -14,6 +14,10 @@ class Estate extends Model
         'commission', 'description', 'location', 'notes', 'estate_age', 'rooms', '
         bedrooms', 'bathrooms', 'images' , 'status'];
 
+    protected $casts = [
+        'images' => 'json'
+    ];
+
     public function owner()
     {
         return $this->belongsTo(User::class);

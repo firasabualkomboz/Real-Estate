@@ -99,15 +99,15 @@
 
 
         <div class="inner-head overlap">
-            <div style="background: url({{$estate->imageurl }}) repeat scroll 50% 422.28px transparent;"
+            <div style="background: url(   {{  asset('/uploads/'.$estate->images['0']) ?? ''  }}) repeat scroll 50% 422.28px transparent;"
                  class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
             <div class="container">
                 <div class="inner-content">
                     <span><i class="ti ti-home"></i></span>
                     <h2>{{$estate->name }}</h2>
                     <ul>
-                        <li><a href="#" title="">HOME</a></li>
-                        <li><a href="#" title="">The Helux villa</a></li>
+                        <li><a href="#" title="">Type Estate </a></li>
+                        <li><a href="#" title=""> {{$estate->property->name}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -127,11 +127,13 @@
                                                     <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
 
 
-                                                        <?php foreach (json_decode($estate->images) as $picture) { ?>
-                                                            <li data-thumb="img/demo/property1.jpg">
-                                                            <img src="{{ asset('/uploads/'.$picture) }}" alt="kwitara"/>
-                                                        </li>
-                                                            <?php } ?>
+                                    <?php
+
+                                                    foreach ($estate->images as $picture) { ?>
+                                                    <li data-thumb="{{ asset('/uploads/'.$picture) }}">
+                                                    <img src="{{ asset('/uploads/'.$picture) }}" alt="{{$estate->name}}"/>
+                                                    </li>
+                                                    <?php } ?>
 
 
 
@@ -274,15 +276,9 @@
                                     <div class="agent_widget">
                                         <div class="agent_pic">
                                             <a href="agent.html" title="">
-                                                <img src="img/demo/man1.jpg" alt=""/>
+                                                <img src="{{$estate->owner->imageurl}}" alt=""/>
                                                 <h5>{{$estate->owner->name}}</h5>
                                             </a>
-                                        </div>
-                                        <div class="agent_social">
-                                            <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                                            <a href="#" title=""><i class="fa fa-google-plus"></i></a>
-                                            <a href="#" title=""><i class="fa fa-twitter"></i></a>
-                                            <a href="#" title=""><i class="fa fa-tumblr"></i></a>
                                         </div>
 
                                         <span>
@@ -293,7 +289,8 @@
                                         </span>
 
 
-                                        <a href="agent.html" title="" class="btn contact-agent">Find more</a>
+                                        <a href="agent.html" title="" id="book" class="btn contact-agent">Book An Appointment
+                                            </a>
                                     </div>
                                 </div><!-- Follow Widget -->
 

@@ -225,7 +225,8 @@
                                 <div class="col-md-4">
                                     <div class="properties-box">
                                         <div class="properties-thumb">
-                                            <img src="{{$estate->imageurl}}" alt=""/>
+                                            <img src="{{  asset('/uploads/'.$estate->images['0']) ?? ''  }}" alt=""/>
+
                                             <span class="spn-status"> For Rent </span>
                                             <span class="spn-save"> <i class="ti ti-heart"></i> </span>
                                             <ul class="property-info">

@@ -44,11 +44,7 @@ class EstateController extends Controller
         if ($request->hasfile('images')) {
 
             foreach ($request->file('images') as $image) {
-
-                $name = $image->getClientOriginalName();
-                $image->store('/', 'uploads');
-                $data_images[] = $name;
-
+                $data_images[] =   $image->store('/', 'uploads');
             }
         }
 

@@ -45,12 +45,7 @@ class ApartmentController extends Controller
         if ($request->hasfile('photos')) {
 
             foreach ($request->file('photos') as $image) {
-
-//                $name = $image->getClientOriginalName();
                 $data_photos[] =   $image->store('/', 'uploads');
-//                $data_photos[] = $name;
-
-
             }
         }
         $apartment = new Apartment([

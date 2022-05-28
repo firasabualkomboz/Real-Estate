@@ -199,11 +199,6 @@
                                 @foreach($estates as $estate)
                                     <tr data-row="0" class="datatable-row" style="left: 0px;">
 
-                                        <?php foreach (json_decode($estate->images)as $picture) { ?>
-                                        <img src="{{ asset('/uploads/'.$picture) }}" width="100%" class="border"/>
-
-                                        <?php } ?>
-
                                         <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
                                                >{{$estate->id}}</span></td>
 
