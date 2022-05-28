@@ -168,41 +168,44 @@
                                 <thead class="datatable-head">
 
                                 <tr class="datatable-row" style="left: 0px;">
-                                    <th class="datatable-cell datatable-toggle-detail"><span></span></th>
                                     <th data-field="Order ID" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">#ID</span></th>
+                                           >#ID</span></th>
 
                                     <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Time</span></th>
+                                            style="width: 110px;">Estate Name </span></th>
                                     <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
                                             style="width: 110px;">Location</span></th>
                                     <th data-field="Deposit Paid" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Count Floor</span></th>
+                                            style="width: 110px;">Property Type </span></th>
 
                                     <th data-field="Deposit Paid" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Count Apartments</span></th>
+                                            style="width: 110px;">Rent</span></th>
                                     <th data-field="Deposit Paid" class="datatable-cell datatable-cell-sort"><span
+                                            style="width: 110px;">Status</span></th>       <th data-field="Deposit Paid" class="datatable-cell datatable-cell-sort"><span
                                             style="width: 110px;">Owner</span></th>
                                     <th data-field="Order Date" class="datatable-cell datatable-cell-sort"
-                                        style="display: none;"><span style="width: 110px;">Order Date</span></th>
+                                        style="display: none;"><span style="width: 110px;">Owner</span></th>
                                     <th data-field="Status" data-autohide-disabled="false"
                                         class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Image</span></th>
+                                            style="width: 110px;">Units</span></th>
 
                                     <th data-field="Status" data-autohide-disabled="false"
                                         class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Type</span></th>
+                                            style="width: 110px;">Action</span></th>
 
                                 </tr>
                                 </thead>
                                 <tbody style="" class="datatable-body">
                                 @foreach($estates as $estate)
                                     <tr data-row="0" class="datatable-row" style="left: 0px;">
-                                        <td class="datatable-cell datatable-toggle-detail"><a
-                                                class="datatable-toggle-detail" href=""><i
-                                                    class="fa fa-caret-right"></i></a></td>
+
+                                        <?php foreach (json_decode($estate->images)as $picture) { ?>
+                                        <img src="{{ asset('/uploads/'.$picture) }}" width="100%" class="border"/>
+
+                                        <?php } ?>
+
                                         <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
-                                                style="width: 110px;">{{$estate->id}}</span></td>
+                                               >{{$estate->id}}</span></td>
 
                                         <td data-field="Car Model" aria-label="Range Rover" class="datatable-cell"><span
                                                 style="width: 110px;">{{$estate->name}}
@@ -210,22 +213,48 @@
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
                                                 style="width: 110px;">{{$estate->location}}</span></td>
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;">{{$estate->floors}}</span></td>
+                                                style="width: 110px;">{{$estate->property->name}}</span></td>
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
 
-                                                style="width: 110px;">{{$estate->apartments}}</span></td>
-                                        <td data-field="Deposit Paid" aria-label="$22672.60"
-                                            class="datatable-cell"><span
-                                                style="width: 110px;">{{$estate->owner->name}}</span></td>
+                                                style="width: 110px;">$ {{$estate->rent}} </span></td><td data-field="Color" aria-label="Orange" class="datatable-cell"><span
+
+                                                style="width: 110px;">status  </span></td>
 
                                         <td data-field="Deposit Paid" aria-label="$22672.60"
                                             class="datatable-cell"><span
-                                                style="width: 110px;"><img width="100" src="{{$estate->imageurl}}"
-                                                                           alt=""></span></td>
+                                                style="width: 110px;">{{$estate->owner->name}}</span></td>    <td data-field="Deposit Paid" aria-label="$22672.60"
+                                            class="datatable-cell"><span
+                                                style="width: 110px;"> <span
+                                                    class="label font-weight-bold label-lg label-light-primary label-inline">0</span></span></td>
 
-                                        <td data-field="Status" data-autohide-disabled="false" aria-label="3"
-                                            class="datatable-cell"><span style="width: 110px;"><span
-                                                    class="label font-weight-bold label-lg label-light-primary label-inline">{{$estate->type}}</span></span>
+                                        <td data-field="Actions" data-autohide-disabled="false" aria-label="null"
+                                            class="datatable-cell">
+                    <span
+                        style="overflow: visible; position: relative; width: 125px; display: inline ">
+
+                        <button class="btn btn-sm"> <a style="color: #fff"
+                                                       href="{{route('manager.estates.show' , $estate->id)}}">
+
+                                <i class="fa fa-eye"></i>
+                            </a> </button>
+
+
+                        <button class="btn btn-sm"> <a style="color: #fff"
+                                                       href="{{route('manager.estates.edit' , $estate->id)}}">
+
+                                <i class="fa fa-edit"></i>
+                            </a> </button>
+
+
+                        <form method="post" style="display: inline"
+                              action="{{route('manager.estates.destroy' , $estate->id)}}">
+                        @method('DELETE')
+                            @csrf
+                            <button class="btn btn-sm" type="submit"><i class="fa fa-trash"></i></button>
+                        </form>
+
+                    </span>
+
                                         </td>
 
                                     </tr>

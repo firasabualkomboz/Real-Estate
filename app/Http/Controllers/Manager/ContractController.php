@@ -28,32 +28,34 @@ class ContractController extends Controller
         $apartments = Apartment::all();
         $tenants = User::where('type', '0')->get();
         $contact = new Contract();
-        if ($apartments->count() == 0) {
-            return view('manager.apartments.create');
-        }
+
         if ($tenants->count() == 0) {
             alert('Note : Done Have Any Tenant Now !');
         }
-        return view('manager.contracts.create', compact('apartments', 'contact', 'tenants'));
+        return view('manager.contracts.create', compact('apartments', 'contact', 'tenants'), [
+
+            'estates' => Estate::all(),
+        ]);
     }
 
     public function store(ContractRequest $request)
     {
 
-        $data = $request->except('image');
-        if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $data['image'] = $request->file('image')->store('/', 'uploads');
+        $data = $request->except('document');
+        if ($request->hasFile('document') && $request->file('document')->isValid()) {
+            $data['document'] = $request->file('document')->store('/', 'uploads');
         };
         $apartment = new Contract([
 
             'apartment_id' => $request->apartment_id,
+            'estate_id' => $request->estate_id,
             'tenant_id' => $request->tenant_id,
-            'price' => $request->price,
+//            'price' => $request->price,
             'commission' => $request->commission,
             'start_at' => $request->start_at,
             'end_at' => $request->end_at,
 //            'status'      => $request->status,
-            'image' => $data['image'],
+            'document' => $data['document'],
 
         ]);
         $apartment->save();
@@ -74,5 +76,10 @@ class ContractController extends Controller
         return errorMessage();
     }
 
+    public function getEstate($id)
+    {
+        $estate = Estate::pluck('rent', 'commission');
+        return json_decode($estate);
+    }
 
 }

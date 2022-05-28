@@ -29,6 +29,7 @@ class CreateEstatesTable extends Migration
             $table->integer('bedrooms')->nullable();
             $table->integer('bathrooms')->nullable();
             $table->string('images');
+            $table->enum('status', ['available', 'rent', 'unavailable'])->default('unavailable');
 
             $table->timestamps();
         });

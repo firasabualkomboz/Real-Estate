@@ -70,6 +70,18 @@
                                 <div class="form-group row">
                                     <label for="example-time-input" class="col-3 col-form-label">Select Estate</label>
                                     <div class="col-8">
+                                        <select name="estate_id" class="form-control" id="exampleSelect1">
+                                            @foreach($estates as $estate)
+                                                <option value="{{$estate->id}}">{{$estate->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                    <div class="form-group row">
+                                    <label for="example-time-input" class="col-3 col-form-label">Select Estate</label>
+                                    <div class="col-8">
                                         <select name="apartment_id" class="form-control" id="exampleSelect1">
                                             @foreach($apartments as $apartment)
                                                 <option value="{{$apartment->id}}">{{$apartment->name}}</option>
@@ -106,22 +118,22 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Price</label>
-                                        <div class="col-8">
-                                            <input class="form-control" type="number" name="price"
-                                            >
-                                        </div>
-                                    </div>
+{{--                                    <div class="form-group row">--}}
+{{--                                        <label for="example-date-input" class="col-3 col-form-label">Rent</label>--}}
+{{--                                        <div class="col-8">--}}
+{{--                                            <input class="form-control" type="number" value="{{$estate['rent']}}" name="price"--}}
+{{--                                            >--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Commission
-                                            %</label>
-                                        <div class="col-8">
-                                            <input class="form-control" type="number" name="commission"
-                                            >
-                                        </div>
-                                    </div>
+{{--                                    <div class="form-group row">--}}
+{{--                                        <label for="example-date-input" class="col-3 col-form-label">Commission--}}
+{{--                                            %</label>--}}
+{{--                                        <div class="col-8">--}}
+{{--                                            <input class="form-control" type="number" name="commission"--}}
+{{--                                            >--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
 
                                     <div class="form-group row">
@@ -136,8 +148,8 @@
                                                     data-action="change" data-toggle="tooltip" title=""
                                                     data-original-title="Change avatar">
                                                     <i class="fa fa-pen icon-sm text-muted"></i>
-                                                    <input type="file" name="image" accept=".png, .jpg, .jpeg">
-                                                    <input type="hidden" name="image">
+                                                    <input type="file" name="document" accept=".png, .jpg, .jpeg">
+                                                    <input type="hidden" name="document ">
                                                 </label>
                                                 <span
                                                     class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"

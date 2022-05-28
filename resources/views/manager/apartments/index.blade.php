@@ -179,14 +179,14 @@
                                             style="width: 110px;">Name</span></th>
 
                                     <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Year Built</span></th>
+                                            style="width: 110px;">Details</span></th>
 
                                     <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Space</span></th>
+                                            style="width: 110px;">Rent</span></th>
 
                                     <th data-field="Status" data-autohide-disabled="false"
                                         class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Type Property </span>
+                                            style="width: 110px;">Status </span>
 
                                     <th data-field="Status" data-autohide-disabled="false"
                                         class="datatable-cell datatable-cell-sort"><span
@@ -214,20 +214,17 @@
                                                 style="width: 110px;">{{$apartment->name}}
 </span></td>
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;">{{$apartment->year_built}}</span></td>
+                                                style="width: 110px;">{{$apartment->description}}</span></td>
 
 
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;"> <strong> {{$apartment->space}} </strong> - m2</span>
+                                                style="width: 110px;"> $ {{$apartment->rent}} </span>
+                                        </td>      <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
+                                                style="width: 110px;">   <span
+                                                    class="label font-weight-bold label-lg  label-light-info label-inline">  {{$apartment->status}}</span> </span>
                                         </td>
 
 
-                                        <td data-field="Deposit Paid" aria-label="$22672.60"
-                                            class="datatable-cell"><span
-                                                style="width: 110px;">                                            <span
-                                                    class="label font-weight-bold label-lg  label-light-info label-inline">{{$apartment->property->name}}</span>
-</span>
-                                        </td>
 
 
                                         <td data-field="Deposit Paid" aria-label="$22672.60"
@@ -236,26 +233,33 @@
                                             <span
                                                 class="label font-weight-bold label-lg  label-light-success label-inline">{{$apartment->estate->name}}</span>
                                             </span></td>
-
-                                        <td data-field="Deposit Paid" aria-label="$22672.60"
+                                        <td data-field="Actions" data-autohide-disabled="false" aria-label="null"
                                             class="datatable-cell">
+                    <span
+                        style="overflow: visible; position: relative; width: 125px; display: inline ">
 
-                                            <span
-                                                style="width: 110px;">
-                                                <a href="{{route('manager.apartments.show' , $apartment->id)}}">  <i
-                                                        class="fa fa-eye"></i> </a>
-                                            </span>
-{{--                                            <span>--}}
-{{--                                                <form method="post"--}}
-{{--                                                      action="{{route('manager.apartments.destroy' , $apartment->id)}}">--}}
-{{--                                                @method('DELETE')--}}
-{{--                                                    @csrf--}}
-{{--                                              <button class="btn btn-sm" type="submit">   <i class="fa fa-trash"></i></button>--}}
-{{--                                            </form>--}}
+                        <button class="btn btn-sm"> <a style="color: #fff"
+                                                       href="{{route('manager.apartments.show' , $apartment->id)}}">
+
+                                <i class="fa fa-eye"></i>
+                            </a> </button>
 
 
-{{--                                            </span>--}}
+                        <button class="btn btn-sm"> <a style="color: #fff"
+                                                       href="{{route('manager.apartments.edit' , $apartment->id)}}">
 
+                                <i class="fa fa-edit"></i>
+                            </a> </button>
+
+
+                        <form method="post" style="display: inline"
+                              action="{{route('manager.apartments.destroy' , $apartment->id)}}">
+                        @method('DELETE')
+                            @csrf
+                            <button class="btn btn-sm" type="submit"><i class="fa fa-trash"></i></button>
+                        </form>
+
+                    </span>
 
                                         </td>
 

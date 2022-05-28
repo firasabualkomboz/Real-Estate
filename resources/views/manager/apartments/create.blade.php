@@ -94,6 +94,10 @@
                                     </div>
 
 
+
+
+
+
                                     <div class="form-group row">
                                         <label for="example-date-input" class="col-3 col-form-label">Name</label>
                                         <div class="col-8">
@@ -118,10 +122,18 @@
                                         </div>
                                     </div>
 
+
+
                                     <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Year Built</label>
+                                        <label for="example-date-input" class="col-3 col-form-label">Rent </label>
                                         <div class="col-8">
-                                            <input class="form-control" type="text" name="year_built"
+                                            <input class="form-control" type="number" name="rent"
+                                            >
+                                        </div>
+                                    </div>    <div class="form-group row">
+                                        <label for="example-date-input" class="col-3 col-form-label">commission </label>
+                                        <div class="col-8">
+                                            <input class="form-control" type="number" name="commission"
                                             >
                                         </div>
                                     </div>
@@ -140,6 +152,7 @@
                                             >
                                         </div>
                                     </div>
+
 
                                     <div class="form-group row">
                                         <label for="example-date-input" class="col-3 col-form-label">Count
@@ -232,19 +245,6 @@
 
                                     </div>
 
-
-
-                                    <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Photos </label>
-                                        <div class="col-lg-9 col-md-9 col-sm-12">
-                                            <div class="dropzone dropzone-default  dropzone-primary dz-clickable" id="kt_dropzone_2">
-                                                <div class="dropzone-msg dz-message needsclick">
-                                                    <h3 class="dropzone-msg-title">Drop files here or click to upload.</h3>
-                                                    <span class="dropzone-msg-desc">Upload up to 10 files</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
 
 

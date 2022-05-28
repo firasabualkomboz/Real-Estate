@@ -10,10 +10,9 @@ class Estate extends Model
     use HasFactory;
 
 
-
-    protected $fillable = ['name',  'rent' ,  'property_id' , 'owner_id', 'area' ,
-        'commission', 'description', 'location', 'notes', 'estate_age' , 'rooms' , '
-        bedrooms' ,'bathrooms' , 'images'];
+    protected $fillable = ['name', 'rent', 'property_id', 'owner_id', 'area',
+        'commission', 'description', 'location', 'notes', 'estate_age', 'rooms', '
+        bedrooms', 'bathrooms', 'images' , 'status'];
 
     public function owner()
     {
@@ -28,6 +27,13 @@ class Estate extends Model
         }
         //   return ($this->image);
         return asset('uploads/' . $this->image);
+    }    public function getImagesUrlAttribute()
+    {
+        if (empty($this->images)) {
+            return asset('admin_files/assets/img/backgrounds/02.png');
+        }
+        //   return ($this->image);
+        return asset('uploads/' . $this->images);
     }
 
 
@@ -41,19 +47,21 @@ class Estate extends Model
         return $this->hasMany(Apartment::class);
     }
 
-//    protected function tags()
-//    {
-//        return $this->belongsToMany(Tag::class, 'estate_tag',
-//            'estate_id'  , 'tag_id',
-//            'id', 'id')->withPivot([
-//                'estate_id' , 'tag_id'
-//        ]);
-//    }
-
-    protected function tags()
+    public function property()
     {
-        return $this->belongsToMany(Tag::class, 'estate_tag');
+        return $this->belongsTo(Property::class);
     }
 
+    public function tags(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+
+    {
+        return $this->belongsToMany(Tag::class, 'estates_tags', 'estate_id', 'tag_id', 'id', 'id');
+    }
+
+
+    public function contract()
+    {
+        return $this->hasMany(Contract::class);
+    }
 
 }

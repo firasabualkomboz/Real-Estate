@@ -12,6 +12,11 @@ class Property extends Model
     protected $fillable = ['name'];
 
 
+    public function estate()
+    {
+        return $this->hasMany(Estate::class);
+    }
+
     public function apartment()
     {
         return $this->hasMany(Apartment::class);

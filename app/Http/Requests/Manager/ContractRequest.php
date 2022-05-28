@@ -25,13 +25,13 @@ class ContractRequest extends FormRequest
     {
         return [
 
-            'apartment_id'  => 'required',
+//            'apartment_id'  => 'required',
             'tenant_id'     => 'required|exists :users,id',
-            'price'         => 'required',
-            'commission'    => 'required',
+//            'price'         => 'required',
+//            'commission'    => 'required',
             'start_at'      => 'required',
             'end_at'        => 'required',
-            'image'         => 'required',
+            'document'         => 'required',
 
         ];
     }

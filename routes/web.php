@@ -35,6 +35,7 @@ Route::middleware(['auth', 'IsManager'])->prefix('manager')->name('manager.')->g
     Route::resource('tenants', \App\Http\Controllers\Manager\TenantController::class);
     Route::resource('apartments', \App\Http\Controllers\Manager\ApartmentController::class);
     Route::resource('contracts', \App\Http\Controllers\Manager\ContractController::class);
+    Route::get('getEstate/{id}', [\App\Http\Controllers\Manager\ContractController::class , 'getEstate']);
 
 });
 

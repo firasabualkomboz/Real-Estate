@@ -37,8 +37,8 @@ class EstateRequest extends FormRequest
             'rooms' => 'required',
             'bedrooms' => 'required',
             'bathrooms' => 'required',
-            'images' => 'required|image',
-            'tags' => 'array'
+            'images' => 'required',
+//            'tags' => 'array'
         ];
     }
 }

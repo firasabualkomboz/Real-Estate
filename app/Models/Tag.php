@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class  Tag extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = ['name'];
 
-    protected function estates()
+    public function estates(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(Estate::class, 'estate_tag',
+         return $this->belongsToMany(Estate::class, 'estates_tags',
             'tag_id', 'estate_id', 'id',
             'id');
     }

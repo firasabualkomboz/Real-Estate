@@ -27,13 +27,13 @@ class ApartmentRequest extends FormRequest
             'name' => 'required',
             'description' => 'required',
             'features' => 'required',
-            'year_built' => 'required',
+            'rent' => 'required',
+            'commission' => 'required',
             'space' => 'required',
             'rooms' => 'required',
             'bathroom' => 'required',
             'on_floor' => 'required',
             'image' => 'required',
-            'property_id' => 'required',
             'estate_id' => 'required',
         ];
     }

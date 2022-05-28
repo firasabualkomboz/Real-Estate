@@ -15,14 +15,18 @@ class CreateContractsTable extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('apartment_id')->constrained('apartments')->cascadeOnDelete();
+            $table->foreignId('apartment_id')->nullable()->constrained('apartments')->cascadeOnDelete();
+            $table->foreignId('estate_id')->constrained('estates')->cascadeOnDelete();
+//            $table->integer('rent');
+//            $table->integer('commission');
+
             $table->foreignId('tenant_id')->constrained('users')->cascadeOnDelete();
-            $table->unsignedInteger('price')->default(0);
-            $table->unsignedInteger('commission')->default(0);
+
             $table->date('start_at');
             $table->date('end_at');
-            $table->enum('status', ['active', 'expired'])->default('active');
-            $table->string('image');
+
+
+            $table->string('document');
             $table->timestamps();
         });
     }

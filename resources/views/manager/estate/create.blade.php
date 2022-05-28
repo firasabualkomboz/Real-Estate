@@ -244,7 +244,7 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Select Estate Location</label>
-                                                        <input type="text" class="form-control form-control-solid form-control-lg" name="location">
+                                                        <input type="text" class="form-control form-control-solid form-control-lg" id="pac-input" name="location">
 
                                                         <div id="map" class="mt-3" style="height: 500px;width: 650px;"></div>
 
@@ -315,11 +315,11 @@
                                                                     @foreach ($tags as $tag)
 
                                                                     <label class="checkbox">
-                                                                        <input type="checkbox"  name="tag[]"  value="{{$tag->id}}" @if (in_array($tag->id , $estate_tag))
-                                                                            checked
-                                                                            @endif>{{$tag->name}}
+                                                                        <input type="checkbox" name="tags[]" value="{{$tag->id}}">
+                                                                        {{$tag->name}}
                                                                         <span></span></label>
                                                                     @endforeach
+
 
                                                                 </div>
 
@@ -338,7 +338,7 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group fv-plugins-icon-container">
                                                                 <label>Estate Images </label>
-                                                                <input type="file" class="form-control form-control-solid form-control-lg" name="images">
+                                                                <input type="file" class="form-control form-control-solid form-control-lg" name="images[]" multiple>
                                                                 <div class="fv-plugins-message-container"></div></div>
                                                             <!--end::Input-->
                                                         </div>

@@ -156,7 +156,7 @@
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
                                         <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> Type Property </a>
-                                        <span class="text-muted">{{$apartment->property->name}}</span>
+                                        <span class="text-muted">{{$apartment->estate->name}}</span>
                                     </div>
                                     <!--end::Text-->
                                 </div>

@@ -42,13 +42,6 @@ class ApartmentController extends Controller
 
         $photos = [];
 
-//        if ($request->hasFile('photos')) {
-//            foreach ($request->file('photos') as $item) {
-//                $item = $request->file('photos')->store('/', 'uploads');
-//                $data_photos[] = $item;
-//
-//            }
-//        }
         if ($request->hasfile('photos')) {
 
             foreach ($request->file('photos') as $image) {
@@ -65,7 +58,8 @@ class ApartmentController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'features' => $request->features,
-            'year_built' => $request->year_built,
+            'rent' => $request->rent,
+            'commission' => $request->commission,
             'space' => $request->space,
             'rooms' => $request->rooms,
             'bathroom' => $request->bathroom,

@@ -9,13 +9,14 @@ use App\Models\Property;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class EstateController extends Controller
 {
     public function index()
     {
-        $estates = Estate::with('owner')->get();
+        $estates = Estate::with('owner' , 'property')->get();
         return view('manager.estate.index', compact('estates'));
     }
 
@@ -29,7 +30,7 @@ class EstateController extends Controller
             'estate' => new Estate(),
             'properties' => Property::all(),
             'tags' => Tag::all(),
-            'estate_tag' => [],
+            'estate_tags' => [],
             'owners' => User::where('type' , '2')->get()
 
         ]);
@@ -38,10 +39,18 @@ class EstateController extends Controller
     public function store(EstateRequest $request)
     {
 
-        $data = $request->except('images');
-        if ($request->hasFile('images') && $request->file('images')->isValid()) {
-            $data['images'] = $request->file('images')->store('/', 'uploads');
-        };
+        $images = [];
+
+        if ($request->hasfile('images')) {
+
+            foreach ($request->file('images') as $image) {
+
+                $name = $image->getClientOriginalName();
+                $image->store('/', 'uploads');
+                $data_images[] = $name;
+
+            }
+        }
 
         $estate = new Estate([
             'name' => $request->name,
@@ -57,14 +66,14 @@ class EstateController extends Controller
             'bathrooms' => $request->bathrooms,
             'bedrooms' => $request->bedrooms,
             'rooms' => $request->rooms,
-            'images' => $data['images'],
-
+            'images' => json_encode($data_images),
 
         ]);
+        $estate->save();
+        dd($estate);
+        $tags = $request->post('tags' , []);
 
-        $tags = $request->post('tag' , []);
         $estate->tags()->attach($tags);
-
 
         return $this->successMsg();
 
