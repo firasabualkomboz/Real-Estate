@@ -217,8 +217,8 @@
                                         <span class="text-muted">
                                               <?php foreach (json_decode($apartment->photos)as $picture) { ?>
                                             <img src="{{ asset('/uploads/'.$picture) }}" width="100%" class="border"/>
-
                                             <?php } ?>
+
 
                                         </span>
                                     </div>

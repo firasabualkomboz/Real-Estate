@@ -46,9 +46,9 @@ class ApartmentController extends Controller
 
             foreach ($request->file('photos') as $image) {
 
-                $name = $image->getClientOriginalName();
-                $image->store('/', 'uploads');
-                $data_photos[] = $name;
+//                $name = $image->getClientOriginalName();
+                $data_photos[] =   $image->store('/', 'uploads');
+//                $data_photos[] = $name;
 
 
             }

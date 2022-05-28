@@ -103,6 +103,7 @@
                                               </tr>
                                               </thead>
                                               <tbody class="datatable-body" style="">
+                                              @forelse($owner->estate as $item)
 
                                               <tr data-row="0" class="datatable-row" style="left: 0px;">
 
@@ -111,24 +112,48 @@
                                                       >2</span></td>
 
                                                   <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                                                          style="width: 126px;">{{$owner->name}}</span></td>
-
-
-                                                  <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                                                          style="width: 126px;">{{$owner->name}}</span></td>
-                                                  <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                                                          style="width: 126px;">{{$owner->email}}</span></td>
+                                                          style="width: 126px;">{{$item->name}}</span></td>
 
                                                   <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                                                          style="width: 126px;">{{$owner->phone}}</span></td>
+                                                          style="width: 126px;">{{$item->name}}</span></td>
+                                                  <td data-field="Country" aria-label="China" class="datatable-cell"><span
+                                                          style="width: 126px;">{{$item->apartment->count()}}</span></td>
 
                                                   <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                                                          style="width: 126px;">{{$owner->address}}</span></td>
+                                                          style="width: 126px;">{{$item->status}}</span></td>
+
+                                                  <td data-field="Country" aria-label="China" class="datatable-cell"><span
+                                                          style="width: 126px;">{{$item->address}}</span></td>
+
+
+{{--                                                    <td data-field="Actions" data-autohide-disabled="false" aria-label="null"--}}
+{{--                                                    class="datatable-cell">--}}
+{{--                                                    <span--}}
+{{--                                                    style="overflow: visible; position: relative; width: 125px; display: inline ">--}}
+{{--                                                    --}}
+{{--                                                    <button class="btn btn-sm"> <a style="color: #fff"--}}
+{{--                                                    href="{{route('manager.estates.show' , $item->id)}}">--}}
+{{--                                                    --}}
+{{--                                                    <i class="fa fa-eye"></i>--}}
+{{--                                                    </a> </button>--}}
+{{--                                                    --}}
+{{--                                                    --}}
+{{--                                                    --}}
+{{--                                                    --}}
+{{--                                                    --}}
+{{--                                                    </span>--}}
+{{--                                                    --}}
+{{--                                                    </td>--}}
 
 
 
 
                                               </tr>
+                                              @empty
+                                                  <td class="datatable-cell">There is now Estate For you </td>
+                                              @endforelse
+
+
 
 
                                               </tbody>

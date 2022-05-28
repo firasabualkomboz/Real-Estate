@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Manager\OwnerRequest;
+use App\Models\Estate;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +19,7 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        $owners = User::where('type', '2')->get();
+        $owners = User::where('type', '2')->with('estate')->get();
         return view('manager.owners.index', compact('owners'));
     }
 
@@ -69,7 +70,7 @@ class OwnerController extends Controller
     public function show($id)
     {
         $owner = User::findOrFail($id);
-        return view('manager.owners.show', compact('owner'));
+        return view('manager.owners.show', compact('owner' ));
     }
 
     /**

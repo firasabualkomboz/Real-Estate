@@ -70,7 +70,6 @@ class EstateController extends Controller
 
         ]);
         $estate->save();
-        dd($estate);
         $tags = $request->post('tags' , []);
 
         $estate->tags()->attach($tags);
