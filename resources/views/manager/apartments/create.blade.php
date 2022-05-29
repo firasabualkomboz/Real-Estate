@@ -94,70 +94,82 @@
                                     </div>
 
 
-
-
-
-
                                     <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Name</label>
-                                        <div class="col-8">
+                                        <div class="col-6">
+                                            <label for="example-date-input" class="col-form-label">Name</label>
+
                                             <input class="form-control" type="text" name="name"
                                             >
                                         </div>
+
+                                            <div class="col-6">
+                                                <label for="example-date-input" class="col-form-label">Space</label>
+
+                                                <input class="form-control" type="number" name="space">
+                                            </div>
+
+
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Description</label>
-                                        <div class="col-8">
+                                        <div class="col-6">
+                                            <label for="example-date-input" class="col-form-label">Description</label>
                                             <textarea class="form-control" name="description"
                                                       rows="3"></textarea>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Features</label>
-                                        <div class="col-8">
+                                        <div class="col-6">
+                                            <label for="example-date-input" class="col-form-label">Features</label>
+
                                             <textarea class="form-control" name="features"
                                                       rows="3"></textarea>
                                         </div>
+
+
+
                                     </div>
 
 
-
                                     <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Rent </label>
-                                        <div class="col-8">
+
+
+                                        <div class="col-4">
+                                            <label for="example-date-input" class="col-form-label">Rent </label>
+
                                             <input class="form-control" type="number" name="rent"
                                             >
                                         </div>
-                                    </div>    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">commission </label>
-                                        <div class="col-8">
+
+                                        <div class="col-4">
+                                            <label for="example-date-input" class="col-form-label">commission </label>
+
                                             <input class="form-control" type="number" name="commission"
                                             >
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Space</label>
-                                        <div class="col-8">
-                                            <input class="form-control" type="number" name="space"
-                                            >
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Photos</label>
-                                        <div class="col-8">
-                                            <input class="form-control" type="file" name="photos[]" multiple
-                                            >
-                                        </div>
-                                    </div>
 
 
+
+                                            <div class="col-4">
+                                                <label for="example-time-input" class="col-form-label">Select
+                                                    Status</label>
+                                                <select name="status" class="form-control" id="exampleSelect1">
+                                                    <option value="rent">Rent</option>
+                                                    <option value="available">available</option>
+                                                    <option value="unavailable">unavailable</option>
+
+                                                </select>
+                                            </div>
+
+                                    </div>
+
+
+
+
                                     <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Count
-                                            Rooms </label>
-                                        <div class="col-8">
+
+                                        <div class="col-4">
+                                            <label for="example-date-input" class="col-form-label">Count
+                                                Rooms </label>
                                             <select name="rooms" class="form-control" id="exampleSelect1">
                                                 @for($i = 1 ; $i<= 10; $i++)
                                                     <option value="{{$i}}">{{$i}}</option>
@@ -165,24 +177,22 @@
                                             </select>
 
                                         </div>
-                                    </div>
 
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">Count
-                                            Bathroom </label>
-                                        <div class="col-8">
+
+                                        <div class="col-4">
+                                            <label for="example-date-input" class="col-form-label">Count
+                                                Bathroom </label>
                                             <select name="bathroom" class="form-control" id="exampleSelect1">
                                                 @for($i = 1 ; $i<= 5; $i++)
                                                     <option value="{{$i}}">{{$i}}</option>
                                                 @endfor
                                             </select>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-3 col-form-label">On The
-                                            Floor </label>
-                                        <div class="col-8">
+
+                                        <div class="col-4">
+                                            <label for="example-date-input" class="col-form-label">On The
+                                                Floor </label>
                                             <select name="on_floor" class="form-control" id="exampleSelect1">
                                                 @for($i = 1 ; $i<= 20; $i++)
                                                     <option value="{{$i}}">{{$i}}</option>
@@ -190,38 +200,67 @@
                                             </select>
 
                                         </div>
+
+
                                     </div>
 
 
+
                                     <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Type Estate</label>
-                                        <div class="col-8">
+
+                                        <div class="col-4">
+                                            <label for="example-time-input" class="col-form-label">Select
+                                                Owner</label>
+                                            <select name="owner_id" class="form-control" id="exampleSelect1">
+                                                @foreach ($owners as $owner)
+                                                    <option value="{{$owner->id}}">{{$owner->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="col-4">
+                                            <label for="example-time-input" class="col-form-label">Select Estate</label>
+
                                             <select name="estate_id" class="form-control" id="exampleSelect1">
                                                 @foreach($estates as $estate)
                                                     <option value="{{$estate->id}}">{{$estate->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Select
-                                            Property</label>
-                                        <div class="col-8">
+                                        <div class="col-4">
+                                            <label for="example-time-input" class="col-form-label">Select
+                                                Type Property</label>
                                             <select name="property_id" class="form-control" id="exampleSelect1">
                                                 @foreach($properties as $property)
                                                     <option value="{{$property->id}}">{{$property->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
+
+
+
                                     </div>
 
 
-                                    <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Image </label>
 
-                                        <div class="col-lg-8 col-xl-6">
+
+
+                                    <div class="form-group row">
+
+                                        <div class="col-9">
+                                            <label for="example-date-input" class="col-form-label">Photos</label>
+
+                                            <input class="form-control" type="file" name="photos[]" multiple
+                                            >
+                                        </div>
+
+
+                                        <div class="col-lg-3 col-xl-3">
+
                                             <div class="image-input image-input-outline" id="kt_image_1">
+                                                <label for="example-time-input" class="col-form-label">Image </label>
+
                                                 <div class="image-input-wrapper"
                                                      style="background-image: url(assets/media/users/100_1.jpg)"></div>
                                                 <label
@@ -243,9 +282,8 @@
                                         </div>
 
 
+
                                     </div>
-
-
 
 
                                 </div>

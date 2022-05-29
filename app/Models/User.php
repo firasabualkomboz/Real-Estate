@@ -73,4 +73,8 @@ class User extends Authenticatable
         return asset('uploads/' . $this->document);
     }
 
+    public function apartment()
+    {
+        return $this->hasMany(Apartment::class , 'owner_id' , 'id');
+    }
 }

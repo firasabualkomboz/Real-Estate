@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Manager\OwnerRequest;
+use App\Models\Apartment;
 use App\Models\Estate;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        $owners = User::where('type', '2')->with('estate')->get();
+        $owners = User::where('type', '2')->with('estate' , 'apartment')->get();
         return view('manager.owners.index', compact('owners'));
     }
 
@@ -69,8 +70,10 @@ class OwnerController extends Controller
      */
     public function show($id)
     {
+        $allApartmentRent = Apartment::where('owner_id' , $id)->where('status' , 'rent')->get();
+
         $owner = User::findOrFail($id);
-        return view('manager.owners.show', compact('owner' ));
+        return view('manager.owners.show', compact('owner' , 'allApartmentRent' ));
     }
 
     /**

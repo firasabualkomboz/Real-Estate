@@ -20,6 +20,12 @@ class EstateController extends Controller
         return view('manager.estate.index', compact('estates'));
     }
 
+    public function show($id)
+    {
+        $estate = Estate::find($id);
+            return view('manager.estate.show');
+    }
+
     public function create()
     {
 //        $owners = User::where('type', '2')->get();

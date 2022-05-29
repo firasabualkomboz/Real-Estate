@@ -23,10 +23,11 @@ class CreateApartmentsTable extends Migration
             $table->integer('bathroom');
             $table->integer('on_floor');
             $table->string('image');
-            $table->string('photos');
+            $table->longText('photos');
             $table->integer('rent');
             $table->integer('commission');
             $table->foreignId('estate_id')->constrained('estates')->cascadeOnDelete();
+            $table->foreignId('owner_id')->constrained('users')->cascadeOnDelete();
             $table->enum('status', ['available', 'rent', 'unavailable'])->default('unavailable');
             $table->timestamps();
         });

@@ -11,7 +11,7 @@ class Apartment extends Model
 
     protected $fillable =
         ['name', 'description', 'features', 'rent' , 'commission', 'space',
-            'rooms', 'bathroom', 'on_floor', 'image', 'estate_id', 'photos' , 'status'];
+            'rooms', 'bathroom', 'on_floor', 'image', 'estate_id', 'photos' , 'status' , 'owner_id'];
 
 
     public function property()
@@ -42,5 +42,9 @@ class Apartment extends Model
         return $this->hasMany(Support::class);
     }
 
+    public function owner()
+    {
+     return $this->belongsTo(User::class);
+    }
 
 }

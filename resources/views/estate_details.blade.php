@@ -218,11 +218,15 @@
                                         </div>
 
 
-                                        <div class="send-email-to-agent">
+                                        <div class="send-email-to-agent" id="appointment">
                                             <div class="comment-form">
                                                 <div class="heading3">
                                                     <h3>Book An Appointment</h3>
                                                 </div>
+                                                @if(session('success'))
+                                                    <h1>{{session('success')}}</h1>
+                                                @endif
+
                                                 @if ($errors->any())
                                                     <div class="alert alert-danger">
                                                         <ul>
@@ -233,20 +237,44 @@
                                                     </div>
                                                 @endif
 
-                                                <form method="post" action="{{route('tenant.makeAppointment')}}">
+                                                <form method="post" action="{{route('makeAppointment')}}">
                                                     @csrf
-                                                    <input type="hidden" name="estate_id" value="{{$estate->id}}"/>
+                                                    <input type="hidden" name="apartment_id"
+                                                           value="{{$estate->id}}"/>
 
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <label>
                                                                 <i class="fa fa-user"></i>
+                                                                <input type="text" name="name" placeholder="Name"/>
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                                <i class="fa fa-user"></i>
+                                                                <input type="email" name="email" placeholder="Email"/>
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                                <i class="fa fa-user"></i>
+                                                                <input type="text" name="phone"
+                                                                       placeholder="97059 00 00 00 0"/>
+                                                            </label>
+                                                        </div>
+
+
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                                <i class="fa fa-calendar"></i>
                                                                 <input type="date" name="date" placeholder="Date"/>
                                                             </label>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <label>
-                                                                <i class="fa fa-at"></i>
+                                                                <i class="fa fa-calendar-times-o"></i>
                                                                 <input type="time" name="time" placeholder="Time"/>
                                                             </label>
                                                         </div>
@@ -265,7 +293,6 @@
                                                 </form>
                                             </div>
                                         </div>
-
 
                                     </div><!-- Blog Post -->
                                 </div><!-- Blog POst Sec -->

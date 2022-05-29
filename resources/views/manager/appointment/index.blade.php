@@ -289,65 +289,80 @@
                         </div>
                         <!--end::Search Form-->
                         <!--end: Search Form-->
-                        <!--begin: Datatable-->
-                        <div class="datatable datatable-default datatable-primary datatable-loaded">
-                            <table class="datatable-bordered datatable-head-custom datatable-table" id="kt_datatable"
-                                   style="display: block;">
-                                <thead class="datatable-head">
+                        <table class="table datatable-table" id="kt_datatable"
+                        >
+                            <thead class="datatable-head">
 
-                                <tr class="datatable-row" style="left: 0px;">
-                                    <th class="datatable-cell datatable-toggle-detail"><span></span></th>
-                                    <th data-field="Order ID" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">#ID</span></th>
+                            <tr class="datatable-row" style="left: 0px;">
 
-                                    <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Date</span></th>
+                                <th data-field="Order ID" class="datatable-cell datatable-cell-sort"><span
+                                    >#ID</span></th>
 
-                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Time</span></th>
-
-                                    <th data-field="Deposit Paid" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Tenant</span></th>
-                                    <th data-field="Order Date" class="datatable-cell datatable-cell-sort"
-                                        style="display: none;"><span style="width: 110px;">Status</span></th>
+                                <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
+                                    >Tenant Name </span></th>
 
 
+                                <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
+                                    >Email </span></th>
+
+                                <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
+                                    >phone </span></th>
+
+                                <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
+                                    >Date</span></th>
+
+                                <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
+                                    >Time</span></th>
+
+                                <th data-field="Deposit Paid" class="datatable-cell datatable-cell-sort"><span
+                                    >Note</span></th>     <th data-field="Deposit Paid" class="datatable-cell datatable-cell-sort"><span
+                                    >Status</span></th>
+                                <th data-field="Order Date" class="datatable-cell datatable-cell-sort"
+                                    style="display: none;"><span >Status</span></th>
+
+
+
+                            </tr>
+                            </thead>
+                            <tbody style="" class="datatable-body">
+                            @foreach($appointments as $appointment)
+                                <tr data-row="0" class="datatable-row" style="left: 0px;">
+
+
+                                    <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
+                                        >{{$appointment->id}}</span></td>
+
+
+                                    <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
+                                        >{{$appointment->name}}</span></td>
+                                    <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
+                                        >{{$appointment->email}}</span></td>
+                                    <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
+                                        >{{$appointment->phone}}</span></td>
+
+                                    <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
+                                        >{{$appointment->date}}</span></td>
+
+
+                                    <td data-field="Car Model" aria-label="Range Rover" class="datatable-cell"><span
+                                        >{{\Carbon\Carbon::createFromFormat('H:i:s',$appointment->time)->format('h:i')}}
+</span></td>
+                                    <td class="datatable-cell"><span
+                                        >{{$appointment->note}}</span></td>
+
+
+                                    <td data-field="Status" data-autohide-disabled="false" aria-label="3"
+                                        class="datatable-cell"><span ><span
+                                                class="label font-weight-bold label-lg label-light-primary label-inline">{{$appointment->status}}</span></span>
+                                    </td>
 
                                 </tr>
-                                </thead>
-                                <tbody style="" class="datatable-body">
-                                @foreach($appointments as $appointment)
-                                    <tr data-row="0" class="datatable-row" style="left: 0px;">
-                                        <td class="datatable-cell datatable-toggle-detail"><a
-                                                class="datatable-toggle-detail" href=""><i
-                                                    class="fa fa-caret-right"></i></a></td>
-                                        <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
-                                                style="width: 110px;">{{$appointment->id}}</span></td>
-
-                                        <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
-                                                style="width: 110px;">{{$appointment->date}}</span></td>
-
-                                        <td data-field="Car Model" aria-label="Range Rover" class="datatable-cell"><span
-                                                style="width: 110px;">{{\Carbon\Carbon::createFromFormat('H:i:s',$appointment->time)->format('h:i')}}
-</span></td>
-                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;">
-                                            </span></td>
-
-                                        <td data-field="Status" data-autohide-disabled="false" aria-label="3"
-                                            class="datatable-cell"><span style="width: 110px;"><span
-                                                    class="label font-weight-bold label-lg label-light-primary label-inline">{{$appointment->status}}</span></span>
-                                        </td>
-
-                                    </tr>
-                                @endforeach
+                            @endforeach
 
 
-                                </tbody>
-                            </table>
+                            </tbody>
+                        </table>
 
-                        </div>
-                        <!--end: Datatable-->
                     </div>
                 </div>
             </div>

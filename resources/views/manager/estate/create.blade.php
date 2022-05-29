@@ -150,6 +150,7 @@
                                                         </div>
 
 
+
                                                         <div class="col-xl-6">
                                                             <div class="form-group fv-plugins-icon-container">
                                                                 <label>Select Property Type <span style="color: red"> * </span></label>

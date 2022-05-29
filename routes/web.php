@@ -19,7 +19,7 @@ Route::get('/', [\App\Http\Controllers\front\GeneralController::class, 'index'])
 Route::get('/estate{id}', [\App\Http\Controllers\front\GeneralController::class, 'showEstate'])->name('showEstate');
 Route::get('/support', [\App\Http\Controllers\front\GeneralController::class, 'support'])->name('support');
 Route::get('/apartment/{id}', [\App\Http\Controllers\front\GeneralController::class, 'showApartment'])->name('showApartment');
-
+Route::post('/makeAppointment', [\App\Http\Controllers\front\GeneralController::class, 'makeAppointment'])->name('makeAppointment');
 
 Auth::routes();
 
@@ -45,7 +45,6 @@ Route::middleware(['auth', 'IsOwner'])->prefix('owner')->name('owner.')->group(f
 
 Route::middleware(['auth', 'IsTenant'])->name('tenant.')->prefix('tenant')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'tenantHome'])->name('home');
-    Route::post('/makeAppointment', [\App\Http\Controllers\front\GeneralController::class, 'makeAppointment'])->name('makeAppointment');
     Route::get('/appointment-list', [App\Http\Controllers\HomeController::class, 'appointmentList'])->name('appointmentList');
     Route::resource('appointments', \App\Http\Controllers\Tenant\AppointmentController::class);
 

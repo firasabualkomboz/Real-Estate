@@ -10,6 +10,7 @@ use App\Models\Property;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use function app\Helper\successMessage;
 
 class GeneralController extends Controller
 {
@@ -58,19 +59,17 @@ class GeneralController extends Controller
 
         $appointments = new Appointment([
 
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
             'date' => $request->date,
             'time' => $request->time,
             'note' => $request->note
 
         ]);
 
-        if (auth()->user()->type == '0') {
-
-            $appointments->save();
-            return redirect()->back();
-        }
-        abort(404);
-
+        $appointments->save();
+        return successMessage();
     }
 
     public function support()

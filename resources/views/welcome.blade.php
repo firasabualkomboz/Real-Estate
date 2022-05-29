@@ -228,7 +228,7 @@
                                             <img src="{{  asset('/uploads/'.$estate->images['0']) ?? ''  }}" alt=""/>
 
                                             <span class="spn-status"> For Rent </span>
-                                            <span class="spn-save"> <i class="ti ti-heart"></i> </span>
+
                                             <ul class="property-info">
                                                 <li>
                                                     <i class="fa fa-home"> </i> <span> {{$estate->rooms}} </span>
@@ -242,12 +242,7 @@
                                                     <i class="fa  fa-building"> </i> <span>{{$estate->on_floor}}   </span>
                                                 </li>
                                             </ul>
-                                            <div class="user-preview">
-                                                <a class="col" href="#">
-                                                    <img alt="{{$estate->owner->name}}" class="avatar avatar-small"
-                                                         src="{{$estate->owner->imageurl}}" title="{{$estate->owner->name}}">
-                                                </a>
-                                            </div>
+
                                             <a class="proeprty-sh-more" href="{{route('showEstate' , $estate->id)}}"><i
                                                     class="ti ti-eye"> </i></a>
 

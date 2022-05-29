@@ -211,8 +211,8 @@
                                             class="datatable-cell"><span
                                                 style="width: 110px;">Estates :  <span
                                                     class="label font-weight-bold label-lg label-light-primary label-inline">{{$owner->estate->count()}}</span> <br> <br>
-                                                Estate :  <span
-                                                    class="label font-weight-bold label-lg label-light-primary label-inline">0</span> </span></td>
+                                                Apartment: <span
+                                                    class="label font-weight-bold label-lg label-light-primary label-inline">{{$owner->apartment->count() ?  : 'ss'}}</span> </span></td>
 
 
                                         <td data-field="Actions" data-autohide-disabled="false" aria-label="null"

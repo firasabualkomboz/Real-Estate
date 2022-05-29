@@ -30,7 +30,11 @@ class ApartmentController extends Controller
 //        if ($estates->count() == 0) {
 //            return view('manager.estate.create');
 //        }
-        return view('manager.apartments.create', compact('properties', 'estates', 'apartment'));
+        return view('manager.apartments.create', compact('properties', 'estates', 'apartment'), [
+
+            'owners' => User::where('type', '2')->get(),
+
+        ]);
     }
 
     public function store(ApartmentRequest $request)
@@ -45,7 +49,7 @@ class ApartmentController extends Controller
         if ($request->hasfile('photos')) {
 
             foreach ($request->file('photos') as $image) {
-                $data_photos[] =   $image->store('/', 'uploads');
+                $data_photos[] = $image->store('/', 'uploads');
             }
         }
         $apartment = new Apartment([
@@ -63,6 +67,9 @@ class ApartmentController extends Controller
             'property_id' => $request->property_id,
             'estate_id' => $request->estate_id,
             'photos' => json_encode($data_photos),
+            'owner_id' => $request->owner_id,
+            'status' => $request->status,
+
         ]);
         $apartment->save();
         return successMessage();
