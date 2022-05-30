@@ -16,17 +16,12 @@ class CreateContractsTable extends Migration
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('apartment_id')->nullable()->constrained('apartments')->cascadeOnDelete();
-            $table->foreignId('estate_id')->constrained('estates')->cascadeOnDelete();
-//            $table->integer('rent');
-//            $table->integer('commission');
-
+            $table->foreignId('estate_id')->nullable()->constrained('estates')->cascadeOnDelete();
             $table->foreignId('tenant_id')->constrained('users')->cascadeOnDelete();
-
             $table->date('start_at');
             $table->date('end_at');
-
-
             $table->string('document');
+            $table->enum('type',['estate' , 'apartment']);
             $table->timestamps();
         });
     }

@@ -183,6 +183,8 @@
 
                                     <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
                                             style="width: 110px;">Rent</span></th>
+                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
+                                            style="width: 110px;">Owner</span></th>
 
                                     <th data-field="Status" data-autohide-disabled="false"
                                         class="datatable-cell datatable-cell-sort"><span
@@ -216,10 +218,16 @@
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
                                                 style="width: 110px;">{{$apartment->description}}</span></td>
 
-
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
                                                 style="width: 110px;"> $ {{$apartment->rent}} </span>
-                                        </td>      <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
+                                        </td>
+
+                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
+                                                style="width: 110px;"> {{$apartment->owner->name}} </span>
+                                        </td>
+
+
+                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
                                                 style="width: 110px;">   <span
                                                     class="label font-weight-bold label-lg  label-light-info label-inline">  {{$apartment->status}}</span> </span>
                                         </td>

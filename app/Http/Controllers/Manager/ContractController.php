@@ -25,7 +25,7 @@ class ContractController extends Controller
 
     public function create()
     {
-        $apartments = Apartment::all();
+        $apartments = Apartment::where('status' , 'available')->get();
         $tenants = User::where('type', '0')->get();
         $contact = new Contract();
 
@@ -34,7 +34,7 @@ class ContractController extends Controller
         }
         return view('manager.contracts.create', compact('apartments', 'contact', 'tenants'), [
 
-            'estates' => Estate::all(),
+            'estates' => Estate::where('status' , 'available')->get(),
         ]);
     }
 
@@ -45,20 +45,33 @@ class ContractController extends Controller
         if ($request->hasFile('document') && $request->file('document')->isValid()) {
             $data['document'] = $request->file('document')->store('/', 'uploads');
         };
-        $apartment = new Contract([
 
-            'apartment_id' => $request->apartment_id,
-            'estate_id' => $request->estate_id,
+        $contract = new Contract([
+            'apartment_id' => $request->type == 'apartment' ? $request->apartment : null,
+            'estate_id' => $request->type = 'estate' ? $request->estate_id : null,
             'tenant_id' => $request->tenant_id,
-//            'price' => $request->price,
-            'commission' => $request->commission,
             'start_at' => $request->start_at,
             'end_at' => $request->end_at,
-//            'status'      => $request->status,
             'document' => $data['document'],
 
         ]);
-        $apartment->save();
+        dd($contract);
+        if ($request->type == 'estate'){
+            foreach ($request->estate_id as $estate){
+                Estate::update([
+                   'status' => 'rent'
+                ]);
+            }
+        }elseif ($request->type == 'apartment'){
+            foreach ($request->apartment_id as $apartment){
+                Apartment::update([
+                   'status' => 'rent'
+                ]);
+            }
+        }
+
+
+        $contract->save();
         return successMessage();
     }
 

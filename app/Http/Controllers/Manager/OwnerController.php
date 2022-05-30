@@ -72,6 +72,11 @@ class OwnerController extends Controller
     {
         $allApartmentRent = Apartment::where('owner_id' , $id)->where('status' , 'rent')->get();
 
+        foreach ($allApartmentRent as $apartment){
+            $get =  $apartment->commission  / 100;
+             $finalProfitCompany = $get * $apartment->rent . '<br>';
+        }
+
         $owner = User::findOrFail($id);
         return view('manager.owners.show', compact('owner' , 'allApartmentRent' ));
     }

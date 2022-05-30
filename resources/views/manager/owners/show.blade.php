@@ -49,6 +49,16 @@
                                                 <span class="nav-text">Estates</span>
                                             </a>
                                         </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#kt_tab_pane_3_4">
+                                                                    <span class="nav-icon">
+                                                                        <i class="flaticon2-chat-1"></i>
+                                                                    </span>
+                                                <span class="nav-text">Apartments</span>
+                                            </a>
+                                        </li>
+
                                         <li class="nav-item">
                                             <a class="nav-link" data-toggle="tab" href="#kt_tab_pane_2_4">
                                                                     <span class="nav-icon">
@@ -57,6 +67,8 @@
                                                 <span class="nav-text">Earnings</span>
                                             </a>
                                         </li>
+
+
 
                                     </ul>
                                 </div>
@@ -170,6 +182,103 @@
 
 
                                     </div>
+
+                                    <div class="tab-pane fade" id="kt_tab_pane_3_4" role="tabpanel"
+                                         aria-labelledby="kt_tab_pane_1_4">
+
+
+                                        <!--begin: Datatable-->
+                                        <div
+                                            class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
+                                            id="kt_datatable" style="">
+                                            <table class="datatable-table" style="display: block;">
+                                                <thead class="datatable-head">
+
+                                                <tr class="datatable-row" style="left: 0px;">
+
+
+                                                    <th data-field="Country" class="datatable-cell datatable-cell-sort"><span
+                                                        >#</span></th>
+
+                                                    <th data-field="Country" class="datatable-cell datatable-cell-sort"><span
+                                                            style="width: 126px;">Name</span></th>
+
+
+                                                    <th data-field="Type" data-autohide-disabled="false"
+                                                        class="datatable-cell datatable-cell-sort"><span
+                                                            style="width: 126px;"> Rent </span>
+                                                    </th>
+
+                                                    <th data-field="Type" data-autohide-disabled="false"
+                                                        class="datatable-cell datatable-cell-sort"><span
+                                                            style="width: 126px;"> Commission  </span>
+                                                    </th>
+                                                    <th data-field="Type" data-autohide-disabled="false"
+                                                        class="datatable-cell datatable-cell-sort"><span
+                                                            style="width: 126px;">Status  </span>
+                                                    </th>
+                                                    <th data-field="Type" data-autohide-disabled="false"
+                                                        class="datatable-cell datatable-cell-sort"><span
+                                                            style="width: 126px;"> Gross profit </span>
+                                                    </th>
+                                                </tr>
+
+                                                </thead>
+                                                <tbody class="datatable-body" style="">
+
+                                                @forelse($allApartmentRent as $item)
+
+                                                    <tr data-row="0" class="datatable-row" style="left: 0px;">
+
+
+                                                        <td data-field="Country" aria-label="China"
+                                                            class="datatable-cell"><span
+                                                            >2</span></td>
+
+                                                        <td data-field="Country" aria-label="China"
+                                                            class="datatable-cell"><span
+                                                                style="width: 126px;">{{$item->name}}</span></td>
+
+                                                        <td data-field="Country" aria-label="China"
+                                                            class="datatable-cell"><span
+                                                                style="width: 126px;"> $ {{$item->rent}}</span></td>
+                                                        <td data-field="Country" aria-label="China"
+                                                            class="datatable-cell"><span
+                                                                style="width: 126px;"> % {{$item->commission}}</span>
+                                                        </td>
+
+                                                        <td data-field="Country" aria-label="China"
+                                                            class="datatable-cell"><span
+                                                                style="width: 126px;" class="badge badge-primary">{{ strtoupper($item->status)  }}</span></td>
+
+                                                        <td data-field="Country" aria-label="China"
+                                                            class="datatable-cell"><span
+                                                                style="width: 126px;">
+                                                                @php
+                                                                    $get = $item->commission / 100;
+                                                        $finalProfitCompany = $get * $item->rent ;
+                                                        echo '$ ' . ( $item->rent -   $finalProfitCompany)  ;
+                                                                @endphp
+
+                                                            </span></td>
+
+
+
+                                                    </tr>
+                                                @empty
+                                                    <td class="datatable-cell">There is now Estate For you</td>
+                                                @endforelse
+
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                        <!--end: Datatable-->
+
+
+                                    </div>
+
                                     <div class="tab-pane fade" id="kt_tab_pane_2_4" role="tabpanel"
                                          aria-labelledby="kt_tab_pane_2_4">
 
@@ -312,6 +421,8 @@
 
 
             </div>
+
+
             <!--end::Container-->
         </div>
         <!--end::Entry-->

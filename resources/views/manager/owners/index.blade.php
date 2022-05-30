@@ -212,7 +212,7 @@
                                                 style="width: 110px;">Estates :  <span
                                                     class="label font-weight-bold label-lg label-light-primary label-inline">{{$owner->estate->count()}}</span> <br> <br>
                                                 Apartment: <span
-                                                    class="label font-weight-bold label-lg label-light-primary label-inline">{{$owner->apartment->count() ?  : 'ss'}}</span> </span></td>
+                                                    class="label font-weight-bold label-lg label-light-primary label-inline">{{$owner->apartment->count() ?  : '0'}}</span> </span></td>
 
 
                                         <td data-field="Actions" data-autohide-disabled="false" aria-label="null"

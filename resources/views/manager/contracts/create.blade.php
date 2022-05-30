@@ -66,34 +66,61 @@
                                         @endif
                                     </div>
 
+                                    <div class="form-group row">
+                                        <label for="example-time-input" class="col-3 col-form-label">Select a Type
+                                            Contact </label>
 
-                                <div class="form-group row">
-                                    <label for="example-time-input" class="col-3 col-form-label">Select Estate</label>
-                                    <div class="col-8">
-                                        <select name="estate_id" class="form-control" id="exampleSelect1">
-                                            @foreach($estates as $estate)
-                                                <option value="{{$estate->id}}">{{$estate->name}}</option>
-                                            @endforeach
-                                        </select>
+                                        <div class="radio-inline">
+
+                                            <label class="radio radio-rounded radio-success">
+                                                <input type="radio" value="estate" name="type">Estate
+                                                <span></span></label>
+
+                                            <label class="radio radio-rounded radio-success">
+                                                <input value="apartment" name="type"
+                                                       type="radio">Apartment
+                                                <span></span></label>
+                                            @error('type')
+                                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                                </span>
+                                            @enderror
+
+
+                                        </div>
                                     </div>
-                                </div>
 
 
                                     <div class="form-group row">
-                                    <label for="example-time-input" class="col-3 col-form-label">Select Estate</label>
-                                    <div class="col-8">
-                                        <select name="apartment_id" class="form-control" id="exampleSelect1">
-                                            @foreach($apartments as $apartment)
-                                                <option value="{{$apartment->id}}">{{$apartment->name}}</option>
-                                            @endforeach
-                                        </select>
+                                        <label for="example-time-input" class="col-3 col-form-label">Select
+                                            Estate</label>
+                                        <div class="col-8">
+                                            <select name="estate_id"  class="form-control" id="exampleSelect1">
+                                                @foreach($estates as $estate)
+                                                    <option value="{{$estate->id}}">{{$estate->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
+
+
+                                    <div class="form-group row">
+                                        <label for="example-time-input" class="col-3 col-form-label">Select
+                                            Apartment</label>
+                                        <div class="col-8">
+                                            <select name="apartment_id" class="form-control" id="exampleSelect1">
+                                                @foreach($apartments as $apartment)
+                                                    <option value="{{$apartment->id}}">{{$apartment->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
 
                                     <div class="form-group row">
                                         <label for="example-time-input" class="col-3 col-form-label">Tenant</label>
                                         <div class="col-8">
-                                            <select name="tenant_id" class="form-control" id="exampleSelect1">
+                                            <select name="tenant_id" class="form-control " id="exampleSelect1">
                                                 @foreach($tenants as $tenant)
                                                     <option value="{{$tenant->id}}">{{$tenant->name}}</option>
                                                 @endforeach
@@ -118,22 +145,25 @@
                                         </div>
                                     </div>
 
-{{--                                    <div class="form-group row">--}}
-{{--                                        <label for="example-date-input" class="col-3 col-form-label">Rent</label>--}}
-{{--                                        <div class="col-8">--}}
-{{--                                            <input class="form-control" type="number" value="{{$estate['rent']}}" name="price"--}}
-{{--                                            >--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                    {{--                                    <div class="form-group row">--}}
+                                    {{--                                        <label for="example-date-input" class="col-3 col-form-label">Rent</label>--}}
+                                    {{--                                        <div class="col-8">--}}
+                                    {{--                                            <input class="form-control" type="number" value="{{$estate['rent']}}" name="price"--}}
+                                    {{--                                            >--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
 
-{{--                                    <div class="form-group row">--}}
-{{--                                        <label for="example-date-input" class="col-3 col-form-label">Commission--}}
-{{--                                            %</label>--}}
-{{--                                        <div class="col-8">--}}
-{{--                                            <input class="form-control" type="number" name="commission"--}}
-{{--                                            >--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                    {{--                                    <div class="form-group row">--}}
+                                    {{--                                        <label for="example-date-input" class="col-3 col-form-label">Commission--}}
+                                    {{--                                            %</label>--}}
+                                    {{--                                        <div class="col-8">--}}
+                                    {{--                                            <input class="form-control" type="number" name="commission"--}}
+                                    {{--                                            >--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
+
+
+
 
 
                                     <div class="form-group row">
@@ -187,5 +217,22 @@
     @push('custom-scripts')
 
         <script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/file-upload/image-input.js"></script>
+        <script>
+            function showOrHidden() {
+                estet  = document.getElementById('estateId')
+                yes2 = document.getElementById('acc')
+
+                no1 = document.getElementById('other3')
+                no2 = document.getElementById('other4')
+
+                if (document.getElementById('estateId').checked) {
+                    $("#estateId").removeClass('hidden');
+
+                } else {
+                    no1.type = no2.type = 'text';
+                    yes1.type = yes2.type = 'hidden';
+                }
+            }
+        </script>
     @endpush
 @endsection

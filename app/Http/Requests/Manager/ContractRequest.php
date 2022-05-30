@@ -24,15 +24,13 @@ class ContractRequest extends FormRequest
     public function rules()
     {
         return [
-
-//            'apartment_id'  => 'required',
-            'tenant_id'     => 'required|exists :users,id',
-//            'price'         => 'required',
-//            'commission'    => 'required',
-            'start_at'      => 'required',
-            'end_at'        => 'required',
-            'document'         => 'required',
-
+            'apartment_id' => 'nullable',
+            'estate_id' => 'nullable',
+            'tenant_id' => 'required|exists:users,id',
+            'start_at' => 'required',
+            'end_at' => 'required',
+            'document' => 'required',
+            'type' => 'required|in:estate,apartment'
         ];
     }
 }
