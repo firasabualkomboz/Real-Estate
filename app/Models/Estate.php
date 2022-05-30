@@ -23,23 +23,13 @@ class Estate extends Model
         return $this->belongsTo(User::class);
     }
 
-
     public function getImageUrlAttribute()
     {
         if (empty($this->image)) {
             return asset('admin_files/assets/img/backgrounds/02.png');
         }
-        //   return ($this->image);
         return asset('uploads/' . $this->image);
-    }    public function getImagesUrlAttribute()
-    {
-        if (empty($this->images)) {
-            return asset('admin_files/assets/img/backgrounds/02.png');
-        }
-        //   return ($this->image);
-        return asset('uploads/' . $this->images);
     }
-
 
     public function appointment()
     {
@@ -65,7 +55,7 @@ class Estate extends Model
 
     public function contract()
     {
-        return $this->hasMany(Contract::class);
+        return $this->hasMany(Contract::class , 'estate_id' , 'id');
     }
 
 }

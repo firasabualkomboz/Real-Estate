@@ -19,22 +19,23 @@ class ContractController extends Controller
     public function index()
     {
         $apartments = Apartment::with('estate', 'property')->get();
-        $contracts = Contract::with('apartment', 'tenant')->get();
+        $contracts = Contract::with('apartment', 'tenant', 'estate')->paginate(10);
         return view('manager.contracts.index', compact('apartments', 'contracts'));
     }
 
     public function create()
     {
-        $apartments = Apartment::where('status' , 'available')->get();
+        $apartments = Apartment::where('status', 'available')->get();
         $tenants = User::where('type', '0')->get();
         $contact = new Contract();
+
 
         if ($tenants->count() == 0) {
             alert('Note : Done Have Any Tenant Now !');
         }
         return view('manager.contracts.create', compact('apartments', 'contact', 'tenants'), [
 
-            'estates' => Estate::where('status' , 'available')->get(),
+            'estates' => Estate::where('status', 'available')->get(),
         ]);
     }
 
@@ -47,32 +48,38 @@ class ContractController extends Controller
         };
 
         $contract = new Contract([
-            'apartment_id' => $request->type == 'apartment' ? $request->apartment : null,
-            'estate_id' => $request->type = 'estate' ? $request->estate_id : null,
-            'tenant_id' => $request->tenant_id,
-            'start_at' => $request->start_at,
-            'end_at' => $request->end_at,
-            'document' => $data['document'],
+
+            'type'          => $request->type,
+            'apartment_id'  => $request->type == 'apartment' ? $request->apartment_id : null,
+            'estate_id'     => $request->type == 'estate' ? $request->estate_id : null,
+            'tenant_id'     => $request->tenant_id,
+            'start_at'      => $request->start_at,
+            'end_at'        => $request->end_at,
+            'document'      => $data['document'],
 
         ]);
-        dd($contract);
-        if ($request->type == 'estate'){
-            foreach ($request->estate_id as $estate){
-                Estate::update([
-                   'status' => 'rent'
-                ]);
-            }
-        }elseif ($request->type == 'apartment'){
-            foreach ($request->apartment_id as $apartment){
-                Apartment::update([
-                   'status' => 'rent'
-                ]);
-            }
+
+        if ($request->type == 'estate') {
+
+            $estate = Estate::where('id', $request->estate_id)->first();
+            $estate->status = 'rent';
+            $estate->update();
+            $contract->save();
+
         }
 
+        if ($request->type == 'apartment') {
 
-        $contract->save();
+            $apartment = Apartment::where('id', $request->apartment_id)->first();
+            $apartment->status = 'rent';
+            $apartment->update();
+            $contract->save();
+
+        }
+
         return successMessage();
+
+
     }
 
 

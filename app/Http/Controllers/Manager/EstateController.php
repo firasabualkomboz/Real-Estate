@@ -23,7 +23,7 @@ class EstateController extends Controller
     public function show($id)
     {
         $estate = Estate::find($id);
-            return view('manager.estate.show');
+        return view('manager.estate.show' , compact('estate'));
     }
 
     public function create()

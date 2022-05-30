@@ -104,32 +104,32 @@
                                               </thead>
                                               <tbody class="datatable-body" style="">
 
+
+                                              @foreach($tenant->contract as $item)
+
                                               <tr data-row="0" class="datatable-row" style="left: 0px;">
 
 
                                                   <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                                                      >2</span></td>
+                                                      >  {{$item->id}}</span></td>
 
+                                                  <td data-field="Country" aria-label="China" class="datatable-cell"><span
+                                                          style="width: 126px;">{{$item->estate_id ? : $item->apartment->name}}</span></td>
                                                   <td data-field="Country" aria-label="China" class="datatable-cell"><span
                                                           style="width: 126px;">{{$tenant->name}}</span></td>
-
+                                                  <td data-field="Country" aria-label="China" class="datatable-cell"><span
+                                                          style="width: 126px;">{{$item->start_at}}</span></td>
 
                                                   <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                                                          style="width: 126px;">{{$tenant->name}}</span></td>
-                                                  <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                                                          style="width: 126px;">{{$tenant->email}}</span></td>
+                                                          style="width: 126px;">{{$item->end_at}}</span></td>
 
                                                   <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                                                          style="width: 126px;">{{$tenant->phone}}</span></td>
-
-                                                  <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                                                          style="width: 126px;">{{$tenant->address}}</span></td>
-
-
-
+                                                          style="width: 126px;">
+                                                        <button class="btn"><i class="fa fa-eye"></i></button>
+                                                      </span></td>
 
                                               </tr>
-
+                                              @endforeach
 
                                               </tbody>
                                           </table>

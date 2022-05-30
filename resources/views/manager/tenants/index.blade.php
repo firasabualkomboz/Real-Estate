@@ -222,7 +222,7 @@
                                                 style="width: 126px;">{{$tenant->address}}</span></td>
 
                                         <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                                                style="width: 126px;">0</span></td>
+                                                style="width: 126px;">{{$tenant->contract->count()}}</span></td>
 
 
 

@@ -40,7 +40,7 @@
                 <div class="card card-custom">
                     <div class="card-header flex-wrap border-0 pt-6 pb-0">
                         <div class="card-title">
-                            <h3 class="card-label">Estates List
+                            <h3 class="card-label">Contracts List
                                 <span
                                     class="d-block text-muted pt-2 font-size-sm">Datatable initialized from HTML table</span>
                             </h3>
@@ -48,7 +48,7 @@
                         <div class="card-toolbar">
 
                             <!--begin::Button-->
-                            <a href="{{route('manager.estates.create')}}" class="btn btn-primary font-weight-bolder">
+                            <a href="{{route('manager.contracts.create')}}" class="btn btn-secondary font-weight-bolder">
 											<span class="svg-icon svg-icon-md">
 												<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
 												<svg xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@
 													</g>
 												</svg>
                                                 <!--end::Svg Icon-->
-											</span>New Estate</a>
+											</span>New Contract</a>
                             <!--end::Button-->
                         </div>
                     </div>
@@ -163,45 +163,48 @@
                         <!--end: Search Form-->
                         <!--begin: Datatable-->
                         <div class="datatable datatable-default datatable-primary datatable-loaded">
-                            <table class="table table-responsive-lg table-striped datatable-bordered datatable-head-custom datatable-table"
-                                   id="kt_datatable"
-                                   style="display: block;">
+                            <table
+                                class="table table-responsive-lg datatable-table"
+                                id="kt_datatable"
+                                style="display: block;">
                                 <thead class="datatable-head">
 
                                 <tr class="datatable-row" style="left: 0px;">
                                     <th class="datatable-cell datatable-toggle-detail"><span></span></th>
 
                                     <th data-field="Order ID" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">#ID</span></th>
+                                          >#ID</span></th>
 
 
                                     <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Apartment </span></th>
+                                            style="width: 110px;">Name </span></th>
+
+                                    <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
+                                            style="width: 110px;">Type </span></th>
 
                                     <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
                                             style="width: 110px;">Tenant</span></th>
-
-                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Price</span></th>
-
-                                    <th data-field="Status" data-autohide-disabled="false"
-                                        class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;"> Commission </span>
 
                                     <th data-field="Status" data-autohide-disabled="false"
                                         class="datatable-cell datatable-cell-sort"><span
                                             style="width: 110px;">From - To </span></th>
 
-                                    <th data-field="Status" data-autohide-disabled="false"
-                                        class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Status</span></th>
-                                    <th data-field="Status" data-autohide-disabled="false"
-                                        class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Image</span></th>
+                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
+                                            style="width: 110px;">Rent</span></th>
 
-{{--  <th data-field="Status" data-autohide-disabled="false"--}}
-{{--                                        class="datatable-cell datatable-cell-sort"><span--}}
-{{--                                            style="width: 110px;">Action</span></th>--}}
+                                    <th data-field="Status" data-autohide-disabled="false"
+                                        class="datatable-cell datatable-cell-sort"><span
+                                            style="width: 110px;"> Commission </span>
+
+
+                                    <th data-field="Status" data-autohide-disabled="false"
+                                        class="datatable-cell datatable-cell-sort"><span
+                                            >Bills</span></th>
+
+
+                                    <th data-field="Status" data-autohide-disabled="false"
+                                        class="datatable-cell datatable-cell-sort"><span
+                                            style="width: 110px;">Action</span></th>
 
 
                                 </tr>
@@ -215,23 +218,17 @@
 
 
                                         <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
-                                                style="width: 110px;">{{$contract->id}}</span></td>
+                                               >{{$contract->id}}</span></td>
 
                                         <td data-field="Car Model" aria-label="Range Rover" class="datatable-cell"><span
-                                                style="width: 110px;">{{$contract->apartment->name}}
+                                                style="width: 110px;">{{$contract->estate_id ?  : $contract->apartment->name}}
 </span></td>
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;">{{$contract->tenant->name}}</span></td>
+                                                style="width: 110px;">{{$contract->type}}</span></td>
 
 
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;"> {{$contract->price}} $ / month </span>
-                                        </td>
-
-                                        <td data-field="Color" aria-label="Orange" class="datatable-cell "><span
-                                                style="width: 110px;">  {{$contract->commission}}   % </span>
-                                        </td>
-
+                                                style="width: 110px;">{{$contract->tenant->name}}</span></td>
 
                                         <td data-field="Deposit Paid" aria-label="$22672.60"
                                             class="datatable-cell"><span
@@ -241,32 +238,48 @@
                                         </td>
 
 
-                                        <td data-field="Deposit Paid" aria-label="$22672.60"
-                                            class="datatable-cell"><span
-                                                style="width: 110px;">
-                                            <span
-                                                class="label font-weight-bold label-lg  label-light-success label-inline">{{$contract->status}}</span>
-                                            </span></td>
+                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
+                                                style="width: 110px;"> 265 $ / month </span>
+                                        </td>
+
+                                        <td data-field="Color" aria-label="Orange" class="datatable-cell "><span
+                                                style="width: 110px;">  {{$contract->estate_id ?  : $contract->apartment->commission}}   % </span>
+                                        </td>
+
 
                                         <td data-field="Deposit Paid" aria-label="$22672.60"
                                             class="datatable-cell"><span
-                                                style="width: 110px;">
-                                            <img
-                                                src="{{$contract->imageurl}}" width="100%" alt="">
-                                            </span></td>
+                                             >0$</span></td>
 
-{{--                                        <td data-field="Deposit Paid" aria-label="$22672.60"--}}
-{{--                                            class="datatable-cell"><span--}}
-{{--                                                style="width: 110px;">--}}
+                                        <td data-field="Actions" data-autohide-disabled="false" aria-label="null"
+                                            class="datatable-cell">
+                    <span
+                        style="overflow: visible; position: relative; width: 125px; display: inline ">
 
-{{--                            <form method="post" action="{{route('manager.contracts.destroy' , $contract->id)}}">--}}
-{{--                                @method('DELETE')--}}
-{{--                                @csrf--}}
-{{--                                <button class="btn btn-sm btn-danger" type="submit">Delete</button>--}}
-{{--                            </form>--}}
-{{--                        </span>--}}
-{{--                                        </td>--}}
+                        <button class="btn btn-sm"> <a style="color: #fff"
+                                                       href="{{route('manager.contracts.show' , $contract->id)}}">
 
+                                <i class="fa fa-eye"></i>
+                            </a> </button>
+
+
+                        <button class="btn btn-sm"> <a style="color: #fff"
+                                                       href="{{route('manager.contracts.edit' , $contract->id)}}">
+
+                                <i class="fa fa-edit"></i>
+                            </a> </button>
+
+
+                        <form method="post" style="display: inline"
+                              action="{{route('manager.contracts.destroy' , $contract->id)}}">
+                        @method('DELETE')
+                            @csrf
+                            <button class="btn btn-sm" type="submit"><i class="fa fa-trash"></i></button>
+                        </form>
+
+                    </span>
+
+                                        </td>
 
                                     </tr>
                                 @endforeach
@@ -274,6 +287,7 @@
 
                                 </tbody>
                             </table>
+                            {{$contracts->links()}}
 
                         </div>
                         <!--end: Datatable-->

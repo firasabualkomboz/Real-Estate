@@ -213,14 +213,14 @@
 
                                                 style="width: 110px;">$ {{$estate->rent}} </span></td><td data-field="Color" aria-label="Orange" class="datatable-cell"><span
 
-                                                style="width: 110px;">status  </span></td>
+                                                style="width: 110px;"> {{$estate->status}}  </span></td>
 
                                         <td data-field="Deposit Paid" aria-label="$22672.60"
                                             class="datatable-cell"><span
                                                 style="width: 110px;">{{$estate->owner->name}}</span></td>    <td data-field="Deposit Paid" aria-label="$22672.60"
                                             class="datatable-cell"><span
                                                 style="width: 110px;"> <span
-                                                    class="label font-weight-bold label-lg label-light-primary label-inline">0</span></span></td>
+                                                    class="label font-weight-bold label-lg label-light-primary label-inline">{{$estate->apartment->count()}}</span></span></td>
 
                                         <td data-field="Actions" data-autohide-disabled="false" aria-label="null"
                                             class="datatable-cell">

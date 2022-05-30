@@ -72,14 +72,32 @@
 
                                         <div class="radio-inline">
 
-                                            <label class="radio radio-rounded radio-success">
-                                                <input type="radio" value="estate" name="type">Estate
-                                                <span></span></label>
+                                            @if($estates->count() <=0 )
+
 
                                             <label class="radio radio-rounded radio-success">
-                                                <input value="apartment" name="type"
+                                                <input type="radio" disabled   value="estate" name="type">Estate
+                                                <span></span></label>
+
+                                            @else
+                                                <label class="radio radio-rounded radio-success">
+                                                    <input type="radio" value="estate" name="type">Estate
+                                                    <span></span></label>
+                                            @endif
+
+                                                @if($estates->count() <=0 )
+
+
+                                                <label class="radio radio-rounded radio-success">
+                                                <input disabled value="apartment" name="type"
                                                        type="radio">Apartment
                                                 <span></span></label>
+                                                @else
+                                                    <label class="radio radio-rounded radio-success">
+                                                        <input  value="apartment" name="type"
+                                                               type="radio">Apartment
+                                                        <span></span></label>
+                                                @endif
                                             @error('type')
                                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -95,11 +113,19 @@
                                         <label for="example-time-input" class="col-3 col-form-label">Select
                                             Estate</label>
                                         <div class="col-8">
-                                            <select name="estate_id"  class="form-control" id="exampleSelect1">
-                                                @foreach($estates as $estate)
-                                                    <option value="{{$estate->id}}">{{$estate->name}}</option>
-                                                @endforeach
-                                            </select>
+                                            @if($estates->count() <=0 )
+                                                <select disabled name="estate_id" class="form-control"
+                                                        id="exampleSelect1">
+                                                    <option value="#">There is No Estates Available</option>
+
+                                                </select>
+                                            @else
+                                                <select name="estate_id" class="form-control" id="exampleSelect1">
+                                                    @foreach($estates as $estate)
+                                                        <option value="{{$estate->id}}">{{$estate->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -108,11 +134,18 @@
                                         <label for="example-time-input" class="col-3 col-form-label">Select
                                             Apartment</label>
                                         <div class="col-8">
-                                            <select name="apartment_id" class="form-control" id="exampleSelect1">
-                                                @foreach($apartments as $apartment)
-                                                    <option value="{{$apartment->id}}">{{$apartment->name}}</option>
-                                                @endforeach
-                                            </select>
+                                            @if($apartments->count() <=0 )
+                                                <select disabled name="apartment_id" class="form-control"
+                                                        id="exampleSelect1">
+                                                    <option value="#">There is No Apartments Available</option>
+                                                </select>
+                                            @else
+                                                <select name="apartment_id" class="form-control" id="exampleSelect1">
+                                                    @foreach($apartments as $apartment)
+                                                        <option value="{{$apartment->id}}">{{$apartment->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -161,9 +194,6 @@
                                     {{--                                            >--}}
                                     {{--                                        </div>--}}
                                     {{--                                    </div>--}}
-
-
-
 
 
                                     <div class="form-group row">
@@ -219,7 +249,7 @@
         <script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/file-upload/image-input.js"></script>
         <script>
             function showOrHidden() {
-                estet  = document.getElementById('estateId')
+                estet = document.getElementById('estateId')
                 yes2 = document.getElementById('acc')
 
                 no1 = document.getElementById('other3')

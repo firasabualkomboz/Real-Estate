@@ -9,7 +9,7 @@ class Contract extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['apartment_id', 'estate_id', 'tenant_id', 'start_at', 'end_at', 'status', 'document'];
+    protected $fillable = ['apartment_id', 'estate_id', 'type', 'tenant_id', 'start_at', 'end_at', 'status', 'document'];
 
     public function apartment()
     {
@@ -24,7 +24,7 @@ class Contract extends Model
 
     public function tenant()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class , 'tenant_id' , 'id');
     }
 
     public function getImageUrlAttribute()
@@ -32,7 +32,6 @@ class Contract extends Model
         if (empty($this->image)) {
             return asset('admin_files/assets/img/backgrounds/02.png');
         }
-        //   return ($this->image);
         return asset('uploads/' . $this->image);
     }
 
