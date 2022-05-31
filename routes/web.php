@@ -15,10 +15,10 @@ use App\Http\Controllers\Manager\HomeController;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\front\GeneralController::class, 'index'])->name('welcome');
-Route::get('/estate{id}', [\App\Http\Controllers\front\GeneralController::class, 'showEstate'])->name('showEstate');
-Route::get('/support', [\App\Http\Controllers\front\GeneralController::class, 'support'])->name('support');
-Route::get('/apartment/{id}', [\App\Http\Controllers\front\GeneralController::class, 'showApartment'])->name('showApartment');
+Route::get('/',                 [\App\Http\Controllers\front\GeneralController::class, 'index'])->name('welcome');
+Route::get('/estate{id}',       [\App\Http\Controllers\front\GeneralController::class, 'showEstate'])->name('showEstate');
+Route::get('/support',          [\App\Http\Controllers\front\GeneralController::class, 'support'])->name('support');
+Route::get('/apartment/{id}',   [\App\Http\Controllers\front\GeneralController::class, 'showApartment'])->name('showApartment');
 Route::post('/makeAppointment', [\App\Http\Controllers\front\GeneralController::class, 'makeAppointment'])->name('makeAppointment');
 
 Auth::routes();
@@ -35,12 +35,14 @@ Route::middleware(['auth', 'IsManager'])->prefix('manager')->name('manager.')->g
     Route::put('owners/update-apartment/', [\App\Http\Controllers\Manager\OwnerController::class, 'assignApartmentToOwner'])->name('assignApartmentToOwner');
     Route::resource('tenants', \App\Http\Controllers\Manager\TenantController::class);
     Route::resource('apartments', \App\Http\Controllers\Manager\ApartmentController::class);
+    Route::resource('invoices', \App\Http\Controllers\Manager\InvoiceController::class);
     Route::get('ajax-apartment/{id}', [\App\Http\Controllers\Manager\ContractController::class, 'getAjaxApartment'])->name('getAjaxApartment');
     Route::resource('contracts', \App\Http\Controllers\Manager\ContractController::class);
     Route::get('getEstate/{id}', [\App\Http\Controllers\Manager\ContractController::class, 'getEstate']);
 
 
 });
+
 
 Route::middleware(['auth', 'IsOwner'])->prefix('owner')->name('owner.')->group(function () {
     Route::get('/', [\App\Http\Controllers\Owner\HomeController::class, 'index'])->name('home');
@@ -52,7 +54,6 @@ Route::middleware(['auth', 'IsTenant'])->name('tenant.')->prefix('tenant')->grou
     Route::resource('appointments', \App\Http\Controllers\Tenant\AppointmentController::class);
 
 });
-
 
 
 Route::get('test-req/{id}', [\App\Http\Controllers\Manager\ContractController::class, 'getAjaxApartment'])->name('getAjaxApartment');

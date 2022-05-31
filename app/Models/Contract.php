@@ -35,5 +35,10 @@ class Contract extends Model
         return asset('uploads/' . $this->image);
     }
 
+    public function invoice()
+    {
+        return $this->hasOne(Invoice::class);
+    }
+
 
 }

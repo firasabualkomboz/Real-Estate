@@ -67,47 +67,6 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Select a Type
-                                            Contact </label>
-
-                                        <div class="radio-inline">
-
-                                            @if($estates->count() <=0 )
-
-                                                <label class="radio radio-rounded radio-success">
-                                                    <input type="radio" disabled value="estate" name="type">Estate
-                                                    <span></span></label>
-
-                                            @else
-                                                <label class="radio radio-rounded radio-success">
-                                                    <input type="radio" value="estate" name="type">Estate
-                                                    <span></span></label>
-                                            @endif
-
-                                            @if($estates->count() <=0 )
-
-                                                <label class="radio radio-rounded radio-success">
-                                                    <input disabled value="apartment" name="type"
-                                                           type="radio">Apartment
-                                                    <span></span></label>
-                                            @else
-                                                <label class="radio radio-rounded radio-success">
-                                                    <input value="apartment" name="type"
-                                                           type="radio">Apartment
-                                                    <span></span></label>
-                                            @endif
-                                            @error('type')
-                                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                                </span>
-                                            @enderror
-
-
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group row">
                                         <label for="example-time-input" class="col-3 col-form-label">Select
                                             Estate</label>
                                         <div class="col-8">
@@ -142,9 +101,36 @@
 
 
                                     <div class="form-group row">
+                                        <label for="example-time-input" class="col-3 col-form-label">Select a Type
+                                        Contact </label>
+
+                                        <div class="radio-inline">
+
+
+                                        <label class="radio radio-rounded radio-success">
+                                        <input type="radio" value="estate" name="type">Estate
+                                        <span></span></label>
+
+
+                                        <label class="radio radio-rounded radio-success">
+                                        <input value="apartment" name="type"
+                                        type="radio">Apartment
+                                        <span></span></label>
+                                        @error('type')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+
+
+                                        </div>
+                                        </div>
+
+
+                                    <div class="form-group row">
                                         <label for="example-time-input" class="col-3 col-form-label">Tenant</label>
                                         <div class="col-8">
-                                            <select name="tenant_id" class="form-control " id="exampleSelect1">
+                                            <select name="tenant_id" class="form-control" id="exampleSelect1">
                                                 @foreach($tenants as $tenant)
                                                     <option value="{{$tenant->id}}">{{$tenant->name}}</option>
                                                 @endforeach
@@ -220,8 +206,8 @@
     </div>
     @push('custom-scripts')
         <script>
- $(document).ready(function() {
-    $.ajaxSetup({
+        $(document).ready(function() {
+            $.ajaxSetup({
                     headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
@@ -240,7 +226,7 @@
                             $('select[name="apartment_id"]').empty();
                             $.each(data, function(key, value) {
                                 $('select[name="apartment_id"]').append('<option value="' +
-                                    value + '">' + value + '</option>');
+                                key + '">' + value + '</option>');
                             });
                         },
                     });
@@ -250,5 +236,7 @@
             });
         });
         </script>
+
+
     @endpush
 @endsection

@@ -7,6 +7,7 @@ use App\Http\Requests\Manager\ContractRequest;
 use App\Models\Apartment;
 use App\Models\Contract;
 use App\Models\Estate;
+use App\Models\Invoice;
 use App\Models\Property;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -62,6 +63,7 @@ class ContractController extends Controller
 
         ]);
 
+
         if ($request->type == 'estate') {
 
             $estate = Estate::where('id', $request->estate_id)->first();
@@ -69,14 +71,29 @@ class ContractController extends Controller
             $estate->update();
             $contract->save();
 
+            $invoice  = Invoice::create([
+                'contract_id' => $contract->id,
+                'tenant_id'      => $contract->tenant_id,
+                'status'      => 'pending',
+            ]);
+            $invoice->save();
+
         }
 
         if ($request->type == 'apartment') {
 
             $apartment = Apartment::where('id', $request->apartment_id)->first();
+
             $apartment->status = 'rent';
             $apartment->update();
             $contract->save();
+
+            $invoice  = Invoice::create([
+                'contract_id' => $contract->id,
+                'tenant_id'      => $contract->tenant_id,
+                'status'      => 'pending',
+            ]);
+            $invoice->save();
 
         }
 
@@ -116,5 +133,6 @@ class ContractController extends Controller
         $contract = Contract::find($id);
         return $contract;
     }
+
 
 }

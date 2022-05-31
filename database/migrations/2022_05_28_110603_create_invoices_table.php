@@ -15,8 +15,10 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-//            $table->foreignId('contract_id')->constrained('contacts')->nullOnDelete();
-            $table->enum('status' , ['pending' , 'paid']);
+            $table->foreignId('contract_id')->nullable()->constrained('contracts')->cascadeOnDelete();
+            $table->foreignId('tenant_id')->nullable()->constrained('users')->cascadeOnDelete();
+
+            $table->enum('status' , ['pending' , 'paid'])->default('pending');
             $table->timestamps();
         });
     }
