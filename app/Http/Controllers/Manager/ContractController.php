@@ -10,6 +10,8 @@ use App\Models\Estate;
 use App\Models\Property;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+use Symfony\Component\Console\Input\Input;
 use function app\Helper\errorMessage;
 use function app\Helper\successMessage;
 
@@ -100,6 +102,19 @@ class ContractController extends Controller
     {
         $estate = Estate::pluck('rent', 'commission');
         return json_decode($estate);
+    }
+
+    public function getAjaxApartment(Request $request)
+    {
+        $estate_id  = Input::get('estate_id');
+        $apartmentEstateId = Apartment::where('estate_id' , '='  , $estate_id)->get();
+        return Response::json($apartmentEstateId);
+    }
+
+    public function show($id)
+    {
+        $contract = Contract::find($id);
+        return $contract;
     }
 
 }

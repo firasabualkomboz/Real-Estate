@@ -69,7 +69,6 @@
                                         </li>
 
 
-
                                     </ul>
                                 </div>
 
@@ -204,15 +203,16 @@
                                                             style="width: 126px;">Name</span></th>
 
 
-                                                    <th data-field="Type" data-autohide-disabled="false"
-                                                        class="datatable-cell datatable-cell-sort"><span
-                                                            style="width: 126px;"> Rent </span>
-                                                    </th>
+                                                    {{--                                                    <th data-field="Type" data-autohide-disabled="false"--}}
+                                                    {{--                                                        class="datatable-cell datatable-cell-sort"><span--}}
+                                                    {{--                                                            style="width: 126px;"> Rent </span>--}}
+                                                    {{--                                                    </th>--}}
+                                                    {{--                                                    --}}
 
-                                                    <th data-field="Type" data-autohide-disabled="false"
-                                                        class="datatable-cell datatable-cell-sort"><span
-                                                            style="width: 126px;"> Commission  </span>
-                                                    </th>
+                                                    {{--                                                    <th data-field="Type" data-autohide-disabled="false"--}}
+                                                    {{--                                                        class="datatable-cell datatable-cell-sort"><span--}}
+                                                    {{--                                                            style="width: 126px;"> Commission  </span>--}}
+                                                    {{--                                                    </th>--}}
                                                     <th data-field="Type" data-autohide-disabled="false"
                                                         class="datatable-cell datatable-cell-sort"><span
                                                             style="width: 126px;">Status  </span>
@@ -221,12 +221,17 @@
                                                         class="datatable-cell datatable-cell-sort"><span
                                                             style="width: 126px;"> Gross profit </span>
                                                     </th>
+
+                                                    <th data-field="Type" data-autohide-disabled="false"
+                                                        class="datatable-cell datatable-cell-sort"><span
+                                                            style="width: 126px;"> Assign to  </span>
+                                                    </th>
                                                 </tr>
 
                                                 </thead>
                                                 <tbody class="datatable-body" style="">
 
-                                                @forelse($allApartmentRent as $item)
+                                                @forelse($owner->apartment as $item)
 
                                                     <tr data-row="0" class="datatable-row" style="left: 0px;">
 
@@ -239,17 +244,20 @@
                                                             class="datatable-cell"><span
                                                                 style="width: 126px;">{{$item->name}}</span></td>
 
-                                                        <td data-field="Country" aria-label="China"
-                                                            class="datatable-cell"><span
-                                                                style="width: 126px;"> $ {{$item->rent}}</span></td>
-                                                        <td data-field="Country" aria-label="China"
-                                                            class="datatable-cell"><span
-                                                                style="width: 126px;"> % {{$item->commission}}</span>
-                                                        </td>
+
+                                                        {{--                                                        <td data-field="Country" aria-label="China"--}}
+                                                        {{--                                                            class="datatable-cell"><span--}}
+                                                        {{--                                                                style="width: 126px;"> $ {{$item->rent}}</span></td>--}}
+                                                        {{--                                                        <td data-field="Country" aria-label="China"--}}
+                                                        {{--                                                            class="datatable-cell"><span--}}
+                                                        {{--                                                                style="width: 126px;"> % {{$item->commission}}</span>--}}
+                                                        {{--                                                        </td>--}}
 
                                                         <td data-field="Country" aria-label="China"
                                                             class="datatable-cell"><span
-                                                                style="width: 126px;" class="badge badge-primary">{{ strtoupper($item->status)  }}</span></td>
+                                                                style="width: 126px;"
+                                                                class="badge badge-primary">{{ strtoupper($item->status)  }}</span>
+                                                        </td>
 
                                                         <td data-field="Country" aria-label="China"
                                                             class="datatable-cell"><span
@@ -262,11 +270,83 @@
 
                                                             </span></td>
 
+                                                        <td data-field="Country" aria-label="China"
+                                                            class="datatable-cell"><span
+                                                                style="width: 126px;">
 
+
+
+                    <!-- Button trigger modal-->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                        Assign to
+                    </button>
+
+                                                            </span></td>
 
                                                     </tr>
+
+
+                                                    <!-- Modal-->
+                                                    <div class="modal fade" id="exampleModalLong" data-backdrop="static"
+                                                         tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"
+                                                         aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <form method="post"
+                                                                  action="{{route('manager.assignApartmentToOwner')}}">
+                                                                @csrf
+                                                                @method('PUT')
+
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                                            Handing over the apartment to an OWNER</h5>
+                                                                        <button type="button" class="close"
+                                                                                data-dismiss="modal" aria-label="Close">
+                                                                            <i aria-hidden="true"
+                                                                               class="ki ki-close"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <P>current Owner : {{$item->owner->name}}</P>
+
+                                                                        <div class="form-group row">
+                                                                            <label for="example-time-input"
+                                                                                   class="col-3 col-form-label"> Assign
+                                                                                To
+                                                                            </label>
+                                                                            <div class="col-8">
+
+                                                                                <select name="owner_id"
+                                                                                        class="form-control"
+                                                                                     >
+                                                                                    @foreach($owners as $owner)
+                                                                                        <option
+                                                                                            value="{{$owner->id}}">{{$owner->name}}</option>
+                                                                                    @endforeach
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                                class="btn btn-light-primary font-weight-bold"
+                                                                                data-dismiss="modal">Close
+                                                                        </button>
+                                                                        <button type="submit"
+                                                                                class="btn btn-primary font-weight-bold">
+                                                                            Update
+                                                                        </button>
+                                                                    </div>
+
+                                                                </div>
+                                                            </form>
+
+                                                        </div>
+                                                    </div>
+
                                                 @empty
-                                                    <td class="datatable-cell">There is now Estate For you</td>
+                                                    <td class="datatable-cell">There is now Apartment For you</td>
                                                 @endforelse
 
 
@@ -330,19 +410,19 @@
 
                                                         <td data-field="Country" aria-label="China"
                                                             class="datatable-cell"><span
-                                                                style="width: 126px;">{{$owner->name}}</span></td>
+                                                                style="width: 126px;">{{$item->name}}</span></td>
 
 
                                                         <td data-field="Country" aria-label="China"
                                                             class="datatable-cell"><span
-                                                                style="width: 126px;">{{$owner->name}}</span></td>
+                                                                style="width: 126px;">{{$item->name}}</span></td>
                                                         <td data-field="Country" aria-label="China"
                                                             class="datatable-cell"><span
-                                                                style="width: 126px;">{{$owner->email}}</span></td>
+                                                                style="width: 126px;">{{$item->email}}</span></td>
 
                                                         <td data-field="Country" aria-label="China"
                                                             class="datatable-cell"><span
-                                                                style="width: 126px;">{{$owner->phone}}</span></td>
+                                                                style="width: 126px;">{{$item->phone}}</span></td>
 
                                                         <td data-field="Country" aria-label="China"
                                                             class="datatable-cell"><span
@@ -417,6 +497,8 @@
                             <!--end::Profile Card-->
                         </div>
                     </div>
+
+
                 </div>
 
 
@@ -427,5 +509,6 @@
         </div>
         <!--end::Entry-->
     </div>
+
 @endsection
 

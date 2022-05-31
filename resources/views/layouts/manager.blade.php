@@ -7,13 +7,14 @@
     <meta name="description" content="Updates and statistics"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <!--begin::Fonts-->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link href="{{asset('assets_dashboard')}}/assets/css/pages/wizard/wizard-4.css" rel="stylesheet" type="text/css" />
-
+    <link href="{{asset('assets_dashboard')}}/assets/css/pages/wizard/wizard-4.css" rel="stylesheet" type="text/css"/>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
     <!--end::Fonts-->
-    <link href="{{asset('assets_dashboard')}}/assets/plugins/custom/uppy/uppy.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets_dashboard')}}/assets/plugins/custom/uppy/uppy.bundle.css" rel="stylesheet"
+          type="text/css"/>
 
     <!--begin::Page Vendors Styles(used by this page)-->
     <link href="{{asset('assets_dashboard')}}/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css"
@@ -364,8 +365,6 @@
                         </li>
 
 
-
-
                         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                             <a href="javascript:;" class="menu-link menu-toggle">
             <span class="svg-icon menu-icon">
@@ -468,7 +467,6 @@
                         </li>
 
 
-
                         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                             <a href="javascript:;" class="menu-link menu-toggle">
             <span class="svg-icon menu-icon">
@@ -518,8 +516,6 @@
                                 </ul>
                             </div>
                         </li>
-
-
 
 
                     </ul>
@@ -708,7 +704,8 @@
                             <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
                                 <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
                                     <img class="h-20px w-20px rounded-sm"
-                                         src="{{asset('assets_dashboard')}}/assets/media/svg/flags/226-united-states.svg" alt=""/>
+                                         src="{{asset('assets_dashboard')}}/assets/media/svg/flags/226-united-states.svg"
+                                         alt=""/>
                                 </div>
                             </div>
                             <!--end::Toggle-->
@@ -802,8 +799,8 @@
                 <!--end::Container-->
             </div>
             <!--end::Header-->
-        @yield('content')
-        <!--begin::Footer-->
+            @yield('content')
+            <!--begin::Footer-->
             <div class="footer bg-white py-4 d-flex flex-lg-column" id="kt_footer">
                 <!--begin::Container-->
                 <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
@@ -1862,8 +1859,6 @@
 <!--end::Quick Panel-->
 
 
-
-
 <script>var HOST_URL = "https://keenthemes.com/metronic/tools/preview";</script>
 <!--begin::Global Config(global config for global JS scripts)-->
 
@@ -1883,7 +1878,7 @@
 
 <script !src="">
 
-        @if(Session::has('message'))
+    @if(Session::has('message'))
 
     var type = "{{Session::get('alert-type','info')}}"
     switch (type) {
@@ -1906,7 +1901,6 @@
 <script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/file-upload/image-input.js"></script>
 
 <script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/forms/widgets/select2.js"></script>
-
 
 
 </body>

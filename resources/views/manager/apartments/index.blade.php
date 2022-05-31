@@ -163,7 +163,7 @@
                         <!--end: Search Form-->
                         <!--begin: Datatable-->
                         <div class="datatable datatable-default datatable-primary datatable-loaded">
-                            <table class="table table-striped datatable-bordered datatable-head-custom datatable-table"
+                            <table class="table datatable-table"
                                    id="kt_datatable"
                                    style="display: block;">
                                 <thead class="datatable-head">
@@ -172,7 +172,7 @@
                                     <th class="datatable-cell datatable-toggle-detail"><span></span></th>
 
                                     <th data-field="Order ID" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">#ID</span></th>
+                                           >#ID</span></th>
 
 
                                     <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
@@ -183,8 +183,7 @@
 
                                     <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
                                             style="width: 110px;">Rent</span></th>
-                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Owner</span></th>
+
 
                                     <th data-field="Status" data-autohide-disabled="false"
                                         class="datatable-cell datatable-cell-sort"><span
@@ -192,7 +191,7 @@
 
                                     <th data-field="Status" data-autohide-disabled="false"
                                         class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Estate </span></th>
+                                            style="width: 110px;">Parent Estate </span></th>
 
                                     <th data-field="Status" data-autohide-disabled="false"
                                         class="datatable-cell datatable-cell-sort"><span
@@ -210,7 +209,7 @@
 
 
                                         <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
-                                                style="width: 110px;">{{$apartment->id}}</span></td>
+                                            >{{$apartment->id}}</span></td>
 
                                         <td data-field="Car Model" aria-label="Range Rover" class="datatable-cell"><span
                                                 style="width: 110px;">{{$apartment->name}}
@@ -223,11 +222,6 @@
                                         </td>
 
                                         <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;"> {{$apartment->owner->name}} </span>
-                                        </td>
-
-
-                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
                                                 style="width: 110px;">   <span
                                                     class="label font-weight-bold label-lg  label-light-info label-inline">  {{$apartment->status}}</span> </span>
                                         </td>
@@ -238,8 +232,7 @@
                                         <td data-field="Deposit Paid" aria-label="$22672.60"
                                             class="datatable-cell"><span
                                                 style="width: 110px;">
-                                            <span
-                                                class="label font-weight-bold label-lg  label-light-success label-inline">{{$apartment->estate->name}}</span>
+                                          {{$apartment->estate->name}}
                                             </span></td>
                                         <td data-field="Actions" data-autohide-disabled="false" aria-label="null"
                                             class="datatable-cell">

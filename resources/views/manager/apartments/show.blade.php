@@ -173,6 +173,17 @@
                                     <!--end::Text-->
                                 </div>
                                 <!--end::Item-->
+      <!--begin::Item-->
+                                <div class="d-flex align-items-center mb-10">
+
+                                    <!--begin::Text-->
+                                    <div class="d-flex flex-column font-weight-bold">
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> Status  </a>
+                                        <span class="badge badge-warning">{{$apartment->status}}</span>
+                                    </div>
+                                    <!--end::Text-->
+                                </div>
+                                <!--end::Item-->
 
                             </div>
                             <!--end::Body-->

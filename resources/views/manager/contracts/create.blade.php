@@ -74,10 +74,9 @@
 
                                             @if($estates->count() <=0 )
 
-
-                                            <label class="radio radio-rounded radio-success">
-                                                <input type="radio" disabled   value="estate" name="type">Estate
-                                                <span></span></label>
+                                                <label class="radio radio-rounded radio-success">
+                                                    <input type="radio" disabled value="estate" name="type">Estate
+                                                    <span></span></label>
 
                                             @else
                                                 <label class="radio radio-rounded radio-success">
@@ -85,19 +84,18 @@
                                                     <span></span></label>
                                             @endif
 
-                                                @if($estates->count() <=0 )
-
+                                            @if($estates->count() <=0 )
 
                                                 <label class="radio radio-rounded radio-success">
-                                                <input disabled value="apartment" name="type"
-                                                       type="radio">Apartment
-                                                <span></span></label>
-                                                @else
-                                                    <label class="radio radio-rounded radio-success">
-                                                        <input  value="apartment" name="type"
-                                                               type="radio">Apartment
-                                                        <span></span></label>
-                                                @endif
+                                                    <input disabled value="apartment" name="type"
+                                                           type="radio">Apartment
+                                                    <span></span></label>
+                                            @else
+                                                <label class="radio radio-rounded radio-success">
+                                                    <input value="apartment" name="type"
+                                                           type="radio">Apartment
+                                                    <span></span></label>
+                                            @endif
                                             @error('type')
                                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -120,7 +118,7 @@
 
                                                 </select>
                                             @else
-                                                <select name="estate_id" class="form-control" id="exampleSelect1">
+                                                <select name="estate_id" class="form-control" id="estate">
                                                     @foreach($estates as $estate)
                                                         <option value="{{$estate->id}}">{{$estate->name}}</option>
                                                     @endforeach
@@ -140,7 +138,7 @@
                                                     <option value="#">There is No Apartments Available</option>
                                                 </select>
                                             @else
-                                                <select name="apartment_id" class="form-control" id="exampleSelect1">
+                                                <select name="apartment_id" class="form-control" id="apartment">
                                                     @foreach($apartments as $apartment)
                                                         <option value="{{$apartment->id}}">{{$apartment->name}}</option>
                                                     @endforeach
@@ -177,23 +175,6 @@
                                             >
                                         </div>
                                     </div>
-
-                                    {{--                                    <div class="form-group row">--}}
-                                    {{--                                        <label for="example-date-input" class="col-3 col-form-label">Rent</label>--}}
-                                    {{--                                        <div class="col-8">--}}
-                                    {{--                                            <input class="form-control" type="number" value="{{$estate['rent']}}" name="price"--}}
-                                    {{--                                            >--}}
-                                    {{--                                        </div>--}}
-                                    {{--                                    </div>--}}
-
-                                    {{--                                    <div class="form-group row">--}}
-                                    {{--                                        <label for="example-date-input" class="col-3 col-form-label">Commission--}}
-                                    {{--                                            %</label>--}}
-                                    {{--                                        <div class="col-8">--}}
-                                    {{--                                            <input class="form-control" type="number" name="commission"--}}
-                                    {{--                                            >--}}
-                                    {{--                                        </div>--}}
-                                    {{--                                    </div>--}}
 
 
                                     <div class="form-group row">
@@ -246,23 +227,100 @@
     </div>
     @push('custom-scripts')
 
-        <script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/file-upload/image-input.js"></script>
         <script>
-            function showOrHidden() {
-                estet = document.getElementById('estateId')
-                yes2 = document.getElementById('acc')
+            jQuery(document).ready(function (e) {
+                $.ajaxSetup({
 
-                no1 = document.getElementById('other3')
-                no2 = document.getElementById('other4')
+                    headers: {
 
-                if (document.getElementById('estateId').checked) {
-                    $("#estateId").removeClass('hidden');
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 
-                } else {
-                    no1.type = no2.type = 'text';
-                    yes1.type = yes2.type = 'hidden';
+                    }
+
+                });
+
+                $('#estate').on('change', function (e) {
+
+
+                    var estate_id = e.target.value;
+
+                    $.ajaxSetup({
+                        headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
+                    });
+
+                    $.ajax({
+                        method: "get",
+                        dataType: 'html',
+                        url: '/manager/contracts/ajaxapartment',
+                        data: "estate_id=" + estate_id,
+                        success: function (data) {
+                            $('#apartment').empty();
+                            $.each(data, function (index, apartmentObj) {
+                                $('#apartment').append('<option value="' + apartmentObj.id + '"> ' + apartmentObj.name + '</option>');
+                            })
+                        },
+                        error: function (xhr, b, c) {
+                            console.log("xhr=" + xhr + " b=" + b + " c=" + c);
+                        }
+
+                    });
+
+                    // $.get('/manager/contracts/ajaxapartment?estate_id=' + estate_id, function (data) {
+                    //
+                    //     $('#apartment').empty();
+                    //     $.each(data, function (index, apartmentObj) {
+                    //         $('#apartment').append('<option value="' + apartmentObj.id + '"> ' + apartmentObj.name + '  </option>')
+                    //     })
+                    //
+                    //
+                    // });
+
+
+                });
+            });
+        </script>
+        <script>
+            $.ajaxSetup({
+                headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
+            });
+            jQuery.ajax({
+                url: '/categories',
+                type: 'GET',
+                data: {
+                    name: groupName,
+                    colour: "red"
+                },
+                success: function (data) {
+
+                    console.log(data);
+                },
+                error: function (xhr, b, c) {
+                    console.log("xhr=" + xhr + " b=" + b + " c=" + c);
                 }
-            }
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                $('select[name="estate_id"]').on('change', function() {
+                    var estate_id = $(this).val();
+                    if (estate_id) {
+                        $.ajax({
+                            url: "{{ URL::to('/manager/contracts/ajaxapartment') }}/" + estate_id,
+                            type: "GET",
+                            dataType: "json",
+                            success: function(data) {
+                                $('select[name="apartment"]').empty();
+                                $.each(data, function(key, value) {
+                                    $('select[name="apartment"]').append('<option value="' +
+                                        value + '">' + value + '</option>');
+                                });
+                            },
+                        });
+                    } else {
+                        console.log('AJAX load did not work');
+                    }
+                });
+            });
         </script>
     @endpush
 @endsection

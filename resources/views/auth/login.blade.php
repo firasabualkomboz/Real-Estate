@@ -119,7 +119,7 @@
                     <!--begin::Signin-->
                     <div class="login-form login-signin">
                         <div class="text-center mb-10 mb-lg-20">
-                            <h2 class="font-weight-bold">Sign Up</h2>
+                            <h2 class="font-weight-bold">Sign In</h2>
                             <p class="text-muted font-weight-bold">Enter your username and password</p>
                         </div>
                         <!--begin::Form-->
@@ -337,7 +337,7 @@
             <!--begin::Content body-->
             <div class="d-flex flex-column-fluid flex-lg-center">
                 <div class="d-flex flex-column justify-content-center">
-                    <h3 class="display-3 font-weight-bold my-7 text-white">Welcome to Metronic!</h3>
+                    <h3 class="display-3 font-weight-bold my-7 text-white">Welcome to Real Estate!</h3>
                     <p class="font-weight-bold font-size-lg text-white opacity-80">The ultimate Bootstrap, Angular 8,
                         React &amp; VueJS admin theme
                         <br/>framework for next generation web apps.</p>

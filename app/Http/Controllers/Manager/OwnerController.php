@@ -76,9 +76,23 @@ class OwnerController extends Controller
             $get =  $apartment->commission  / 100;
              $finalProfitCompany = $get * $apartment->rent . '<br>';
         }
+        $owners = User::where('type' , '2')->get();
 
         $owner = User::findOrFail($id);
-        return view('manager.owners.show', compact('owner' , 'allApartmentRent' ));
+        return view('manager.owners.show', compact('owner' , 'allApartmentRent'  , 'owners'));
+    }
+
+    public function assignApartmentToOwner(Request $request , $id)
+    {
+        dd($request);
+        die();
+        $apartment = Apartment::find($id);
+        dd($apartment);
+        $apartment->owner_id  = $request->owner_id;
+        $apartment->update();
+        $apartment->save();
+
+        return successMessage();
     }
 
     /**

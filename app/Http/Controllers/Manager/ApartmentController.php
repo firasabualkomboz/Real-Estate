@@ -9,6 +9,8 @@ use App\Models\Estate;
 use App\Models\Property;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+use Symfony\Component\Console\Input\Input;
 use function app\Helper\errorMessage;
 use function app\Helper\successMessage;
 
@@ -89,5 +91,7 @@ class ApartmentController extends Controller
         $apartment->delete();
         return errorMessage();
     }
+
+
 
 }
