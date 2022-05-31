@@ -132,19 +132,11 @@
                                         <label for="example-time-input" class="col-3 col-form-label">Select
                                             Apartment</label>
                                         <div class="col-8">
-                                            <div id="apartment_id"></div>
-{{--                                            @if($apartments->count() <=0 )--}}
-{{--                                                <select disabled name="apartment_id" class="form-control"--}}
-{{--                                                        id="exampleSelect1">--}}
-{{--                                                    <option value="#">There is No Apartments Available</option>--}}
-{{--                                                </select>--}}
-{{--                                            @else--}}
-{{--                                                <select name="apartment_id" class="form-control" id="apartment">--}}
-{{--                                                    @foreach($apartments as $apartment)--}}
-{{--                                                        <option value="{{$apartment->id}}">{{$apartment->name}}</option>--}}
-{{--                                                    @endforeach--}}
-{{--                                                </select>--}}
-{{--                                            @endif--}}
+                                            <select name="apartment_id" class="form-control" id="apartment">
+                                                @foreach($apartments as $apartment)
+                                                    <option value="{{$apartment->id}}">{{$apartment->name}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
 
@@ -227,6 +219,36 @@
         <!--end::Entry-->
     </div>
     @push('custom-scripts')
+        <script>
+ $(document).ready(function() {
+    $.ajaxSetup({
+                    headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                    });
 
+            $('select[name="estate_id"]').on('change', function() {
+                var estateId = $(this).val();
+                if (estateId) {
+
+                    $.ajax({
+
+                        url: "{{ URL::to('manager/ajax-apartment') }}/" + estateId,
+                        type: "GET",
+                        dataType: "json",
+                        success: function(data) {
+                            $('select[name="apartment_id"]').empty();
+                            $.each(data, function(key, value) {
+                                $('select[name="apartment_id"]').append('<option value="' +
+                                    value + '">' + value + '</option>');
+                            });
+                        },
+                    });
+                } else {
+                    console.log('AJAX load did not work');
+                }
+            });
+        });
+        </script>
     @endpush
 @endsection

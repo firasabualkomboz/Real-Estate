@@ -107,9 +107,8 @@ class ContractController extends Controller
 
     public function getAjaxApartment($id)
     {
-        $items = Apartment::where('estate_id', $id)->pluck('name', 'id')->all();
-        $view = view('manager.contracts._apartment', compact('items'))->render();
-        return apisuccess($view);
+        $apartments = Apartment::where('estate_id', $id)->pluck('name' , 'id');
+        return json_encode($apartments);
     }
 
     public function show($id)
