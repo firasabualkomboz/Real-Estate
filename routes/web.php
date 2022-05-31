@@ -28,17 +28,18 @@ Auth::routes();
 Route::middleware(['auth', 'IsManager'])->prefix('manager')->name('manager.')->group(function () {
 
     Route::get('/', [\App\Http\Controllers\Manager\HomeController::class, 'index'])->name('home');
-    Route::resource('appointments', \App\Http\Controllers\Manager\AppointmentController::class);
-    Route::resource('properties', \App\Http\Controllers\Manager\PropertyController::class);
-    Route::resource('estates', \App\Http\Controllers\Manager\EstateController::class);
-    Route::resource('owners', \App\Http\Controllers\Manager\OwnerController::class);
+    
+    Route::resource('appointments',        \App\Http\Controllers\Manager\AppointmentController::class);
+    Route::resource('properties',          \App\Http\Controllers\Manager\PropertyController::class);
+    Route::resource('estates',             \App\Http\Controllers\Manager\EstateController::class);
+    Route::resource('owners',              \App\Http\Controllers\Manager\OwnerController::class);
     Route::put('owners/update-apartment/', [\App\Http\Controllers\Manager\OwnerController::class, 'assignApartmentToOwner'])->name('assignApartmentToOwner');
-    Route::resource('tenants', \App\Http\Controllers\Manager\TenantController::class);
-    Route::resource('apartments', \App\Http\Controllers\Manager\ApartmentController::class);
-    Route::resource('invoices', \App\Http\Controllers\Manager\InvoiceController::class);
-    Route::get('ajax-apartment/{id}', [\App\Http\Controllers\Manager\ContractController::class, 'getAjaxApartment'])->name('getAjaxApartment');
-    Route::resource('contracts', \App\Http\Controllers\Manager\ContractController::class);
-    Route::get('getEstate/{id}', [\App\Http\Controllers\Manager\ContractController::class, 'getEstate']);
+    Route::resource('tenants',             \App\Http\Controllers\Manager\TenantController::class);
+    Route::resource('apartments',          \App\Http\Controllers\Manager\ApartmentController::class);
+    Route::resource('invoices',            \App\Http\Controllers\Manager\InvoiceController::class);
+    Route::get('ajax-apartment/{id}',      [\App\Http\Controllers\Manager\ContractController::class, 'getAjaxApartment'])->name('getAjaxApartment');
+    Route::resource('contracts',           \App\Http\Controllers\Manager\ContractController::class);
+    Route::get('getEstate/{id}',           [\App\Http\Controllers\Manager\ContractController::class, 'getEstate']);
 
 
 });
