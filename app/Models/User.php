@@ -80,6 +80,6 @@ class User extends Authenticatable
 
     public function invoices()
     {
-        return $this->hasMany(Invoice::class);
+        return $this->hasMany(Invoice::class ,'tenant_id' , 'id');
     }
 }

@@ -375,6 +375,12 @@
                         <i class="fa fa-eye"></i>
                     </a> </button>
 
+                          <button class="btn btn-sm" data-toggle="modal" data-target="#exampleModalLong"> <a style="color: #fff"
+                                                         href="#">
+
+                                <i class="fa fa-edit"></i>
+                            </a> </button>
+
 
 
 
@@ -391,6 +397,64 @@
 
 
                                 </tr>
+
+
+                                <!-- Modal-->
+                                <div class="modal fade" id="exampleModalLong" data-backdrop="static"
+                                     tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <form method="post"
+                                              action="{{route('manager.invoices.update' , $invoice->id)}}">
+                                            @csrf
+                                            @method('PUT')
+
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                       Update Invoice # {{$invoice->id}} </h5>
+                                                    <button type="button" class="close"
+                                                            data-dismiss="modal" aria-label="Close">
+                                                        <i aria-hidden="true"
+                                                           class="ki ki-close"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <P>current Status : {{$invoice->status}}</P>
+
+                                                    <div class="form-group row">
+                                                        <label for="example-time-input"
+                                                               class="col-3 col-form-label">Change To
+                                                        </label>
+                                                        <div class="col-8">
+
+                                                            <select name="status"
+                                                                    class="form-control"
+                                                            >
+                                                                        <option value="paid">Paid </option>
+                                                                        <option value="pending">pending </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button"
+                                                            class="btn btn-light-primary font-weight-bold"
+                                                            data-dismiss="modal">Close
+                                                    </button>
+                                                    <button type="submit"
+                                                            class="btn btn-primary font-weight-bold">
+                                                        Update
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+
                             @endforeach
 
 

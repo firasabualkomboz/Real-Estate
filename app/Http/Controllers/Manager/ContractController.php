@@ -99,7 +99,6 @@ class ContractController extends Controller
 
         return successMessage();
 
-
     }
 
 

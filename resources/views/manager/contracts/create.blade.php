@@ -102,29 +102,29 @@
 
                                     <div class="form-group row">
                                         <label for="example-time-input" class="col-3 col-form-label">Select a Type
-                                        Contact </label>
+                                            Contact </label>
 
                                         <div class="radio-inline">
 
 
-                                        <label class="radio radio-rounded radio-success">
-                                        <input type="radio" value="estate" name="type">Estate
-                                        <span></span></label>
+                                            <label class="radio radio-rounded radio-success">
+                                                <input type="radio" value="estate" name="type">Estate
+                                                <span></span></label>
 
 
-                                        <label class="radio radio-rounded radio-success">
-                                        <input value="apartment" name="type"
-                                        type="radio">Apartment
-                                        <span></span></label>
-                                        @error('type')
-                                        <span class="invalid-feedback" role="alert">
+                                            <label class="radio radio-rounded radio-success">
+                                                <input value="apartment" name="type"
+                                                       type="radio">Apartment
+                                                <span></span></label>
+                                            @error('type')
+                                            <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                         </span>
-                                        @enderror
+                                            @enderror
 
 
                                         </div>
-                                        </div>
+                                    </div>
 
 
                                     <div class="form-group row">
@@ -206,37 +206,36 @@
     </div>
     @push('custom-scripts')
         <script>
-        $(document).ready(function() {
-            $.ajaxSetup({
+            $(document).ready(function () {
+                $.ajaxSetup({
                     headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
-                    });
+                });
 
-            $('select[name="estate_id"]').on('change', function() {
-                var estateId = $(this).val();
-                if (estateId) {
+                $('select[name="estate_id"]').on('change', function () {
+                    var estateId = $(this).val();
+                    if (estateId) {
 
-                    $.ajax({
+                        $.ajax({
 
-                        url: "{{ URL::to('manager/ajax-apartment') }}/" + estateId,
-                        type: "GET",
-                        dataType: "json",
-                        success: function(data) {
-                            $('select[name="apartment_id"]').empty();
-                            $.each(data, function(key, value) {
-                                $('select[name="apartment_id"]').append('<option value="' +
-                                key + '">' + value + '</option>');
-                            });
-                        },
-                    });
-                } else {
-                    console.log('AJAX load did not work');
-                }
+                            url: "{{ URL::to('manager/ajax-apartment') }}/" + estateId,
+                            type: "GET",
+                            dataType: "json",
+                            success: function (data) {
+                                $('select[name="apartment_id"]').empty();
+                                $.each(data, function (key, value) {
+                                    $('select[name="apartment_id"]').append('<option value="' +
+                                        key + '">' + value + '</option>');
+                                });
+                            },
+                        });
+                    } else {
+                        console.log('AJAX load did not work');
+                    }
+                });
             });
-        });
         </script>
-
 
     @endpush
 @endsection

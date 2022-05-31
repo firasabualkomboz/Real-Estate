@@ -443,7 +443,7 @@
                         </li>
 
                         <li class="menu-item" aria-haspopup="true">
-                            <a target="_blank" href="{{route('manager.appointments.index')}}"
+                            <a  href="{{route('manager.appointments.index')}}"
                                class="menu-link">
 										<span class="svg-icon menu-icon">
 											<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
