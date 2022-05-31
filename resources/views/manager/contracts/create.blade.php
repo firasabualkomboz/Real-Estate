@@ -132,18 +132,19 @@
                                         <label for="example-time-input" class="col-3 col-form-label">Select
                                             Apartment</label>
                                         <div class="col-8">
-                                            @if($apartments->count() <=0 )
-                                                <select disabled name="apartment_id" class="form-control"
-                                                        id="exampleSelect1">
-                                                    <option value="#">There is No Apartments Available</option>
-                                                </select>
-                                            @else
-                                                <select name="apartment_id" class="form-control" id="apartment">
-                                                    @foreach($apartments as $apartment)
-                                                        <option value="{{$apartment->id}}">{{$apartment->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            @endif
+                                            <div id="apartment_id"></div>
+{{--                                            @if($apartments->count() <=0 )--}}
+{{--                                                <select disabled name="apartment_id" class="form-control"--}}
+{{--                                                        id="exampleSelect1">--}}
+{{--                                                    <option value="#">There is No Apartments Available</option>--}}
+{{--                                                </select>--}}
+{{--                                            @else--}}
+{{--                                                <select name="apartment_id" class="form-control" id="apartment">--}}
+{{--                                                    @foreach($apartments as $apartment)--}}
+{{--                                                        <option value="{{$apartment->id}}">{{$apartment->name}}</option>--}}
+{{--                                                    @endforeach--}}
+{{--                                                </select>--}}
+{{--                                            @endif--}}
                                         </div>
                                     </div>
 
@@ -227,100 +228,5 @@
     </div>
     @push('custom-scripts')
 
-        <script>
-            jQuery(document).ready(function (e) {
-                $.ajaxSetup({
-
-                    headers: {
-
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-
-                    }
-
-                });
-
-                $('#estate').on('change', function (e) {
-
-
-                    var estate_id = e.target.value;
-
-                    $.ajaxSetup({
-                        headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
-                    });
-
-                    $.ajax({
-                        method: "get",
-                        dataType: 'html',
-                        url: '/manager/contracts/ajaxapartment',
-                        data: "estate_id=" + estate_id,
-                        success: function (data) {
-                            $('#apartment').empty();
-                            $.each(data, function (index, apartmentObj) {
-                                $('#apartment').append('<option value="' + apartmentObj.id + '"> ' + apartmentObj.name + '</option>');
-                            })
-                        },
-                        error: function (xhr, b, c) {
-                            console.log("xhr=" + xhr + " b=" + b + " c=" + c);
-                        }
-
-                    });
-
-                    // $.get('/manager/contracts/ajaxapartment?estate_id=' + estate_id, function (data) {
-                    //
-                    //     $('#apartment').empty();
-                    //     $.each(data, function (index, apartmentObj) {
-                    //         $('#apartment').append('<option value="' + apartmentObj.id + '"> ' + apartmentObj.name + '  </option>')
-                    //     })
-                    //
-                    //
-                    // });
-
-
-                });
-            });
-        </script>
-        <script>
-            $.ajaxSetup({
-                headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
-            });
-            jQuery.ajax({
-                url: '/categories',
-                type: 'GET',
-                data: {
-                    name: groupName,
-                    colour: "red"
-                },
-                success: function (data) {
-
-                    console.log(data);
-                },
-                error: function (xhr, b, c) {
-                    console.log("xhr=" + xhr + " b=" + b + " c=" + c);
-                }
-            });
-        </script>
-        <script>
-            $(document).ready(function() {
-                $('select[name="estate_id"]').on('change', function() {
-                    var estate_id = $(this).val();
-                    if (estate_id) {
-                        $.ajax({
-                            url: "{{ URL::to('/manager/contracts/ajaxapartment') }}/" + estate_id,
-                            type: "GET",
-                            dataType: "json",
-                            success: function(data) {
-                                $('select[name="apartment"]').empty();
-                                $.each(data, function(key, value) {
-                                    $('select[name="apartment"]').append('<option value="' +
-                                        value + '">' + value + '</option>');
-                                });
-                            },
-                        });
-                    } else {
-                        console.log('AJAX load did not work');
-                    }
-                });
-            });
-        </script>
     @endpush
 @endsection

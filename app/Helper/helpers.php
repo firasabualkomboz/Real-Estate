@@ -26,6 +26,10 @@ function updateMessage()
     return redirect()->back()->with($message);
 }
 
+function apisuccess($items,$data=null){
+    return response()->json(['status'=>true,'items'=>$items,'data'=>$data]);
+}
+
 function getIncomeOwnerBeforeTax(Contract $contract, User $user)
 {
 

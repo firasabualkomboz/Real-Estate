@@ -12,6 +12,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Symfony\Component\Console\Input\Input;
+use function app\Helper\apisuccess;
 use function app\Helper\errorMessage;
 use function app\Helper\successMessage;
 
@@ -104,11 +105,11 @@ class ContractController extends Controller
         return json_decode($estate);
     }
 
-    public function getAjaxApartment(Request $request)
+    public function getAjaxApartment($id)
     {
-        $estate_id  = Input::get('estate_id');
-        $apartmentEstateId = Apartment::where('estate_id' , '='  , $estate_id)->get();
-        return Response::json($apartmentEstateId);
+        $items = Apartment::where('estate_id', $id)->pluck('name', 'id')->all();
+        $view = view('manager.contracts._apartment', compact('items'))->render();
+        return apisuccess($view);
     }
 
     public function show($id)
