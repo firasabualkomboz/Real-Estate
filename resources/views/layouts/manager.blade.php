@@ -12,13 +12,7 @@
     <link href="{{asset('assets_dashboard')}}/assets/css/pages/wizard/wizard-4.css" rel="stylesheet" type="text/css"/>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
-    <!--end::Fonts-->
-    <link href="{{asset('assets_dashboard')}}/assets/plugins/custom/uppy/uppy.bundle.css" rel="stylesheet"
-          type="text/css"/>
 
-    <!--begin::Page Vendors Styles(used by this page)-->
-    <link href="{{asset('assets_dashboard')}}/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css"
-          rel="stylesheet" type="text/css"/>
     <!--end::Page Vendors Styles-->
     <!--begin::Global Theme Styles(used by all pages)-->
     <link href="{{asset('assets_dashboard')}}/assets/plugins/global/plugins.bundle.css" rel="stylesheet"
@@ -1706,18 +1700,14 @@
 <script src="{{asset('assets_dashboard')}}/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
 <script src="{{asset('assets_dashboard')}}/assets/js/scripts.bundle.js"></script>
 <!--end::Global Theme Bundle-->
-<!--begin::Page Vendors(used by this page)-->
-<script src="{{asset('assets_dashboard')}}/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
-<!--end::Page Vendors-->
+
+{{--<script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/ktdatatable/base/html-table.js"></script>--}}
+
 <!--begin::Page Scripts(used by this page)-->
 <script src="{{asset('assets_dashboard')}}/assets/js/pages/widgets.js"></script>
-<!--end::Page Scripts-->
-<script src="{{asset('assets_dashboard')}}/assets/plugins/global/plugins.bundle.js"></script>
-<script src="{{asset('assets_dashboard')}}/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
-<script src="{{asset('assets_dashboard')}}/assets/js/scripts.bundle.js"></script>
-<!--end::Global Theme Bundle-->
+
 <!--begin::Page Scripts(used by this page)-->
-<script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/ktdatatable/base/data-local.js"></script>
+{{--<script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/ktdatatable/base/data-local.js"></script>--}}
 <!--end::Page Scripts-->
 
 @stack('custom-scripts')

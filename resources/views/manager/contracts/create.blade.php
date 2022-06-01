@@ -34,6 +34,22 @@
         <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
             <div class="container">
+                <div class="form-group mb-8">
+                    @if ($errors->any())
+                        <div class="alert alert-custom alert-danger" role="alert">
+
+                            <div class="alert-icon">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+
+                        </div>
+                    @endif
+                </div>
+
                 <div class="row">
                     <div class="col-md-7">
 
@@ -50,21 +66,7 @@
                                   action="{{route('manager.contracts.store')}}">
                                 @csrf
                                 <div class="card-body">
-                                    <div class="form-group mb-8">
-                                        @if ($errors->any())
-                                            <div class="alert alert-custom alert-danger" role="alert">
 
-                                                <div class="alert-icon">
-                                                    <ul>
-                                                        @foreach ($errors->all() as $error)
-                                                            <li>{{ $error }}</li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
-
-                                            </div>
-                                        @endif
-                                    </div>
 
                                     <div class="form-group row">
                                         <label for="example-time-input" class="col-3 col-form-label">Select
@@ -225,21 +227,7 @@
                                   action="{{route('manager.tenants.store')}}">
                                 @csrf
                                 <div class="card-body">
-                                    <div class="form-group mb-8">
-                                        @if ($errors->any())
-                                            <div class="alert alert-custom alert-danger" role="alert">
 
-                                                <div class="alert-icon">
-                                                    <ul>
-                                                        @foreach ($errors->all() as $error)
-                                                            <li>{{ $error }}</li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
-
-                                            </div>
-                                        @endif
-                                    </div>
 
                                     <div class="form-group row">
                                         <label for="example-time-input" class="col-3 col-form-label">Name
@@ -283,7 +271,7 @@
                                         <label for="example-time-input" class="col-3 col-form-label">Identification Document </label>
 
                                         <div class="col-lg-8 col-xl-6">
-                                            <input class="form-control" type="file">
+                                            <input class="form-control" name="document" type="file">
                                         </div>
                                     </div>
 
