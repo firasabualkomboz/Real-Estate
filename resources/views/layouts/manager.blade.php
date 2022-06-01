@@ -1712,6 +1712,14 @@
 <!--begin::Page Scripts(used by this page)-->
 <script src="{{asset('assets_dashboard')}}/assets/js/pages/widgets.js"></script>
 <!--end::Page Scripts-->
+<script src="{{asset('assets_dashboard')}}/assets/plugins/global/plugins.bundle.js"></script>
+<script src="{{asset('assets_dashboard')}}/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+<script src="{{asset('assets_dashboard')}}/assets/js/scripts.bundle.js"></script>
+<!--end::Global Theme Bundle-->
+<!--begin::Page Scripts(used by this page)-->
+<script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/ktdatatable/base/data-local.js"></script>
+<!--end::Page Scripts-->
+
 @stack('custom-scripts')
 
 <script !src="">
@@ -1739,6 +1747,7 @@
 <script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/file-upload/image-input.js"></script>
 
 <script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/forms/widgets/select2.js"></script>
+
 
 
 </body>
