@@ -35,7 +35,7 @@
             <!--begin::Container-->
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-8">
 
                         <!--begin::Card-->
                         <div class="card card-custom example example-compact">
@@ -197,6 +197,118 @@
                         </div>
                         <!--end::Card-->
                     </div>
+
+                    <div class="col-md-4">
+
+                        <!--begin::Card-->
+                        <div class="card card-custom example example-compact">
+                            <div class="card-header">
+                                <h3 class="card-title">Register New Tenant</h3>
+
+                            </div>
+
+
+                            <!--begin::Form-->
+                            <form method="post" enctype="multipart/form-data"
+                                  action="{{route('manager.tenants.store')}}">
+                                @csrf
+                                <div class="card-body">
+                                    <div class="form-group mb-8">
+                                        @if ($errors->any())
+                                            <div class="alert alert-custom alert-danger" role="alert">
+
+                                                <div class="alert-icon">
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                            <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-time-input" class="col-3 col-form-label">Name
+                                            </label>
+                                        <div class="col-8">
+                                            <input class="form-control" type="text" name="name"
+                                            >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-time-input" class="col-3 col-form-label">Email
+                                        </label>
+                                        <div class="col-8">
+                                            <input class="form-control" type="email" name="email"
+                                            >
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <label for="example-time-input" class="col-3 col-form-label">Phone
+                                        </label>
+                                        <div class="col-8">
+                                            <input class="form-control" type="number" name="phone"
+                                            >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-time-input" class="col-3 col-form-label">Address
+                                        </label>
+                                        <div class="col-8">
+                                            <input class="form-control" type="text" name="address"
+                                            >
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group row">
+                                        <label for="example-time-input" class="col-3 col-form-label">Image </label>
+
+                                        <div class="col-lg-8 col-xl-6">
+                                            <div class="image-input image-input-outline" id="kt_image_1">
+                                                <div class="image-input-wrapper"
+                                                     style="background-image: url(assets/media/users/100_1.jpg)"></div>
+                                                <label
+                                                    class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                                                    data-action="change" data-toggle="tooltip" title=""
+                                                    data-original-title="Change avatar">
+                                                    <i class="fa fa-pen icon-sm text-muted"></i>
+                                                    <input type="file" name="document" accept=".png, .jpg, .jpeg">
+                                                    <input type="hidden" name="document ">
+                                                </label>
+                                                <span
+                                                    class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                                                    data-action="cancel" data-toggle="tooltip" title=""
+                                                    data-original-title="Cancel avatar">
+															<i class="ki ki-bold-close icon-xs text-muted"></i>
+														</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-2"></div>
+                                        <div class="col-10">
+                                            <button type="submit" class="btn btn-success mr-2">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!--end::Card-->
+                    </div>
+
 
                 </div>
             </div>

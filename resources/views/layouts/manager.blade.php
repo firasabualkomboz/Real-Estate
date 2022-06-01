@@ -443,7 +443,7 @@
                         </li>
 
                         <li class="menu-item" aria-haspopup="true">
-                            <a  href="{{route('manager.appointments.index')}}"
+                            <a href="{{route('manager.appointments.index')}}"
                                class="menu-link">
 										<span class="svg-icon menu-icon">
 											<!--begin::Svg Icon | path:assets/media/svg/icons/Home/Library.svg-->
@@ -518,9 +518,6 @@
                         </li>
 
 
-
-
-
                         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                             <a href="javascript:;" class="menu-link menu-toggle">
             <span class="svg-icon menu-icon">
@@ -570,25 +567,6 @@
                                 </ul>
                             </div>
                         </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                     </ul>
@@ -894,7 +872,7 @@
         <!--begin::Header-->
         <div class="d-flex align-items-center mt-5">
             <div class="symbol symbol-100 mr-5">
-                <div class="symbol-label" style="background-image:url('assets/media/users/300_21.jpg')"></div>
+                <div class="symbol-label" style=""></div>
                 <i class="symbol-badge bg-success"></i>
             </div>
             <div class="d-flex flex-column">

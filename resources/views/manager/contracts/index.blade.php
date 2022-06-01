@@ -162,11 +162,8 @@
                         <!--end::Search Form-->
                         <!--end: Search Form-->
                         <!--begin: Datatable-->
-                        <div class="datatable datatable-default datatable-primary datatable-loaded">
-                            <table
-                                class="table table-responsive-lg datatable-table"
-                                id="kt_datatable"
-                                style="display: block;">
+                            <table class="table table-bordered datatable-table" id="kt_datatable"
+                            >
                                 <thead class="datatable-head">
 
                                 <tr class="datatable-row" style="left: 0px;">
@@ -289,7 +286,7 @@
                             </table>
                             {{$contracts->links()}}
 
-                        </div>
+
                         <!--end: Datatable-->
                     </div>
                 </div>
