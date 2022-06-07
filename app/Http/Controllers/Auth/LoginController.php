@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use function app\Helper\errorMessage;
 
 class LoginController extends Controller
 {
@@ -57,9 +58,9 @@ class LoginController extends Controller
                 return redirect()->route('manager.home');
             }
         } else {
-            return redirect()->route('login')
-                ->with('error', 'Email-Address And Password Are Wrong.');
+            return back()->with('error', 'Email-Address And Password Are Wrong.');
         }
+
 
     }
 }

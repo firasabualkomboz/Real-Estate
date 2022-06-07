@@ -113,7 +113,8 @@
                 <!--begin::Aside body-->
                 <div class="d-flex flex-column-fluid flex-column flex-center mt-5 mt-lg-0">
                     <a href="#" class="mb-15 text-center">
-                        <img src="{{asset('assets_dashboard')}}/assets/media/logos/logo-letter-1.png" class="max-h-75px"
+
+                        <img src="{{asset('assets_dashboard')}}/assets/media/logos/logo.png" class="max-h-75px"
                              alt=""/>
                     </a>
                     <!--begin::Signin-->
@@ -123,9 +124,27 @@
                             <p class="text-muted font-weight-bold">Enter your username and password</p>
                         </div>
                         <!--begin::Form-->
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        @if ( Session::has('error'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <form method="POST" action="{{ route('login') }}" class="form" novalidate="novalidate">
                             @csrf
-
 
                             <div class="form-group py-3 m-0">
                                 <input
@@ -138,7 +157,6 @@
                                 </span>
                                 @enderror
                             </div>
-
 
 
                             <div class="form-group py-3 border-top m-0">
@@ -162,12 +180,9 @@
                             </div>
                             <div
                                 class="form-group d-flex flex-wrap justify-content-between align-items-center mt-2">
-                                <div class="my-3 mr-2">
-                                    <span class="text-muted mr-2">Do you have an account? </span>
-                                    <a href="javascript:;" id="kt_login_signup" class="font-weight-bold">Signin</a>
-                                </div>
+
                                 <button type="submit"
-                                        class="btn btn-primary font-weight-bold px-9 py-4 my-3">Sign Up
+                                        class="btn btn-primary font-weight-bold px-9 py-4 my-3">Sign In
                                 </button>
                             </div>
                         </form>
@@ -333,14 +348,15 @@
         <!--begin::Aside-->
         <!--begin::Content-->
         <div class="order-1 order-lg-2 flex-column-auto flex-lg-row-fluid d-flex flex-column p-7"
-             style="background-image: url({{asset('assets_dashboard')}}/assets/media/bg/bg-4.jpg);">
+             style="opacity: .9; background-image: url(https://images.pexels.com/photos/310479/pexels-photo-310479.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);">
+            {{--             style="background-image: url({{asset('assets_dashboard')}}/assets/media/bg/bg-4.jpg);">--}}
+
             <!--begin::Content body-->
             <div class="d-flex flex-column-fluid flex-lg-center">
                 <div class="d-flex flex-column justify-content-center">
                     <h3 class="display-3 font-weight-bold my-7 text-white">Welcome to Real Estate!</h3>
-                    <p class="font-weight-bold font-size-lg text-white opacity-80">The ultimate Bootstrap, Angular 8,
-                        React &amp; VueJS admin theme
-                        <br/>framework for next generation web apps.</p>
+                    <p class="font-weight-bold font-size-lg text-white opacity-80">Discover a place
+                        you'll love to live.</p>
                 </div>
             </div>
             <!--end::Content body-->

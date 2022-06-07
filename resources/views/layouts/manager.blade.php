@@ -43,7 +43,7 @@
 <!--begin::Header Mobile-->
 <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
     <!--begin::Logo-->
-    <a href="index.html">
+    <a href="/">
         <img alt="Logo" src="{{asset('assets_dashboard')}}/assets/media/logos/logo-light.png"/>
     </a>
     <!--end::Logo-->
@@ -91,7 +91,7 @@
             <!--begin::Brand-->
             <div class="brand flex-column-auto" id="kt_brand">
                 <!--begin::Logo-->
-                <a href="index.html" class="brand-logo">
+                <a href="/manager" class="brand-logo">
                     <img alt="Logo" src="{{asset('assets_dashboard')}}/assets/media/logos/logo-light.png"/>
                 </a>
                 <!--end::Logo-->
@@ -1700,15 +1700,16 @@
 <script src="{{asset('assets_dashboard')}}/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
 <script src="{{asset('assets_dashboard')}}/assets/js/scripts.bundle.js"></script>
 <!--end::Global Theme Bundle-->
+<script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/ktdatatable/base/html-table.js"></script>
 
 {{--<script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/ktdatatable/base/html-table.js"></script>--}}
 
 <!--begin::Page Scripts(used by this page)-->
-<script src="{{asset('assets_dashboard')}}/assets/js/pages/widgets.js"></script>
+{{--<script src="{{asset('assets_dashboard')}}/assets/js/pages/widgets.js"></script>--}}
 
-<!--begin::Page Scripts(used by this page)-->
-{{--<script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/ktdatatable/base/data-local.js"></script>--}}
-<!--end::Page Scripts-->
+
+<script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/file-upload/image-input.js"></script>
+
 
 @stack('custom-scripts')
 
@@ -1734,9 +1735,6 @@
     @endif
 
 </script>
-<script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/file-upload/image-input.js"></script>
-
-<script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/forms/widgets/select2.js"></script>
 
 
 
