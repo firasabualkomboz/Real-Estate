@@ -119,16 +119,15 @@
                                 <li><a href="index5.html" title="">Home v5</a></li>
                             </ul>
                         </li>
-                        <li class="menu-item-has-children">
-                            <a href="#" title="">PROPERTIES</a>
-                            <ul>
-                                <li><a href="properties3.html" title="">Properties- Super </a></li>
-                                <li><a href="properties.html" title="">Properties- List</a></li>
-                                <li><a href="properties2.html" title="">Properties- Grid</a></li>
-                                <li><a href="property.html" title="">Property details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="property.html" title="">PROPERTY</a></li>
+                        <li><a href="#estates" title="">Estates</a></li>
+
+
+{{--                        <li class="menu-item-has-children">--}}
+{{--                            <a href="#estates" title="">PROPERTIES</a>--}}
+{{--                            <ul>--}}
+{{--                                <li><a href="properties3.html" title="">Properties- Super </a></li>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
 
 
 
@@ -211,10 +210,10 @@
         </div>
     </section>
 
-    <section class="block">
+    <section class="block" id="estates">
         <div class="container">
             <div class="heading4">
-                <h2>FEATURED Estates</h2>
+                <h2>FEATURED ESTATES </h2>
                 <span>{{$estates->count()}} For You </span>
             </div>
             <div class="row">
