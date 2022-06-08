@@ -182,6 +182,8 @@
                                     </tr>
 
 
+
+
                                     <!-- Modal-->
                                     <div class="modal fade" id="exampleModalLong" data-backdrop="static"
                                          tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"
@@ -190,7 +192,7 @@
                                             <form method="post"
                                                   action="{{route('manager.estates.update' , $estate->id)}}">
                                                 @csrf
-                                                @method('PUT')
+                                                @method('PATCH')
 
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -240,6 +242,7 @@
                                         </div>
                                     </div>
 
+
                                 @endforeach
 
 
@@ -257,4 +260,5 @@
         </div>
         <!--end::Entry-->
     </div>
+
 @endsection

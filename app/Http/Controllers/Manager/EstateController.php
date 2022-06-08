@@ -53,7 +53,6 @@ class EstateController extends Controller
     {
 
         $estate = Estate::find($id);
-
         $estate->status = $request->status;
         $estate->update();
 
