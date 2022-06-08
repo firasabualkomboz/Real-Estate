@@ -1,52 +1,50 @@
-                    @extends('layouts.manager')
+@extends('layouts.manager')
 
-                    @section('content')
-                    <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-                    <!--begin::Subheader-->
-                    <div class="subheader py-3 py-lg-8 subheader-transparent" id="kt_subheader">
-                    <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
-                    <!--begin::Info-->
-                    <div class="d-flex align-items-center flex-wrap mr-1">
+@section('content')
+    <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+        <!--begin::Subheader-->
+        <div class="subheader py-3 py-lg-8 subheader-transparent" id="kt_subheader">
+            <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                <!--begin::Info-->
+                <div class="d-flex align-items-center flex-wrap mr-1">
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline mr-5">
-                    <!--begin::Page Title-->
-                    <h2 class="subheader-title text-dark font-weight-bold my-2 mr-3">Real Estate</h2>
-                    <!--end::Page Title-->
-                    <!--begin::Breadcrumb-->
-                    <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold my-2 p-0">
-                    <li class="breadcrumb-item">
-                    <a href="" class="text-muted">Properties </a>
-                    </li>
-                    <li class="breadcrumb-item">
-                    <a href="" class="text-muted">Properties List</a>
-                    </li>
+                        <!--begin::Page Title-->
+                        <h2 class="subheader-title text-dark font-weight-bold my-2 mr-3">Real Estate</h2>
+                        <!--end::Page Title-->
+                        <!--begin::Breadcrumb-->
+                        <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold my-2 p-0">
+                            <li class="breadcrumb-item">
+                                <a href="" class="text-muted">Properties </a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="" class="text-muted">Properties List</a>
+                            </li>
 
 
-
-
-                    </ul>
-                    <!--end::Breadcrumb-->
+                        </ul>
+                        <!--end::Breadcrumb-->
                     </div>
                     <!--end::Page Heading-->
-                    </div>
-                    <!--end::Info-->
+                </div>
+                <!--end::Info-->
 
-                    </div>
-                    </div>
-                    <!--end::Subheader-->
-                    <!--begin::Entry-->
-                    <div class="d-flex flex-column-fluid">
-                    <!--begin::Container-->
-                    <div class="container">
+            </div>
+        </div>
+        <!--end::Subheader-->
+        <!--begin::Entry-->
+        <div class="d-flex flex-column-fluid">
+            <!--begin::Container-->
+            <div class="container">
 
 
-                    <div class="card card-custom">
+                <div class="card card-custom">
                     <div class="card-header flex-wrap border-0 pt-6 pb-0">
-                    <div class="card-title">
-                    <h3 class="card-label">Properties List
+                        <div class="card-title">
+                            <h3 class="card-label">Properties List
 
-                    </h3>
-                    </div>
+                            </h3>
+                        </div>
 
                         <div class="card-toolbar">
 
@@ -73,154 +71,64 @@
 
                     </div>
                     <div class="card-body">
-                    <!--begin: Search Form-->
-                    <!--begin::Search Form-->
-                    <div class="mb-7">
-                    <div class="row align-items-center">
-                    <div class="col-lg-9 col-xl-8">
-                    <div class="row align-items-center">
-                    <div class="col-md-4 my-2 my-md-0">
-                    <div class="input-icon">
-                    <input type="text" class="form-control" placeholder="Search..."
-                    id="kt_datatable_search_query">
-                    <span>
-                    <i class="flaticon2-search-1 text-muted"></i>
-                    </span>
-                    </div>
-                    </div>
-                    <div class="col-md-4 my-2 my-md-0">
-                    <div class="d-flex align-items-center">
-                    <label class="mr-3 mb-0 d-none d-md-block">Status:</label>
-                    <div class="dropdown bootstrap-select form-control"><select
-                    class="form-control" id="kt_datatable_search_status"
-                    tabindex="-98">
-                    <option value="">All</option>
-                    <option value="1">Pending</option>
-                    <option value="2">Delivered</option>
-                    <option value="3">Canceled</option>
-                    <option value="4">Success</option>
-                    <option value="5">Info</option>
-                    <option value="6">Danger</option>
-                    </select>
-                    <button type="button"
-                    class="btn dropdown-toggle btn-light bs-placeholder"
-                    data-toggle="dropdown" role="combobox"
-                    aria-owns="bs-select-1" aria-haspopup="listbox"
-                    aria-expanded="false" data-id="kt_datatable_search_status"
-                    title="All">
-                    <div class="filter-option">
-                    <div class="filter-option-inner">
-                    <div class="filter-option-inner-inner">All</div>
-                    </div>
-                    </div>
-                    </button>
-                    <div class="dropdown-menu ">
-                    <div class="inner show" role="listbox" id="bs-select-1"
-                    tabindex="-1">
-                    <ul class="dropdown-menu inner show"
-                    role="presentation"></ul>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    <div class="col-md-4 my-2 my-md-0">
-                    <div class="d-flex align-items-center">
-                    <label class="mr-3 mb-0 d-none d-md-block">Type:</label>
-                    <div class="dropdown bootstrap-select form-control"><select
-                    class="form-control" id="kt_datatable_search_type"
-                    tabindex="-98">
-                    <option value="">All</option>
-                    <option value="1">Online</option>
-                    <option value="2">Retail</option>
-                    <option value="3">Direct</option>
-                    </select>
-                    <button type="button"
-                    class="btn dropdown-toggle btn-light bs-placeholder"
-                    data-toggle="dropdown" role="combobox"
-                    aria-owns="bs-select-2" aria-haspopup="listbox"
-                    aria-expanded="false" data-id="kt_datatable_search_type"
-                    title="All">
-                    <div class="filter-option">
-                    <div class="filter-option-inner">
-                    <div class="filter-option-inner-inner">All</div>
-                    </div>
-                    </div>
-                    </button>
-                    <div class="dropdown-menu ">
-                    <div class="inner show" role="listbox" id="bs-select-2"
-                    tabindex="-1">
-                    <ul class="dropdown-menu inner show"
-                    role="presentation"></ul>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
-                    <a href="#" class="btn btn-light-primary px-6 font-weight-bold">Search</a>
-                    </div>
-                    </div>
-                    </div>
-                    <!--end::Search Form-->
-                    <!--end: Search Form-->
-                    <!--begin: Datatable-->
-                    <div
-                    class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
-                    id="kt_datatable" style="">
-                    <table class="datatable-table" style="display: block;">
-                    <thead class="datatable-head">
-                    <tr class="datatable-row" style="left: 0px;">
-                    <th data-field="RecordID"
-                    class="datatable-cell-center datatable-cell datatable-cell-check"><span
-                    style="width: 20px;"><label
-                    class="checkbox checkbox-single checkbox-all"><input type="checkbox">&nbsp;<span></span></label></span>
-                    </th>
-                    <th data-field="OrderID" class="datatable-cell datatable-cell-sort"><span
-                    style="width: 126px;"># ID</span></th>
-                    <th data-field="Country" class="datatable-cell datatable-cell-sort"><span
-                    style="width: 126px;">Name</span></th>
+
+                        <!--begin: Datatable-->
+                        <div
+                            class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
+                            id="kt_datatable" style="">
+                            <table class="datatable-table" style="display: block;">
+                                <thead class="datatable-head">
+                                <tr class="datatable-row" style="left: 0px;">
+                                    <th data-field="RecordID"
+                                        class="datatable-cell-center datatable-cell datatable-cell-check"><span
+                                            style="width: 20px;"><label
+                                                class="checkbox checkbox-single checkbox-all"><input type="checkbox">&nbsp;<span></span></label></span>
+                                    </th>
+                                    <th data-field="OrderID" class="datatable-cell datatable-cell-sort"><span
+                                            style="width: 126px;"># ID</span></th>
+                                    <th data-field="Country" class="datatable-cell datatable-cell-sort"><span
+                                            style="width: 126px;">Name</span></th>
 
 
-                    <th data-field="Type" data-autohide-disabled="false"
-                    class="datatable-cell datatable-cell-sort"><span
-                    style="width: 126px;">Apartments Count </span></th>
-                    <th data-field="Actions" data-autohide-disabled="false"
-                    class="datatable-cell datatable-cell-sort"><span
-                    style="width: 125px;">Actions</span></th>
-                    </tr>
-                    </thead>
-                    <tbody class="datatable-body" style="">
-                    @foreach($properties as $property)
+                                    <th data-field="Type" data-autohide-disabled="false"
+                                        class="datatable-cell datatable-cell-sort"><span
+                                            style="width: 126px;">Apartments Count </span></th>
+                                    <th data-field="Actions" data-autohide-disabled="false"
+                                        class="datatable-cell datatable-cell-sort"><span
+                                            style="width: 125px;">Actions</span></th>
+                                </tr>
+                                </thead>
+                                <tbody class="datatable-body" style="">
+                                @foreach($properties as $property)
 
-                    <tr data-row="0" class="datatable-row" style="left: 0px;">
-
-
-
-                    <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check"
-                    data-field="RecordID" aria-label="1"><span style="width: 20px;"><label
-                    class="checkbox checkbox-single"><input type="checkbox" value="1">&nbsp;<span></span></label></span>
-                    </td>
-                    <td data-field="OrderID" aria-label="0374-5070" class="datatable-cell"><span
-                    style="width: 126px;">{{$property->id}}</span></td>
-                    <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                    style="width: 126px;">{{$property->name}}</span></td>
+                                    <tr data-row="0" class="datatable-row" style="left: 0px;">
 
 
-                    <td data-field="Type" data-autohide-disabled="false" aria-label="2"
-                    class="datatable-cell"><span style="width: 126px;"><span
-                    class="label label-primary label-dot mr-2"></span><span
-                    class="font-weight-bold text-primary">{{$property->apartment->count()}}</span></span></td>
-                    <td data-field="Actions" data-autohide-disabled="false" aria-label="null"
-                    class="datatable-cell">
+                                        <td class="datatable-cell-sorted datatable-cell-center datatable-cell datatable-cell-check"
+                                            data-field="RecordID" aria-label="1"><span style="width: 20px;"><label
+                                                    class="checkbox checkbox-single"><input type="checkbox" value="1">&nbsp;<span></span></label></span>
+                                        </td>
+                                        <td data-field="OrderID" aria-label="0374-5070" class="datatable-cell"><span
+                                                style="width: 126px;">{{$property->id}}</span></td>
+                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span
+                                                style="width: 126px;">{{$property->name}}</span></td>
+
+
+                                        <td data-field="Type" data-autohide-disabled="false" aria-label="2"
+                                            class="datatable-cell"><span style="width: 126px;"><span
+                                                    class="label label-primary label-dot mr-2"></span><span
+                                                    class="font-weight-bold text-primary"></span></span>
+                                        </td>
+                                        <td data-field="Actions" data-autohide-disabled="false" aria-label="null"
+                                            class="datatable-cell">
                     <span
-                    style="overflow: visible; position: relative; width: 125px; display: inline ">
+                        style="overflow: visible; position: relative; width: 125px; display: inline ">
 
-                        <button class="btn btn-warning btn-sm"> <a style="color: #fff" href="{{route('manager.properties.edit' , $property->id)}}">Update</a> </button>
+                        <button class="btn btn-warning btn-sm"> <a style="color: #fff"
+                                                                   href="{{route('manager.properties.edit' , $property->id)}}">Update</a> </button>
 
-                        <form method="post" style="display: inline" action="{{route('manager.properties.destroy' , $property->id)}}">
+                        <form method="post" style="display: inline"
+                              action="{{route('manager.properties.destroy' , $property->id)}}">
                         @method('DELETE')
                             @csrf
                             <button class="btn btn-danger btn-sm" type="submit">Delete</button>
@@ -228,23 +136,24 @@
 
                     </span>
 
-                    </td>
+                                        </td>
 
-                    </tr>                                    @endforeach
-
-
-                    </tbody>
-                    </table>
-
-                    </div>
-                    <!--end: Datatable-->
-                    </div>
-                    </div>
+                                    </tr>
+                                @endforeach
 
 
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <!--end: Datatable-->
                     </div>
-                    <!--end::Container-->
-                    </div>
-                    <!--end::Entry-->
-                    </div>
-                    @endsection
+                </div>
+
+
+            </div>
+            <!--end::Container-->
+        </div>
+        <!--end::Entry-->
+    </div>
+@endsection

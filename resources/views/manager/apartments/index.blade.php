@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.manager')
 
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
@@ -40,15 +40,14 @@
                 <div class="card card-custom">
                     <div class="card-header flex-wrap border-0 pt-6 pb-0">
                         <div class="card-title">
-                            <h3 class="card-label">Estates List
-                                <span
-                                    class="d-block text-muted pt-2 font-size-sm">Datatable initialized from HTML table</span>
+                            <h3 class="card-label">Apartments List
+
                             </h3>
                         </div>
                         <div class="card-toolbar">
 
                             <!--begin::Button-->
-                            <a href="{{route('manager.estates.create')}}" class="btn btn-primary font-weight-bolder">
+                            <a href="{{route('manager.apartments.create')}}" class="btn btn-secondary font-weight-bolder">
 											<span class="svg-icon svg-icon-md">
 												<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
 												<svg xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +62,7 @@
 													</g>
 												</svg>
                                                 <!--end::Svg Icon-->
-											</span>New Estate</a>
+											</span>New Apartment</a>
                             <!--end::Button-->
                         </div>
                     </div>

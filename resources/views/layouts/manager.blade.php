@@ -1006,7 +1006,7 @@
 <script src="{{asset('assets_dashboard')}}/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
 <script src="{{asset('assets_dashboard')}}/assets/js/scripts.bundle.js"></script>
 <!--end::Global Theme Bundle-->
-<script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/ktdatatable/base/html-table.js"></script>
+{{--<script src="{{asset('assets_dashboard')}}/assets/js/pages/crud/ktdatatable/base/html-table.js"></script>--}}
 
 <!--begin::Page Scripts(used by this page)-->
 {{--<script src="{{asset('assets_dashboard')}}/assets/js/pages/widgets.js"></script>--}}
