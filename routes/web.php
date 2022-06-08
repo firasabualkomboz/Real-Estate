@@ -14,6 +14,11 @@ use App\Http\Controllers\Manager\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/this' , function (){
+    return view('manager.tester');
+});
+
+
 
 Route::get('/', [\App\Http\Controllers\front\GeneralController::class, 'index'])->name('welcome');
 Route::get('/estate{id}', [\App\Http\Controllers\front\GeneralController::class, 'showEstate'])->name('showEstate');
@@ -59,5 +64,4 @@ Route::middleware(['auth', 'IsTenant'])->name('tenant.')->prefix('tenant')->grou
 
 
 Route::get('test-req/{id}', [\App\Http\Controllers\Manager\ContractController::class, 'getAjaxApartment'])->name('getAjaxApartment');
-
 
