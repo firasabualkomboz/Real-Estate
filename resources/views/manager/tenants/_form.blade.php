@@ -19,7 +19,8 @@
     <div class="form-group row">
         <div class="col-6">
             <label for="example-date-input" class="col-form-label">Full Name</label>
-            <input class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $tenant->name) }}" type="text" name="name"
+            <input class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $tenant->name) }}"
+                   type="text" name="name"
             >
             @error('name')
             <p class="invalid-feedback">{{ $message }}</p>
@@ -29,7 +30,8 @@
 
         <div class="col-6">
             <label for="example-date-input" class="col-form-label">Email</label>
-            <input class="form-control @error('email') is-invalid @enderror" value="{{ old('email', $tenant->email) }}" type="email" name="email"
+            <input class="form-control @error('email') is-invalid @enderror" value="{{ old('email', $tenant->email) }}"
+                   type="email" name="email"
             >
             @error('email')
             <p class="invalid-feedback">{{ $message }}</p>
@@ -38,15 +40,14 @@
         </div>
 
 
-
     </div>
-
 
 
     <div class="form-group row">
         <div class="col-6">
             <label for="example-date-input" class="col-form-label">Phone Number</label>
-            <input class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone', $tenant->phone) }}" type="text" name="phone"
+            <input class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone', $tenant->phone) }}"
+                   type="text" name="phone"
             >
             @error('phone')
             <p class="invalid-feedback">{{ $message }}</p>
@@ -56,7 +57,8 @@
 
         <div class="col-6">
             <label for="example-date-input" class="col-form-label">Address</label>
-            <input class="form-control @error('address') is-invalid @enderror" value="{{ old('address', $tenant->address) }}" type="text" name="address"
+            <input class="form-control @error('address') is-invalid @enderror"
+                   value="{{ old('address', $tenant->address) }}" type="text" name="address"
             >
             @error('address')
             <p class="invalid-feedback">{{ $message }}</p>
@@ -65,16 +67,15 @@
         </div>
 
 
-
     </div>
-
 
 
     <div class="form-group row">
         <div class="col-6">
             <label for="example-date-input" class="col-form-label">Identification Document</label>
 
-            <input class="form-control @error('document') is-invalid @enderror" value="{{ old('document', $tenant->document) }}" type="file" name="document"
+            <input class="form-control @error('document') is-invalid @enderror"
+                   value="{{ old('document', $tenant->document) }}" type="file" name="document"
             >
             @error('document')
             <p class="invalid-feedback">{{ $message }}</p>
@@ -83,11 +84,7 @@
         </div>
 
 
-
-
     </div>
-
-
 
 
 </div>

@@ -14,10 +14,10 @@
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold my-2 p-0">
                             <li class="breadcrumb-item">
-                                <a href="" class="text-muted">properties</a>
+                                <a href="" class="text-muted">Tenants</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="" class="text-muted">Add Property</a>
+                                <a href="" class="text-muted">Edit Tenants</a>
                             </li>
 
 
@@ -41,15 +41,15 @@
                         <!--begin::Card-->
                         <div class="card card-custom example example-compact">
                             <div class="card-header">
-                                <h3 class="card-title">Add Property </h3>
+                                <h3 class="card-title">Edit Information -  <strong>{{$tenant->name}}</strong> </h3>
                             </div>
 
                             <!--begin::Form-->
                             <form method="post" enctype="multipart/form-data"
-                                  action="{{route('manager.properties.update' , $property->id)}}">
+                                  action="{{route('manager.tenants.update' , $tenant->id)}}">
                                 @method('PUT')
                                 @csrf
-                                @include('manager.properties._form' , ['button' => 'Update'] )
+                                @include('manager.tenants._form' , ['button' => 'Update'] )
 
 
 
