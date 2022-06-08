@@ -86,6 +86,7 @@ class EstateController extends Controller
             'bedrooms' => $request->bedrooms,
             'rooms' => $request->rooms,
             'images' => json_encode($data_images),
+            'status' => 'available'
 
         ]);
         $estate->save();

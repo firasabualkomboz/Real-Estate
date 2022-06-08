@@ -61,7 +61,8 @@
                 <div class="card card-custom card-transparent">
                     <div class="card-body p-0">
                         <!--begin: Wizard-->
-                        <div class="wizard wizard-4" id="kt_wizard_v4" data-wizard-state="first" data-wizard-clickable="true">
+                        <div class="wizard wizard-4" id="kt_wizard_v4" data-wizard-state="first"
+                             data-wizard-clickable="true">
                             <!--begin: Wizard Nav-->
                             <div class="wizard-nav">
                                 <div class="wizard-steps">
@@ -80,7 +81,7 @@
                                         <div class="wizard-wrapper">
                                             <div class="wizard-number">2</div>
                                             <div class="wizard-label">
-                                                <div class="wizard-title">Location </div>
+                                                <div class="wizard-title">Location</div>
                                             </div>
                                         </div>
                                     </div>
@@ -128,7 +129,8 @@
                                                 </div>
                                             @endif
 
-                                            <form class="form mt-0 mt-lg-10 fv-plugins-bootstrap fv-plugins-framework" method="post" id="kt_form"
+                                            <form class="form mt-0 mt-lg-10 fv-plugins-bootstrap fv-plugins-framework"
+                                                  method="post" id="kt_form"
                                                   enctype="multipart/form-data"
                                                   action="{{route('manager.estates.store')}}"
                                             >
@@ -136,28 +138,35 @@
 
 
                                                 <!--begin: Wizard Step 1-->
-                                                <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
+                                                <div class="pb-5" data-wizard-type="step-content"
+                                                     data-wizard-state="current">
 
 
                                                     <div class="row">
                                                         <div class="col-xl-6">
                                                             <div class="form-group fv-plugins-icon-container">
-                                                                <label>Estate Name <span style="color: red"> * </span></label>
-                                                                <input type="text" class="form-control form-control-solid form-control-lg" name="name">
+                                                                <label>Estate Name <span
+                                                                        style="color: red"> * </span></label>
+                                                                <input type="text"
+                                                                       class="form-control form-control-solid form-control-lg"
+                                                                       name="name">
 
-                                                                <div class="fv-plugins-message-container"></div></div>
+                                                                <div class="fv-plugins-message-container"></div>
+                                                            </div>
 
                                                         </div>
 
 
-
                                                         <div class="col-xl-6">
                                                             <div class="form-group fv-plugins-icon-container">
-                                                                <label>Select Property Type <span style="color: red"> * </span></label>
-                                                                <select name="property_id" class="form-control form-control-solid form-control-lg">
+                                                                <label>Select Property Type <span
+                                                                        style="color: red"> * </span></label>
+                                                                <select name="property_id"
+                                                                        class="form-control form-control-solid form-control-lg">
                                                                     @foreach ($properties as $property)
 
-                                                                        <option value="{{ $property->id }}"  @if ($property->id == old('property_id' , $estate->property_id ) ) selected @endif >
+                                                                        <option value="{{ $property->id }}"
+                                                                                @if ($property->id == old('property_id' , $estate->property_id ) ) selected @endif >
                                                                             {{ $property->name }}
                                                                         </option>
 
@@ -165,7 +174,8 @@
 
                                                                 </select>
 
-                                                                <div class="fv-plugins-message-container"></div></div>
+                                                                <div class="fv-plugins-message-container"></div>
+                                                            </div>
 
                                                         </div>
 
@@ -177,10 +187,12 @@
                                                         <div class="col-xl-6">
                                                             <div class="form-group fv-plugins-icon-container">
                                                                 <label>Select Owner <span style="color: red"> * </span></label>
-                                                                <select name="owner_id" class="form-control form-control-solid form-control-lg">
+                                                                <select name="owner_id"
+                                                                        class="form-control form-control-solid form-control-lg">
                                                                     @foreach ($owners as $owner)
 
-                                                                        <option value="{{ $owner->id }}"  @if ($owner->id == old('owner_id' , $estate->owner_id ) ) selected @endif >
+                                                                        <option value="{{ $owner->id }}"
+                                                                                @if ($owner->id == old('owner_id' , $estate->owner_id ) ) selected @endif >
                                                                             {{ $owner->name }}
                                                                         </option>
 
@@ -189,15 +201,19 @@
                                                                 </select>
 
 
-                                                                <div class="fv-plugins-message-container"></div></div>
+                                                                <div class="fv-plugins-message-container"></div>
+                                                            </div>
 
                                                         </div>
                                                         <div class="col-xl-6">
                                                             <!--begin::Input-->
                                                             <div class="form-group fv-plugins-icon-container">
                                                                 <label>Area</label>
-                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="area" placeholder="200 sqmt">
-                                                                <div class="fv-plugins-message-container"></div></div>
+                                                                <input type="number"
+                                                                       class="form-control form-control-solid form-control-lg"
+                                                                       name="area" placeholder="200 sqmt">
+                                                                <div class="fv-plugins-message-container"></div>
+                                                            </div>
                                                             <!--end::Input-->
                                                         </div>
                                                     </div>
@@ -206,10 +222,14 @@
                                                     <div class="row">
                                                         <div class="col-xl-6">
                                                             <div class="form-group fv-plugins-icon-container">
-                                                                <label>Company Commissions <span style="color: red"> * </span></label>
-                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="commission" placeholder="20%">
+                                                                <label>Company Commissions <span
+                                                                        style="color: red"> * </span></label>
+                                                                <input type="number"
+                                                                       class="form-control form-control-solid form-control-lg"
+                                                                       name="commission" placeholder="20%">
 
-                                                                <div class="fv-plugins-message-container"></div></div>
+                                                                <div class="fv-plugins-message-container"></div>
+                                                            </div>
 
                                                         </div>
 
@@ -217,8 +237,11 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group fv-plugins-icon-container">
                                                                 <label>Rent</label>
-                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="rent" placeholder="100$/month">
-                                                                <div class="fv-plugins-message-container"></div></div>
+                                                                <input type="number"
+                                                                       class="form-control form-control-solid form-control-lg"
+                                                                       name="rent" placeholder="100$/month">
+                                                                <div class="fv-plugins-message-container"></div>
+                                                            </div>
                                                             <!--end::Input-->
                                                         </div>
 
@@ -229,7 +252,9 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group fv-plugins-icon-container">
                                                         <label>Description <span style="color: red">*</span></label>
-                                                        <textarea  class="form-control form-control-solid form-control-lg" name="description" id="" cols="10" rows="10"></textarea>
+                                                        <textarea
+                                                            class="form-control form-control-solid form-control-lg"
+                                                            name="description" id="" cols="10" rows="10"></textarea>
                                                         <div class="fv-plugins-message-container"></div>
 
 
@@ -245,9 +270,12 @@
                                                     <!--begin::Input-->
                                                     <div class="form-group">
                                                         <label>Select Estate Location</label>
-                                                        <input type="text" class="form-control form-control-solid form-control-lg" id="pac-input" name="location">
+                                                        <input type="text"
+                                                               class="form-control form-control-solid form-control-lg"
+                                                               id="pac-input" name="location">
 
-                                                        <div id="map" class="mt-3" style="height: 500px;width: 650px;"></div>
+                                                        <div id="map" class="mt-3"
+                                                             style="height: 500px;width: 650px;"></div>
 
                                                     </div>
 
@@ -261,8 +289,11 @@
                                                             <!--begin::Input-->
                                                             <!--begin::Input-->
                                                             <div class="form-group fv-plugins-icon-container">
-                                                                <label>Estate Notes <span style="color: red">*</span></label>
-                                                                <textarea  class="form-control form-control-solid form-control-lg" name="notes" id="" cols="10" rows="10"></textarea>
+                                                                <label>Estate Notes <span
+                                                                        style="color: red">*</span></label>
+                                                                <textarea
+                                                                    class="form-control form-control-solid form-control-lg"
+                                                                    name="notes" id="" cols="10" rows="10"></textarea>
                                                                 <div class="fv-plugins-message-container"></div>
 
 
@@ -277,32 +308,44 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group fv-plugins-icon-container">
                                                                 <label>Estate Age </label>
-                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="estate_age">
-                                                                <div class="fv-plugins-message-container"></div></div>
+                                                                <input type="number"
+                                                                       class="form-control form-control-solid form-control-lg"
+                                                                       name="estate_age">
+                                                                <div class="fv-plugins-message-container"></div>
+                                                            </div>
                                                             <!--end::Input-->
                                                         </div>
                                                         <div class="col-xl-3">
                                                             <!--begin::Input-->
                                                             <div class="form-group fv-plugins-icon-container">
                                                                 <label>Rooms </label>
-                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="rooms" >
-                                                                <div class="fv-plugins-message-container"></div></div>
+                                                                <input type="number"
+                                                                       class="form-control form-control-solid form-control-lg"
+                                                                       name="rooms">
+                                                                <div class="fv-plugins-message-container"></div>
+                                                            </div>
                                                             <!--end::Input-->
                                                         </div>
                                                         <div class="col-xl-3">
                                                             <!--begin::Input-->
                                                             <div class="form-group fv-plugins-icon-container">
                                                                 <label>BadRooms</label>
-                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="bedrooms">
-                                                                <div class="fv-plugins-message-container"></div></div>
+                                                                <input type="number"
+                                                                       class="form-control form-control-solid form-control-lg"
+                                                                       name="bedrooms">
+                                                                <div class="fv-plugins-message-container"></div>
+                                                            </div>
                                                             <!--end::Input-->
                                                         </div>
                                                         <div class="col-xl-3">
                                                             <!--begin::Input-->
                                                             <div class="form-group fv-plugins-icon-container">
                                                                 <label>BathRooms</label>
-                                                                <input type="number" class="form-control form-control-solid form-control-lg" name="bathrooms" >
-                                                                <div class="fv-plugins-message-container"></div></div>
+                                                                <input type="number"
+                                                                       class="form-control form-control-solid form-control-lg"
+                                                                       name="bathrooms">
+                                                                <div class="fv-plugins-message-container"></div>
+                                                            </div>
                                                             <!--end::Input-->
                                                         </div>
 
@@ -315,10 +358,11 @@
 
                                                                     @foreach ($tags as $tag)
 
-                                                                    <label class="checkbox">
-                                                                        <input type="checkbox" name="tags[]" value="{{$tag->id}}">
-                                                                        {{$tag->name}}
-                                                                        <span></span></label>
+                                                                        <label class="checkbox">
+                                                                            <input type="checkbox" name="tags[]"
+                                                                                   value="{{$tag->id}}">
+                                                                            {{$tag->name}}
+                                                                            <span></span></label>
                                                                     @endforeach
 
 
@@ -339,8 +383,11 @@
                                                             <!--begin::Input-->
                                                             <div class="form-group fv-plugins-icon-container">
                                                                 <label>Estate Images </label>
-                                                                <input type="file" class="form-control form-control-solid form-control-lg" name="images[]" multiple>
-                                                                <div class="fv-plugins-message-container"></div></div>
+                                                                <input type="file"
+                                                                       class="form-control form-control-solid form-control-lg"
+                                                                       name="images[]" multiple>
+                                                                <div class="fv-plugins-message-container"></div>
+                                                            </div>
                                                             <!--end::Input-->
                                                         </div>
 
@@ -351,15 +398,27 @@
                                                 <!--begin: Wizard Actions-->
                                                 <div class="d-flex justify-content-between border-top mt-5 pt-10">
                                                     <div class="mr-2">
-                                                        <button class="btn btn-light-primary font-weight-bold text-uppercase px-9 py-4" data-wizard-type="action-prev">Previous</button>
+                                                        <button
+                                                            class="btn btn-light-primary font-weight-bold text-uppercase px-9 py-4"
+                                                            data-wizard-type="action-prev">Previous
+                                                        </button>
                                                     </div>
                                                     <div>
-                                                        <button class="btn btn-success font-weight-bold text-uppercase px-9 py-4" type="submit" >Submit</button>
-                                                        <button class="btn btn-primary font-weight-bold text-uppercase px-9 py-4" data-wizard-type="action-next">Next Step</button>
+                                                        <button
+                                                            class="btn btn-success font-weight-bold text-uppercase px-9 py-4"
+                                                            type="submit">Submit
+                                                        </button>
+                                                        <button
+                                                            class="btn btn-primary font-weight-bold text-uppercase px-9 py-4"
+                                                            data-wizard-type="action-next">Next Step
+                                                        </button>
                                                     </div>
                                                 </div>
                                                 <!--end: Wizard Actions-->
-                                                <div></div><div></div><div></div></form>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                            </form>
                                             <!--end: Wizard Form-->
                                         </div>
                                     </div>
