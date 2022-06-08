@@ -11,19 +11,20 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
+use function app\Helper\successMessage;
 
 class EstateController extends Controller
 {
     public function index()
     {
-        $estates = Estate::with('owner' , 'property')->get();
+        $estates = Estate::with('owner', 'property')->get();
         return view('manager.estate.index', compact('estates'));
     }
 
     public function show($id)
     {
         $estate = Estate::find($id);
-        return view('manager.estate.show' , compact('estate'));
+        return view('manager.estate.show', compact('estate'));
     }
 
     public function create()
@@ -37,9 +38,26 @@ class EstateController extends Controller
             'properties' => Property::all(),
             'tags' => Tag::all(),
             'estate_tags' => [],
-            'owners' => User::where('type' , '2')->get()
+            'owners' => User::where('type', '2')->get()
 
         ]);
+    }
+
+    public function edit($id)
+    {
+        $estate = Estate::find($id);
+        return view('manager.estates.index', compact('estate'));
+    }
+
+    public function update(Request $request, $id)
+    {
+
+        $estate = Estate::find($id);
+
+        $estate->status = $request->status;
+        $estate->update();
+
+        return successMessage();
     }
 
     public function store(EstateRequest $request)
@@ -50,7 +68,7 @@ class EstateController extends Controller
         if ($request->hasfile('images')) {
 
             foreach ($request->file('images') as $image) {
-                $data_images[] =   $image->store('/', 'uploads');
+                $data_images[] = $image->store('/', 'uploads');
             }
         }
 
@@ -72,7 +90,7 @@ class EstateController extends Controller
 
         ]);
         $estate->save();
-        $tags = $request->post('tags' , []);
+        $tags = $request->post('tags', []);
 
         $estate->tags()->attach($tags);
 
