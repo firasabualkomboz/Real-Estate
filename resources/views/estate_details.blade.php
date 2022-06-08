@@ -4,7 +4,6 @@
     <div class="theme-layout">
 
 
-
         <header class="simple-header for-sticky white">
             <div class="top-bar">
                 <div class="container">
@@ -99,8 +98,9 @@
 
 
         <div class="inner-head overlap">
-            <div style="background: url(   {{  asset('/uploads/'.$estate->images['0']) ?? ''  }}) repeat scroll 50% 422.28px transparent;"
-                 class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+            <div
+                style="background: url(   {{  asset('/uploads/'.$estate->images['0']) ?? ''  }}) repeat scroll 50% 422.28px transparent;"
+                class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
             <div class="container">
                 <div class="inner-content">
                     <span><i class="ti ti-home"></i></span>
@@ -127,14 +127,18 @@
                                                     <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
 
 
-                                    <?php
+{{--                                                        <?php--}}
+{{--                                                                --}}
+{{--                                                        foreach ($estate->images as $picture) { ?>--}}
+{{--                                                        <li data-thumb="{{ asset('/uploads/'.$picture) }}">--}}
+{{--                                                            <img src="{{ asset('/uploads/'.$picture) }}"--}}
+{{--                                                                 alt="{{$estate->name}}"/>--}}
+{{--                                                        </li>--}}
+{{--                                                        <?php } ?>--}}
+                                                        <?php foreach (json_decode($estate->images)as $picture) { ?>
+                                                        <img src="{{ asset('/uploads/'.$picture) }}" width="100%" class="border"/>
 
-                                                    foreach ($estate->images as $picture) { ?>
-                                                    <li data-thumb="{{ asset('/uploads/'.$picture) }}">
-                                                    <img src="{{ asset('/uploads/'.$picture) }}" alt="{{$estate->name}}"/>
-                                                    </li>
-                                                    <?php } ?>
-
+                                                        <?php } ?>
 
 
                                                     </ul>
@@ -168,14 +172,17 @@
                                                             class="col-xs-6 col-md-7 detail-field-value">{{$estate->area}} sqft</span>
                                                         <span
                                                             class="col-xs-6 col-md-5 detail-field-label">Bedrooms</span>
-                                                        <span class="col-xs-6 col-md-7 detail-field-value">{{$estate->bedrooms}}</span>
+                                                        <span
+                                                            class="col-xs-6 col-md-7 detail-field-value">{{$estate->bedrooms}}</span>
                                                         <span
                                                             class="col-xs-6 col-md-5 detail-field-label">Bathrooms</span>
-                                                        <span class="col-xs-6 col-md-7 detail-field-value">{{$estate->bathrooms}}</span>
+                                                        <span
+                                                            class="col-xs-6 col-md-7 detail-field-value">{{$estate->bathrooms}}</span>
 
                                                         <span
                                                             class="col-xs-6 col-md-5 detail-field-label">Estate Age</span>
-                                                        <span class="col-xs-6 col-md-7 detail-field-value">	{{$estate->estate_age}}</span>
+                                                        <span
+                                                            class="col-xs-6 col-md-7 detail-field-value">	{{$estate->estate_age}}</span>
 
 
                                                     </div>
@@ -196,22 +203,23 @@
 
                                             <div class="property-feature-content clearfix">
                                                 @foreach($estate->tags as $tag)
-                                                <div class="has">
-                                                    <i class="fa fa-check-circle"></i> {{$tag->name}}
-                                                </div>
+                                                    <div class="has">
+                                                        <i class="fa fa-check-circle"></i> {{$tag->name}}
+                                                    </div>
                                                 @endforeach
 
                                             </div>
                                         </div>
 
 
-
                                         <div class="property-map">
                                             <div class="heading3">
                                                 <h3>Estate Location on map </h3>
                                             </div>
-{{--                                            <div id="propertyMap"></div>--}}
-                                            <input type="text" disabled class="form-control form-control-solid form-control-lg" id="pac-input" value="{{$estate->location}}" name="location">
+                                            {{--                                            <div id="propertyMap"></div>--}}
+                                            <input type="text" disabled
+                                                   class="form-control form-control-solid form-control-lg"
+                                                   id="pac-input" value="{{$estate->location}}" name="location">
 
                                             <div id="map" class="mt-3" style="height: 500px;width: 650px;"></div>
 
@@ -316,8 +324,9 @@
                                         </span>
 
 
-                                        <a href="agent.html" title="" id="book" class="btn contact-agent">Book An Appointment
-                                            </a>
+                                        <a href="agent.html" title="" id="book" class="btn contact-agent">Book An
+                                            Appointment
+                                        </a>
                                     </div>
                                 </div><!-- Follow Widget -->
 
@@ -727,7 +736,6 @@
         </footer>
 
     </div>
-
 
 @endsection
 

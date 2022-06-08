@@ -28,7 +28,7 @@ class Estate extends Model
         if (empty($this->image)) {
             return asset('admin_files/assets/img/backgrounds/02.png');
         }
-        return asset('uploads/' . $this->image);
+        return asset('uploads/' . $this->images);
     }
 
     public function appointment()

@@ -225,7 +225,11 @@
                                 <div class="col-md-4">
                                     <div class="properties-box">
                                         <div class="properties-thumb">
-                                            <img src="{{  asset('/uploads/'.$estate->images['0']) ?? ''  }}" alt=""/>
+                                            <?php foreach (json_decode($estate->images)as $picture) { ?>
+                                            <img src="{{ asset('/uploads/'.$picture) }}" />
+
+                                            <?php } ?>
+
 
                                             <span class="spn-status"> For Rent </span>
 
