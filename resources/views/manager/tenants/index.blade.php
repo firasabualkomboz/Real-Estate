@@ -71,111 +71,102 @@
 
 
                         <!--begin: Datatable-->
-                        <div
-                            class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded"
-                            id="kt_datatable" style="">
-                            <table class="datatable-table" style="display: block;">
-                                <thead class="datatable-head">
-                                <tr class="datatable-row" style="left: 0px;">
+
+                        <table class="ajax-table" style="display: block;">
+                            <thead >
+                            <tr>
 
 
-                                    <th data-field="OrderID" class="datatable-cell datatable-cell-sort"><span
-                                          ># ID</span></th>
+                                <th style="width: 20px"><span># ID</span></th>
 
-                                    <th data-field="Country" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 126px;">Name</span></th>
-
-
-                                    <th data-field="Type" data-autohide-disabled="false"
-                                        class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 126px;">Email </span>
-                                    </th>
-
-                                    <th data-field="Type" data-autohide-disabled="false"
-                                        class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 126px;">Phone </span>
-                                    </th>
-                                    <th data-field="Type" data-autohide-disabled="false"
-                                        class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 126px;">Address </span>
-                                    </th>
-                                    <th data-field="Type" data-autohide-disabled="false"
-                                        class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 126px;">Rentals </span>
-                                    </th>
+                                <th style="width: 150px"><span
+                                    >Name</span></th>
 
 
+                                <th style="width: 150px"><span
+                                    >Email </span>
+                                </th>
 
-                                    <th data-field="Actions" data-autohide-disabled="false"
-                                        class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 125px;">Actions</span></th>
-
-                                </tr>
-                                </thead>
-                                <tbody class="datatable-body" style="">
-                                @foreach($tenants as $tenant)
-
-                                    <tr data-row="0" class="datatable-row" style="left: 0px;">
-
-                                        <td data-field="OrderID" aria-label="0374-5070" class="datatable-cell"><span
-                                                > # {{$tenant->id}}</span></td>
-                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                                                style="width: 126px;">{{$tenant->name}}</span></td>
-                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                                                style="width: 126px;">{{$tenant->email}}</span></td>
-
-                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                                                style="width: 126px;">{{$tenant->phone}}</span></td>
-
-                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                                                style="width: 126px;">{{$tenant->address}}</span></td>
-
-                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span
-                                                style="width: 126px;">{{$tenant->contract->count()}}</span></td>
+                                <th style="width: 150px"><span
+                                    >Phone </span>
+                                </th>
+                                <th style="width: 150px"><span
+                                    >Address </span>
+                                </th>
+                                <th style="width: 150px"><span
+                                    >Rentals </span>
+                                </th>
 
 
+                                <th data-field="Actions" data-autohide-disabled="false"
+                                    class="datatable-cell datatable-cell-sort"><span
+                                        style="width: 150px;">Actions</span></th>
 
-                                        <td data-field="Actions" data-autohide-disabled="false" aria-label="null"
-                                            class="datatable-cell">
-                    <span
-                        style="overflow: visible; position: relative; width: 125px; display: inline ">
+                            </tr>
+                            </thead>
+                            <tbody class="datatable-body" style="">
+                            {{--                                @foreach($tenants as $tenant)--}}
 
-                        <button class="btn btn-sm"> <a style="color: #fff"
-                                                       href="{{route('manager.tenants.show' , $tenant->id)}}">
+                            {{--                                    <tr data-row="0" class="datatable-row" style="left: 0px;">--}}
 
-                                <i class="fa fa-eye"></i>
-                            </a> </button>
+                            {{--                                        <td data-field="OrderID" aria-label="0374-5070" class="datatable-cell"><span--}}
+                            {{--                                            > # {{$tenant->id}}</span></td>--}}
+                            {{--                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span--}}
+                            {{--                                              >{{$tenant->name}}</span></td>--}}
+                            {{--                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span--}}
+                            {{--                                              >{{$tenant->email}}</span></td>--}}
 
+                            {{--                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span--}}
+                            {{--                                              >{{$tenant->phone}}</span></td>--}}
 
-                        <button class="btn btn-sm"> <a style="color: #fff"
-                                                       href="{{route('manager.tenants.edit' , $tenant->id)}}">
+                            {{--                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span--}}
+                            {{--                                              >{{$tenant->address}}</span></td>--}}
 
-                                <i class="fa fa-edit"></i>
-                            </a> </button>
-
-
-                        <form method="post" style="display: inline"
-                              action="{{route('manager.tenants.destroy' , $tenant->id)}}">
-                        @method('DELETE')
-                            @csrf
-                            <button class="btn btn-sm" type="submit"><i class="fa fa-trash"></i></button>
-                        </form>
-
-                    </span>
-
-                                        </td>
-
-                                    </tr>
-                                @endforeach
+                            {{--                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span--}}
+                            {{--                                              >{{$tenant->contract->count()}}</span></td>--}}
 
 
-                                </tbody>
-                            </table>
+                            {{--                                        <td data-field="Actions" data-autohide-disabled="false" aria-label="null"--}}
+                            {{--                                            class="datatable-cell">--}}
+                            {{--                    <span--}}
+                            {{--                        style="overflow: visible; position: relative; width: 125px; display: inline ">--}}
 
-                        </div>
-                        <!--end: Datatable-->
+                            {{--                        <button class="btn btn-sm"> <a style="color: #fff"--}}
+                            {{--                                                       href="{{route('manager.tenants.show' , $tenant->id)}}">--}}
+
+                            {{--                                <i class="fa fa-eye"></i>--}}
+                            {{--                            </a> </button>--}}
+
+
+                            {{--                        <button class="btn btn-sm"> <a style="color: #fff"--}}
+                            {{--                                                       href="{{route('manager.tenants.edit' , $tenant->id)}}">--}}
+
+                            {{--                                <i class="fa fa-edit"></i>--}}
+                            {{--                            </a> </button>--}}
+
+
+                            {{--                        <form method="post" style="display: inline"--}}
+                            {{--                              action="{{route('manager.tenants.destroy' , $tenant->id)}}">--}}
+                            {{--                        @method('DELETE')--}}
+                            {{--                            @csrf--}}
+                            {{--                            <button class="btn btn-sm" type="submit"><i class="fa fa-trash"></i></button>--}}
+                            {{--                        </form>--}}
+
+                            {{--                    </span>--}}
+
+                            {{--                                        </td>--}}
+
+                            {{--                                    </tr>--}}
+                            {{--                                @endforeach--}}
+
+
+                            </tbody>
+                        </table>
+
+
                     </div>
                 </div>
+
 
 
             </div>
@@ -183,4 +174,37 @@
         </div>
         <!--end::Entry-->
     </div>
+    @push('custom-scripts')
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+        <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+
+                var table = $('.ajax-table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('manager.getTenants') }}",
+                    columns: [
+                        {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                        {data: 'name', name: 'name'},
+                        {data: 'email', name: 'email'},
+                        {data: 'phone', name: 'phone'},
+                        {data: 'address', name: 'address'},
+                        {data: 'rentals', name: 'rentals'},
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: true,
+                            searchable: true
+                        },
+                    ]
+                });
+
+            });
+        </script>
+    @endpush
 @endsection

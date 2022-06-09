@@ -127,16 +127,17 @@
                                                     <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
 
 
-{{--                                                        <?php--}}
-{{--                                                                --}}
-{{--                                                        foreach ($estate->images as $picture) { ?>--}}
-{{--                                                        <li data-thumb="{{ asset('/uploads/'.$picture) }}">--}}
-{{--                                                            <img src="{{ asset('/uploads/'.$picture) }}"--}}
-{{--                                                                 alt="{{$estate->name}}"/>--}}
-{{--                                                        </li>--}}
-{{--                                                        <?php } ?>--}}
+                                                        {{--                                                        <?php--}}
+                                                        {{--                                                                --}}
+                                                        {{--                                                        foreach ($estate->images as $picture) { ?>--}}
+                                                        {{--                                                        <li data-thumb="{{ asset('/uploads/'.$picture) }}">--}}
+                                                        {{--                                                            <img src="{{ asset('/uploads/'.$picture) }}"--}}
+                                                        {{--                                                                 alt="{{$estate->name}}"/>--}}
+                                                        {{--                                                        </li>--}}
+                                                        {{--                                                        <?php } ?>--}}
                                                         <?php foreach (json_decode($estate->images)as $picture) { ?>
-                                                        <img src="{{ asset('/uploads/'.$picture) }}" width="100%" class="border"/>
+                                                        <img src="{{ asset('/uploads/'.$picture) }}" width="100%"
+                                                             class="border"/>
 
                                                         <?php } ?>
 

@@ -85,7 +85,8 @@
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">Features </a>
+                                        <a href="#"
+                                           class="text-dark-75 text-hover-primary mb-1 font-size-lg">Features </a>
                                         <span class="text-muted">{{$apartment->features}}</span>
                                     </div>
                                     <!--end::Text-->
@@ -97,7 +98,8 @@
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">Year Built </a>
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">Year
+                                            Built </a>
                                         <span class="text-muted">{{$apartment->year_built}}</span>
                                     </div>
                                     <!--end::Text-->
@@ -109,7 +111,8 @@
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">	Space </a>
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">
+                                            Space </a>
                                         <span class="text-muted">{{$apartment->space}}</span>
                                     </div>
                                     <!--end::Text-->
@@ -120,7 +123,8 @@
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> Count Rooms </a>
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> Count
+                                            Rooms </a>
                                         <span class="text-muted">{{$apartment->rooms}}</span>
                                     </div>
                                     <!--end::Text-->
@@ -131,7 +135,8 @@
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> Count Bathroom </a>
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> Count
+                                            Bathroom </a>
                                         <span class="text-muted">{{$apartment->bathroom}}</span>
                                     </div>
                                     <!--end::Text-->
@@ -143,7 +148,8 @@
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> On The Floor </a>
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> On The
+                                            Floor </a>
                                         <span class="text-muted">{{$apartment->on_floor}}</span>
                                     </div>
                                     <!--end::Text-->
@@ -155,7 +161,8 @@
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> Type Property </a>
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> Type
+                                            Property </a>
                                         <span class="text-muted">{{$apartment->estate->name}}</span>
                                     </div>
                                     <!--end::Text-->
@@ -167,18 +174,20 @@
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> Estate  </a>
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">
+                                            Estate </a>
                                         <span class="text-muted">{{$apartment->estate->name}}</span>
                                     </div>
                                     <!--end::Text-->
                                 </div>
                                 <!--end::Item-->
-      <!--begin::Item-->
+                                <!--begin::Item-->
                                 <div class="d-flex align-items-center mb-10">
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> Status  </a>
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">
+                                            Status </a>
                                         <span class="badge badge-warning">{{$apartment->status}}</span>
                                     </div>
                                     <!--end::Text-->
@@ -190,8 +199,6 @@
                         </div>
                         <!--end::List Widget 1-->
                     </div>
-
-
 
 
                     <div class="col-xl-6">
@@ -213,13 +220,14 @@
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
                                         <a class="text-dark text-hover-primary mb-1 font-size-lg"> Image Apartment </a>
-                                        <span class="text-muted"><img width="100%" class="border" src="{{$apartment->imageurl}}" alt=""></span>
+                                        <span class="text-muted"><img width="100%" class="border"
+                                                                      src="{{$apartment->imageurl}}" alt=""></span>
                                     </div>
                                     <!--end::Text-->
                                 </div>
                                 <!--end::Item-->
 
-     <!--begin::Item-->
+                                <!--begin::Item-->
                                 <div class="d-flex align-items-center mb-10">
 
                                     <!--begin::Text-->
@@ -238,16 +246,11 @@
                                 <!--end::Item-->
 
 
-
-
-
-
                             </div>
                             <!--end::Body-->
                         </div>
                         <!--end::List Widget 1-->
                     </div>
-
 
 
                 </div>

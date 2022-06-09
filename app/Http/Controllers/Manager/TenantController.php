@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Manager\TenantRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use DataTables;
+use function app\Helper\errorMessage;
 use function app\Helper\successMessage;
 
 class TenantController extends Controller
@@ -19,6 +21,24 @@ class TenantController extends Controller
     {
         $tenants = User::where('type', '0')->get();
         return view('manager.tenants.index', compact('tenants'));
+    }
+
+    public function getTenant(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = User::where('type', '0')->latest()->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('rentals', function ($data) {
+                    return $data->contract->count();
+                })
+                ->addColumn('action', function ($row) {
+                    $actionBtn = '<a href="" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+                    return $actionBtn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
     }
 
     /**
@@ -102,14 +122,5 @@ class TenantController extends Controller
         return successMessage();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+
 }

@@ -12,7 +12,7 @@ class Estate extends Model
 
     protected $fillable = ['name', 'rent', 'property_id', 'owner_id', 'area',
         'commission', 'description', 'location', 'notes', 'estate_age', 'rooms', '
-        bedrooms', 'bathrooms', 'images' , 'status'];
+        bedrooms', 'bathrooms', 'images', 'status'];
 
     protected $casts = [
         'images' => 'json'
@@ -55,7 +55,7 @@ class Estate extends Model
 
     public function contract()
     {
-        return $this->hasMany(Contract::class , 'estate_id' , 'id');
+        return $this->hasMany(Contract::class, 'estate_id', 'id');
     }
 
 }

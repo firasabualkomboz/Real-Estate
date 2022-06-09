@@ -47,7 +47,8 @@
                         <div class="card-toolbar">
 
                             <!--begin::Button-->
-                            <a href="{{route('manager.apartments.create')}}" class="btn btn-secondary font-weight-bolder">
+                            <a href="{{route('manager.apartments.create')}}"
+                               class="btn btn-secondary font-weight-bolder">
 											<span class="svg-icon svg-icon-md">
 												<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
 												<svg xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +81,7 @@
                                     <th class="datatable-cell datatable-toggle-detail"><span></span></th>
 
                                     <th data-field="Order ID" class="datatable-cell datatable-cell-sort"><span
-                                           >#ID</span></th>
+                                        >#ID</span></th>
 
 
                                     <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
@@ -133,8 +134,6 @@
                                                 style="width: 110px;">   <span
                                                     class="label font-weight-bold label-lg  label-light-info label-inline">  {{$apartment->status}}</span> </span>
                                         </td>
-
-
 
 
                                         <td data-field="Deposit Paid" aria-label="$22672.60"

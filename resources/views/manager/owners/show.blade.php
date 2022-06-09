@@ -318,7 +318,7 @@
 
                                                                                 <select name="owner_id"
                                                                                         class="form-control"
-                                                                                     >
+                                                                                >
                                                                                     @foreach($owners as $owner)
                                                                                         <option
                                                                                             value="{{$owner->id}}">{{$owner->name}}</option>

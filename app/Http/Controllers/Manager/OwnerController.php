@@ -20,7 +20,7 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        $owners = User::where('type', '2')->with('estate' , 'apartment')->get();
+        $owners = User::where('type', '2')->with('estate', 'apartment')->get();
         return view('manager.owners.index', compact('owners'));
     }
 
@@ -70,25 +70,25 @@ class OwnerController extends Controller
      */
     public function show($id)
     {
-        $allApartmentRent = Apartment::where('owner_id' , $id)->where('status' , 'rent')->get();
+        $allApartmentRent = Apartment::where('owner_id', $id)->where('status', 'rent')->get();
 
-        foreach ($allApartmentRent as $apartment){
-            $get =  $apartment->commission  / 100;
-             $finalProfitCompany = $get * $apartment->rent . '<br>';
+        foreach ($allApartmentRent as $apartment) {
+            $get = $apartment->commission / 100;
+            $finalProfitCompany = $get * $apartment->rent . '<br>';
         }
-        $owners = User::where('type' , '2')->get();
+        $owners = User::where('type', '2')->get();
 
         $owner = User::findOrFail($id);
-        return view('manager.owners.show', compact('owner' , 'allApartmentRent'  , 'owners'));
+        return view('manager.owners.show', compact('owner', 'allApartmentRent', 'owners'));
     }
 
-    public function assignApartmentToOwner(Request $request , $id)
+    public function assignApartmentToOwner(Request $request, $id)
     {
         dd($request);
         die();
         $apartment = Apartment::find($id);
         dd($apartment);
-        $apartment->owner_id  = $request->owner_id;
+        $apartment->owner_id = $request->owner_id;
         $apartment->update();
         $apartment->save();
 

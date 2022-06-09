@@ -122,13 +122,12 @@
                         <li><a href="#estates" title="">Estates</a></li>
 
 
-{{--                        <li class="menu-item-has-children">--}}
-{{--                            <a href="#estates" title="">PROPERTIES</a>--}}
-{{--                            <ul>--}}
-{{--                                <li><a href="properties3.html" title="">Properties- Super </a></li>--}}
-{{--                            </ul>--}}
-{{--                        </li>--}}
-
+                        {{--                        <li class="menu-item-has-children">--}}
+                        {{--                            <a href="#estates" title="">PROPERTIES</a>--}}
+                        {{--                            <ul>--}}
+                        {{--                                <li><a href="properties3.html" title="">Properties- Super </a></li>--}}
+                        {{--                            </ul>--}}
+                        {{--                        </li>--}}
 
 
                         <li><a href="contact.html" title="">CONTACT</a></li>
@@ -148,7 +147,7 @@
             <div class="">
                 <div class="search-form">
                     <form action="{{route('welcome')}}" method="get" enctype="multipart/form-data" class="form-inline">
-                     @csrf
+                        @csrf
                         <div class="search-form-content">
                             <div class="search-form-field">
                                 <div class="form-group col-xs-12 col-sm-3 col-md-3">
@@ -173,7 +172,7 @@
                                 <div class="form-group col-xs-12 col-sm-3 col-md-3">
                                     <div class="label-select">
                                         <select name="bedrooms" class="form-control">
-                                            <option>No. of 	Bedrooms</option>
+                                            <option>No. of Bedrooms</option>
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -185,7 +184,7 @@
 
                                 <div class="form-group col-xs-12 col-sm-3 col-md-3">
 
-                                <div class="label-select">
+                                    <div class="label-select">
                                         <select class="form-control">
                                             <option>No. of Bathrooms</option>
                                             <option>1</option>
@@ -225,7 +224,7 @@
                                     <div class="properties-box">
                                         <div class="properties-thumb">
                                             <?php foreach (json_decode($estate->images)as $picture) { ?>
-                                            <img src="{{ asset('/uploads/'.$picture) }}" />
+                                            <img src="{{ asset('/uploads/'.$picture) }}"/>
 
                                             <?php } ?>
 
@@ -242,7 +241,8 @@
                                                 </li>
                                                 <li class="li-rl"></li>
                                                 <li>
-                                                    <i class="fa  fa-building"> </i> <span>{{$estate->on_floor}}   </span>
+                                                    <i class="fa  fa-building"> </i>
+                                                    <span>{{$estate->on_floor}}   </span>
                                                 </li>
                                             </ul>
 
@@ -251,7 +251,8 @@
 
                                         </div>
                                         <h3><a href="property.html" title="">{{$estate->name}}</a></h3>
-                                        <span class="price">$ {{$estate->rent}}  <small style="color: #000">  /  month</small> </span>
+                                        <span class="price">$ {{$estate->rent}}  <small
+                                                style="color: #000">  /  month</small> </span>
 
                                     </div><!-- prop Box -->
                                 </div>
@@ -266,13 +267,7 @@
     </section>
 
 
-
-
-
-
-
-
-@if(isset($appointments))
+    @if(isset($appointments))
 
         <section class="block">
             <div class="container">

@@ -117,7 +117,7 @@
                         <!--end::Search Form-->
                         <!--end: Search Form-->
                         <!--begin: Datatable-->
-                        <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
+                        <table class="datatable datatable-bordered datatable-head-custom ajax-table" id="kt_datatable">
                             <thead>
                             <tr>
                                 <th title="Field #1">Order ID</th>
@@ -133,36 +133,6 @@
                             <tbody>
 
 
-                            <tr>
-                                <td>51785-424</td>
-                                <td>Bentley</td>
-                                <td>Continental</td>
-                                <td>Khaki</td>
-                                <td>$35290.47</td>
-                                <td>2017-12-04</td>
-                                <td class="text-right">1</td>
-                                <td class="text-right">3</td>
-                            </tr>
-                            <tr>
-                                <td>55648-771</td>
-                                <td>Buick</td>
-                                <td>LeSabre</td>
-                                <td>Violet</td>
-                                <td>$56243.46</td>
-                                <td>2016-02-04</td>
-                                <td class="text-right">3</td>
-                                <td class="text-right">3</td>
-                            </tr>
-                            <tr>
-                                <td>0187-0063</td>
-                                <td>Mercedes-Benz</td>
-                                <td>S-Class</td>
-                                <td>Goldenrod</td>
-                                <td>$97306.72</td>
-                                <td>2017-11-06</td>
-                                <td class="text-right">5</td>
-                                <td class="text-right">3</td>
-                            </tr>
                             </tbody>
                         </table>
                         <!--end: Datatable-->
@@ -174,4 +144,39 @@
         </div>
         <!--end::Entry-->
     </div>
+    @push('custom-scripts')
+
+{{--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>--}}
+{{--        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>--}}
+        <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+{{--        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>--}}
+        <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+
+                var table = $('.ajax-table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('manager.getTenants') }}",
+                    columns: [
+                        {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                        {data: 'name', name: 'name'},
+                        {data: 'email', name: 'email'},
+                        {data: 'phone', name: 'phone'},
+                        {data: 'address', name: 'address'},
+                        {data: 'rentals', name: 'rentals'},
+                        {
+                            data: 'action',
+                            name: 'action',
+                            orderable: true,
+                            searchable: true
+                        },
+                    ]
+                });
+
+            });
+        </script>
+    @endpush
+
+
 @endsection

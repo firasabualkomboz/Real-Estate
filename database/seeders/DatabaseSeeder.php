@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CreateManagerSeeder::class);
         $this->call(CreatePropertySeeder::class);
         $this->call(CreateTagSeeder::class);
+        $this->call(PermissionTableSeeder::class);
     }
 }

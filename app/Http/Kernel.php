@@ -68,5 +68,7 @@ class Kernel extends HttpKernel
         'IsManager' => \App\Http\Middleware\IsManager::class,
         'IsOwner' => \App\Http\Middleware\IsOwner::class,
         'IsTenant' => \App\Http\Middleware\IsTenant::class,
+        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
     ];
 }

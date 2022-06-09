@@ -14,10 +14,9 @@ use App\Http\Controllers\Manager\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/this' , function (){
+Route::get('/this', function () {
     return view('manager.tester');
 });
-
 
 
 Route::get('/', [\App\Http\Controllers\front\GeneralController::class, 'index'])->name('welcome');
@@ -34,6 +33,8 @@ Route::middleware(['auth', 'IsManager'])->prefix('manager')->name('manager.')->g
 
     Route::get('/', [\App\Http\Controllers\Manager\HomeController::class, 'index'])->name('home');
 
+    Route::resource('roles', \App\Http\Controllers\Manager\RoleController::class);
+    Route::resource('employers', \App\Http\Controllers\Manager\EmployerController::class);
     Route::resource('appointments', \App\Http\Controllers\Manager\AppointmentController::class);
     Route::resource('properties', \App\Http\Controllers\Manager\PropertyController::class);
     Route::resource('tags', \App\Http\Controllers\Manager\TagController::class);
@@ -41,6 +42,7 @@ Route::middleware(['auth', 'IsManager'])->prefix('manager')->name('manager.')->g
     Route::resource('owners', \App\Http\Controllers\Manager\OwnerController::class);
     Route::put('owners/update-apartment/', [\App\Http\Controllers\Manager\OwnerController::class, 'assignApartmentToOwner'])->name('assignApartmentToOwner');
     Route::resource('tenants', \App\Http\Controllers\Manager\TenantController::class);
+    Route::get('getTenants', [\App\Http\Controllers\Manager\TenantController::class,'getTenant'])->name('getTenants');
     Route::resource('apartments', \App\Http\Controllers\Manager\ApartmentController::class);
     Route::resource('invoices', \App\Http\Controllers\Manager\InvoiceController::class);
     Route::get('ajax-apartment/{id}', [\App\Http\Controllers\Manager\ContractController::class, 'getAjaxApartment'])->name('getAjaxApartment');
