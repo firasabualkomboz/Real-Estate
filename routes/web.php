@@ -14,6 +14,23 @@ use App\Http\Controllers\Manager\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+
+    ], function () {
+    /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+    Route::get('/', function () {
+        return View::make('hello');
+    });
+
+    Route::get('test', function () {
+        return View::make('test');
+    });
+});
+
 Route::get('/this', function () {
     return view('manager.tester');
 });
@@ -29,41 +46,44 @@ Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware(['auth', 'IsOwner']);
 
-Route::middleware(['auth', 'IsManager'])->prefix('manager')->name('manager.')->group(function () {
-
-    Route::get('/', [\App\Http\Controllers\Manager\HomeController::class, 'index'])->name('home');
-
-    Route::resource('roles', \App\Http\Controllers\Manager\RoleController::class);
-    Route::resource('employers', \App\Http\Controllers\Manager\EmployerController::class);
-    Route::resource('appointments', \App\Http\Controllers\Manager\AppointmentController::class);
-    Route::resource('properties', \App\Http\Controllers\Manager\PropertyController::class);
-    Route::resource('tags', \App\Http\Controllers\Manager\TagController::class);
-    Route::resource('estates', \App\Http\Controllers\Manager\EstateController::class);
-    Route::resource('owners', \App\Http\Controllers\Manager\OwnerController::class);
-    Route::put('owners/update-apartment/', [\App\Http\Controllers\Manager\OwnerController::class, 'assignApartmentToOwner'])->name('assignApartmentToOwner');
-    Route::resource('tenants', \App\Http\Controllers\Manager\TenantController::class);
-    Route::get('getTenants', [\App\Http\Controllers\Manager\TenantController::class,'getTenant'])->name('getTenants');
-    Route::resource('apartments', \App\Http\Controllers\Manager\ApartmentController::class);
-    Route::resource('invoices', \App\Http\Controllers\Manager\InvoiceController::class);
-    Route::get('ajax-apartment/{id}', [\App\Http\Controllers\Manager\ContractController::class, 'getAjaxApartment'])->name('getAjaxApartment');
-    Route::resource('contracts', \App\Http\Controllers\Manager\ContractController::class);
-    Route::get('getEstate/{id}', [\App\Http\Controllers\Manager\ContractController::class, 'getEstate']);
+Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
 
+    Route::middleware(['auth', 'IsManager'])->prefix('manager')->name('manager.')->group(function () {
+
+        Route::get('/', [\App\Http\Controllers\Manager\HomeController::class, 'index'])->name('home');
+
+        Route::resource('roles', \App\Http\Controllers\Manager\RoleController::class);
+        Route::resource('employers', \App\Http\Controllers\Manager\EmployerController::class);
+        Route::resource('appointments', \App\Http\Controllers\Manager\AppointmentController::class);
+        Route::resource('properties', \App\Http\Controllers\Manager\PropertyController::class);
+        Route::resource('tags', \App\Http\Controllers\Manager\TagController::class);
+        Route::resource('estates', \App\Http\Controllers\Manager\EstateController::class);
+        Route::resource('owners', \App\Http\Controllers\Manager\OwnerController::class);
+        Route::put('owners/update-apartment/', [\App\Http\Controllers\Manager\OwnerController::class, 'assignApartmentToOwner'])->name('assignApartmentToOwner');
+        Route::resource('tenants', \App\Http\Controllers\Manager\TenantController::class);
+        Route::get('getTenants', [\App\Http\Controllers\Manager\TenantController::class, 'getTenant'])->name('getTenants');
+        Route::resource('apartments', \App\Http\Controllers\Manager\ApartmentController::class);
+        Route::resource('invoices', \App\Http\Controllers\Manager\InvoiceController::class);
+        Route::get('ajax-apartment/{id}', [\App\Http\Controllers\Manager\ContractController::class, 'getAjaxApartment'])->name('getAjaxApartment');
+        Route::resource('contracts', \App\Http\Controllers\Manager\ContractController::class);
+        Route::get('getEstate/{id}', [\App\Http\Controllers\Manager\ContractController::class, 'getEstate']);
+
+
+    });
+
+
+    Route::middleware(['auth', 'IsOwner'])->prefix('owner')->name('owner.')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Owner\HomeController::class, 'index'])->name('home');
+    });
+
+    Route::middleware(['auth', 'IsTenant'])->name('tenant.')->prefix('tenant')->group(function () {
+        Route::get('/', [App\Http\Controllers\HomeController::class, 'tenantHome'])->name('home');
+        Route::get('/appointment-list', [App\Http\Controllers\HomeController::class, 'appointmentList'])->name('appointmentList');
+        Route::resource('appointments', \App\Http\Controllers\Tenant\AppointmentController::class);
+
+    });
 });
-
-
-Route::middleware(['auth', 'IsOwner'])->prefix('owner')->name('owner.')->group(function () {
-    Route::get('/', [\App\Http\Controllers\Owner\HomeController::class, 'index'])->name('home');
-});
-
-Route::middleware(['auth', 'IsTenant'])->name('tenant.')->prefix('tenant')->group(function () {
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'tenantHome'])->name('home');
-    Route::get('/appointment-list', [App\Http\Controllers\HomeController::class, 'appointmentList'])->name('appointmentList');
-    Route::resource('appointments', \App\Http\Controllers\Tenant\AppointmentController::class);
-
-});
-
 
 Route::get('test-req/{id}', [\App\Http\Controllers\Manager\ContractController::class, 'getAjaxApartment'])->name('getAjaxApartment');
 

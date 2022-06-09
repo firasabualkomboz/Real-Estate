@@ -45,13 +45,56 @@
             </div>
             <!--end::Quick panel-->
 
+            <div class="dropdown">
+                <!--begin::Toggle-->
+                <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
+                    <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
+                        <img class="h-20px w-20px rounded-sm"
+                             src="{{asset('assets_dashboard')}}/assets/media/svg/flags/226-united-states.svg" alt="">
+                    </div>
+                </div>
+                <!--end::Toggle-->
+                <!--begin::Dropdown-->
+                <div class="dropdown-menu p-0 m-0 dropdown-menu-anim-up dropdown-menu-sm dropdown-menu-right">
+                    <!--begin::Nav-->
+                    <ul class="navi navi-hover py-4">
+
+                        <!--end::Item-->
+                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+
+                            <!--begin::Item-->
+                            <li class="navi-item active">
+                                <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
+                                   class="navi-link" rel="alternate" hreflang="{{ $localeCode }}">
+													<span class="symbol symbol-20 mr-3">
+														<img
+                                                            src="{{asset('assets_dashboard')}}/assets/media/svg/flags/226-united-states.svg"
+                                                            alt="">
+													</span>
+                                    <span class="navi-text">  {{ $properties['native'] }}</span>
+                                </a>
+                            </li>
+                        @endforeach
+
+
+
+                        <!--end::Item-->
+
+
+                    </ul>
+                    <!--end::Nav-->
+                </div>
+                <!--end::Dropdown-->
+            </div>
+
             <!--begin::User-->
             <div class="topbar-item">
                 <div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2"
                      id="kt_quick_user_toggle">
                                 <span
                                     class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
-                    <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{auth()->user()->name}}</span>
+                    <span
+                        class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{auth()->user()->name}}</span>
                     <span class="symbol symbol-35 symbol-light-success">
 											<span class="symbol-label font-size-h5 font-weight-bold">
                                               {{substr(auth()->user()->name , 0 , 1)}}

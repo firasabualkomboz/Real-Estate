@@ -419,7 +419,7 @@
             </li>
 
 
-            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+            <li class="menu-item menu-item-submenu  {{ Route::current()->getName() == 'manager.properties.index' ? 'menu-item-open menu-item-here' : '' }} {{ Route::current()->getName() == 'manager.properties.create' ? 'menu-item-open menu-item-here' : '' }}" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
             <span class="svg-icon menu-icon">
             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
@@ -449,7 +449,7 @@
             <span class="menu-text">Property</span>
             </span>
                         </li>
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.properties.index' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.properties.index')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
@@ -457,7 +457,7 @@
                                 <span class="menu-text">Property List </span>
                             </a>
                         </li>
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.properties.create' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.properties.create')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
@@ -468,9 +468,7 @@
                     </ul>
                 </div>
             </li>
-
-
-            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+            <li class="menu-item menu-item-submenu {{ Route::current()->getName() == 'manager.tags.index' ? 'menu-item-open menu-item-here' : '' }} {{ Route::current()->getName() == 'manager.tags.create' ? 'menu-item-open menu-item-here' : '' }}" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
             <span class="svg-icon menu-icon">
             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
@@ -501,7 +499,7 @@
             </span>
                         </li>
                         @can('tag-list')
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.tags.index' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.tags.index')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
@@ -511,7 +509,7 @@
                         </li>
                         @endcan
                         @can('tag-create')
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.tags.create' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.tags.create')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>

@@ -23,6 +23,7 @@
 
 
                         </ul>
+
                         <!--end::Breadcrumb-->
                     </div>
                     <!--end::Page Heading-->

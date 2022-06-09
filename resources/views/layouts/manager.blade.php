@@ -1,9 +1,10 @@
-<html lang="en">
+<html lang="{{\Illuminate\Support\Facades\App::currentLocale()}}"
+      dir="{{\Illuminate\Support\Facades\App::currentLocale() == 'ar' ? 'rtl' : 'ltr'}}">
 <!--begin::Head-->
 <head>
     <base href="">
     <meta charset="utf-8"/>
-    <title>Metronic | Dashboard</title>
+    <title>Real Estate </title>
     <meta name="description" content="Updates and statistics"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <!--begin::Fonts-->
@@ -14,13 +15,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"/>
 
     <!--end::Page Vendors Styles-->
+
     <!--begin::Global Theme Styles(used by all pages)-->
     <link href="{{asset('assets_dashboard')}}/assets/plugins/global/plugins.bundle.css" rel="stylesheet"
           type="text/css"/>
     <link href="{{asset('assets_dashboard')}}/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet"
           type="text/css"/>
-    <link href="{{asset('assets_dashboard')}}/assets/css/style.bundle.css" rel="stylesheet" type="text/css"/>
-    <!--end::Global Theme Styles-->
+    @if(\Illuminate\Support\Facades\App::currentLocale() == 'en')
+        <link href="{{asset('assets_dashboard')}}/assets/css/style.bundle.css" rel="stylesheet" type="text/css"/>
+        <!--end::Global Theme Styles-->
+    @else
+        <link href="{{asset('assets_dashboard')}}/assets/css/ar/style.ar_bundle.css" rel="stylesheet" type="text/css"/>
+
+    @endif
     <!--begin::Layout Themes(used by all pages)-->
     <link href="{{asset('assets_dashboard')}}/assets/css/themes/layout/header/base/light.css" rel="stylesheet"
           type="text/css"/>
@@ -31,7 +38,8 @@
     <link href="{{asset('assets_dashboard')}}/assets/css/themes/layout/aside/light.css" rel="stylesheet"
           type="text/css"/>
 
-    <link  href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    x
     <!--end::Layout Themes-->
     <link rel="shortcut icon" href="{{asset('assets_dashboard')}}/assets/media/logos/favicon.ico"/>
 </head>
