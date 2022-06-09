@@ -26,46 +26,37 @@
 
         </div>
         <div class="form-group">
-        <div class="col-lg-6">
-            <label for="example-date-input" class="col-form-label">Permission
-                {{--                @php--}}
-                {{--                    $models = ['employers', 'role' , 'tenant' , 'owner', 'estate' , 'apartment' , 'property' , 'tag' , 'contract','invoice','appointment'];--}}
-                {{--                    $maps =['create','read','update','delete'];--}}
-                {{--                @endphp--}}
+            <div class="col-lg-12">
+                <label for="example-date-input" class="col-form-label">Permission
+
+
+                    @foreach($permission as $k=>$v)
+                        <div class="row">
+                            <div class="col-sm-12" style="margin-bottom:10px;margin-top:10px">
+                                <h4 class="edit-title text-success"><b>{{$k}}</b></h4></div>
+                            @foreach($v as $value)
+                                <div class="col-sm-3">
+                                    <div class="form-check form-check-inline">
+
+                                        <label class="checkbox checkbox-success">
+                                            {{ Form::checkbox('permission[]', $value->id, false,array('class'=>'form-check-input')) }}
+                                            {{ $value->name}}
+                                            <span></span></label>
+
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endforeach
 
 
 
 
-                @foreach($permission as $value)
-                    <label>{{ Form::checkbox('permission[]', $value->id, false, array('class' => 'name')) }}
-                        {{ $value->name }}</label>
-                    <br/>
-                @endforeach
+                    @error('name')
+                    <p class="invalid-feedback">{{ $message }}</p>
+                @enderror
 
-
-{{--                @foreach($permission as $k=>$v)--}}
-{{--                    <div class="row">--}}
-{{--                        <div class="col-sm-12" style="margin-bottom:10px;margin-top:10px">--}}
-{{--                            <h4 class="edit-title text-success"><b>{{$k}}</b></h4></div>--}}
-{{--                        @foreach($v as $value)--}}
-{{--                            <div class="col-sm-3">--}}
-{{--                                <div class="form-check form-check-inline">--}}
-{{--                                    {{ Form::checkbox('permission[]', $value->id, false,array('class'=>'form-check-input')) }}--}}
-{{--                                    <label class="form-check-label">{{ $value->name}}</label>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        @endforeach--}}
-{{--                    </div>--}}
-{{--                @endforeach--}}
-
-
-
-
-                @error('name')
-                <p class="invalid-feedback">{{ $message }}</p>
-            @enderror
-
-        </div>
+            </div>
         </div>
 
     </div>

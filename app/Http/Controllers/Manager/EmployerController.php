@@ -20,6 +20,7 @@ class EmployerController extends Controller
         $this->middleware('permission:employer-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:employer-delete', ['only' => ['destroy']]);
     }
+
     /**
      * Display a listing of the resource.
      *

@@ -76,14 +76,30 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <div class="col-6">
+                                            <div class="col-12">
                                                 <label for="example-date-input" class="col-form-label">Permission
 
 
-                                                    @foreach($permission as $value)
-                                                        <label>{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'name')) }}
-                                                            {{ $value->name }}</label>
-                                                        <br/>
+                                                    @foreach($permission as $k=>$v)
+                                                        <div class="row">
+                                                            <div class="col-sm-12"
+                                                                 style="margin-bottom:25px;margin-top:25px"><h4
+                                                                    class="edit-title text-success"><b>{{$k}}</b></h4>
+                                                            </div>
+                                                            @foreach($v as $value)
+                                                                <div class="col-sm-3">
+                                                                    <div class="form-check form-check-inline">
+
+                                                                        <label class="checkbox checkbox-success">
+                                                                            {{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'name')) }}
+
+                                                                            {{ $value->name }}
+                                                                            <span></span></label>
+
+                                                                    </div>
+                                                                </div>
+                                                            @endforeach
+                                                        </div>
                                                     @endforeach
                                                     @error('permission')
                                                     <p class="invalid-feedback">{{ $message }}</p>
