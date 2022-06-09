@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.manager')
 
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
@@ -72,95 +72,18 @@
 
                         <!--begin: Datatable-->
 
-                        <table class="ajax-table" style="display: block;">
-                            <thead >
+                        <table class="table table-bordered" id="ajax-table">
+                            <thead>
                             <tr>
-
-
-                                <th style="width: 20px"><span># ID</span></th>
-
-                                <th style="width: 150px"><span
-                                    >Name</span></th>
-
-
-                                <th style="width: 150px"><span
-                                    >Email </span>
-                                </th>
-
-                                <th style="width: 150px"><span
-                                    >Phone </span>
-                                </th>
-                                <th style="width: 150px"><span
-                                    >Address </span>
-                                </th>
-                                <th style="width: 150px"><span
-                                    >Rentals </span>
-                                </th>
-
-
-                                <th data-field="Actions" data-autohide-disabled="false"
-                                    class="datatable-cell datatable-cell-sort"><span
-                                        style="width: 150px;">Actions</span></th>
-
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>Rentals</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
-                            <tbody class="datatable-body" style="">
-                            {{--                                @foreach($tenants as $tenant)--}}
-
-                            {{--                                    <tr data-row="0" class="datatable-row" style="left: 0px;">--}}
-
-                            {{--                                        <td data-field="OrderID" aria-label="0374-5070" class="datatable-cell"><span--}}
-                            {{--                                            > # {{$tenant->id}}</span></td>--}}
-                            {{--                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span--}}
-                            {{--                                              >{{$tenant->name}}</span></td>--}}
-                            {{--                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span--}}
-                            {{--                                              >{{$tenant->email}}</span></td>--}}
-
-                            {{--                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span--}}
-                            {{--                                              >{{$tenant->phone}}</span></td>--}}
-
-                            {{--                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span--}}
-                            {{--                                              >{{$tenant->address}}</span></td>--}}
-
-                            {{--                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span--}}
-                            {{--                                              >{{$tenant->contract->count()}}</span></td>--}}
-
-
-                            {{--                                        <td data-field="Actions" data-autohide-disabled="false" aria-label="null"--}}
-                            {{--                                            class="datatable-cell">--}}
-                            {{--                    <span--}}
-                            {{--                        style="overflow: visible; position: relative; width: 125px; display: inline ">--}}
-
-                            {{--                        <button class="btn btn-sm"> <a style="color: #fff"--}}
-                            {{--                                                       href="{{route('manager.tenants.show' , $tenant->id)}}">--}}
-
-                            {{--                                <i class="fa fa-eye"></i>--}}
-                            {{--                            </a> </button>--}}
-
-
-                            {{--                        <button class="btn btn-sm"> <a style="color: #fff"--}}
-                            {{--                                                       href="{{route('manager.tenants.edit' , $tenant->id)}}">--}}
-
-                            {{--                                <i class="fa fa-edit"></i>--}}
-                            {{--                            </a> </button>--}}
-
-
-                            {{--                        <form method="post" style="display: inline"--}}
-                            {{--                              action="{{route('manager.tenants.destroy' , $tenant->id)}}">--}}
-                            {{--                        @method('DELETE')--}}
-                            {{--                            @csrf--}}
-                            {{--                            <button class="btn btn-sm" type="submit"><i class="fa fa-trash"></i></button>--}}
-                            {{--                        </form>--}}
-
-                            {{--                    </span>--}}
-
-                            {{--                                        </td>--}}
-
-                            {{--                                    </tr>--}}
-                            {{--                                @endforeach--}}
-
-
-                            </tbody>
                         </table>
 
 
@@ -168,25 +91,53 @@
                 </div>
 
 
-
             </div>
             <!--end::Container-->
         </div>
         <!--end::Entry-->
     </div>
+
+    <div class="modal fade" id="deleteModel" tabindex="-1" role="dialog" aria-labelledby="deleteModel"
+         aria-hidden="true" style="display: none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{('Confirm Delete')}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <form method="post" action="" id="delete_form">
+                    <input type="hidden" name="_method" value="delete">
+                    {{ csrf_field() }}
+                    <div class="modal-body">
+                        <p>{{('Are You Sure To Delete The Selected Row')}}</p>
+                        <p>{{('Deleting The Selected Row Results In Deleting All Records Related To It')}}.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{('Cancel')}}</button>
+                        <button type="submit" class="btn btn-warning">{{('Delete')}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     @push('custom-scripts')
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-        <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
         <script type="text/javascript">
+            $(document).on('click', '.deleteRecord', (function () {
+                var id = $(this).data("id");
+                var url = '{{ route('manager.'.\App\Models\User::manager_route.'.destroy', ":id") }}';
+                url = url.replace(':id', id);
+                $('#delete_form').attr('action', url);
+            }));
+
             $(function () {
 
-                var table = $('.ajax-table').DataTable({
+                var table = $('#ajax-table').DataTable({
                     processing: true,
                     serverSide: true,
+
                     ajax: "{{ route('manager.getTenants') }}",
                     columns: [
                         {data: 'DT_RowIndex', name: 'DT_RowIndex'},

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\ActionButtons;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -12,7 +13,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable , HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, ActionButtons;
 
     /**
      * The attributes that are mass assignable.
@@ -60,12 +61,14 @@ class User extends Authenticatable
 
     public function contract()
     {
-        return $this->hasMany(Contract::class , 'tenant_id' , 'id');
+        return $this->hasMany(Contract::class, 'tenant_id', 'id');
     }
+
     public function support()
     {
         return $this->hasMany(Support::class);
     }
+
     public function getImageUrlAttribute()
     {
         if (empty($this->document)) {
@@ -76,11 +79,14 @@ class User extends Authenticatable
 
     public function apartment()
     {
-        return $this->hasMany(Apartment::class , 'owner_id' , 'id');
+        return $this->hasMany(Apartment::class, 'owner_id', 'id');
     }
 
     public function invoices()
     {
-        return $this->hasMany(Invoice::class ,'tenant_id' , 'id');
+        return $this->hasMany(Invoice::class, 'tenant_id', 'id');
     }
+
+    const manager_route = 'tenants';
+
 }

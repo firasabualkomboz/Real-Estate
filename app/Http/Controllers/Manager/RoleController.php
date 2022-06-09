@@ -34,18 +34,6 @@ class RoleController extends Controller
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
-    public function getRoles(Request $request)
-    {
-        if ($request->ajax()) {
-            $data = Role::latest()->get();
-            return DataTables::of($data)
-                ->addIndexColumn()
-                ->addColumn('action', 'manager.roles.column.action')
-                ->rawColumns(['action'])
-                ->make(true);
-        }
-    }
-
     /**
      * Show the form for creating a new resource.
      *

@@ -19,6 +19,7 @@ class TenantController extends Controller
         $this->middleware('permission:tenant-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:tenant-delete', ['only' => ['destroy']]);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -39,9 +40,8 @@ class TenantController extends Controller
                 ->addColumn('rentals', function ($data) {
                     return $data->contract->count();
                 })
-                ->addColumn('action', function ($row) {
-                    $actionBtn = '<a href="" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
-                    return $actionBtn;
+                ->addColumn('action', function ($tenant) {
+                    return $tenant->action_buttons;
                 })
                 ->rawColumns(['action'])
                 ->make(true);
@@ -127,6 +127,13 @@ class TenantController extends Controller
             'document' => $request->document,
         ]);
         return successMessage();
+    }
+
+    public function destroy($id)
+    {
+        $tenant = User::find($id)->delete();
+        return errorMessage();
+
     }
 
 
