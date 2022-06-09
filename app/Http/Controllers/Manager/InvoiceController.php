@@ -9,6 +9,13 @@ use function app\Helper\successMessage;
 
 class InvoiceController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:invoice-list|invoice-create|invoice-edit|invoice-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:invoice-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:invoice-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:invoice-delete', ['only' => ['destroy']]);
+    }
 
     public function index()
     {

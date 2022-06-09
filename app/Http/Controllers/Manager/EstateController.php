@@ -15,6 +15,14 @@ use function app\Helper\successMessage;
 
 class EstateController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:estate-list|estate-create|estate-edit|estate-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:estate-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:estate-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:estate-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         $estates = Estate::with('owner', 'property')->get();

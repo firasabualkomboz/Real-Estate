@@ -19,6 +19,14 @@ use function app\Helper\successMessage;
 
 class ContractController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:contract-list|contract-create|contract-edit|contract-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:contract-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:contract-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:contract-delete', ['only' => ['destroy']]);
+    }
+
 
     public function index()
     {
@@ -53,13 +61,13 @@ class ContractController extends Controller
 
         $contract = new Contract([
 
-            'type'          => $request->type,
-            'apartment_id'  => $request->type == 'apartment' ? $request->apartment_id : null,
-            'estate_id'     => $request->type == 'estate' ? $request->estate_id : null,
-            'tenant_id'     => $request->tenant_id,
-            'start_at'      => $request->start_at,
-            'end_at'        => $request->end_at,
-            'document'      => $data['document'],
+            'type' => $request->type,
+            'apartment_id' => $request->type == 'apartment' ? $request->apartment_id : null,
+            'estate_id' => $request->type == 'estate' ? $request->estate_id : null,
+            'tenant_id' => $request->tenant_id,
+            'start_at' => $request->start_at,
+            'end_at' => $request->end_at,
+            'document' => $data['document'],
 
         ]);
 
@@ -71,10 +79,10 @@ class ContractController extends Controller
             $estate->update();
             $contract->save();
 
-            $invoice  = Invoice::create([
+            $invoice = Invoice::create([
                 'contract_id' => $contract->id,
-                'tenant_id'      => $contract->tenant_id,
-                'status'      => 'pending',
+                'tenant_id' => $contract->tenant_id,
+                'status' => 'pending',
             ]);
             $invoice->save();
 
@@ -88,10 +96,10 @@ class ContractController extends Controller
             $apartment->update();
             $contract->save();
 
-            $invoice  = Invoice::create([
+            $invoice = Invoice::create([
                 'contract_id' => $contract->id,
-                'tenant_id'      => $contract->tenant_id,
-                'status'      => 'pending',
+                'tenant_id' => $contract->tenant_id,
+                'status' => 'pending',
             ]);
             $invoice->save();
 
@@ -123,7 +131,7 @@ class ContractController extends Controller
 
     public function getAjaxApartment($id)
     {
-        $apartments = Apartment::where('estate_id', $id)->pluck('name' , 'id');
+        $apartments = Apartment::where('estate_id', $id)->pluck('name', 'id');
         return json_encode($apartments);
     }
 
@@ -132,8 +140,6 @@ class ContractController extends Controller
         $contract = Contract::find($id);
         return $contract;
     }
-
-
 
 
 }

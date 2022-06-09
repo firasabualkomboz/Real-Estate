@@ -16,6 +16,14 @@ use function app\Helper\successMessage;
 
 class ApartmentController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:apartment-list|apartment-create|apartment-edit|apartment-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:apartment-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:apartment-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:apartment-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         $properties = Property::all();
@@ -91,7 +99,6 @@ class ApartmentController extends Controller
         $apartment->delete();
         return errorMessage();
     }
-
 
 
 }

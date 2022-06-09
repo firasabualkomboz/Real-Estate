@@ -13,6 +13,13 @@ use function app\Helper\successMessage;
 
 class EmployerController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:employer-list|employer-create|employer-edit|employer-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:employer-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:employer-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:employer-delete', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

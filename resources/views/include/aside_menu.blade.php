@@ -12,7 +12,6 @@
             </li>
 
 
-
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
             <span class="svg-icon menu-icon">
@@ -112,7 +111,6 @@
                     </ul>
                 </div>
             </li>
-
 
 
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
@@ -502,6 +500,7 @@
             <span class="menu-text">Tag</span>
             </span>
                         </li>
+                        @can('tag-list')
                         <li class="menu-item" aria-haspopup="true">
                             <a href="{{route('manager.tags.index')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
@@ -510,6 +509,8 @@
                                 <span class="menu-text">Tag List </span>
                             </a>
                         </li>
+                        @endcan
+                        @can('tag-create')
                         <li class="menu-item" aria-haspopup="true">
                             <a href="{{route('manager.tags.create')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
@@ -518,6 +519,8 @@
                                 <span class="menu-text">Add Tag</span>
                             </a>
                         </li>
+                        @endcan
+
                     </ul>
                 </div>
             </li>

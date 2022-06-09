@@ -14,11 +14,19 @@ class AppointmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+        $this->middleware('permission:appointment-list|appointment-create|appointment-edit|appointment-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:appointment-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:appointment-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:appointment-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
 //        $appointments = Appointment::where('status', 'pending')->with('user')->paginate(10);
         $appointments = Cache::remember('appointments', 120, function () {
-            return Appointment::where('status', 'pending')->with('user','estate')->paginate(10);
+            return Appointment::where('status', 'pending')->with('user', 'estate')->paginate(10);
         });
         return view('manager.appointment.index', compact('appointments'));
     }

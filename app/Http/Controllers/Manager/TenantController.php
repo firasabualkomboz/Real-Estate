@@ -12,6 +12,13 @@ use function app\Helper\successMessage;
 
 class TenantController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:tenant-list|tenant-create|tenant-edit|tenant-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:tenant-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:tenant-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:tenant-delete', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

@@ -10,6 +10,14 @@ use function app\Helper\successMessage;
 
 class TagController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:tag-list|tag-create|tag-edit|tag-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:tag-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:tag-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:tag-delete', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -71,7 +79,7 @@ class TagController extends Controller
     public function edit($id)
     {
         $tag = Tag::findOrFail($id);
-        return view('manager.tags.edit' , compact('tag'));
+        return view('manager.tags.edit', compact('tag'));
     }
 
     /**

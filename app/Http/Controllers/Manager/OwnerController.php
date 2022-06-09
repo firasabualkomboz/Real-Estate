@@ -13,6 +13,15 @@ use function app\Helper\successMessage;
 
 class OwnerController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:owner-list|owner-create|owner-edit|owner-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:owner-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:owner-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:owner-delete', ['only' => ['destroy']]);
+    }
+
+
     /**
      * Display a listing of the resource.
      *
