@@ -40,10 +40,7 @@ class RoleController extends Controller
             $data = Role::latest()->get();
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', function ($row) {
-                    $actionBtn = '<a href="" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
-                    return $actionBtn;
-                })
+                ->addColumn('action', 'manager.roles.column.action')
                 ->rawColumns(['action'])
                 ->make(true);
         }
