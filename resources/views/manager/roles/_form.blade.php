@@ -33,7 +33,7 @@
                     @foreach($permission as $k=>$v)
                         <div class="row">
                             <div class="col-sm-12" style="margin-bottom:10px;margin-top:10px">
-                                <h4 class="edit-title text-success"><b>{{$k}}</b></h4></div>
+                                <h4 class="edit-title text-success"><b>{{ucwords($k)}}</b></h4></div>
                             @foreach($v as $value)
                                 <div class="col-sm-3">
                                     <div class="form-check form-check-inline">
@@ -44,8 +44,11 @@
                                             <span></span></label>
 
                                     </div>
+
                                 </div>
+
                             @endforeach
+
                         </div>
                     @endforeach
 

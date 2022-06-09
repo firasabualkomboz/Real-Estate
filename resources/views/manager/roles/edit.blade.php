@@ -84,7 +84,7 @@
                                                         <div class="row">
                                                             <div class="col-sm-12"
                                                                  style="margin-bottom:25px;margin-top:25px"><h4
-                                                                    class="edit-title text-success"><b>{{$k}}</b></h4>
+                                                                    class="edit-title text-success"><b>{{ucwords($k)}}</b></h4>
                                                             </div>
                                                             @foreach($v as $value)
                                                                 <div class="col-sm-3">

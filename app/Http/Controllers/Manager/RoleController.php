@@ -9,6 +9,7 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use function app\Helper\errorMessage;
 use function app\Helper\successMessage;
+use DataTables;
 
 class RoleController extends Controller
 {
@@ -31,6 +32,21 @@ class RoleController extends Controller
         $roles = Role::orderBy('id', 'DESC')->paginate(5);
         return view('manager.roles.index', compact('roles'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
+    }
+
+    public function getRoles(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Role::latest()->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $actionBtn = '<a href="" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+                    return $actionBtn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
     }
 
     /**

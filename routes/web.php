@@ -34,6 +34,7 @@ Route::middleware(['auth', 'IsManager'])->prefix('manager')->name('manager.')->g
     Route::get('/', [\App\Http\Controllers\Manager\HomeController::class, 'index'])->name('home');
 
     Route::resource('roles', \App\Http\Controllers\Manager\RoleController::class);
+    Route::get('getRoles', [\App\Http\Controllers\Manager\RoleController::class,'getRoles'])->name('getRoles');
     Route::resource('employers', \App\Http\Controllers\Manager\EmployerController::class);
     Route::resource('appointments', \App\Http\Controllers\Manager\AppointmentController::class);
     Route::resource('properties', \App\Http\Controllers\Manager\PropertyController::class);

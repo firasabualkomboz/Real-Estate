@@ -48,8 +48,6 @@
                                 @csrf
                                 @include('manager.roles._form' , ['button' => 'Submit'] )
 
-
-
                             </form>
                         </div>
                         <!--end::Card-->
