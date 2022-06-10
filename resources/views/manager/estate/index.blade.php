@@ -70,198 +70,89 @@
                     <div class="card-body">
 
 
-                            <table class="table table-bordered" id="ajax-table">
+                        <table class="table table-bordered" id="ajax-table">
 
-                                <thead>
-                                <tr>
+                            <thead>
+                            <tr>
 
-                                    <th>Id</th>
-                                    <th>Name Estate </th>
-                                    <th>Type Property</th>
-                                    <th>Rent / per : month</th>
-                                    <th>status</th>
-                                    <th>Owner Name </th>
-                                    <th>Units For Estate</th>
-                                    <th>Actions</th>
-                                </tr>
-                                </thead>
+                                <th>Id</th>
+                                <th>Name Estate</th>
+                                <th>Type Property</th>
+                                <th>Rent / per : month</th>
+                                <th>status</th>
+                                <th>Owner Name</th>
+                                <th>Units For Estate</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
 
-                            </table>
-
-{{--                            <table class="datatable-table" style="display: block;">--}}
-{{--                                <thead class="datatable-head">--}}
-{{--                                <tr class="datatable-row" style="left: 0px;">--}}
+                        </table>
 
 
-{{--                                    <th data-field="OrderID" class="datatable-cell datatable-cell-sort"><span--}}
-{{--                                        ># ID</span></th>--}}
+                        {{--                                    <!-- Modal-->--}}
+                        {{--                                    <div class="modal fade" id="exampleModalLong" data-backdrop="static"--}}
+                        {{--                                         tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"--}}
+                        {{--                                         aria-hidden="true">--}}
+                        {{--                                        <div class="modal-dialog" role="document">--}}
+                        {{--                                            <form method="post"--}}
+                        {{--                                                  action="{{route('manager.estates.update' , $estate->id)}}">--}}
+                        {{--                                                @csrf--}}
+                        {{--                                                @method('PATCH')--}}
 
-{{--                                    <th data-field="Country" class="datatable-cell datatable-cell-sort"><span--}}
-{{--                                            style="width: 126px;">Estate Name</span></th>--}}
+                        {{--                                                <div class="modal-content">--}}
+                        {{--                                                    <div class="modal-header">--}}
+                        {{--                                                        <h5 class="modal-title" id="exampleModalLabel">--}}
+                        {{--                                                            Update Status For Estate - {{$estate->name }}</h5>--}}
+                        {{--                                                        <button type="button" class="close"--}}
+                        {{--                                                                data-dismiss="modal" aria-label="Close">--}}
+                        {{--                                                            <i aria-hidden="true"--}}
+                        {{--                                                               class="ki ki-close"></i>--}}
+                        {{--                                                        </button>--}}
+                        {{--                                                    </div>--}}
+                        {{--                                                    <div class="modal-body">--}}
 
+                        {{--                                                        <div class="form-group row">--}}
+                        {{--                                                            <label for="example-time-input"--}}
+                        {{--                                                                   class="col-3 col-form-label"> Update Status--}}
+                        {{--                                                            </label>--}}
+                        {{--                                                            <div class="col-8">--}}
 
-{{--                                    <th data-field="Type" data-autohide-disabled="false"--}}
-{{--                                        class="datatable-cell datatable-cell-sort"><span--}}
-{{--                                            style="width: 126px;">property Name</span>--}}
-{{--                                    </th>--}}
-{{--                                    <th data-field="Type" data-autohide-disabled="false"--}}
-{{--                                        class="datatable-cell datatable-cell-sort"><span--}}
-{{--                                            style="width: 126px;">Rent </span>--}}
-{{--                                    </th>--}}
-{{--                                    <th data-field="Type" data-autohide-disabled="false"--}}
-{{--                                        class="datatable-cell datatable-cell-sort"><span--}}
-{{--                                            style="width: 126px;">Status </span>--}}
-{{--                                    </th>--}}
+                        {{--                                                                <select name="status"--}}
+                        {{--                                                                        class="form-control"--}}
+                        {{--                                                                >--}}
 
-{{--                                    <th data-field="Type" data-autohide-disabled="false"--}}
-{{--                                        class="datatable-cell datatable-cell-sort"><span--}}
-{{--                                            style="width: 126px;">Owner Name </span>--}}
-{{--                                    </th>--}}
-{{--                                    <th data-field="Type" data-autohide-disabled="false"--}}
-{{--                                        class="datatable-cell datatable-cell-sort"><span--}}
-{{--                                            style="width: 126px;">Units  </span>--}}
-{{--                                    </th>--}}
+                        {{--                                                                    <option value="available"> Available</option>--}}
+                        {{--                                                                    <option value="unavailable"> Un Available</option>--}}
+                        {{--                                                                    <option value="rent"> Rent</option>--}}
 
+                        {{--                                                                </select>--}}
+                        {{--                                                            </div>--}}
+                        {{--                                                        </div>--}}
 
-{{--                                    <th data-field="Actions" data-autohide-disabled="false"--}}
-{{--                                        class="datatable-cell datatable-cell-sort"><span--}}
-{{--                                            style="width: 125px;">Actions</span></th>--}}
+                        {{--                                                    </div>--}}
+                        {{--                                                    <div class="modal-footer">--}}
+                        {{--                                                        <button type="button"--}}
+                        {{--                                                                class="btn btn-light-primary font-weight-bold"--}}
+                        {{--                                                                data-dismiss="modal">Close--}}
+                        {{--                                                        </button>--}}
+                        {{--                                                        <button type="submit"--}}
+                        {{--                                                                class="btn btn-primary font-weight-bold">--}}
+                        {{--                                                            Update--}}
+                        {{--                                                        </button>--}}
+                        {{--                                                    </div>--}}
 
-{{--                                </tr>--}}
-{{--                                </thead>--}}
-{{--                                <tbody class="datatable-body" style="">--}}
-{{--                                @foreach($estates as $estate)--}}
+                        {{--                                                </div>--}}
+                        {{--                                            </form>--}}
 
-{{--                                    <tr data-row="0" class="datatable-row" style="left: 0px;">--}}
-
-{{--                                        <td data-field="OrderID" aria-label="0374-5070" class="datatable-cell"><span--}}
-{{--                                            > # {{$estate->id}}</span></td>--}}
-{{--                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span--}}
-{{--                                                style="width: 126px;">{{$estate->name}}</span></td>--}}
-
-
-{{--                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span--}}
-{{--                                                style="width: 126px;">{{$estate->property->name}}</span></td>--}}
-
-{{--                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span--}}
-{{--                                                style="width: 126px;">{{$estate->rent}}</span></td>--}}
-
-{{--                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span--}}
-{{--                                                style="width: 126px;">--}}
-
-
-{{--                                                <button type="button" class="btn btn-outline-warning btn-sm"--}}
-{{--                                                        data-toggle="modal" data-target="#exampleModalLong">--}}
-{{--                        {{$estate->status}}--}}
-{{--                    </button>--}}
-
-{{--                                            </span></td>--}}
-{{--                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span--}}
-{{--                                                style="width: 126px;">{{$estate->owner->name}}</span></td>--}}
-
-{{--                                        <td data-field="Country" aria-label="China" class="datatable-cell"><span--}}
-{{--                                                style="width: 126px;">{{$estate->apartment->count()}}</span></td>--}}
+                        {{--                                        </div>--}}
+                        {{--                                    </div>--}}
 
 
-{{--                                        <td data-field="Actions" data-autohide-disabled="false" aria-label="null"--}}
-{{--                                            class="datatable-cell">--}}
-{{--                    <span--}}
-{{--                        style="overflow: visible; position: relative; width: 125px; display: inline ">--}}
-
-{{--                        <button class="btn btn-sm"> <a style="color: #fff"--}}
-{{--                                                       href="{{route('manager.estates.show' , $estate->id)}}">--}}
-
-{{--                                <i class="fa fa-eye"></i>--}}
-{{--                            </a> </button>--}}
+                        {{--                                @endforeach--}}
 
 
-{{--                        <button class="btn btn-sm"> <a style="color: #fff"--}}
-{{--                                                       href="{{route('manager.estates.edit' , $estate->id)}}">--}}
-
-{{--                                <i class="fa fa-edit"></i>--}}
-{{--                            </a> </button>--}}
-
-
-{{--                        <form method="post" style="display: inline"--}}
-{{--                              action="{{route('manager.estates.destroy' , $estate->id)}}">--}}
-{{--                        @method('DELETE')--}}
-{{--                            @csrf--}}
-{{--                            <button class="btn btn-sm" type="submit"><i class="fa fa-trash"></i></button>--}}
-{{--                        </form>--}}
-
-{{--                    </span>--}}
-
-{{--                                        </td>--}}
-
-{{--                                    </tr>--}}
-
-
-
-
-{{--                                    <!-- Modal-->--}}
-{{--                                    <div class="modal fade" id="exampleModalLong" data-backdrop="static"--}}
-{{--                                         tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"--}}
-{{--                                         aria-hidden="true">--}}
-{{--                                        <div class="modal-dialog" role="document">--}}
-{{--                                            <form method="post"--}}
-{{--                                                  action="{{route('manager.estates.update' , $estate->id)}}">--}}
-{{--                                                @csrf--}}
-{{--                                                @method('PATCH')--}}
-
-{{--                                                <div class="modal-content">--}}
-{{--                                                    <div class="modal-header">--}}
-{{--                                                        <h5 class="modal-title" id="exampleModalLabel">--}}
-{{--                                                            Update Status For Estate - {{$estate->name }}</h5>--}}
-{{--                                                        <button type="button" class="close"--}}
-{{--                                                                data-dismiss="modal" aria-label="Close">--}}
-{{--                                                            <i aria-hidden="true"--}}
-{{--                                                               class="ki ki-close"></i>--}}
-{{--                                                        </button>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="modal-body">--}}
-
-{{--                                                        <div class="form-group row">--}}
-{{--                                                            <label for="example-time-input"--}}
-{{--                                                                   class="col-3 col-form-label"> Update Status--}}
-{{--                                                            </label>--}}
-{{--                                                            <div class="col-8">--}}
-
-{{--                                                                <select name="status"--}}
-{{--                                                                        class="form-control"--}}
-{{--                                                                >--}}
-
-{{--                                                                    <option value="available"> Available</option>--}}
-{{--                                                                    <option value="unavailable"> Un Available</option>--}}
-{{--                                                                    <option value="rent"> Rent</option>--}}
-
-{{--                                                                </select>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-
-{{--                                                    </div>--}}
-{{--                                                    <div class="modal-footer">--}}
-{{--                                                        <button type="button"--}}
-{{--                                                                class="btn btn-light-primary font-weight-bold"--}}
-{{--                                                                data-dismiss="modal">Close--}}
-{{--                                                        </button>--}}
-{{--                                                        <button type="submit"--}}
-{{--                                                                class="btn btn-primary font-weight-bold">--}}
-{{--                                                            Update--}}
-{{--                                                        </button>--}}
-{{--                                                    </div>--}}
-
-{{--                                                </div>--}}
-{{--                                            </form>--}}
-
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-
-
-{{--                                @endforeach--}}
-
-
-{{--                                </tbody>--}}
-{{--                            </table>--}}
+                        {{--                                </tbody>--}}
+                        {{--                            </table>--}}
 
 
                         <!--end: Datatable-->
@@ -339,6 +230,5 @@
             });
         </script>
     @endpush
-
 
 @endsection

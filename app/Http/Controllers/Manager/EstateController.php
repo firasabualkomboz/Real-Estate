@@ -39,9 +39,9 @@ class EstateController extends Controller
                 ->addColumn('units', function ($data) {
                     return $data->apartment->count();
                 })->addColumn('property', function (Estate $estate) {
-                    return  $estate->property->name   ;
+                    return $estate->property->name;
                 })->addColumn('owner', function (Estate $estate) {
-                return  $estate->owner->name   ;
+                    return $estate->owner->name;
                 })
                 ->addColumn('action', function ($estate) {
                     return $estate->action_buttons;

@@ -26,7 +26,11 @@
         <!--end::Global Theme Styles-->
     @else
         <link href="{{asset('assets_dashboard')}}/assets/css/ar/style.ar_bundle.css" rel="stylesheet" type="text/css"/>
-
+        <style>
+            *{
+                font-family: 'IBM Plex Sans Arabic', sans-serif;
+            }
+        </style>
     @endif
     <!--begin::Layout Themes(used by all pages)-->
     <link href="{{asset('assets_dashboard')}}/assets/css/themes/layout/header/base/light.css" rel="stylesheet"
@@ -39,7 +43,9 @@
           type="text/css"/>
 
     <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-    x
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <!--end::Layout Themes-->
     <link rel="shortcut icon" href="{{asset('assets_dashboard')}}/assets/media/logos/favicon.ico"/>
 </head>

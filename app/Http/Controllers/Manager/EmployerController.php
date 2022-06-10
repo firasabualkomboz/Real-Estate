@@ -28,7 +28,7 @@ class EmployerController extends Controller
      */
     public function index(Request $request)
     {
-        $employers = User::orderBy('id', 'DESC')->paginate(5);
+        $employers = User::where('type' , '1')->orderBy('id', 'DESC')->paginate(5);
         return view('manager.employers.index', compact('employers'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }

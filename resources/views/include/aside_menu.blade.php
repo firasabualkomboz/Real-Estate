@@ -31,7 +31,7 @@
             </svg>
                 <!--end::Svg Icon-->
             </span>
-                    <span class="menu-text">Roles</span>
+                    <span class="menu-text">@lang('dashboard.roles')</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="menu-submenu">
@@ -81,7 +81,7 @@
             </svg>
                 <!--end::Svg Icon-->
             </span>
-                    <span class="menu-text">Employer Management</span>
+                    <span class="menu-text">@lang('dashboard.employers')</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="menu-submenu">
@@ -132,7 +132,7 @@
             </svg>
                 <!--end::Svg Icon-->
             </span>
-                    <span class="menu-text">Tenants</span>
+                    <span class="menu-text">@lang('dashboard.tenants')</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="menu-submenu">
@@ -182,7 +182,7 @@
             </svg>
                 <!--end::Svg Icon-->
             </span>
-                    <span class="menu-text">Owners</span>
+                    <span class="menu-text">@lang('dashboard.owners')</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="menu-submenu">
@@ -232,7 +232,7 @@
             </svg>
                 <!--end::Svg Icon-->
             </span>
-                    <span class="menu-text">Estates</span>
+                    <span class="menu-text">@lang('dashboard.estates')</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="menu-submenu">
@@ -282,7 +282,7 @@
             </svg>
                 <!--end::Svg Icon-->
             </span>
-                    <span class="menu-text">Apartment</span>
+                    <span class="menu-text">@lang('dashboard.apartments')</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="menu-submenu">
@@ -336,7 +336,7 @@
             </svg>
                 <!--end::Svg Icon-->
             </span>
-                    <span class="menu-text">Contracts</span>
+                    <span class="menu-text">@lang('dashboard.contracts')</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="menu-submenu">
@@ -390,7 +390,7 @@
 											</svg>
                                             <!--end::Svg Icon-->
 										</span>
-                    <span class="menu-text">Invoices</span>
+                    <span class="menu-text">@lang('dashboard.invoices')</span>
                 </a>
             </li>
 
@@ -414,7 +414,7 @@
 											</svg>
                                             <!--end::Svg Icon-->
 										</span>
-                    <span class="menu-text">Appointments</span>
+                    <span class="menu-text">@lang('dashboard.appointments')</span>
                 </a>
             </li>
 
@@ -438,7 +438,7 @@
             </svg>
                 <!--end::Svg Icon-->
             </span>
-                    <span class="menu-text">Property</span>
+                    <span class="menu-text">@lang('dashboard.properties')</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="menu-submenu">
@@ -487,7 +487,7 @@
             </svg>
                 <!--end::Svg Icon-->
             </span>
-                    <span class="menu-text">Tag</span>
+                    <span class="menu-text">@lang('dashboard.tags')</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="menu-submenu">
