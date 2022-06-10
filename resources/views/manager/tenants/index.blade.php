@@ -1,6 +1,26 @@
 @extends('layouts.manager')
 
 @section('content')
+    @push('custom-scripts')
+
+        <style>
+            input[type=search] {
+                display: block;
+                width: 100%;
+                height: calc(1.5em + 1.3rem + 2px);
+                padding: 0.65rem 1rem;
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 1.5;
+                color: #464E5F;
+                background-color: #ffffff;
+                background-clip: padding-box;
+                border: 1px solid #E5EAEE;
+                border-radius: 0.42rem;
+            }
+        </style>
+
+    @endpush
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Subheader-->
         <div class="subheader py-3 py-lg-8 subheader-transparent" id="kt_subheader">
@@ -84,19 +104,19 @@
                             </tr>
                             </thead>
 
-                            <tfoot>
-                            <tr>
-                                <td>
-                                    <select data-column="0" class="form-control filter-input">
-                                        <option value="">Select Email ...</option>
-                                        @foreach($emails as $email)
-                                            <option value="{{$email}}"> {{$email}} </option>
+{{--                            <tfoot>--}}
+{{--                            <tr>--}}
+{{--                                <td>--}}
+{{--                                    <select data-column="0" class="form-control filter-input">--}}
+{{--                                        <option value="">Select Email ...</option>--}}
+{{--                                        @foreach($emails as $email)--}}
+{{--                                            <option value="{{$email}}"> {{$email}} </option>--}}
 
-                                        @endforeach
-                                    </select>
-                                </td>
-                            </tr>
-                            </tfoot>
+{{--                                        @endforeach--}}
+{{--                                    </select>--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
+{{--                            </tfoot>--}}
                         </table>
 
 
@@ -151,7 +171,9 @@
                     processing: true,
                     serverSide: true,
 
+
                     ajax: "{{ route('manager.getTenants') }}",
+
                     columns: [
                         {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                         {data: 'name', name: 'name'},
@@ -163,9 +185,12 @@
                             data: 'action',
                             name: 'action',
                             orderable: true,
-                            searchable: true
+                            searchable: false,
+
                         },
-                    ]
+
+                    ] ,
+
                 });
                 $('.filter-input').change(function () {
                     table.column($(this).data('column')).search($(this).val()).draw();

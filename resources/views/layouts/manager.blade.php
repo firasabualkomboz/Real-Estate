@@ -48,6 +48,7 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <!--end::Layout Themes-->
     <link rel="shortcut icon" href="{{asset('assets_dashboard')}}/assets/media/logos/favicon.ico"/>
+    @stack('custom-css')
 </head>
 <!--end::Head-->
 <!--begin::Body-->

@@ -44,7 +44,7 @@
                         <div class="card-toolbar">
 
                             <!--begin::Button-->
-                            <a href="{{route('manager.owners.create')}}" class="btn btn-primary font-weight-bolder">
+                            <a href="{{route('manager.owners.create')}}" class="btn btn-success font-weight-bolder">
 											<span class="svg-icon svg-icon-md">
 												<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
 												<svg xmlns="http://www.w3.org/2000/svg"
@@ -63,111 +63,171 @@
                             <!--end::Button-->
                         </div>
                     </div>
+
+
                     <div class="card-body">
 
-                        <!--begin: Datatable-->
-                        <div class="datatable datatable-default datatable-primary datatable-loaded">
-                            <table class="datatable-bordered datatable-head-custom datatable-table" id="kt_datatable"
-                                   style="display: block;">
-                                <thead class="datatable-head">
 
-                                <tr class="datatable-row" style="left: 0px;">
-                                    <th data-field="Order ID" class="datatable-cell datatable-cell-sort"><span
-                                            >#ID</span></th>
+                        <div class="row">
 
-                                    <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Name</span></th>
-                                    <th data-field="Deposit Paid" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Email</span></th>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" id="data-table-search" class="form-control" autofocus
+                                           placeholder="Search">
+                                </div>
+                            </div>
 
-                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Phone</span></th>
-                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">address</span></th>
-
-                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Statistics</span></th>        <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Action</span></th>
-
-                                    <th data-field="Order Date" class="datatable-cell datatable-cell-sort"
-                                        style="display: none;"><span style="width: 110px;">Action</span></th>
+                            <div class="col-md-6">
 
 
+                                <form method="post" action="#" style="display: inline-block;">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="hidden" name="record_ids" id="record-ids">
+                                    <button type="submit" class="btn btn-danger" id="bulk-delete" disabled="true"><i
+                                            class="fa fa-trash"></i> Bulk Delete
+                                    </button>
+                                </form><!-- end of form -->
 
-                                </tr>
-                                </thead>
-                                <tbody style="" class="datatable-body">
-                                @foreach($owners as $owner)
-                                    <tr data-row="0" class="datatable-row" style="left: 0px;">
+                            </div>
 
-                                        <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
-                                               >{{$owner->id}}</span></td>
+                        </div><!-- end of row -->
 
-                                        <td data-field="Car Model" aria-label="Range Rover" class="datatable-cell"><span
-                                                style="width: 110px;">{{$owner->name}}
-</span></td>
-                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;">{{$owner->email}}</span></td>
-                                        <td data-field="Deposit Paid" aria-label="$22672.60"
-                                            class="datatable-cell"><span
-                                                style="width: 110px;">{{$owner->phone}}</span></td>
-                                        <td data-field="Deposit Paid" aria-label="$22672.60"
-                                            class="datatable-cell"><span
-                                                style="width: 110px;">{{$owner->address}}</span></td>
+                        <div class="row">
 
-                                        <td data-field="Deposit Paid" aria-label="$22672.60"
-                                            class="datatable-cell"><span
-                                                style="width: 110px;">Estates :  <span
-                                                    class="label font-weight-bold label-lg label-light-primary label-inline">{{$owner->estate->count()}}</span> <br> <br>
-                                                Apartment: <span
-                                                    class="label font-weight-bold label-lg label-light-primary label-inline">{{$owner->apartment->count() ?  : '0'}}</span> </span></td>
+                            <div class="col-md-12">
+
+                                <div class="table-responsive">
+
+                                    <table class="table datatable table-secondary" id="owners-table" style="width: 100%;">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="animated-checkbox">
+                                                    <label class="m-0">
+                                                        <input type="checkbox" id="record__select-all">
+                                                        <span class="label-text"></span>
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th>Owner Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Address</th>
+                                            <th>Statistics</th>
+
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+
+                                </div><!-- end of table responsive -->
+
+                            </div><!-- end of col -->
+
+                        </div><!-- end of row -->
+
+                        {{--                        <!--begin: Datatable-->--}}
+                        {{--                        <div class="datatable datatable-default datatable-primary datatable-loaded">--}}
+                        {{--                            <table class="datatable-bordered datatable-head-custom datatable-table" id="kt_datatable"--}}
+                        {{--                                   style="display: block;">--}}
+                        {{--                                <thead class="datatable-head">--}}
+
+                        {{--                                <tr class="datatable-row" style="left: 0px;">--}}
+                        {{--                                    <th data-field="Order ID" class="datatable-cell datatable-cell-sort"><span--}}
+                        {{--                                        >#ID</span></th>--}}
+
+                        {{--                                    <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span--}}
+                        {{--                                            style="width: 110px;">Name</span></th>--}}
+                        {{--                                    <th data-field="Deposit Paid" class="datatable-cell datatable-cell-sort"><span--}}
+                        {{--                                            style="width: 110px;">Email</span></th>--}}
+
+                        {{--                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span--}}
+                        {{--                                            style="width: 110px;">Phone</span></th>--}}
+                        {{--                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span--}}
+                        {{--                                            style="width: 110px;">address</span></th>--}}
+
+                        {{--                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span--}}
+                        {{--                                            style="width: 110px;">Statistics</span></th>--}}
+                        {{--                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span--}}
+                        {{--                                            style="width: 110px;">Action</span></th>--}}
+
+                        {{--                                    <th data-field="Order Date" class="datatable-cell datatable-cell-sort"--}}
+                        {{--                                        style="display: none;"><span style="width: 110px;">Action</span></th>--}}
 
 
-                                        <td data-field="Actions" data-autohide-disabled="false" aria-label="null"
-                                            class="datatable-cell">
-                    <span
-                        style="overflow: visible; position: relative; width: 125px; display: inline ">
+                        {{--                                </tr>--}}
+                        {{--                                </thead>--}}
+                        {{--                                <tbody style="" class="datatable-body">--}}
+                        {{--                                @foreach($owners as $owner)--}}
+                        {{--                                    <tr data-row="0" class="datatable-row" style="left: 0px;">--}}
 
-                        <button class="btn btn-sm"> <a style="color: #fff"
-                                                       href="{{route('manager.owners.show' , $owner->id)}}">
+                        {{--                                        <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span--}}
+                        {{--                                            >{{$owner->id}}</span></td>--}}
 
-                                <i class="fa fa-eye"></i>
-                            </a> </button>
+                        {{--                                        <td data-field="Car Model" aria-label="Range Rover" class="datatable-cell"><span--}}
+                        {{--                                                style="width: 110px;">{{$owner->name}}--}}
+                        {{--</span></td>--}}
+                        {{--                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span--}}
+                        {{--                                                style="width: 110px;">{{$owner->email}}</span></td>--}}
+                        {{--                                        <td data-field="Deposit Paid" aria-label="$22672.60"--}}
+                        {{--                                            class="datatable-cell"><span--}}
+                        {{--                                                style="width: 110px;">{{$owner->phone}}</span></td>--}}
+                        {{--                                        <td data-field="Deposit Paid" aria-label="$22672.60"--}}
+                        {{--                                            class="datatable-cell"><span--}}
+                        {{--                                                style="width: 110px;">{{$owner->address}}</span></td>--}}
 
-
-                        <button class="btn btn-sm"> <a style="color: #fff"
-                                                       href="{{route('manager.owners.edit' , $owner->id)}}">
-
-                                <i class="fa fa-edit"></i>
-                            </a> </button>
-
-
-                        <form method="post" style="display: inline"
-                              action="{{route('manager.owners.destroy' , $owner->id)}}">
-                        @method('DELETE')
-                            @csrf
-                            <button class="btn btn-sm" type="submit"><i class="fa fa-trash"></i></button>
-                        </form>
-
-                    </span>
-
-                                        </td>
-
+                        {{--                                        <td data-field="Deposit Paid" aria-label="$22672.60"--}}
+                        {{--                                            class="datatable-cell"><span--}}
+                        {{--                                                style="width: 110px;">Estates :  <span--}}
+                        {{--                                                    class="label font-weight-bold label-lg label-light-primary label-inline">{{$owner->estate->count()}}</span> <br> <br>--}}
+                        {{--                                                Apartment: <span--}}
+                        {{--                                                    class="label font-weight-bold label-lg label-light-primary label-inline">{{$owner->apartment->count() ?  : '0'}}</span> </span>--}}
+                        {{--                                        </td>--}}
 
 
+                        {{--                                        <td data-field="Actions" data-autohide-disabled="false" aria-label="null"--}}
+                        {{--                                            class="datatable-cell">--}}
+                        {{--                    <span--}}
+                        {{--                        style="overflow: visible; position: relative; width: 125px; display: inline ">--}}
 
-                                    </tr>
-                                @endforeach
+                        {{--                        <button class="btn btn-sm"> <a style="color: #fff"--}}
+                        {{--                                                       href="{{route('manager.owners.show' , $owner->id)}}">--}}
+
+                        {{--                                <i class="fa fa-eye"></i>--}}
+                        {{--                            </a> </button>--}}
 
 
-                                </tbody>
-                            </table>
+                        {{--                        <button class="btn btn-sm"> <a style="color: #fff"--}}
+                        {{--                                                       href="{{route('manager.owners.edit' , $owner->id)}}">--}}
 
-                        </div>
-                        <!--end: Datatable-->
+                        {{--                                <i class="fa fa-edit"></i>--}}
+                        {{--                            </a> </button>--}}
+
+
+                        {{--                        <form method="post" style="display: inline"--}}
+                        {{--                              action="{{route('manager.owners.destroy' , $owner->id)}}">--}}
+                        {{--                        @method('DELETE')--}}
+                        {{--                            @csrf--}}
+                        {{--                            <button class="btn btn-sm" type="submit"><i class="fa fa-trash"></i></button>--}}
+                        {{--                        </form>--}}
+
+                        {{--                    </span>--}}
+
+                        {{--                                        </td>--}}
+
+
+                        {{--                                    </tr>--}}
+                        {{--                                @endforeach--}}
+
+
+                        {{--                                </tbody>--}}
+                        {{--                            </table>--}}
+
+                        {{--                        </div>--}}
+                        {{--                        <!--end: Datatable-->--}}
                     </div>
                 </div>
-
 
 
             </div>
@@ -176,10 +236,50 @@
 
         </div>
         <!--end::Entry-->
-
-
-
-
-
     </div>
+
+    @push('custom-scripts')
+
+        <script type="text/javascript">
+            $(document).on('click', '.deleteRecord', (function () {
+                var id = $(this).data("id");
+                var url = '{{ route('manager.'.\App\Models\User::manager_route.'.destroy', ":id") }}';
+                url = url.replace(':id', id);
+                $('#delete_form').attr('action', url);
+            }));
+
+            $(function () {
+
+                var table = $('#owners-table').DataTable({
+                    dom: "tiplr",
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('manager.getOwners') }}",
+                    columns: [
+                        {data: 'record_select', name: 'record_select', searchable: false, sortable: false, width: '1%'},
+                        {data: 'name', name: 'name'},
+                        {data: 'email', name: 'email'},
+                        {data: 'phone', name: 'phone'},
+                        {data: 'address', name: 'address'},
+                        {data: 'statistics', name: 'statistics'},
+                        {data: 'actions', name: 'actions', searchable: false, sortable: false, width: '20%'},
+
+                    ],
+                    order: [[5, 'desc']],
+                    drawCallback: function (settings) {
+                        $('.record__select').prop('checked', false);
+                        $('#record__select-all').prop('checked', false);
+                        $('#record-ids').val();
+                        $('#bulk-delete').attr('disabled', true);
+                    }
+                });
+                $('#data-table-search').keyup(function () {
+                    table.search(this.value).draw();
+                })
+
+            });
+        </script>
+
+    @endpush
+
 @endsection

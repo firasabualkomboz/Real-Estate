@@ -9,6 +9,7 @@ use App\Models\Estate;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use DataTables;
 use function app\Helper\successMessage;
 
 class OwnerController extends Controller
@@ -32,6 +33,26 @@ class OwnerController extends Controller
         $owners = User::where('type', '2')->with('estate', 'apartment')->get();
         return view('manager.owners.index', compact('owners'));
     }
+
+    public function getOwners(Request $request)
+    {
+        if ($request->ajax()) {
+            $owners = User::where('type', '2')->latest()->get();
+            return DataTables::of($owners)
+                ->addIndexColumn()
+                ->addColumn('record_select', 'manager.owners.data_table.record_select')
+                ->editColumn('statistics', function (User $owner) {
+                    $countEstate  =  $owner->estate->count();
+                    $countApartment = $owner->apartment->count();
+                    return 'Estate : ' . $countEstate . '  '  . 'Apartment : ' .$countApartment;
+                })
+                ->addColumn('actions', 'manager.owners.data_table.actions')
+                ->rawColumns(['record_select', 'actions'])
+                ->toJson();
+        }
+
+    }
+
 
     /**
      * Show the form for creating a new resource.
