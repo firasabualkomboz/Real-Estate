@@ -68,11 +68,10 @@
 
                     </div>
                     <div class="card-body">
-
-
                         <!--begin: Datatable-->
 
                         <table class="table table-bordered" id="ajax-table">
+
                             <thead>
                             <tr>
                                 <th>Id</th>
@@ -84,6 +83,20 @@
                                 <th>Action</th>
                             </tr>
                             </thead>
+
+                            <tfoot>
+                            <tr>
+                                <td>
+                                    <select data-column="0" class="form-control filter-input">
+                                        <option value="">Select Email ...</option>
+                                        @foreach($emails as $email)
+                                            <option value="{{$email}}"> {{$email}} </option>
+
+                                        @endforeach
+                                    </select>
+                                </td>
+                            </tr>
+                            </tfoot>
                         </table>
 
 
@@ -153,6 +166,13 @@
                             searchable: true
                         },
                     ]
+                });
+                $('.filter-input').change(function () {
+                    table.column($(this).data('column')).search($(this).val()).draw();
+                });
+
+                $('.filter-select').change(function () {
+                    table.column($(this).data('column')).search($(this).val()).draw();
                 });
 
             });

@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\ActionButtons;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Estate extends Model
 {
-    use HasFactory;
+    use HasFactory , ActionButtons;
 
 
     protected $fillable = ['name', 'rent', 'property_id', 'owner_id', 'area',
@@ -17,6 +18,7 @@ class Estate extends Model
     protected $casts = [
         'images' => 'json'
     ];
+    const manager_route = 'estates';
 
     public function owner()
     {

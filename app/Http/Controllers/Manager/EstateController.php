@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use function app\Helper\successMessage;
+use DataTables;
 
 class EstateController extends Controller
 {
@@ -27,6 +28,27 @@ class EstateController extends Controller
     {
         $estates = Estate::with('owner', 'property')->get();
         return view('manager.estate.index', compact('estates'));
+    }
+
+    public function getEstates(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Estate::latest()->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('units', function ($data) {
+                    return $data->apartment->count();
+                })->addColumn('property', function (Estate $estate) {
+                    return  $estate->property->name   ;
+                })->addColumn('owner', function (Estate $estate) {
+                return  $estate->owner->name   ;
+                })
+                ->addColumn('action', function ($estate) {
+                    return $estate->action_buttons;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
     }
 
     public function show($id)

@@ -59,6 +59,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::resource('properties', \App\Http\Controllers\Manager\PropertyController::class);
         Route::resource('tags', \App\Http\Controllers\Manager\TagController::class);
         Route::resource('estates', \App\Http\Controllers\Manager\EstateController::class);
+        Route::get('getEstates', [\App\Http\Controllers\Manager\EstateController::class, 'getEstates'])->name('getEstates');
         Route::resource('owners', \App\Http\Controllers\Manager\OwnerController::class);
         Route::put('owners/update-apartment/', [\App\Http\Controllers\Manager\OwnerController::class, 'assignApartmentToOwner'])->name('assignApartmentToOwner');
         Route::resource('tenants', \App\Http\Controllers\Manager\TenantController::class);
