@@ -189,4 +189,51 @@
         </div>
         <!--end::Entry-->
     </div>
+
+
+
+    @push('custom-scripts')
+
+        <script type="text/javascript">
+            $(document).on('click', '.deleteRecord', (function () {
+                var id = $(this).data("id");
+                var url = '{{ route('manager.'.\App\Models\User::manager_route.'.destroy', ":id") }}';
+                url = url.replace(':id', id);
+                $('#delete_form').attr('action', url);
+            }));
+
+            $(function () {
+
+                var table = $('#owners-table').DataTable({
+                    dom: "tiplr",
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('manager.getOwners') }}",
+                    columns: [
+                        {data: 'record_select', name: 'record_select', searchable: false, sortable: false, width: '1%'},
+                        {data: 'name', name: 'name'},
+                        {data: 'email', name: 'email'},
+                        {data: 'phone', name: 'phone'},
+                        {data: 'address', name: 'address'},
+                        {data: 'statistics', name: 'statistics'},
+                        {data: 'actions', name: 'actions', searchable: false, sortable: false, width: '20%'},
+
+                    ],
+                    order: [[5, 'desc']],
+                    drawCallback: function (settings) {
+                        $('.record__select').prop('checked', false);
+                        $('#record__select-all').prop('checked', false);
+                        $('#record-ids').val();
+                        $('#bulk-delete').attr('disabled', true);
+                    }
+                });
+                $('#data-table-search').keyup(function () {
+                    table.search(this.value).draw();
+                })
+
+            });
+        </script>
+
+    @endpush
+
 @endsection

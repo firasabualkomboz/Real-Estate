@@ -99,7 +99,8 @@
 
                                 <div class="table-responsive">
 
-                                    <table class="table datatable table-secondary" id="owners-table" style="width: 100%;">
+                                    <table class="table datatable table-secondary" id="owners-table"
+                                           style="width: 100%;">
                                         <thead>
                                         <tr>
                                             <th>
@@ -115,7 +116,6 @@
                                             <th>Phone</th>
                                             <th>Address</th>
                                             <th>Statistics</th>
-
                                             <th>Action</th>
                                         </tr>
                                         </thead>
@@ -127,105 +127,6 @@
 
                         </div><!-- end of row -->
 
-                        {{--                        <!--begin: Datatable-->--}}
-                        {{--                        <div class="datatable datatable-default datatable-primary datatable-loaded">--}}
-                        {{--                            <table class="datatable-bordered datatable-head-custom datatable-table" id="kt_datatable"--}}
-                        {{--                                   style="display: block;">--}}
-                        {{--                                <thead class="datatable-head">--}}
-
-                        {{--                                <tr class="datatable-row" style="left: 0px;">--}}
-                        {{--                                    <th data-field="Order ID" class="datatable-cell datatable-cell-sort"><span--}}
-                        {{--                                        >#ID</span></th>--}}
-
-                        {{--                                    <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span--}}
-                        {{--                                            style="width: 110px;">Name</span></th>--}}
-                        {{--                                    <th data-field="Deposit Paid" class="datatable-cell datatable-cell-sort"><span--}}
-                        {{--                                            style="width: 110px;">Email</span></th>--}}
-
-                        {{--                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span--}}
-                        {{--                                            style="width: 110px;">Phone</span></th>--}}
-                        {{--                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span--}}
-                        {{--                                            style="width: 110px;">address</span></th>--}}
-
-                        {{--                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span--}}
-                        {{--                                            style="width: 110px;">Statistics</span></th>--}}
-                        {{--                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span--}}
-                        {{--                                            style="width: 110px;">Action</span></th>--}}
-
-                        {{--                                    <th data-field="Order Date" class="datatable-cell datatable-cell-sort"--}}
-                        {{--                                        style="display: none;"><span style="width: 110px;">Action</span></th>--}}
-
-
-                        {{--                                </tr>--}}
-                        {{--                                </thead>--}}
-                        {{--                                <tbody style="" class="datatable-body">--}}
-                        {{--                                @foreach($owners as $owner)--}}
-                        {{--                                    <tr data-row="0" class="datatable-row" style="left: 0px;">--}}
-
-                        {{--                                        <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span--}}
-                        {{--                                            >{{$owner->id}}</span></td>--}}
-
-                        {{--                                        <td data-field="Car Model" aria-label="Range Rover" class="datatable-cell"><span--}}
-                        {{--                                                style="width: 110px;">{{$owner->name}}--}}
-                        {{--</span></td>--}}
-                        {{--                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span--}}
-                        {{--                                                style="width: 110px;">{{$owner->email}}</span></td>--}}
-                        {{--                                        <td data-field="Deposit Paid" aria-label="$22672.60"--}}
-                        {{--                                            class="datatable-cell"><span--}}
-                        {{--                                                style="width: 110px;">{{$owner->phone}}</span></td>--}}
-                        {{--                                        <td data-field="Deposit Paid" aria-label="$22672.60"--}}
-                        {{--                                            class="datatable-cell"><span--}}
-                        {{--                                                style="width: 110px;">{{$owner->address}}</span></td>--}}
-
-                        {{--                                        <td data-field="Deposit Paid" aria-label="$22672.60"--}}
-                        {{--                                            class="datatable-cell"><span--}}
-                        {{--                                                style="width: 110px;">Estates :  <span--}}
-                        {{--                                                    class="label font-weight-bold label-lg label-light-primary label-inline">{{$owner->estate->count()}}</span> <br> <br>--}}
-                        {{--                                                Apartment: <span--}}
-                        {{--                                                    class="label font-weight-bold label-lg label-light-primary label-inline">{{$owner->apartment->count() ?  : '0'}}</span> </span>--}}
-                        {{--                                        </td>--}}
-
-
-                        {{--                                        <td data-field="Actions" data-autohide-disabled="false" aria-label="null"--}}
-                        {{--                                            class="datatable-cell">--}}
-                        {{--                    <span--}}
-                        {{--                        style="overflow: visible; position: relative; width: 125px; display: inline ">--}}
-
-                        {{--                        <button class="btn btn-sm"> <a style="color: #fff"--}}
-                        {{--                                                       href="{{route('manager.owners.show' , $owner->id)}}">--}}
-
-                        {{--                                <i class="fa fa-eye"></i>--}}
-                        {{--                            </a> </button>--}}
-
-
-                        {{--                        <button class="btn btn-sm"> <a style="color: #fff"--}}
-                        {{--                                                       href="{{route('manager.owners.edit' , $owner->id)}}">--}}
-
-                        {{--                                <i class="fa fa-edit"></i>--}}
-                        {{--                            </a> </button>--}}
-
-
-                        {{--                        <form method="post" style="display: inline"--}}
-                        {{--                              action="{{route('manager.owners.destroy' , $owner->id)}}">--}}
-                        {{--                        @method('DELETE')--}}
-                        {{--                            @csrf--}}
-                        {{--                            <button class="btn btn-sm" type="submit"><i class="fa fa-trash"></i></button>--}}
-                        {{--                        </form>--}}
-
-                        {{--                    </span>--}}
-
-                        {{--                                        </td>--}}
-
-
-                        {{--                                    </tr>--}}
-                        {{--                                @endforeach--}}
-
-
-                        {{--                                </tbody>--}}
-                        {{--                            </table>--}}
-
-                        {{--                        </div>--}}
-                        {{--                        <!--end: Datatable-->--}}
                     </div>
                 </div>
 

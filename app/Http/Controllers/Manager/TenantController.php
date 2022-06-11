@@ -30,7 +30,7 @@ class TenantController extends Controller
         $tenants = User::where('type', '0')->get();
         $emails = $tenants->sortBy('email')->pluck('email')->unique();
 
-        return view('manager.tenants.index', compact('tenants' , 'emails'));
+        return view('manager.tenants.index', compact('tenants', 'emails'));
     }
 
     public function getTenant(Request $request)

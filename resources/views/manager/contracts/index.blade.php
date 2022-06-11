@@ -69,140 +69,123 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="datatable datatable-default datatable-primary datatable-loaded">
-
-                            <!--begin: Datatable-->
-                            <table class="table datatable-table" id="kt_datatable"
-                            >
-                                <thead class="datatable-head">
-
-                                <tr class="datatable-row" style="left: 0px;">
-                                    <th class="datatable-cell datatable-toggle-detail"><span></span></th>
-
-                                    <th data-field="Order ID" class="datatable-cell datatable-cell-sort"><span
-                                        >#ID</span></th>
 
 
-                                    <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Name </span></th>
+                        <div class="row">
 
-                                    <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Type </span></th>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" id="data-table-search" class="form-control" autofocus
+                                           placeholder="Search">
+                                </div>
+                            </div>
 
-                                    <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Tenant</span></th>
-
-                                    <th data-field="Status" data-autohide-disabled="false"
-                                        class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">From - To </span></th>
-
-                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Rent</span></th>
-
-                                    <th data-field="Status" data-autohide-disabled="false"
-                                        class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;"> Commission </span>
+                            <div class="col-md-6">
 
 
-                                    <th data-field="Status" data-autohide-disabled="false"
-                                        class="datatable-cell datatable-cell-sort"><span
-                                        >Bills</span></th>
+                                <form method="post" action="#" style="display: inline-block;">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="hidden" name="record_ids" id="record-ids">
+                                    <button type="submit" class="btn btn-danger" id="bulk-delete" disabled="true"><i
+                                            class="fa fa-trash"></i> Bulk Delete
+                                    </button>
+                                </form><!-- end of form -->
 
+                            </div>
 
-                                    <th data-field="Status" data-autohide-disabled="false"
-                                        class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Action</span></th>
+                        </div><!-- end of row -->
 
+                        <div class="row">
 
-                                </tr>
-                                </thead>
-                                <tbody style="" class="datatable-body">
-                                @foreach($contracts as $contract)
-                                    <tr data-row="0" class="datatable-row" style="left: 0px;">
-                                        <td class="datatable-cell datatable-toggle-detail"><a
-                                                class="datatable-toggle-detail" href=""><i
-                                                    class="fa fa-caret-right"></i></a></td>
+                            <div class="col-md-12">
 
+                                <div class="table-responsive">
 
-                                        <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
-                                            >{{$contract->id}}</span></td>
+                                    <table class="table datatable table-secondary" id="contracts-table"
+                                           style="width: 100%;">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="animated-checkbox">
+                                                    <label class="m-0">
+                                                        <input type="checkbox" id="record__select-all">
+                                                        <span class="label-text"></span>
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Tenant</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>Rent</th>
+                                            <th>Commission</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
 
-                                        <td data-field="Car Model" aria-label="Range Rover" class="datatable-cell"><span
-                                                style="width: 110px;">{{$contract->estate_id ?  : $contract->apartment->name}}
-</span></td>
-                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;">{{$contract->type}}</span></td>
+                                </div><!-- end of table responsive -->
 
+                            </div><!-- end of col -->
 
-                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;">{{$contract->tenant->name}}</span></td>
+                        </div><!-- end of row -->
 
-                                        <td data-field="Deposit Paid" aria-label="$22672.60"
-                                            class="datatable-cell"><span
-                                                style="width: 110px;">
-                                                {{$contract->start_at}} <br> {{$contract->end_at}}
-</span>
-                                        </td>
-
-
-                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;"> 265 $ / month </span>
-                                        </td>
-
-                                        <td data-field="Color" aria-label="Orange" class="datatable-cell "><span
-                                                style="width: 110px;">  {{$contract->estate_id ?  : $contract->apartment->commission}}   % </span>
-                                        </td>
-
-
-                                        <td data-field="Deposit Paid" aria-label="$22672.60"
-                                            class="datatable-cell"><span
-                                            >0$</span></td>
-
-                                        <td data-field="Actions" data-autohide-disabled="false" aria-label="null"
-                                            class="datatable-cell">
-                    <span
-                        style="overflow: visible; position: relative; width: 125px; display: inline ">
-
-                        <button class="btn btn-sm"> <a style="color: #fff"
-                                                       href="{{route('manager.contracts.show' , $contract->id)}}">
-
-                                <i class="fa fa-eye"></i>
-                            </a> </button>
-
-
-                        <button class="btn btn-sm"> <a style="color: #fff"
-                                                       href="{{route('manager.contracts.edit' , $contract->id)}}">
-
-                                <i class="fa fa-edit"></i>
-                            </a> </button>
-
-
-                        <form method="post" style="display: inline"
-                              action="{{route('manager.contracts.destroy' , $contract->id)}}">
-                        @method('DELETE')
-                            @csrf
-                            <button class="btn btn-sm" type="submit"><i class="fa fa-trash"></i></button>
-                        </form>
-
-                    </span>
-
-                                        </td>
-
-                                    </tr>
-                                @endforeach
-
-
-                                </tbody>
-                            </table>
-                            {{$contracts->links()}}
-
-                        </div>
-                        <!--end: Datatable-->
                     </div>
+
                 </div>
             </div>
             <!--end::Container-->
         </div>
         <!--end::Entry-->
     </div>
+
+
+    @push('custom-scripts')
+
+        <script type="text/javascript">
+            $(document).on('click', '.deleteRecord', (function () {
+                var id = $(this).data("id");
+                var url = '{{ route('manager.'.\App\Models\User::manager_route.'.destroy', ":id") }}';
+                url = url.replace(':id', id);
+                $('#delete_form').attr('action', url);
+            }));
+
+            $(function () {
+
+                var table = $('#contracts-table').DataTable({
+                    dom: "tiplr",
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('manager.getContracts') }}",
+                    columns: [
+                        {data: 'record_select', name: 'record_select', searchable: false, sortable: false, width: '1%'},
+                        {data: 'name', name: 'name'},
+                        {data: 'type', name: 'type'},
+                        {data: 'tenant', name: 'tenant'},
+                        {data: 'start_at', name: 'start_at'},
+                        {data: 'end_at', name: 'end_at'},
+                        {data: 'rent', name: 'rent'},
+                        {data: 'commission', name: 'commission'},
+                        {data: 'actions', name: 'actions', searchable: false, sortable: false, width: '20%'},
+
+                    ],
+                    order: [[8, 'desc']],
+                    drawCallback: function (settings) {
+                        $('.record__select').prop('checked', false);
+                        $('#record__select-all').prop('checked', false);
+                        $('#record-ids').val();
+                        $('#bulk-delete').attr('disabled', true);
+                    }
+                });
+                $('#data-table-search').keyup(function () {
+                    table.search(this.value).draw();
+                })
+
+            });
+        </script>
+
+    @endpush
+
 @endsection

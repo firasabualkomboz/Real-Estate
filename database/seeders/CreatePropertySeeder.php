@@ -15,6 +15,12 @@ class CreatePropertySeeder extends Seeder
      */
     public function run()
     {
+        /**
+         * DB::statement("SET foreign_key_checks=0");
+         * DB::table('roles')->truncate();
+         * DB::table('permissions')->truncate();
+         * DB::statement("SET foreign_key_checks=1");
+         */
 
         DB::table('properties')->delete();
         $properties = ['Apartment', 'land', 'villa', 'castle', 'Building', 'Farm', 'break', 'chalet', 'duplex'];

@@ -16,6 +16,7 @@ use Symfony\Component\Console\Input\Input;
 use function app\Helper\apisuccess;
 use function app\Helper\errorMessage;
 use function app\Helper\successMessage;
+use DataTables;
 
 class ContractController extends Controller
 {
@@ -33,6 +34,37 @@ class ContractController extends Controller
         $apartments = Apartment::with('estate', 'property')->get();
         $contracts = Contract::with('apartment', 'tenant', 'estate')->paginate(10);
         return view('manager.contracts.index', compact('apartments', 'contracts'));
+    }
+
+    public function getContracts(Request $request)
+    {
+        if ($request->ajax()) {
+            $contracts = Contract::with('apartment', 'tenant', 'estate')->latest()->get();
+            return DataTables::of($contracts)
+                ->addIndexColumn()
+                ->addColumn('name', function (Contract $contract) {
+                    return $contract->estate_id ?: $contract->apartment->name;
+                })
+                ->addColumn('tenant', function (Contract $contract) {
+                    return $contract->tenant->name;
+                })
+                ->editColumn('start_at', function (Contract $contract) {
+                    return $contract->start_at;
+                })
+                ->editColumn('end_at', function (Contract $contract) {
+                    return $contract->end_at;
+                })
+                ->editColumn('rent', function (Contract $contract) {
+                    return $contract->estate_id ?  : $contract->apartment->rent . ' $ / Per Month ';
+                })
+                ->editColumn('commission', function (Contract $contract) {
+                    return $contract->estate_id ?  : $contract->apartment->commission;
+                })
+                ->addColumn('record_select', 'manager.contracts.data_table.record_select')
+                ->addColumn('actions', 'manager.contracts.data_table.actions')
+                ->rawColumns(['record_select', 'actions'])
+                ->toJson();
+        }
     }
 
     public function create()

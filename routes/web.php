@@ -69,6 +69,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::resource('invoices', \App\Http\Controllers\Manager\InvoiceController::class);
         Route::get('ajax-apartment/{id}', [\App\Http\Controllers\Manager\ContractController::class, 'getAjaxApartment'])->name('getAjaxApartment');
         Route::resource('contracts', \App\Http\Controllers\Manager\ContractController::class);
+        Route::get('getContracts', [\App\Http\Controllers\Manager\ContractController::class, 'getContracts'])->name('getContracts');
         Route::get('getEstate/{id}', [\App\Http\Controllers\Manager\ContractController::class, 'getEstate']);
 
 

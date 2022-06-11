@@ -72,19 +72,12 @@
                                         <label for="example-time-input" class="col-3 col-form-label">Select
                                             Estate</label>
                                         <div class="col-8">
-                                            @if($estates->count() <=0 )
-                                                <select disabled name="estate_id" class="form-control"
-                                                        id="exampleSelect1">
-                                                    <option value="#">There is No Estates Available</option>
 
-                                                </select>
-                                            @else
                                                 <select name="estate_id" class="form-control" id="estate">
                                                     @foreach($estates as $estate)
                                                         <option value="{{$estate->id}}">{{$estate->name}}</option>
                                                     @endforeach
                                                 </select>
-                                            @endif
                                         </div>
                                     </div>
 
@@ -94,6 +87,7 @@
                                             Apartment</label>
                                         <div class="col-8">
                                             <select name="apartment_id" class="form-control" id="apartment">
+                                                <option value="">No Apartment</option>
                                                 @foreach($apartments as $apartment)
                                                     <option value="{{$apartment->id}}">{{$apartment->name}}</option>
                                                 @endforeach
@@ -268,7 +262,8 @@
 
 
                                     <div class="form-group row">
-                                        <label for="example-time-input" class="col-3 col-form-label">Identification Document </label>
+                                        <label for="example-time-input" class="col-3 col-form-label">Identification
+                                            Document </label>
 
                                         <div class="col-lg-8 col-xl-6">
                                             <input class="form-control" name="document" type="file">
@@ -331,8 +326,8 @@
         </script>
 
         <script>
-            $('#register_tenant').click(function() {
-                if( $(this).prop("checked")) {
+            $('#register_tenant').click(function () {
+                if ($(this).prop("checked")) {
                     $("#showRegister").show();
                 } else {
                     $("#showRegister").hide();

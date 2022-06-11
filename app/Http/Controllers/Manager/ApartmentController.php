@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Response;
 use Symfony\Component\Console\Input\Input;
 use function app\Helper\errorMessage;
 use function app\Helper\successMessage;
+use DataTables;
 
 class ApartmentController extends Controller
 {
@@ -30,6 +31,21 @@ class ApartmentController extends Controller
         $estates = Estate::all();
         $apartments = Apartment::with('estate', 'property')->get();
         return view('manager.apartments.index', compact('properties', 'estates', 'apartments'));
+    }
+
+    public function getApartments(Request $request)
+    {
+
+        if ($request->ajax()) {
+            $data = Apartment::with('estate', 'property')->latest()->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('record_select', 'manager.owners.data_table.record_select')
+                ->addColumn('actions', 'manager.owners.data_table.actions')
+                ->rawColumns(['record_select', 'actions'])
+                ->toJson();
+        }
+
     }
 
     public function create()
