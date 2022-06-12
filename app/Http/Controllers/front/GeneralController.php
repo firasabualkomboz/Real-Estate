@@ -17,15 +17,17 @@ class GeneralController extends Controller
     public function index()
     {
         $items = new Estate();
-        if (request('name')){
-        $items = $items->where('name' , 'like' , '%' , request('name') . '%');
+
+        if (request('name')) {
+            $items = $items->where('name', 'like', '%', request('name') . '%');
         }
-        if (request('property_id')){
+        if (request('property_id')) {
             $items = $items->where('property_id', request('property_id'));
         }
         if (request('bedrooms') != '') {
             $items = $items->where('bedrooms', request('bedrooms'));
-        }    if (request('bathrooms') != '') {
+        }
+        if (request('bathrooms') != '') {
             $items = $items->where('bathrooms', request('bathrooms'));
         }
 
@@ -35,7 +37,7 @@ class GeneralController extends Controller
         $apartments = Apartment::with('estate')->get();
         $items = $items->latest()->paginate(15);
 
-        return view('welcome', compact('estates', 'apartments' , 'properties' , 'items'));
+        return view('welcome', compact('estates', 'apartments', 'properties', 'items'));
     }
 
     public function showEstate($id)
@@ -60,12 +62,12 @@ class GeneralController extends Controller
 
         $appointments = new Appointment([
 
-            'name' => $request->name,
+            'name'  => $request->name,
             'phone' => $request->phone,
             'email' => $request->email,
-            'date' => $request->date,
-            'time' => $request->time,
-            'note' => $request->note
+            'date'  => $request->date,
+            'time'  => $request->time,
+            'note'  => $request->note
 
         ]);
 
@@ -77,4 +79,8 @@ class GeneralController extends Controller
     {
         return view('supports');
     }
+
+
+
+
 }

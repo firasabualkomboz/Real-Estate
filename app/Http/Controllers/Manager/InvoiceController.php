@@ -33,8 +33,8 @@ class InvoiceController extends Controller
                 ->addColumn('tenant', function (Invoice $invoice) {
                     return $invoice->tenant->name;
                 })
-                ->addColumn('apartment' , function (Invoice $invoice){
-                    return  $invoice->type ?  : 'NAN';
+                ->addColumn('apartment', function (Invoice $invoice) {
+                    return $invoice->type ?: 'NAN';
                 })
 //                ->addColumn('record_select', 'manager.invoices.data_table.record_select')
                 ->addColumn('actions', 'manager.invoices.data_table.actions')
@@ -45,10 +45,8 @@ class InvoiceController extends Controller
 
     public function show($id)
     {
-
         $invoice = Invoice::with('contract', 'tenant')->find($id);
         return view('manager.invoices.show', compact('invoice'));
-
     }
 
     public function edit($id)
