@@ -45,21 +45,14 @@
                     <strong>RENT PROPERTIES</strong>
                 </a>
             </div><!-- LOGO -->
-            <div class="popup-client">
-                <span><i class="fa fa-user"></i> Sign In</span>
-            </div>
+{{--            <div class="popup-client">--}}
+{{--                <span><i class="fa fa-user"></i> Sign In</span>--}}
+{{--            </div>--}}
             <span class="menu-toggle"><i class="fa fa-bars"></i></span>
             <nav>
                 <ul>
                     <li class="menu-item-has-children">
-                        <a href="#" title="">HOME</a>
-                        <ul>
-                            <li><a href="index.html" title="">Home v1</a></li>
-                            <li><a href="index2.html" title="">Home v2</a></li>
-                            <li><a href="index3.html" title="">Home v3</a></li>
-                            <li><a href="index4.html" title="">Home v4</a></li>
-                            <li><a href="index5.html" title="">Home v5</a></li>
-                        </ul>
+                        <a href="/" title="">HOME</a>
                     </li>
                     <li><a href="#estates" title="">Estates</a></li>
 
