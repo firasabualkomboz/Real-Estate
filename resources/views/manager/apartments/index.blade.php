@@ -71,125 +71,189 @@
                     <div class="card-body">
 
 
-                        <!--begin: Datatable-->
-                        <div class="datatable datatable-default datatable-primary datatable-loaded">
-                            <table class="table datatable-table"
-                                   id="kt_datatable"
-                                   style="display: block;">
-                                <thead class="datatable-head">
+                        <div class="row">
 
-                                <tr class="datatable-row" style="left: 0px;">
-                                    <th class="datatable-cell datatable-toggle-detail"><span></span></th>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" id="data-table-search" class="form-control" autofocus
+                                           placeholder="Search">
+                                </div>
+                            </div>
 
-                                    <th data-field="Order ID" class="datatable-cell datatable-cell-sort"><span
-                                        >#ID</span></th>
+{{--                            <div class="col-md-6">--}}
 
 
-                                    <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Name</span></th>
+{{--                                <form method="post" action="#" style="display: inline-block;">--}}
+{{--                                    @csrf--}}
+{{--                                    @method('delete')--}}
+{{--                                    <input type="hidden" name="record_ids" id="record-ids">--}}
+{{--                                    <button type="submit" class="btn btn-danger" id="bulk-delete" disabled="true"><i--}}
+{{--                                            class="fa fa-trash"></i> Bulk Delete--}}
+{{--                                    </button>--}}
+{{--                                </form><!-- end of form -->--}}
 
-                                    <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Details</span></th>
+{{--                            </div>--}}
 
-                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Rent</span></th>
+                        </div><!-- end of row -->
 
+                        <div class="row">
 
-                                    <th data-field="Status" data-autohide-disabled="false"
-                                        class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Status </span>
+                            <div class="col-md-12">
 
-                                    <th data-field="Status" data-autohide-disabled="false"
-                                        class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Parent Estate </span></th>
+                                <div class="table-responsive">
 
-                                    <th data-field="Status" data-autohide-disabled="false"
-                                        class="datatable-cell datatable-cell-sort"><span
-                                            style="width: 110px;">Action </span></th>
+                                    <table class="table datatable table-secondary" id="apartments-table"
+                                           style="width: 100%;">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="animated-checkbox">
+                                                    <label class="m-0">
+                                                        <input type="checkbox" id="record__select-all">
+                                                        <span class="label-text"></span>
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th>Name</th>
+                                            <th>Description</th>
+                                            <th>Rent</th>
+                                            <th> Status</th>
+                                            <th> Parent Estate</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
 
+                                </div><!-- end of table responsive -->
 
-                                </tr>
-                                </thead>
-                                <tbody style="" class="datatable-body">
-                                @foreach($apartments as $apartment)
-                                    <tr data-row="0" class="datatable-row" style="left: 0px;">
-                                        <td class="datatable-cell datatable-toggle-detail"><a
-                                                class="datatable-toggle-detail" href=""><i
-                                                    class="fa fa-caret-right"></i></a></td>
+                            </div><!-- end of col -->
 
+                        </div><!-- end of row -->
 
-                                        <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
-                                            >{{$apartment->id}}</span></td>
-
-                                        <td data-field="Car Model" aria-label="Range Rover" class="datatable-cell"><span
-                                                style="width: 110px;">{{$apartment->name}}
-</span></td>
-                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;">{{$apartment->description}}</span></td>
-
-                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;"> $ {{$apartment->rent}} </span>
-                                        </td>
-
-                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span
-                                                style="width: 110px;">   <span
-                                                    class="label font-weight-bold label-lg  label-light-info label-inline">  {{$apartment->status}}</span> </span>
-                                        </td>
-
-
-                                        <td data-field="Deposit Paid" aria-label="$22672.60"
-                                            class="datatable-cell"><span
-                                                style="width: 110px;">
-                                          {{$apartment->estate->name}}
-                                            </span></td>
-                                        <td data-field="Actions" data-autohide-disabled="false" aria-label="null"
-                                            class="datatable-cell">
-                    <span
-                        style="overflow: visible; position: relative; width: 125px; display: inline ">
-
-                        <button class="btn btn-sm"> <a style="color: #fff"
-                                                       href="{{route('manager.apartments.show' , $apartment->id)}}">
-
-                                <i class="fa fa-eye"></i>
-                            </a> </button>
-
-
-                        <button class="btn btn-sm"> <a style="color: #fff"
-                                                       href="{{route('manager.apartments.edit' , $apartment->id)}}">
-
-                                <i class="fa fa-edit"></i>
-                            </a> </button>
-
-
-                        <form method="post" style="display: inline"
-                              action="{{route('manager.apartments.destroy' , $apartment->id)}}">
-                        @method('DELETE')
-                            @csrf
-                            <button class="btn btn-sm" type="submit"><i class="fa fa-trash"></i></button>
-                        </form>
-
-                    </span>
-
-                                        </td>
-
-
-                                    </tr>
-                                @endforeach
-
-
-                                </tbody>
-                            </table>
-
-                        </div>
-                        <!--end: Datatable-->
                     </div>
+
+
+                    {{--                    <div class="card-body">--}}
+
+
+                    {{--                        <!--begin: Datatable-->--}}
+                    {{--                        <div class="datatable datatable-default datatable-primary datatable-loaded">--}}
+                    {{--                            <table class="table datatable-table"--}}
+                    {{--                                   id="kt_datatable"--}}
+                    {{--                                   style="display: block;">--}}
+                    {{--                                <thead class="datatable-head">--}}
+
+                    {{--                                <tr class="datatable-row" style="left: 0px;">--}}
+                    {{--                                    <th class="datatable-cell datatable-toggle-detail"><span></span></th>--}}
+
+                    {{--                                    <th data-field="Order ID" class="datatable-cell datatable-cell-sort"><span--}}
+                    {{--                                        >#ID</span></th>--}}
+
+
+                    {{--                                    <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span--}}
+                    {{--                                            style="width: 110px;">Name</span></th>--}}
+
+                    {{--                                    <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span--}}
+                    {{--                                            style="width: 110px;">Details</span></th>--}}
+
+                    {{--                                    <th data-field="Color" class="datatable-cell datatable-cell-sort"><span--}}
+                    {{--                                            style="width: 110px;">Rent</span></th>--}}
+
+
+                    {{--                                    <th data-field="Status" data-autohide-disabled="false"--}}
+                    {{--                                        class="datatable-cell datatable-cell-sort"><span--}}
+                    {{--                                            style="width: 110px;">Status </span>--}}
+
+                    {{--                                    <th data-field="Status" data-autohide-disabled="false"--}}
+                    {{--                                        class="datatable-cell datatable-cell-sort"><span--}}
+                    {{--                                            style="width: 110px;">Parent Estate </span></th>--}}
+
+                    {{--                                    <th data-field="Status" data-autohide-disabled="false"--}}
+                    {{--                                        class="datatable-cell datatable-cell-sort"><span--}}
+                    {{--                                            style="width: 110px;">Action </span></th>--}}
+
+
+                    {{--                                </tr>--}}
+                    {{--                                </thead>--}}
+                    {{--                                <tbody style="" class="datatable-body">--}}
+                    {{--                                @foreach($apartments as $apartment)--}}
+                    {{--                                    <tr data-row="0" class="datatable-row" style="left: 0px;">--}}
+                    {{--                                        <td class="datatable-cell datatable-toggle-detail"><a--}}
+                    {{--                                                class="datatable-toggle-detail" href=""><i--}}
+                    {{--                                                    class="fa fa-caret-right"></i></a></td>--}}
+
+
+                    {{--                                        <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span--}}
+                    {{--                                            >{{$apartment->id}}</span></td>--}}
+
+                    {{--                                        <td data-field="Car Model" aria-label="Range Rover" class="datatable-cell"><span--}}
+                    {{--                                                style="width: 110px;">{{$apartment->name}}--}}
+                    {{--</span></td>--}}
+                    {{--                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span--}}
+                    {{--                                                style="width: 110px;">{{$apartment->description}}</span></td>--}}
+
+                    {{--                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span--}}
+                    {{--                                                style="width: 110px;"> $ {{$apartment->rent}} </span>--}}
+                    {{--                                        </td>--}}
+
+                    {{--                                        <td data-field="Color" aria-label="Orange" class="datatable-cell"><span--}}
+                    {{--                                                style="width: 110px;">   <span--}}
+                    {{--                                                    class="label font-weight-bold label-lg  label-light-info label-inline">  {{$apartment->status}}</span> </span>--}}
+                    {{--                                        </td>--}}
+
+
+                    {{--                                        <td data-field="Deposit Paid" aria-label="$22672.60"--}}
+                    {{--                                            class="datatable-cell"><span--}}
+                    {{--                                                style="width: 110px;">--}}
+                    {{--                                          {{$apartment->estate->name}}--}}
+                    {{--                                            </span></td>--}}
+                    {{--                                        <td data-field="Actions" data-autohide-disabled="false" aria-label="null"--}}
+                    {{--                                            class="datatable-cell">--}}
+                    {{--                    <span--}}
+                    {{--                        style="overflow: visible; position: relative; width: 125px; display: inline ">--}}
+
+                    {{--                        <button class="btn btn-sm"> <a style="color: #fff"--}}
+                    {{--                                                       href="{{route('manager.apartments.show' , $apartment->id)}}">--}}
+
+                    {{--                                <i class="fa fa-eye"></i>--}}
+                    {{--                            </a> </button>--}}
+
+
+                    {{--                        <button class="btn btn-sm"> <a style="color: #fff"--}}
+                    {{--                                                       href="{{route('manager.apartments.edit' , $apartment->id)}}">--}}
+
+                    {{--                                <i class="fa fa-edit"></i>--}}
+                    {{--                            </a> </button>--}}
+
+
+                    {{--                        <form method="post" style="display: inline"--}}
+                    {{--                              action="{{route('manager.apartments.destroy' , $apartment->id)}}">--}}
+                    {{--                        @method('DELETE')--}}
+                    {{--                            @csrf--}}
+                    {{--                            <button class="btn btn-sm" type="submit"><i class="fa fa-trash"></i></button>--}}
+                    {{--                        </form>--}}
+
+                    {{--                    </span>--}}
+
+                    {{--                                        </td>--}}
+
+
+                    {{--                                    </tr>--}}
+                    {{--                                @endforeach--}}
+
+
+                    {{--                                </tbody>--}}
+                    {{--                            </table>--}}
+
+                    {{--                        </div>--}}
+                    {{--                        <!--end: Datatable-->--}}
+                    {{--                    </div>--}}
                 </div>
             </div>
             <!--end::Container-->
         </div>
         <!--end::Entry-->
     </div>
-
 
 
     @push('custom-scripts')
@@ -204,19 +268,20 @@
 
             $(function () {
 
-                var table = $('#owners-table').DataTable({
+                var table = $('#apartments-table').DataTable({
                     dom: "tiplr",
                     processing: true,
                     serverSide: true,
-                    ajax: "{{ route('manager.getOwners') }}",
+                    ajax: "{{ route('manager.getApartments') }}",
                     columns: [
                         {data: 'record_select', name: 'record_select', searchable: false, sortable: false, width: '1%'},
                         {data: 'name', name: 'name'},
-                        {data: 'email', name: 'email'},
-                        {data: 'phone', name: 'phone'},
-                        {data: 'address', name: 'address'},
-                        {data: 'statistics', name: 'statistics'},
+                        {data: 'description', name: 'description'},
+                        {data: 'rent', name: 'rent'},
+                        {data: 'status', name: 'status'},
+                        {data: 'estate', name: 'estate'},
                         {data: 'actions', name: 'actions', searchable: false, sortable: false, width: '20%'},
+
 
                     ],
                     order: [[5, 'desc']],

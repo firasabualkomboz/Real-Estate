@@ -40,13 +40,18 @@ class ApartmentController extends Controller
             $data = Apartment::with('estate', 'property')->latest()->get();
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('record_select', 'manager.owners.data_table.record_select')
-                ->addColumn('actions', 'manager.owners.data_table.actions')
+                ->addColumn('record_select', 'manager.apartments.data_table.record_select')
+                ->editColumn('estate', function (Apartment $apartment) {
+
+                    return $apartment->estate->name;
+                })
+                ->addColumn('actions', 'manager.apartments.data_table.actions')
                 ->rawColumns(['record_select', 'actions'])
                 ->toJson();
         }
 
     }
+
 
     public function create()
     {
@@ -61,6 +66,21 @@ class ApartmentController extends Controller
             'owners' => User::where('type', '2')->get(),
 
         ]);
+    }
+
+    public function edit($id)
+    {
+        $apartment = Apartment::find($id);
+        return view('manager.apartments.edit', compact('apartment'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $apartment = Apartment::find($id);
+        $apartment->status = $request->status;
+        $apartment->update();
+
+        return successMessage();
     }
 
     public function store(ApartmentRequest $request)

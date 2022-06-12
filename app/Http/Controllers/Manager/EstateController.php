@@ -76,7 +76,7 @@ class EstateController extends Controller
     public function edit($id)
     {
         $estate = Estate::find($id);
-        return view('manager.estates.index', compact('estate'));
+        return view('manager.estate.edit', compact('estate'));
     }
 
     public function update(Request $request, $id)
