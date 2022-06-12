@@ -38,7 +38,7 @@
                 <div class="card card-custom">
                     <div class="card-header flex-wrap border-0 pt-6 pb-0">
                         <div class="card-title">
-                            <h3 class="card-label">Roles List
+                            <h3 class="card-label">@lang('dashboard.roles_list')
 
                             </h3>
                         </div>
@@ -64,7 +64,7 @@
                 													</g>
                 												</svg>
                                                                 <!--end::Svg Icon-->
-                											</span>New Role</a>
+                											</span>@lang('dashboard.new_role')</a>
                             <!--end::Button-->
                         </div>
 
@@ -116,8 +116,8 @@
                                                     </label>
                                                 </div>
                                             </th>
-                                            <th>Role Name</th>
-                                            <th>Action</th>
+                                            <th>@lang('dashboard.role_name')</th>
+                                            <th>@lang('dashboard.actions')</th>
                                         </tr>
                                         </thead>
                                     </table>
