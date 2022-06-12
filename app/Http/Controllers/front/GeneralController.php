@@ -29,6 +29,7 @@ class GeneralController extends Controller
             $items = $items->where('bathrooms', request('bathrooms'));
         }
 
+
         $properties = Property::pluck('name', 'id')->all();
         $estates = Estate::all();
         $apartments = Apartment::with('estate')->get();

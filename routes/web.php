@@ -55,6 +55,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
         Route::resource('roles', \App\Http\Controllers\Manager\RoleController::class);
         Route::resource('employers', \App\Http\Controllers\Manager\EmployerController::class);
+        Route::get('getEmployers', [\App\Http\Controllers\Manager\EmployerController::class, 'getEmployers'])->name('getEmployers');
         Route::resource('appointments', \App\Http\Controllers\Manager\AppointmentController::class);
         Route::resource('properties', \App\Http\Controllers\Manager\PropertyController::class);
         Route::resource('tags', \App\Http\Controllers\Manager\TagController::class);
@@ -67,6 +68,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::get('getTenants', [\App\Http\Controllers\Manager\TenantController::class, 'getTenant'])->name('getTenants');
         Route::resource('apartments', \App\Http\Controllers\Manager\ApartmentController::class);
         Route::resource('invoices', \App\Http\Controllers\Manager\InvoiceController::class);
+        Route::get('getInvoices', [\App\Http\Controllers\Manager\InvoiceController::class, 'getInvoices'])->name('getInvoices');
         Route::get('ajax-apartment/{id}', [\App\Http\Controllers\Manager\ContractController::class, 'getAjaxApartment'])->name('getAjaxApartment');
         Route::resource('contracts', \App\Http\Controllers\Manager\ContractController::class);
         Route::get('getContracts', [\App\Http\Controllers\Manager\ContractController::class, 'getContracts'])->name('getContracts');

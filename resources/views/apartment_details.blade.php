@@ -4,165 +4,7 @@
     <div class="theme-layout">
 
 
-        <div class="account-popup-sec">
-            <div class="account-popup-area">
-                <div class="account-popup">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="account-user">
-                                <div class="logo">
-                                    <a href="#" title="">
-                                        <i class="fa fa-get-pocket"></i>
-                                        <span>Kwitara</span>
-                                        <strong>RENT PROPERTIES</strong>
-                                    </a>
-                                </div><!-- LOGO -->
-                                <form>
-                                    <h4>Login Form</h4>
-                                    <div class="field">
-                                        <input type="text" placeholder="Username"/>
-                                    </div>
-                                    <div class="field">
-                                        <input type="password" placeholder="Password"/>
-                                    </div>
-                                    <div class="field">
-                                        <input type="submit" value="SEND NOW" class="flat-btn"/>
-                                    </div>
-                                </form>
-                                <i>OR</i>
-                                <span>LOGIN WITH</span>
-                                <ul class="social-btns">
-                                    <li><a href="#" title=""><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" title=""><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#" title=""><i class="fa fa-twitter"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="registration-sec">
-                                <h3>SIGNUP Form</h3>
-                                <form>
-                                    <div class="field">
-                                        <input type="text" placeholder="Your Name"/>
-                                    </div>
-                                    <div class="field">
-                                        <input type="text" placeholder="Your Email"/>
-                                    </div>
-                                    <div class="field">
-                                        <input type="password" placeholder="Type Password"/>
-                                    </div>
-                                    <div class="field">
-                                        <input type="password" placeholder="Retype Password"/>
-                                    </div>
-                                    <label>
-                                        <input type="checkbox"/> By Clicking on this You are agree with our <a href="#"
-                                                                                                               title="">Terms
-                                            & Condition</a>
-                                    </label>
-                                    <input type="submit" value="Singup Now" class="flat-btn"/>
-                                </form>
-                            </div><!-- Registration sec -->
-                        </div>
-                    </div>
-                    <span class="close-popup"><i class="fa fa-close"></i></span>
-                </div>
-            </div>
-        </div><!-- Account Popup Sec -->
-
-
-        <header class="simple-header for-sticky white">
-            <div class="top-bar">
-                <div class="container">
-                    <ul class="contact-item">
-                        <li><i class="fa fa-envelope-o"></i>yourcompnay@email.com</li>
-                        <li><i class="fa fa-mobile"></i>+1 333 44 555 / +1 333 44 500</li>
-                    </ul>
-                    <div class="choose-language">
-                        <a href="#" title="">FR</a>
-                        <a href="#" title="">DE</a>
-                        <a href="#" title="">EN</a>
-                        <a href="#" title="">jp</a>
-                    </div>
-                </div>
-            </div><!-- Top bar -->
-            <div class="menu">
-                <div class="container">
-                    <div class="logo">
-                        <a href="index.html" title="">
-                            <i class="fa fa-get-pocket"></i>
-                            <span>Kwitara</span>
-                            <strong>RENT PROPERTIES</strong>
-                        </a>
-                    </div><!-- LOGO -->
-                    <div class="popup-client">
-                        <span><i class="fa fa-user"></i> /  Signup</span>
-                    </div>
-                    <span class="menu-toggle"><i class="fa fa-bars"></i></span>
-                    <nav>
-                        <ul>
-                            <li class="menu-item-has-children">
-                                <a href="#" title="">HOME</a>
-                                <ul>
-                                    <li><a href="index.html" title="">Home v1</a></li>
-                                    <li><a href="index2.html" title="">Home v2</a></li>
-                                    <li><a href="index3.html" title="">Home v3</a></li>
-                                    <li><a href="index4.html" title="">Home v4</a></li>
-                                    <li><a href="index5.html" title="">Home v5</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children">
-                                <a href="#" title="">PROPERTIES</a>
-                                <ul>
-                                    <li><a href="properties3.html" title="">Properties- Super </a></li>
-                                    <li><a href="properties.html" title="">Properties- List</a></li>
-                                    <li><a href="properties2.html" title="">Properties- Grid</a></li>
-                                    <li><a href="property.html" title="">Property details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="property.html" title="">PROPERTY</a></li>
-
-                            <li class="menu-item-has-children mega">
-                                <a href="#" title="">PAGES</a>
-                                <ul>
-                                    <li><a href="comingsoon.html" title="">Coming Soon</a></li>
-                                    <li><a href="agents-listing.html" title="">Agent Listing </a></li>
-                                    <li><a href="terms-conditions.html" title="">Terms & conditions</a></li>
-
-                                    <li><a href="agent.html" title="">Agent page</a></li>
-                                    <li><a href="agent2.html" title="">Agent 2 page</a></li>
-                                    <li><a href="agent3.html" title="">Agent 3 page</a></li>
-
-                                    <li><a href="my-profile.html" title="">Profile page</a></li>
-                                    <li><a href="submit.html" title="">Submit page</a></li>
-                                    <li><a href="login.html" title="">Login page</a></li>
-
-                                    <li><a href="contact.html" title="">Contact Us</a></li>
-                                    <li><a href="404.html" title="">404 Error </a></li>
-                                    <li><a href="faq.html" title="">FAQ page</a></li>
-                                    <li><a href="faq.html" title="">PROPERTY LEFT SIDE</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="menu-item-has-children">
-                                <a href="#" title="">BLOG PAGES</a>
-                                <ul>
-                                    <li><a href="blog.html" title="">Blog Page</a></li>
-                                    <li><a href="blog-sidebar.html" title="">Blog left Sidebar</a></li>
-                                    <li><a href="single.html" title="">Single Post</a></li>
-                                    <li><a href="single-left-sidebar.html" title="">Single Left sidebar</a></li>
-                                    <li><a href="single-no-sidebar.html" title="">Single No Sidebar</a></li>
-                                </ul>
-                            </li>
-
-                            <li><a href="contact.html" title="">CONTACT</a></li>
-                        </ul>
-                    </nav>
-
-                </div>
-            </div>
-        </header>
-
-
+        @include('include.front.header')
         <div class="inner-head overlap">
             <div style="background: url({{$apartment->imageurl }}) repeat scroll 50% 422.28px transparent;"
                  class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
@@ -272,78 +114,12 @@
                                                 <h3>Property Features </h3>
                                             </div>
                                             <div class="property-feature-content clearfix">
-                                                <div class="has">
-                                                    <i class="fa fa-check-circle"></i> attic
-                                                </div>
-                                                <div class="has">
-                                                    <i class="fa fa-check-circle"></i> gas heat
-                                                </div>
-                                                <div class="no-has">
-                                                    <i class="fa fa-times-circle"></i> balcony
-                                                </div>
-                                                <div class="no-has">
-                                                    <i class="fa fa-times-circle"></i> wine cellar
-                                                </div>
-                                                <div class="has">
-                                                    <i class="fa fa-check-circle"></i> basketball court
-                                                </div>
-                                                <div class="has">
-                                                    <i class="fa fa-check-circle"></i> trash compactors
-                                                </div>
-                                                <div class="has">
-                                                    <i class="fa fa-check-circle"></i> gym
-                                                </div>
-                                                <div class="no-has">
-                                                    <i class="fa fa-times-circle"></i> fireplace
-                                                </div>
-                                                <div class="has">
-                                                    <i class="fa fa-check-circle"></i> pool
-                                                </div>
-                                                <div class="no-has">
-                                                    <i class="fa fa-times-circle"></i> lake view
-                                                </div>
-                                                <div class="has">
-                                                    <i class="fa fa-check-circle"></i> solar Heat
-                                                </div>
-                                                <div class="has">
-                                                    <i class="fa fa-check-circle"></i> storm Windows
-                                                </div>
-                                                <div class="has">
-                                                    <i class="fa fa-check-circle"></i> separate Shower
-                                                </div>
-                                                <div class="no-has">
-                                                    <i class="fa fa-times-circle"></i> wet bar
-                                                </div>
-                                                <div class="no-has">
-                                                    <i class="fa fa-times-circle"></i> remodeled
-                                                </div>
-                                                <div class="no-has">
-                                                    <i class="fa fa-times-circle"></i> skylights
-                                                </div>
-                                                <div class="has">
-                                                    <i class="fa fa-check-circle"></i> stone Surfaces
-                                                </div>
-                                                <div class="no-has">
-                                                    <i class="fa fa-times-circle"></i> open entertaining Kitchen
-                                                </div>
-                                                <div class="has">
-                                                    <i class="fa fa-check-circle"></i> golf course
-                                                </div>
-                                                <div class="no-has">
-                                                    <i class="fa fa-times-circle"></i> health club
-                                                </div>
-                                                <div class="no-has">
-                                                    <i class="fa fa-times-circle"></i> backyard
-                                                </div>
-                                                <div class="has">
-                                                    <i class="fa fa-check-circle"></i> pet allowed
-                                                </div>
-                                                <div class="has">
-                                                    <i class="fa fa-check-circle"></i> office/den
-                                                </div>
-                                                <div class="has">
-                                                    <i class="fa fa-check-circle"></i> laundry
-                                                </div>
+                                                @foreach($apartment->estate->tags as $tag)
+                                                    <div class="has">
+                                                        <i class="fa fa-check-circle"></i> {{$tag->name}}
+                                                    </div>
+                                                @endforeach
+                                                
                                             </div>
                                         </div>
 
@@ -353,6 +129,10 @@
                                                 <div class="heading3">
                                                     <h3>Book An Appointment</h3>
                                                 </div>
+                                                @if(session('success'))
+                                                    <h1>{{session('success')}}</h1>
+                                                @endif
+
                                                 @if ($errors->any())
                                                     <div class="alert alert-danger">
                                                         <ul>
@@ -363,7 +143,7 @@
                                                     </div>
                                                 @endif
 
-                                                <form method="post" action="{{route('tenant.makeAppointment')}}">
+                                                <form method="post" action="{{route('makeAppointment')}}">
                                                     @csrf
                                                     <input type="hidden" name="apartment_id"
                                                            value="{{$apartment->id}}"/>
@@ -420,7 +200,6 @@
                                             </div>
                                         </div>
 
-
                                     </div><!-- Blog Post -->
                                 </div><!-- Blog POst Sec -->
                             </div>
@@ -450,106 +229,6 @@
                                 </div><!-- Follow Widget -->
 
 
-                                <div class="search_widget widget">
-                                    <div class="heading2">
-                                        <h3>SEARCH PROPERTIES</h3>
-                                    </div>
-                                    <div class="search-form">
-                                        <form action="properties.html" method="get" class="form-inline">
-                                            <div class="search-form-content">
-                                                <div class="search-form-field">
-                                                    <div class="form-group col-md-12">
-                                                        <div class="label-select">
-                                                            <select class="form-control" name="s_location">
-                                                                <option>All Locations</option>
-                                                                <option>Tokyo</option>
-                                                                <option>New Jersey</option>
-                                                                <option>New York</option>
-                                                                <option>Paris</option>
-                                                                <option>Marrakech</option>
-                                                                <option>lille</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-md-12">
-                                                        <div class="label-select">
-                                                            <select class="form-control" name="s_sub_location">
-                                                                <option>All Sub-locations</option>
-                                                                <option>Central New York</option>
-                                                                <option>GreenVille</option>
-                                                                <option>Long Island</option>
-                                                                <option>New York City</option>
-                                                                <option>West Side</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-md-12">
-                                                        <div class="label-select">
-                                                            <select class="form-control" name="s_cat">
-                                                                <option>All Categories</option>
-                                                                <option>Apartment</option>
-                                                                <option>Load</option>
-                                                                <option>Office Building</option>
-                                                                <option>House</option>
-                                                                <option>Villa</option>
-                                                                <option>Retail</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-md-12">
-                                                        <div class="label-select">
-                                                            <select class="form-control" name="s_statu">
-                                                                <option> All Status</option>
-                                                                <option>Open house</option>
-                                                                <option>Rent</option>
-                                                                <option>Boy</option>
-                                                                <option>used</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-md-12">
-                                                        <div class="label-select">
-                                                            <select class="form-control">
-                                                                <option>No. of Bedrooms</option>
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                                <option>4</option>
-                                                                <option>5</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-md-12">
-                                                        <div class="label-select">
-                                                            <select class="form-control">
-                                                                <option>No. of Bed</option>
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                                <option>4</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-md-12">
-                                                        <span class="gprice-label">Price</span>
-                                                        <input type="text" class="span2" value="" data-slider-min="0"
-                                                               data-slider-max="600" data-slider-step="5"
-                                                               data-slider-value="[0,450]" id="price-range">
-                                                    </div>
-                                                    <div class="form-group col-md-12">
-                                                        <span class="garea-label">Area</span>
-                                                        <input type="text" class="span2" value="" data-slider-min="0"
-                                                               data-slider-max="600" data-slider-step="5"
-                                                               data-slider-value="[50,450]" id="property-geo">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="search-form-submit">
-                                                <button type="submit" class="btn-search">Search</button>
-                                            </div>
-                                        </form>
-                                    </div><!-- Services Sec -->
-                                </div><!-- Category Widget -->
                             </aside>
                         </div>
 

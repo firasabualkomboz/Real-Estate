@@ -15,14 +15,14 @@
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold my-2 p-0">
                             <li class="breadcrumb-item">
-                                <a href="" class="text-muted">Apartments</a>
+                                <a href="{{route('manager.contracts.index')}}" class="text-muted">contracts</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="" class="text-muted">Apartments Details</a>
+                                <a href="" class="text-muted">contracts Details</a>
                             </li>
 
                             <li class="breadcrumb-item">
-                                <a href="" class="text-muted">{{$apartment->name}}</a>
+                                <a href="" class="text-muted">{{$contract->name}}</a>
                             </li>
 
 
@@ -50,7 +50,7 @@
                             <!--begin::Header-->
                             <div class="card-header border-0 pt-5">
                                 <h3 class="card-title align-items-start flex-column">
-                                    <span class="card-label font-weight-bolder text-dark">{{$apartment->name}}  - Overview</span>
+                                    <span class="card-label font-weight-bolder text-dark">{{$contract->apartment->name ?? 'NAN'}} - Overview</span>
                                 </h3>
 
                             </div>
@@ -62,8 +62,8 @@
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Name </a>
-                                        <span class="text-muted">{{$apartment->name}}</span>
+                                        <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">Tenant Name </a>
+                                        <span class="text-muted">{{$contract->tenant->name}}</span>
                                     </div>
                                     <!--end::Text-->
                                 </div>
@@ -73,20 +73,8 @@
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">Description </a>
-                                        <span class="text-muted">{{$apartment->description}}</span>
-                                    </div>
-                                    <!--end::Text-->
-                                </div>
-                                <!--end::Item-->
-
-                                <!--begin::Item-->
-                                <div class="d-flex align-items-center mb-10">
-
-                                    <!--begin::Text-->
-                                    <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">Features </a>
-                                        <span class="text-muted">{{$apartment->features}}</span>
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">Property Leased </a>
+                                        <span class="text-muted">{{$contract->apartment->name ?? 'NAN'}}</span>
                                     </div>
                                     <!--end::Text-->
                                 </div>
@@ -97,8 +85,8 @@
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">Year Built </a>
-                                        <span class="text-muted">{{$apartment->year_built}}</span>
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">Type  </a>
+                                        <span class="text-muted">{{$contract->type}}</span>
                                     </div>
                                     <!--end::Text-->
                                 </div>
@@ -109,30 +97,8 @@
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">	Space </a>
-                                        <span class="text-muted">{{$apartment->space}}</span>
-                                    </div>
-                                    <!--end::Text-->
-                                </div>
-                                <!--end::Item-->
-                                <!--begin::Item-->
-                                <div class="d-flex align-items-center mb-10">
-
-                                    <!--begin::Text-->
-                                    <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> Count Rooms </a>
-                                        <span class="text-muted">{{$apartment->rooms}}</span>
-                                    </div>
-                                    <!--end::Text-->
-                                </div>
-                                <!--end::Item-->
-                                <!--begin::Item-->
-                                <div class="d-flex align-items-center mb-10">
-
-                                    <!--begin::Text-->
-                                    <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> Count Bathroom </a>
-                                        <span class="text-muted">{{$apartment->bathroom}}</span>
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">Monthly Rent </a>
+                                        <span class="text-muted"> $ {{$contract->apartment->rent}}</span>
                                     </div>
                                     <!--end::Text-->
                                 </div>
@@ -143,36 +109,35 @@
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> On The Floor </a>
-                                        <span class="text-muted">{{$apartment->on_floor}}</span>
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">	Commission </a>
+                                        <span class="text-muted"> % {{$contract->apartment->commission}}</span>
                                     </div>
                                     <!--end::Text-->
                                 </div>
                                 <!--end::Item-->
-
                                 <!--begin::Item-->
                                 <div class="d-flex align-items-center mb-10">
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> Type Property </a>
-                                        <span class="text-muted">{{$apartment->property->name}}</span>
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">  Lease Start Date  </a>
+                                        <span class="text-muted">{{$contract->start_at}}</span>
                                     </div>
                                     <!--end::Text-->
                                 </div>
                                 <!--end::Item-->
-
                                 <!--begin::Item-->
                                 <div class="d-flex align-items-center mb-10">
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> Estate  </a>
-                                        <span class="text-muted">{{$apartment->estate->name}}</span>
+                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"> Lease End Date  </a>
+                                        <span class="text-muted">{{$contract->end_at}}</span>
                                     </div>
                                     <!--end::Text-->
                                 </div>
                                 <!--end::Item-->
+
 
                             </div>
                             <!--end::Body-->
@@ -189,7 +154,7 @@
                             <!--begin::Header-->
                             <div class="card-header border-0 pt-5">
                                 <h3 class="card-title align-items-start flex-column">
-                                    <span class="card-label font-weight-bolder text-dark">{{$apartment->name}}  - Overview</span>
+                                    <span class="card-label font-weight-bolder text-dark">{{$contract->name}}  - Overview</span>
                                 </h3>
 
                             </div>
@@ -201,8 +166,8 @@
 
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a class="text-dark text-hover-primary mb-1 font-size-lg"> Image Apartment </a>
-                                        <span class="text-muted"><img width="100%" class="border" src="{{$apartment->imageurl}}" alt=""></span>
+                                        <a class="text-dark text-hover-primary mb-1 font-size-lg"> Image contract </a>
+                                        <span class="text-muted"><img width="100%" class="border" src="{{$contract->DocumentUrl}}" alt=""></span>
                                     </div>
                                     <!--end::Text-->
                                 </div>

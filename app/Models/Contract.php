@@ -24,15 +24,15 @@ class Contract extends Model
 
     public function tenant()
     {
-        return $this->belongsTo(User::class , 'tenant_id' , 'id');
+        return $this->belongsTo(User::class, 'tenant_id', 'id');
     }
 
-    public function getImageUrlAttribute()
+    public function getDocumentUrlAttribute()
     {
-        if (empty($this->image)) {
+        if (empty($this->document)) {
             return asset('admin_files/assets/img/backgrounds/02.png');
         }
-        return asset('uploads/' . $this->image);
+        return asset('uploads/' . $this->document);
     }
 
     public function invoice()

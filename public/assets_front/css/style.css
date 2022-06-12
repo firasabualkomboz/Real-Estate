@@ -1,6 +1,6 @@
 /****************************************
-========================================= 
-    TABLE OF CONTENT 
+=========================================
+    TABLE OF CONTENT
 =========================================
 
 1. General Styling
@@ -115,7 +115,7 @@ a:focus{
     outline:none;
 }
 a:hover{
-    color: #FF2929;
+    color: #015DA8;
 }
 .theme-layout{
     float:left;
@@ -152,7 +152,7 @@ height: 40px;
 padding: 0px;
 font-size: 30px;
 text-align: center;
-background: #FF2929;
+background: #015DA8;
 color: white;
 position: fixed;
 bottom: 20px;
@@ -239,7 +239,7 @@ iframe{
     position:absolute;
     top:0;
     width:100%;
-    z-index:-1;    
+    z-index:-1;
 }
 iframe{
     border:0;
@@ -247,7 +247,7 @@ iframe{
     float:left;
 }
 /*Home pam */
-#map_canvas{ 
+#map_canvas{
     top: 0;
     left: 0;
     width: 100%;
@@ -278,7 +278,7 @@ iframe{
 }
 .map-property-thumb {
     width: 155px;
-    float: left; 
+    float: left;
 }
 .map-property-thumb img {
     width: 100%;
@@ -288,7 +288,7 @@ iframe{
     width: 295px;
     float: left;
     height: 100%;
-    position: relative; 
+    position: relative;
     min-height: 140px;
     padding: 5px;
 }
@@ -314,7 +314,7 @@ iframe{
     margin: -5px;
 }
 .map-property-price {
-    color: #ff2929;
+    color: #015DA8;
     font-family: Montserrat;
     font-size: 22px;
 }
@@ -784,7 +784,7 @@ iframe{
     margin-top: 50px;
     width: 100%;
 }
-.agnet-prop .property-post  { 
+.agnet-prop .property-post  {
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -1280,7 +1280,7 @@ aside .widget:first-child {
     color: #2e2e2e;
     float: left;
     font-family: Montserrat;
-    font-size: 20px; 
+    font-size: 20px;
     line-height: 16px;
     margin: 0 0 48px;
     padding-left: 20px;
@@ -1706,7 +1706,7 @@ blockquote p {
     left: auto;
     margin-left: -35px;
     border-radius: 50%;
-    background-color: #FF2929;
+    background-color: #015DA8;
     height: 80px;
     width: 80px;
     padding: 0px;
@@ -2014,7 +2014,7 @@ blockquote p {
     position: absolute;
     text-align: center;
     width: 44px;
-    font-size: 13px; 
+    font-size: 13px;
 }
 .agents-carousal-sec .owl-nav > .owl-next::before{
     content: "\f105";
@@ -2888,7 +2888,7 @@ body.fixed-bg-boxed {
 
 /* prop Sec */
 .properties-sec {
-    float: left; 
+    float: left;
     width: 100%;
 }
 .properties-box {
@@ -2915,7 +2915,7 @@ body.fixed-bg-boxed {
     float: left;
     width: 100%;
     min-height: 365px;
-} 
+}
 .properties-thumb .spn-status{
     position: absolute;
     top: 20px;
@@ -2967,15 +2967,15 @@ body.fixed-bg-boxed {
 .properties-thumb ul.property-info li{
     float: left;
     margin-right: 5px;
-} 
+}
 .properties-thumb ul.property-info .li-rl {
     border-right:1px solid #eee;
 }
-.properties-thumb ul.property-info li i { 
+.properties-thumb ul.property-info li i {
     font-size: 20px;
     color: #FFF;
 }
-.properties-thumb ul.property-info li span { 
+.properties-thumb ul.property-info li span {
     font-size: 16px;
     color: #EFEFEF;
 }
@@ -2988,7 +2988,7 @@ body.fixed-bg-boxed {
     bottom: 30px;
 }
 .star-on-png, .star-half-png, .star-half-png {
-    color: #FF2929 !important;
+    color: #015DA8 !important;
 }
 .properties-box > h3 {
     color: #1b1d21;
@@ -3039,7 +3039,7 @@ top: 20px;
 right: 15px;
 }
 .user-preview-list{
-    
+
 }
 .user-preview > .col {
     position: relative;
@@ -3054,7 +3054,7 @@ height: 40px !important;
 display: inline-block;
 border-radius: 50%;
 vertical-align: middle;
-} 
+}
 .proeprty-sh-more{
    display: none;
     font-size: 3em;
@@ -3077,7 +3077,7 @@ vertical-align: middle;
     top: 37%;
 }
 .properties-box:hover .proeprty-sh-more{
-     display: block; 
+     display: block;
     color: #FFF;
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -3086,7 +3086,7 @@ vertical-align: middle;
     transform: scale(1);
 }
 .property-grid:hover .proeprty-sh-more-list{
-     display: block; 
+     display: block;
     color: #FFF;
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -3310,7 +3310,7 @@ vertical-align: middle;
     left: 0;
     position: absolute;
     top: 0;
-    width: 100%;    
+    width: 100%;
 }
 .price-button a {
     background: none repeat scroll 0 0 #fff;
@@ -3573,7 +3573,7 @@ footer.light-footer .bottom-line a {
     z-index: 0;
 }
 .horizontal-search ,.virtecal-search{
-    padding-top: 35px; 
+    padding-top: 35px;
     margin-bottom: 100px;
     padding-bottom: 10px;
     border-top: 1px solid rgb(213, 208, 208);
@@ -3619,7 +3619,7 @@ footer.light-footer .bottom-line a {
     max-width: 370px;
 }
 .fsearch-title i {
-    background: #FF2929;
+    background: #015DA8;
     color: #fff;
     display: inline-block;
     width: 61px;
@@ -3660,7 +3660,7 @@ footer.light-footer .bottom-line a {
 .virtecal-search  .search-form .search-form-content .search-form-field .form-group,
 .search_widget  .search-form .search-form-content .search-form-field .form-group{
     margin-bottom: 20px;
-    display: inline-block; 
+    display: inline-block;
     vertical-align: middle;
 }
 .horizontal-search  .search-form .search-form-content .search-form-field .label-select,
@@ -3721,7 +3721,7 @@ footer.light-footer .bottom-line a {
     -o-box-shadow: none;
     -ms-box-shadow: none;
     box-shadow: none;
-} 
+}
 
 .virtecal-search .search-form .search-form-content .form-group select{
     position: relative;
@@ -3764,8 +3764,8 @@ footer.light-footer .bottom-line a {
     position: relative;
     text-align: center;
 }
-.slider-selection { 
-    background: none repeat scroll 0 0 #FF2929;
+.slider-selection {
+    background: none repeat scroll 0 0 #015DA8;
 }
 .property-detail{
     background: rgba(242, 242, 242, 0.9) none repeat scroll 0 0;
@@ -3798,7 +3798,7 @@ footer.light-footer .bottom-line a {
     background-color: rgb(245, 245, 245);
     text-align: center;
     clear: both;
-} 
+}
 .agent_widget  .agent_pic img{
     width: 100%;
     height: 235px;
@@ -3814,7 +3814,7 @@ footer.light-footer .bottom-line a {
     margin-bottom: 10px;
 }
 .agent_widget span i{
-    color: #FF2929;
+    color: #015DA8;
     font-weight: bold;
     font-size: 19px;
 }
@@ -3828,7 +3828,7 @@ footer.light-footer .bottom-line a {
     padding-right: 5px;
 }
 .agent_widget .agent_social i:hover {
-    color:#FF2929;
+    color:#015DA8;
 }
 .agent_widget .contact-agent{
     border-radius: 30px;
@@ -3840,7 +3840,7 @@ footer.light-footer .bottom-line a {
     padding: 13px 30px;
     cursor: pointer;
     clear: both;
-    background-color: #FF2929;
+    background-color: #015DA8;
     margin: 30px 0;
 }
 .agent-menu {
@@ -3850,7 +3850,7 @@ footer.light-footer .bottom-line a {
     margin: 0;
     margin-top: 15px;
 }
-.agent-menu li{    
+.agent-menu li{
     padding: 10px;
     border-top: 1px solid #d8d8d8;
 }
@@ -3903,8 +3903,8 @@ footer.light-footer .bottom-line a {
     position: absolute;
     bottom: 46px;
     left: 30px;
-}  
-.lSSlideOuter { 
+}
+.lSSlideOuter {
     text-align: center;
 }
 .property-post .lSSlideOuter .lSPager {
@@ -3917,7 +3917,7 @@ footer.light-footer .bottom-line a {
     border: 2px solid #FFF;
 }
 .property-post .light-slide-item {
-    position: relative; 
+    position: relative;
     overflow: hidden;
 }
 .property-post .lSAction > .lSNext {
@@ -3937,7 +3937,7 @@ footer.light-footer .bottom-line a {
     clear: both;
 }
 #propertyMap{
-    height: 350px;    
+    height: 350px;
     width:100%;
 }
 
@@ -4046,7 +4046,7 @@ i.fa.fa-th, i.fa.fa-th-list {
     box-shadow: none;
 }
 i.fa.fa-th{
-    color: #FF2929;
+    color: #015DA8;
 }
 .property-grid {
     border: 1px solid #EDEDED;
@@ -4084,7 +4084,7 @@ i.fa.fa-th{
 }
 .property-grid ul.property-info {
 
-    margin: 0px; 
+    margin: 0px;
     left: 0px;
     list-style: outside none;
     min-width: 230px;
@@ -4237,7 +4237,7 @@ font-size: 16px;
     margin: 0;
     text-align: left;
     text-transform: uppercase;
-   
+
 }
 .countdown > li p {
     float: left;
@@ -4263,3 +4263,5 @@ font-size: 16px;
 .comming-soon-sec.style2 .comming-soon > .countdown > li {
     color: #2e2e2e;
 }
+
+/* #FF2929 */

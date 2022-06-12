@@ -58,13 +58,19 @@ class ContractController extends Controller
                     return $contract->estate_id ?  : $contract->apartment->rent . ' $ / Per Month ';
                 })
                 ->editColumn('commission', function (Contract $contract) {
-                    return $contract->estate_id ?  : $contract->apartment->commission;
+                    return $contract->estate_id ?  : $contract->apartment->commission . '%';
                 })
                 ->addColumn('record_select', 'manager.contracts.data_table.record_select')
                 ->addColumn('actions', 'manager.contracts.data_table.actions')
                 ->rawColumns(['record_select', 'actions'])
                 ->toJson();
         }
+    }
+
+    public function show($id)
+    {
+        $contract = Contract::find($id);
+        return view('manager.contracts.show' , compact('contract'));
     }
 
     public function create()
@@ -167,11 +173,7 @@ class ContractController extends Controller
         return json_encode($apartments);
     }
 
-    public function show($id)
-    {
-        $contract = Contract::find($id);
-        return $contract;
-    }
+
 
 
 }

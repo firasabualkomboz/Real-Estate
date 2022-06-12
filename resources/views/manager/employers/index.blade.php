@@ -67,141 +67,215 @@
 
 
                     </div>
+
                     <div class="card-body">
 
-                        <table class="table table-bordered datatable-table" id=""
-                        >
-                            <thead class="datatable-head">
 
-                            <tr class="datatable-row" style="left: 0px;">
+                        <div class="row">
 
-                                <th data-field="Order ID" class="datatable-cell datatable-cell-sort"><span
-                                    >#ID</span></th>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" id="data-table-search" class="form-control" autofocus
+                                           placeholder="Search">
+                                </div>
+                            </div>
 
-                                <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
-                                    > Name </span></th>
-
-
-                                <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
-                                    > Email </span></th>
-
-                                <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
-                                    > Roles </span></th>
+                            <div class="col-md-6">
 
 
-                                <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span
-                                    > Action </span></th>
+                                <form method="post" action="#" style="display: inline-block;">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="hidden" name="record_ids" id="record-ids">
+                                    <button type="submit" class="btn btn-danger" id="bulk-delete" disabled="true"><i
+                                            class="fa fa-trash"></i> Bulk Delete
+                                    </button>
+                                </form><!-- end of form -->
 
+                            </div>
 
-                            </tr>
-                            </thead>
-                            <tbody style="" class="datatable-body">
+                        </div><!-- end of row -->
 
-                            @foreach ($employers as $employer )
-                                <tr data-row="0" class="datatable-row" style="left: 0px;">
+                        <div class="row">
 
+                            <div class="col-md-12">
 
-                                    <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
-                                        >{{$employer->id}}</span></td>
+                                <div class="table-responsive">
 
-                                    <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
-                                        >{{$employer->name}}</span></td>
+                                    <table class="table datatable table-secondary" id="employers-table"
+                                           style="width: 100%;">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="animated-checkbox">
+                                                    <label class="m-0">
+                                                        <input type="checkbox" id="record__select-all">
+                                                        <span class="label-text"></span>
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Roles</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
 
-                                    <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
-                                        >{{$employer->email}}</span></td>
+                                </div><!-- end of table responsive -->
 
+                            </div><!-- end of col -->
 
-                                    <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span
-                                        >
-                                        @if(!empty($employer->getRoleNames()))
-                                                @foreach($employer->getRoleNames() as $v)
-                                                    <label class="badge badge-success">{{ $v }}</label>
-                                                @endforeach
-                                            @endif
-                                        </span></td>
-
-
-                                    <td data-field="Actions" data-autohide-disabled="false" aria-label="null"
-                                        class="datatable-cell">
-            <span
-                style="overflow: visible; position: relative; width: 125px; display: inline ">
-
-                               <button class="btn btn-sm"> <a style="color: #fff"
-                                                              href="{{route('manager.employers.show' , $employer->id)}}">
-
-                        <i class="fa fa-eye"></i>
-                    </a> </button>
-
-
-                <button class="btn btn-sm"> <a style="color: #fff"
-                                               href="{{route('manager.employers.edit' , $employer->id)}}">
-
-                        <i class="fa fa-edit"></i>
-                    </a> </button>
-
-
-
-
-
-                <form method="post" style="display: inline"
-                      action="{{route('manager.employers.destroy' , $employer->id)}}">
-                @method('DELETE')
-                    @csrf
-                    <button class="btn btn-sm" type="submit"><i class="fa fa-trash"></i></button>
-                </form>
-
-            </span>
-
-                                    </td>
-
-
-                                </tr>
-
-                            @endforeach
-
-
-                            </tbody>
-                        </table>
-                        {{$employers->links()}}
+                        </div><!-- end of row -->
 
                     </div>
+
+
+                    {{--                    <div class="card-body">--}}
+
+{{--                        <table class="table table-bordered datatable-table" id=""--}}
+{{--                        >--}}
+{{--                            <thead class="datatable-head">--}}
+
+{{--                            <tr class="datatable-row" style="left: 0px;">--}}
+
+{{--                                <th data-field="Order ID" class="datatable-cell datatable-cell-sort"><span--}}
+{{--                                    >#ID</span></th>--}}
+
+{{--                                <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span--}}
+{{--                                    > Name </span></th>--}}
+
+
+{{--                                <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span--}}
+{{--                                    > Email </span></th>--}}
+
+{{--                                <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span--}}
+{{--                                    > Roles </span></th>--}}
+
+
+{{--                                <th data-field="Car Model" class="datatable-cell datatable-cell-sort"><span--}}
+{{--                                    > Action </span></th>--}}
+
+
+{{--                            </tr>--}}
+{{--                            </thead>--}}
+{{--                            <tbody style="" class="datatable-body">--}}
+
+{{--                            @foreach ($employers as $employer )--}}
+{{--                                <tr data-row="0" class="datatable-row" style="left: 0px;">--}}
+
+
+{{--                                    <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span--}}
+{{--                                        >{{$employer->id}}</span></td>--}}
+
+{{--                                    <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span--}}
+{{--                                        >{{$employer->name}}</span></td>--}}
+
+{{--                                    <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span--}}
+{{--                                        >{{$employer->email}}</span></td>--}}
+
+
+{{--                                    <td data-field="Order ID" aria-label="0006-3629" class="datatable-cell"><span--}}
+{{--                                        >--}}
+{{--                                        @if(!empty($employer->getRoleNames()))--}}
+{{--                                                @foreach($employer->getRoleNames() as $v)--}}
+{{--                                                    <label class="badge badge-success">{{ $v }}</label>--}}
+{{--                                                @endforeach--}}
+{{--                                            @endif--}}
+{{--                                        </span></td>--}}
+
+
+{{--                                    <td data-field="Actions" data-autohide-disabled="false" aria-label="null"--}}
+{{--                                        class="datatable-cell">--}}
+{{--            <span--}}
+{{--                style="overflow: visible; position: relative; width: 125px; display: inline ">--}}
+
+{{--                               <button class="btn btn-sm"> <a style="color: #fff"--}}
+{{--                                                              href="{{route('manager.employers.show' , $employer->id)}}">--}}
+
+{{--                        <i class="fa fa-eye"></i>--}}
+{{--                    </a> </button>--}}
+
+
+{{--                <button class="btn btn-sm"> <a style="color: #fff"--}}
+{{--                                               href="{{route('manager.employers.edit' , $employer->id)}}">--}}
+
+{{--                        <i class="fa fa-edit"></i>--}}
+{{--                    </a> </button>--}}
+
+
+
+
+
+{{--                <form method="post" style="display: inline"--}}
+{{--                      action="{{route('manager.employers.destroy' , $employer->id)}}">--}}
+{{--                @method('DELETE')--}}
+{{--                    @csrf--}}
+{{--                    <button class="btn btn-sm" type="submit"><i class="fa fa-trash"></i></button>--}}
+{{--                </form>--}}
+
+{{--            </span>--}}
+
+{{--                                    </td>--}}
+
+
+{{--                                </tr>--}}
+
+{{--                            @endforeach--}}
+
+
+{{--                            </tbody>--}}
+{{--                        </table>--}}
+{{--                        {{$employers->links()}}--}}
+
+{{--                    </div>--}}
                 </div>
             </div>
             <!--end::Container-->
         </div>
         <!--end::Entry-->
     </div>
+
     @push('custom-scripts')
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-        <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
         <script type="text/javascript">
+            $(document).on('click', '.deleteRecord', (function () {
+                var id = $(this).data("id");
+                var url = '{{ route('manager.'.\App\Models\User::manager_route.'.destroy', ":id") }}';
+                url = url.replace(':id', id);
+                $('#delete_form').attr('action', url);
+            }));
+
             $(function () {
 
-                var table = $('#ajax-table').DataTable({
+                var table = $('#employers-table').DataTable({
+                    dom: "tiplr",
                     processing: true,
                     serverSide: true,
-                    ajax: "{{ route('manager.getTenants') }}",
+                    ajax: "{{ route('manager.getEmployers') }}",
                     columns: [
-                        {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                        {data: 'record_select', name: 'record_select', searchable: false, sortable: false, width: '1%'},
                         {data: 'name', name: 'name'},
                         {data: 'email', name: 'email'},
-                        {data: 'phone', name: 'phone'},
-                        {data: 'address', name: 'address'},
-                        {data: 'rentals', name: 'rentals'},
-                        {
-                            data: 'action',
-                            name: 'action',
-                            orderable: true,
-                            searchable: true
-                        },
-                    ]
+                        {data: 'roles', name: 'roles'},
+                        {data: 'actions', name: 'actions', searchable: false, sortable: false, width: '20%'},
+
+                    ],
+                    order: [[4, 'desc']],
+                    drawCallback: function (settings) {
+                        $('.record__select').prop('checked', false);
+                        $('#record__select-all').prop('checked', false);
+                        $('#record-ids').val();
+                        $('#bulk-delete').attr('disabled', true);
+                    }
                 });
+                $('#data-table-search').keyup(function () {
+                    table.search(this.value).draw();
+                })
 
             });
         </script>
+
     @endpush
+
 @endsection

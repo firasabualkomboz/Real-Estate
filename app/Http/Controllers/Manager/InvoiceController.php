@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
 use function app\Helper\successMessage;
+use DataTables;
 
 class InvoiceController extends Controller
 {
@@ -21,6 +22,25 @@ class InvoiceController extends Controller
     {
         $invoices = Invoice::with('contract', 'tenant')->paginate(10);
         return view('manager.invoices.index', compact('invoices'));
+    }
+
+    public function getInvoices(Request $request)
+    {
+        if ($request->ajax()) {
+            $invoices = Invoice::with('contract', 'tenant')->latest()->get();
+            return DataTables::of($invoices)
+                ->addIndexColumn()
+                ->addColumn('tenant', function (Invoice $invoice) {
+                    return $invoice->tenant->name;
+                })
+                ->addColumn('apartment' , function (Invoice $invoice){
+                    return  $invoice->type ?  : 'NAN';
+                })
+//                ->addColumn('record_select', 'manager.invoices.data_table.record_select')
+                ->addColumn('actions', 'manager.invoices.data_table.actions')
+                ->rawColumns(['record_select', 'actions'])
+                ->toJson();
+        }
     }
 
     public function show($id)

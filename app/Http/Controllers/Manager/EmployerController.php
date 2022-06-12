@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use function app\Helper\errorMessage;
 use function app\Helper\successMessage;
+use DataTables;
 
 class EmployerController extends Controller
 {
@@ -28,9 +29,31 @@ class EmployerController extends Controller
      */
     public function index(Request $request)
     {
-        $employers = User::where('type' , '1')->orderBy('id', 'DESC')->paginate(5);
+        $employers = User::where('type', '1')->orderBy('id', 'DESC')->paginate(5);
         return view('manager.employers.index', compact('employers'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
+    }
+
+    public function getEmployers(Request $request)
+    {
+        if ($request->ajax()) {
+            $employers = User::where('type', '1')->latest()->get();
+            return DataTables::of($employers)
+                ->addIndexColumn()
+                ->addColumn('roles', function (User $employer) {
+                    if (!empty($employer->getRoleNames()))
+                        foreach ($employer->getRoleNames() as $v){
+                            return $v;
+                        }
+
+
+
+                })
+                ->addColumn('record_select', 'manager.employers.data_table.record_select')
+                ->addColumn('actions', 'manager.employers.data_table.actions')
+                ->rawColumns(['record_select', 'actions'])
+                ->toJson();
+        }
     }
 
     /**
