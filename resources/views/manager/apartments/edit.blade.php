@@ -102,11 +102,7 @@
                                                     style="color: red"> * </span></label>
                                             <select name="status"
                                                     class="form-control form-control-solid form-control-lg">
-
-                                                <option value=""
-                                                        @if ($apartment->status == old('status' , $apartment->status ) ) selected @endif >
-                                                    {{ $apartment->status }}
-                                                </option>
+                                                <option value="available">available</option>
                                                 <option value="rent">Rent</option>
                                                 <option value="unavailable">unavailable</option>
 

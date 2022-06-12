@@ -98,7 +98,7 @@
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
                                         <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">Monthly Rent </a>
-                                        <span class="text-muted"> $ {{$contract->apartment->rent}}</span>
+                                        <span class="text-muted"> $ {{$contract->apartment->rent ?? $contract->estate->rent}}</span>
                                     </div>
                                     <!--end::Text-->
                                 </div>
@@ -110,7 +110,7 @@
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
                                         <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg">	Commission </a>
-                                        <span class="text-muted"> % {{$contract->apartment->commission}}</span>
+                                        <span class="text-muted"> % {{$contract->apartment->commission ?? $contract->estate->commission}}</span>
                                     </div>
                                     <!--end::Text-->
                                 </div>

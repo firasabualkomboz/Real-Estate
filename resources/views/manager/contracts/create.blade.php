@@ -73,11 +73,12 @@
                                             Estate</label>
                                         <div class="col-8">
 
-                                                <select name="estate_id" class="form-control" id="estate">
-                                                    @foreach($estates as $estate)
-                                                        <option value="{{$estate->id}}">{{$estate->name}}</option>
-                                                    @endforeach
-                                                </select>
+                                            <select name="estate_id" class="form-control" id="estate">
+                                                <option value="">No Estate</option>
+                                                @foreach($estates as $estate)
+                                                    <option value="{{$estate->id}}">{{$estate->name}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
 

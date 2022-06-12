@@ -18,7 +18,7 @@ use App\Http\Controllers\Manager\HomeController;
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 
     ], function () {
     /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
@@ -54,6 +54,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::get('/', [\App\Http\Controllers\Manager\HomeController::class, 'index'])->name('home');
 
         Route::resource('roles', \App\Http\Controllers\Manager\RoleController::class);
+        Route::get('getRoles', [\App\Http\Controllers\Manager\RoleController::class, 'getRoles'])->name('getRoles');
         Route::resource('employers', \App\Http\Controllers\Manager\EmployerController::class);
         Route::get('getEmployers', [\App\Http\Controllers\Manager\EmployerController::class, 'getEmployers'])->name('getEmployers');
         Route::resource('appointments', \App\Http\Controllers\Manager\AppointmentController::class);

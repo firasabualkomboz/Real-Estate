@@ -142,189 +142,119 @@
                             <!--begin::Body-->
                             <div class="card-body p-0" style="position: relative;">
                                 <div class="d-flex align-items-center justify-content-between card-spacer flex-grow-1">
-													<span class="symbol symbol-50 symbol-light-success mr-2">
-														<span class="symbol-label">
-															<span class="svg-icon svg-icon-xl svg-icon-success">
-																<!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
-																<svg xmlns="http://www.w3.org/2000/svg"
-                                                                     xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                     width="24px" height="24px" viewBox="0 0 24 24"
-                                                                     version="1.1">
-																	<g stroke="none" stroke-width="1" fill="none"
-                                                                       fill-rule="evenodd">
-																		<rect x="0" y="0" width="24" height="24"></rect>
-																		<rect fill="#000000" x="4" y="4" width="7"
-                                                                              height="7" rx="1.5"></rect>
-																		<path
-                                                                            d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
-                                                                            fill="#000000" opacity="0.3"></path>
-																	</g>
-																</svg>
-                                                                <!--end::Svg Icon-->
-															</span>
-														</span>
-													</span>
+
+
+
+                                    <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/General/User.svg--><svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+                                            viewBox="0 0 24 24" version="1.1">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon points="0 0 24 0 24 24 0 24"/>
+        <path
+            d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+            fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+        <path
+            d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+            fill="#000000" fill-rule="nonzero"/>
+    </g>
+</svg><!--end::Svg Icon--></span>
+
                                     <div class="d-flex flex-column text-right">
-                                        <span class="text-dark-75 font-weight-bolder font-size-h3">750$</span>
-                                        <span class="text-muted font-weight-bold mt-2">Weekly Income</span>
+                                        <span
+                                            class="text-dark-75 font-weight-bolder font-size-h3">{{\App\Models\User::where('type' , '0')->count()}}</span>
+                                        <span class="text-muted font-weight-bold mt-2">Owners</span>
                                     </div>
                                 </div>
+
                                 <div id="kt_stats_widget_11_chart" class="card-rounded-bottom" data-color="success"
                                      style="height: 150px; min-height: 150px;">
-                                    <div id="apexchartsi1n1qbuz"
-                                         class="apexcharts-canvas apexchartsi1n1qbuz apexcharts-theme-light"
-                                         style="width: 385px; height: 150px;">
-                                        <svg id="SvgjsSvg1162" width="385" height="150"
-                                             xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                             xmlns:xlink="http://www.w3.org/1999/xlink"
-                                             xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg"
-                                             xmlns:data="ApexChartsNS" transform="translate(0, 0)"
-                                             style="background: transparent;">
-                                            <g id="SvgjsG1164" class="apexcharts-inner apexcharts-graphical"
-                                               transform="translate(0, 0)">
-                                                <defs id="SvgjsDefs1163">
-                                                    <clipPath id="gridRectMaski1n1qbuz">
-                                                        <rect id="SvgjsRect1167" width="392" height="153" x="-3.5"
-                                                              y="-1.5" rx="0" ry="0" opacity="1" stroke-width="0"
-                                                              stroke="none" stroke-dasharray="0" fill="#fff"></rect>
-                                                    </clipPath>
-                                                    <clipPath id="gridRectMarkerMaski1n1qbuz">
-                                                        <rect id="SvgjsRect1168" width="389" height="154" x="-2" y="-2"
-                                                              rx="0" ry="0" opacity="1" stroke-width="0" stroke="none"
-                                                              stroke-dasharray="0" fill="#fff"></rect>
-                                                    </clipPath>
-                                                </defs>
-                                                <g id="SvgjsG1176" class="apexcharts-xaxis" transform="translate(0, 0)">
-                                                    <g id="SvgjsG1177" class="apexcharts-xaxis-texts-g"
-                                                       transform="translate(0, -4)"></g>
-                                                </g>
-                                                <g id="SvgjsG1179" class="apexcharts-grid">
-                                                    <g id="SvgjsG1180" class="apexcharts-gridlines-horizontal"
-                                                       style="display: none;">
-                                                        <line id="SvgjsLine1182" x1="0" y1="0" x2="385" y2="0"
-                                                              stroke="#e0e0e0" stroke-dasharray="0"
-                                                              class="apexcharts-gridline"></line>
-                                                        <line id="SvgjsLine1183" x1="0" y1="15" x2="385" y2="15"
-                                                              stroke="#e0e0e0" stroke-dasharray="0"
-                                                              class="apexcharts-gridline"></line>
-                                                        <line id="SvgjsLine1184" x1="0" y1="30" x2="385" y2="30"
-                                                              stroke="#e0e0e0" stroke-dasharray="0"
-                                                              class="apexcharts-gridline"></line>
-                                                        <line id="SvgjsLine1185" x1="0" y1="45" x2="385" y2="45"
-                                                              stroke="#e0e0e0" stroke-dasharray="0"
-                                                              class="apexcharts-gridline"></line>
-                                                        <line id="SvgjsLine1186" x1="0" y1="60" x2="385" y2="60"
-                                                              stroke="#e0e0e0" stroke-dasharray="0"
-                                                              class="apexcharts-gridline"></line>
-                                                        <line id="SvgjsLine1187" x1="0" y1="75" x2="385" y2="75"
-                                                              stroke="#e0e0e0" stroke-dasharray="0"
-                                                              class="apexcharts-gridline"></line>
-                                                        <line id="SvgjsLine1188" x1="0" y1="90" x2="385" y2="90"
-                                                              stroke="#e0e0e0" stroke-dasharray="0"
-                                                              class="apexcharts-gridline"></line>
-                                                        <line id="SvgjsLine1189" x1="0" y1="105" x2="385" y2="105"
-                                                              stroke="#e0e0e0" stroke-dasharray="0"
-                                                              class="apexcharts-gridline"></line>
-                                                        <line id="SvgjsLine1190" x1="0" y1="120" x2="385" y2="120"
-                                                              stroke="#e0e0e0" stroke-dasharray="0"
-                                                              class="apexcharts-gridline"></line>
-                                                        <line id="SvgjsLine1191" x1="0" y1="135" x2="385" y2="135"
-                                                              stroke="#e0e0e0" stroke-dasharray="0"
-                                                              class="apexcharts-gridline"></line>
-                                                        <line id="SvgjsLine1192" x1="0" y1="150" x2="385" y2="150"
-                                                              stroke="#e0e0e0" stroke-dasharray="0"
-                                                              class="apexcharts-gridline"></line>
-                                                    </g>
-                                                    <g id="SvgjsG1181" class="apexcharts-gridlines-vertical"
-                                                       style="display: none;"></g>
-                                                    <line id="SvgjsLine1194" x1="0" y1="150" x2="385" y2="150"
-                                                          stroke="transparent" stroke-dasharray="0"></line>
-                                                    <line id="SvgjsLine1193" x1="0" y1="1" x2="0" y2="150"
-                                                          stroke="transparent" stroke-dasharray="0"></line>
-                                                </g>
-                                                <g id="SvgjsG1170"
-                                                   class="apexcharts-area-series apexcharts-plot-series">
-                                                    <g id="SvgjsG1171" class="apexcharts-series" seriesName="NetxProfit"
-                                                       data:longestSeries="true" rel="1" data:realIndex="0">
-                                                        <path id="SvgjsPath1174"
-                                                              d="M 0 150L 0 40.90909090909091C 22.458333333333332 40.90909090909091 41.70833333333334 40.90909090909091 64.16666666666667 40.90909090909091C 86.625 40.90909090909091 105.87500000000001 68.18181818181817 128.33333333333334 68.18181818181817C 150.79166666666669 68.18181818181817 170.04166666666669 68.18181818181817 192.5 68.18181818181817C 214.95833333333334 68.18181818181817 234.20833333333334 54.54545454545453 256.6666666666667 54.54545454545453C 279.125 54.54545454545453 298.375 54.54545454545453 320.8333333333333 54.54545454545453C 343.29166666666663 54.54545454545453 362.5416666666667 13.636363636363626 385 13.636363636363626C 385 13.636363636363626 385 13.636363636363626 385 150M 385 13.636363636363626z"
-                                                              fill="rgba(201,247,245,1)" fill-opacity="1"
-                                                              stroke-opacity="1" stroke-linecap="butt" stroke-width="0"
-                                                              stroke-dasharray="0" class="apexcharts-area" index="0"
-                                                              clip-path="url(#gridRectMaski1n1qbuz)"
-                                                              pathTo="M 0 150L 0 40.90909090909091C 22.458333333333332 40.90909090909091 41.70833333333334 40.90909090909091 64.16666666666667 40.90909090909091C 86.625 40.90909090909091 105.87500000000001 68.18181818181817 128.33333333333334 68.18181818181817C 150.79166666666669 68.18181818181817 170.04166666666669 68.18181818181817 192.5 68.18181818181817C 214.95833333333334 68.18181818181817 234.20833333333334 54.54545454545453 256.6666666666667 54.54545454545453C 279.125 54.54545454545453 298.375 54.54545454545453 320.8333333333333 54.54545454545453C 343.29166666666663 54.54545454545453 362.5416666666667 13.636363636363626 385 13.636363636363626C 385 13.636363636363626 385 13.636363636363626 385 150M 385 13.636363636363626z"
-                                                              pathFrom="M -1 150L -1 150L 64.16666666666667 150L 128.33333333333334 150L 192.5 150L 256.6666666666667 150L 320.8333333333333 150L 385 150"></path>
-                                                        <path id="SvgjsPath1175"
-                                                              d="M 0 40.90909090909091C 22.458333333333332 40.90909090909091 41.70833333333334 40.90909090909091 64.16666666666667 40.90909090909091C 86.625 40.90909090909091 105.87500000000001 68.18181818181817 128.33333333333334 68.18181818181817C 150.79166666666669 68.18181818181817 170.04166666666669 68.18181818181817 192.5 68.18181818181817C 214.95833333333334 68.18181818181817 234.20833333333334 54.54545454545453 256.6666666666667 54.54545454545453C 279.125 54.54545454545453 298.375 54.54545454545453 320.8333333333333 54.54545454545453C 343.29166666666663 54.54545454545453 362.5416666666667 13.636363636363626 385 13.636363636363626"
-                                                              fill="none" fill-opacity="1" stroke="#1bc5bd"
-                                                              stroke-opacity="1" stroke-linecap="butt" stroke-width="3"
-                                                              stroke-dasharray="0" class="apexcharts-area" index="0"
-                                                              clip-path="url(#gridRectMaski1n1qbuz)"
-                                                              pathTo="M 0 40.90909090909091C 22.458333333333332 40.90909090909091 41.70833333333334 40.90909090909091 64.16666666666667 40.90909090909091C 86.625 40.90909090909091 105.87500000000001 68.18181818181817 128.33333333333334 68.18181818181817C 150.79166666666669 68.18181818181817 170.04166666666669 68.18181818181817 192.5 68.18181818181817C 214.95833333333334 68.18181818181817 234.20833333333334 54.54545454545453 256.6666666666667 54.54545454545453C 279.125 54.54545454545453 298.375 54.54545454545453 320.8333333333333 54.54545454545453C 343.29166666666663 54.54545454545453 362.5416666666667 13.636363636363626 385 13.636363636363626"
-                                                              pathFrom="M -1 150L -1 150L 64.16666666666667 150L 128.33333333333334 150L 192.5 150L 256.6666666666667 150L 320.8333333333333 150L 385 150"></path>
-                                                        <g id="SvgjsG1172" class="apexcharts-series-markers-wrap"
-                                                           data:realIndex="0">
-                                                            <g class="apexcharts-series-markers">
-                                                                <circle id="SvgjsCircle1200" r="0" cx="0" cy="0"
-                                                                        class="apexcharts-marker wptuk27vp no-pointer-events"
-                                                                        stroke="#1bc5bd" fill="#c9f7f5" fill-opacity="1"
-                                                                        stroke-width="3" stroke-opacity="0.9"
-                                                                        default-marker-size="0"></circle>
-                                                            </g>
-                                                        </g>
-                                                    </g>
-                                                    <g id="SvgjsG1173" class="apexcharts-datalabels"
-                                                       data:realIndex="0"></g>
-                                                </g>
-                                                <line id="SvgjsLine1195" x1="0" y1="0" x2="385" y2="0" stroke="#b6b6b6"
-                                                      stroke-dasharray="0" stroke-width="1"
-                                                      class="apexcharts-ycrosshairs"></line>
-                                                <line id="SvgjsLine1196" x1="0" y1="0" x2="385" y2="0"
-                                                      stroke-dasharray="0" stroke-width="0"
-                                                      class="apexcharts-ycrosshairs-hidden"></line>
-                                                <g id="SvgjsG1197" class="apexcharts-yaxis-annotations"></g>
-                                                <g id="SvgjsG1198" class="apexcharts-xaxis-annotations"></g>
-                                                <g id="SvgjsG1199" class="apexcharts-point-annotations"></g>
-                                            </g>
-                                            <g id="SvgjsG1178" class="apexcharts-yaxis" rel="0"
-                                               transform="translate(-18, 0)"></g>
-                                            <g id="SvgjsG1165" class="apexcharts-annotations"></g>
-                                        </svg>
-                                        <div class="apexcharts-legend"></div>
-                                        <div class="apexcharts-tooltip apexcharts-theme-light">
-                                            <div class="apexcharts-tooltip-title"
-                                                 style="font-family: Poppins; font-size: 12px;"></div>
-                                            <div class="apexcharts-tooltip-series-group"><span
-                                                    class="apexcharts-tooltip-marker"
-                                                    style="background-color: rgb(201, 247, 245);"></span>
-                                                <div class="apexcharts-tooltip-text"
-                                                     style="font-family: Poppins; font-size: 12px;">
-                                                    <div class="apexcharts-tooltip-y-group"><span
-                                                            class="apexcharts-tooltip-text-label"></span><span
-                                                            class="apexcharts-tooltip-text-value"></span></div>
-                                                    <div class="apexcharts-tooltip-z-group"><span
-                                                            class="apexcharts-tooltip-text-z-label"></span><span
-                                                            class="apexcharts-tooltip-text-z-value"></span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="apexcharts-xaxistooltip apexcharts-xaxistooltip-bottom apexcharts-theme-light">
-                                            <div class="apexcharts-xaxistooltip-text"
-                                                 style="font-family: Poppins; font-size: 12px;"></div>
-                                        </div>
-                                        <div
-                                            class="apexcharts-yaxistooltip apexcharts-yaxistooltip-0 apexcharts-yaxistooltip-left apexcharts-theme-light">
-                                            <div class="apexcharts-yaxistooltip-text"></div>
-                                        </div>
+
+
+                                </div>
+
+                            </div>
+                            <!--end::Body-->
+                        </div>
+                        <!--end::Stats Widget 11-->
+
+
+                    </div>
+
+                    <div class="col-lg-6 col-xxl-4">
+                        <!--begin::Stats Widget 11-->
+                        <div class="card card-custom card-stretch card-stretch-half gutter-b">
+                            <!--begin::Body-->
+                            <div class="card-body p-0" style="position: relative;">
+                                <div class="d-flex align-items-center justify-content-between card-spacer flex-grow-1">
+
+
+
+                                    <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/General/User.svg--><svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+                                            viewBox="0 0 24 24" version="1.1">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon points="0 0 24 0 24 24 0 24"/>
+        <path
+            d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+            fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+        <path
+            d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+            fill="#000000" fill-rule="nonzero"/>
+    </g>
+</svg><!--end::Svg Icon--></span>
+
+                                    <div class="d-flex flex-column text-right">
+                                        <span
+                                            class="text-dark-75 font-weight-bolder font-size-h3">{{\App\Models\User::where('type' , '2')->count()}}</span>
+                                        <span class="text-muted font-weight-bold mt-2">Tenants</span>
                                     </div>
                                 </div>
-                                <div class="resize-triggers">
-                                    <div class="expand-trigger">
-                                        <div style="width: 386px; height: 258px;"></div>
-                                    </div>
-                                    <div class="contract-trigger"></div>
+
+                                <div id="kt_stats_widget_11_chart" class="card-rounded-bottom" data-color="success"
+                                     style="height: 150px; min-height: 150px;">
+
+
                                 </div>
+
+                            </div>
+                            <!--end::Body-->
+                        </div>
+                        <!--end::Stats Widget 11-->
+
+
+                    </div>
+
+                    <div class="col-lg-6 col-xxl-4">
+                        <!--begin::Stats Widget 11-->
+                        <div class="card card-custom card-stretch card-stretch-half gutter-b">
+                            <!--begin::Body-->
+                            <div class="card-body p-0" style="position: relative;">
+                                <div class="d-flex align-items-center justify-content-between card-spacer flex-grow-1">
+
+
+
+                        <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Home/Home.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect x="0" y="0" width="24" height="24"/>
+        <path d="M3.95709826,8.41510662 L11.47855,3.81866389 C11.7986624,3.62303967 12.2013376,3.62303967 12.52145,3.81866389 L20.0429,8.41510557 C20.6374094,8.77841684 21,9.42493654 21,10.1216692 L21,19.0000642 C21,20.1046337 20.1045695,21.0000642 19,21.0000642 L4.99998155,21.0000673 C3.89541205,21.0000673 2.99998155,20.1046368 2.99998155,19.0000673 L2.99999828,10.1216672 C2.99999935,9.42493561 3.36258984,8.77841732 3.95709826,8.41510662 Z M10,13 C9.44771525,13 9,13.4477153 9,14 L9,17 C9,17.5522847 9.44771525,18 10,18 L14,18 C14.5522847,18 15,17.5522847 15,17 L15,14 C15,13.4477153 14.5522847,13 14,13 L10,13 Z" fill="#000000"/>
+    </g>
+</svg><!--end::Svg Icon--></span>
+
+                                    <div class="d-flex flex-column text-right">
+                                        <span
+                                            class="text-dark-75 font-weight-bolder font-size-h3">{{\App\Models\Estate::count()}}</span>
+                                        <span class="text-muted font-weight-bold mt-2">Estates</span>
+                                    </div>
+                                </div>
+
+                                <div id="kt_stats_widget_11_chart" class="card-rounded-bottom" data-color="success"
+                                     style="height: 150px; min-height: 150px;">
+
+
+                                </div>
+
                             </div>
                             <!--end::Body-->
                         </div>

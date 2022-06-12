@@ -169,7 +169,7 @@ class ContractController extends Controller
 
     public function getAjaxApartment($id)
     {
-        $apartments = Apartment::where('estate_id', $id)->pluck('name', 'id');
+        $apartments = Apartment::where('estate_id', $id)->where('status' , 'available')->pluck('name', 'id');
         return json_encode($apartments);
     }
 

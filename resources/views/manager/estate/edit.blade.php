@@ -119,15 +119,12 @@
 
                                                         <div class="col-xl-6">
                                                             <div class="form-group fv-plugins-icon-container">
-                                                                <label>Update Status For Estate <span
+                                                                <label>Update Status For Estate : {{$estate->status}} <span
                                                                         style="color: red"> * </span></label>
                                                                 <select name="status"
                                                                         class="form-control form-control-solid form-control-lg">
 
-                                                                    <option value=""
-                                                                            @if ($estate->status == old('status' , $estate->status ) ) selected @endif >
-                                                                        {{ $estate->status }}
-                                                                    </option>
+                                                                    <option value="available">available</option>
                                                                     <option value="rent">Rent</option>
                                                                     <option value="unavailable">unavailable</option>
 
@@ -179,7 +176,7 @@
                                                     <div>
                                                         <button
                                                             class="btn btn-success font-weight-bold text-uppercase px-9 py-4"
-                                                            type="submit">Submit
+                                                            type="submit">Update
                                                         </button>
                                                         <button
                                                             class="btn btn-primary font-weight-bold text-uppercase px-9 py-4"

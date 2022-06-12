@@ -1,21 +1,22 @@
-
 <!DOCTYPE html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kwitara - Bootstrap Real Estate template </title>
+    <title>Rent IN </title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{asset('assets_front')}}/css/bootstrap.min.css" type="text/css" /><!-- Bootstrap -->
-    <link rel="stylesheet" href="{{asset('assets_front')}}/fonts/font-awesome/css/font-awesome.min.css" type="text/css" /><!-- Icons -->
-    <link rel="stylesheet" href="{{asset('assets_front')}}/fonts/themify-icons/themify-icons.css" type="text/css" /><!-- Icons -->
-    <link rel="stylesheet" href="{{asset('assets_front')}}/css/owl.carousel.css" type="text/css" /><!-- Owl Carousal -->
-    <link rel="stylesheet" href="{{asset('assets_front')}}/css/price-range.css" type="text/css" /><!-- Owl Carousal -->
+    <link rel="stylesheet" href="{{asset('assets_front')}}/css/bootstrap.min.css" type="text/css"/><!-- Bootstrap -->
+    <link rel="stylesheet" href="{{asset('assets_front')}}/fonts/font-awesome/css/font-awesome.min.css"
+          type="text/css"/><!-- Icons -->
+    <link rel="stylesheet" href="{{asset('assets_front')}}/fonts/themify-icons/themify-icons.css" type="text/css"/>
+    <!-- Icons -->
+    <link rel="stylesheet" href="{{asset('assets_front')}}/css/owl.carousel.css" type="text/css"/><!-- Owl Carousal -->
+    <link rel="stylesheet" href="{{asset('assets_front')}}/css/price-range.css" type="text/css"/><!-- Owl Carousal -->
     <link rel="stylesheet" href="{{asset('assets_front')}}/css/lightslider.min.css">
 
-    <link rel="stylesheet" href="{{asset('assets_front')}}/css/style.css" type="text/css" /><!-- Style -->
-    <link rel="stylesheet" href="{{asset('assets_front')}}/css/responsive.css" type="text/css" /><!-- Responsive -->
-    <link rel="stylesheet" href="{{asset('assets_front')}}/css/colors.css" type="text/css" /><!-- color -->
+    <link rel="stylesheet" href="{{asset('assets_front')}}/css/style.css" type="text/css"/><!-- Style -->
+    <link rel="stylesheet" href="{{asset('assets_front')}}/css/responsive.css" type="text/css"/><!-- Responsive -->
+    <link rel="stylesheet" href="{{asset('assets_front')}}/css/colors.css" type="text/css"/><!-- color -->
 
     <!-- REVOLUTION STYLE SHEETS -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets_front')}}/js/rs-plugin/css/settings.css">
@@ -95,9 +96,36 @@
     $(function () {
         map();
     });
+
     /* map */
     function map() {
-        var styles = [{"featureType": "landscape", "stylers": [{"saturation": -100}, {"lightness": 65}, {"visibility": "on"}]}, {"featureType": "poi", "stylers": [{"saturation": -100}, {"lightness": 51}, {"visibility": "simplified"}]}, {"featureType": "road.highway", "stylers": [{"saturation": -100}, {"visibility": "simplified"}]}, {"featureType": "road.arterial", "stylers": [{"saturation": -100}, {"lightness": 30}, {"visibility": "on"}]}, {"featureType": "road.local", "stylers": [{"saturation": -100}, {"lightness": 40}, {"visibility": "on"}]}, {"featureType": "transit", "stylers": [{"saturation": -100}, {"visibility": "simplified"}]}, {"featureType": "administrative.province", "stylers": [{"visibility": "off"}]}, {"featureType": "water", "elementType": "labels", "stylers": [{"visibility": "on"}, {"lightness": -25}, {"saturation": -100}]}, {"featureType": "water", "elementType": "geometry", "stylers": [{"hue": "#ffff00"}, {"lightness": -25}, {"saturation": -97}]}];
+        var styles = [{
+            "featureType": "landscape",
+            "stylers": [{"saturation": -100}, {"lightness": 65}, {"visibility": "on"}]
+        }, {
+            "featureType": "poi",
+            "stylers": [{"saturation": -100}, {"lightness": 51}, {"visibility": "simplified"}]
+        }, {
+            "featureType": "road.highway",
+            "stylers": [{"saturation": -100}, {"visibility": "simplified"}]
+        }, {
+            "featureType": "road.arterial",
+            "stylers": [{"saturation": -100}, {"lightness": 30}, {"visibility": "on"}]
+        }, {
+            "featureType": "road.local",
+            "stylers": [{"saturation": -100}, {"lightness": 40}, {"visibility": "on"}]
+        }, {
+            "featureType": "transit",
+            "stylers": [{"saturation": -100}, {"visibility": "simplified"}]
+        }, {"featureType": "administrative.province", "stylers": [{"visibility": "off"}]}, {
+            "featureType": "water",
+            "elementType": "labels",
+            "stylers": [{"visibility": "on"}, {"lightness": -25}, {"saturation": -100}]
+        }, {
+            "featureType": "water",
+            "elementType": "geometry",
+            "stylers": [{"hue": "#ffff00"}, {"lightness": -25}, {"saturation": -97}]
+        }];
         map = new GMaps({
             el: '#propertyMap',
             lat: -12.043333,
@@ -128,7 +156,6 @@
     }
 
 </script>
-
 
 
 <script>
