@@ -4,7 +4,7 @@
 
 {{--@endif--}}
 
-<a href="{{ route('manager.roles.show', $id) }}" class="btn btn-icon btn-sm btn-secondary "><i class="la la-eye"></i></a>
+{{--<a href="{{ route('manager.roles.show', $id) }}" class="btn btn-icon btn-sm btn-secondary "><i class="la la-eye"></i></a>--}}
 
 
 {{--@if (auth()->user()->hasPermission('delete_roles'))--}}
