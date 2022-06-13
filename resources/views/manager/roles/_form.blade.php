@@ -25,6 +25,7 @@
             @enderror
 
         </div>
+
         <div class="form-group">
             <div class="col-lg-12">
                 <label for="example-date-input" class="col-form-label">Permission
@@ -60,7 +61,9 @@
                 @enderror
 
             </div>
+
         </div>
+
 
     </div>
 
