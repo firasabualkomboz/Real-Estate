@@ -20,7 +20,17 @@ return [
     'role_name' => 'Role Name',
     '' => '',
 
+    'new_employers'         => 'New Employers',
+    'name'                  => 'Name',
+    'email'                 => 'Email',
+    'phone_number'          => 'Phone Number',
+    'address'               => 'Address',
+    'password'              => 'Password',
+    'confirm_password'      => 'Confirm Password',
+    'roles'                 => 'Roles',
 
-    'actions' => 'Actions'
 
+    'actions' => 'Actions',
+    'submit' => 'submit',
+    'cancel' => 'cancel'
 ];

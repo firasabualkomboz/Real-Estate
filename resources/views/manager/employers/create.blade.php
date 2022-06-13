@@ -39,7 +39,7 @@
                         <!--begin::Card-->
                         <div class="card card-custom example example-compact">
                             <div class="card-header">
-                                <h3 class="card-title"> New Tag </h3>
+                                <h3 class="card-title"> @lang('dashboard.new_employers') </h3>
                             </div>
 
                             <!--begin::Form-->
@@ -47,8 +47,6 @@
                                   action="{{route('manager.employers.store')}}">
                                 @csrf
                                 @include('manager.employers._form' , ['button' => 'Submit'] )
-
-
 
                             </form>
                         </div>

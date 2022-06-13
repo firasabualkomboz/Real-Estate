@@ -111,4 +111,5 @@ class PropertyController extends Controller
         $property->delete();
         return errorMessage();
     }
+
 }
