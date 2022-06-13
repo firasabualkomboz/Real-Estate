@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('document')->nullable();
             $table->boolean('is_manager')->default(0);
             $table->enum('type', [0, 1, 2]);/* tenant= 0 , owner = 2 , manager = 1   */
+            $table->string('identification_number')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
