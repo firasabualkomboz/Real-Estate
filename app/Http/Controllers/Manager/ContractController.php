@@ -148,12 +148,15 @@ class ContractController extends Controller
 
     }
 
+    /*
+     * get Number of months for the contract period
+     * period between start date contract and end date contract
+     */
     public function getNumberOfMonth($id)
     {
 
         $contract = Contract::find($id);
         $start_date = new \DateTime($contract->start_at);
-//        dd($start_date);
         $end_date = new \DateTime($contract->end_at);
         $interval = $start_date->diff($end_date);
 //        dd ($interval->format('%y years, %m month, %d the count of period contract .. '));
