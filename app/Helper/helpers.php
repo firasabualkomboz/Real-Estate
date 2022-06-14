@@ -26,8 +26,9 @@ function updateMessage()
     return redirect()->back()->with($message);
 }
 
-function apisuccess($items,$data=null){
-    return response()->json(['status'=>true,'items'=>$items,'data'=>$data]);
+function apisuccess($items, $data = null)
+{
+    return response()->json(['status' => true, 'items' => $items, 'data' => $data]);
 }
 
 function getIncomeOwnerBeforeTax(Contract $contract, User $user)
@@ -40,4 +41,13 @@ function getIncomeOwnerBeforeTax(Contract $contract, User $user)
 function getIncomeOwnerAfterTex(Contract $contract, User $user)
 {
 
+}
+
+function getImage($img)
+{
+    if (isset($img)) {
+        return asset('uploads/' . $img);
+    } else {
+        return asset('admin_files/assets/img/backgrounds/02.png');
+    }
 }
