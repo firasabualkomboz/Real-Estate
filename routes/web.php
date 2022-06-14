@@ -77,6 +77,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::get('getEstate/{id}', [\App\Http\Controllers\Manager\ContractController::class, 'getEstate']);
 
         Route::get('getNumberOfMonth/{id}', [\App\Http\Controllers\Manager\ContractController::class,'getNumberOfMonth']);
+        Route::get('getNumberOfDays/{id}', [\App\Http\Controllers\Manager\ContractController::class,'getNumberOfDays']);
 
     });
 

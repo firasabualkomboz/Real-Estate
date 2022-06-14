@@ -125,12 +125,9 @@ class ContractController extends Controller
             ]);
             $invoice->save();
 
-        }
-
-        if ($request->type == 'apartment') {
+        } elseif ($request->type == 'apartment') {
 
             $apartment = Apartment::where('id', $request->apartment_id)->first();
-
             $apartment->status = 'rent';
             $apartment->update();
             $contract->save();
@@ -138,11 +135,27 @@ class ContractController extends Controller
             $invoice = Invoice::create([
                 'contract_id' => $contract->id,
                 'tenant_id' => $contract->tenant_id,
-                'status' => 'pending',
+                'status' => 'pending'
             ]);
             $invoice->save();
-
         }
+
+//        if ($request->type == 'apartment') {
+//
+//            $apartment = Apartment::where('id', $request->apartment_id)->first();
+//
+//            $apartment->status = 'rent';
+//            $apartment->update();
+//            $contract->save();
+//
+//            $invoice = Invoice::create([
+//                'contract_id' => $contract->id,
+//                'tenant_id' => $contract->tenant_id,
+//                'status' => 'pending',
+//            ]);
+//            $invoice->save();
+//
+//        }
 
         return successMessage();
 
@@ -161,10 +174,18 @@ class ContractController extends Controller
         $interval = $start_date->diff($end_date);
 //        dd ($interval->format('%y years, %m month, %d the count of period contract .. '));
         $result = $interval->format('%m');
-          dd( $result * $contract->apartment->rent);
+        dd($result * $contract->apartment->rent);
 
     }
 
+    public function getNumberOfDays($id)
+    {
+        $contract = Contract::find($id);
+        $start_date = new \DateTime($contract->start_at);
+        $end_date = new \DateTime($contract->end_at);
+        $interval = $start_date->diff($end_date);
+        dd($interval->format(' %d the count of period contract .. '));
+    }
 
     /**
      * Remove the specified resource from storage.

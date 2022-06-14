@@ -21,6 +21,7 @@ return [
     '' => '',
 
     // employers page
+    'employers_list' => 'قائمة الموظفين',
     'new_employers' => 'أضافة موظف جديد',
     'name' => 'الأسم',
     'email' => 'البريد الألكتروني',
@@ -30,14 +31,25 @@ return [
     'confirm_password' => 'تأكيد كلمة المرور',
     'roles' => 'الصلاحيات',
 
+    // tenants page
+    'tenants_list' => 'قائمة المستأجرين',
+    'new_tenants' => 'أضافة مستأجر جديد',
+    '' => '',
+    '' => '',
+    '' => '',
+    '' => '',
+    '' => '',
+    '' => '',
+    '' => '',
+
 
     // estate model
 
-    'estates'            => 'العقار',
-    'basic_details'     => 'تفاصيل أساسية ',
-    'location'           => 'الموقع',
-    'feature'            => 'المزايا',
-    'estate_images'      => 'مرفقات العقار',
+    'estates' => 'العقار',
+    'basic_details' => 'تفاصيل أساسية ',
+    'location' => 'الموقع',
+    'feature' => 'المزايا',
+    'estate_images' => 'مرفقات العقار',
     '' => '',
     '' => '',
     '' => '',

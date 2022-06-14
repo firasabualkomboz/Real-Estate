@@ -12,7 +12,7 @@
             </li>
 
 
-            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+            <li class="menu-item menu-item-submenu {{ Route::current()->getName() == 'manager.roles.index' ? 'menu-item-open menu-item-here' : '' }} {{ Route::current()->getName() == 'manager.roles.create' ? 'menu-item-open menu-item-here' : '' }}" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
             <span class="svg-icon menu-icon">
             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
@@ -42,27 +42,27 @@
             <span class="menu-text">Tenants</span>
             </span>
                         </li>
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.roles.create' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.roles.create')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">Add Role </span>
+                                <span class="menu-text"> @lang('dashboard.new_role') </span>
                             </a>
                         </li>
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.roles.index' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.roles.index')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">View Roles</span>
+                                <span class="menu-text"> @lang('dashboard.roles_list')</span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </li>
 
-            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+            <li class="menu-item menu-item-submenu {{ Route::current()->getName() == 'manager.employers.index' ? 'menu-item-open menu-item-here' : '' }} {{ Route::current()->getName() == 'manager.employers.create' ? 'menu-item-open menu-item-here' : '' }}" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
             <span class="svg-icon menu-icon">
             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
@@ -92,20 +92,20 @@
             <span class="menu-text">Tenants</span>
             </span>
                         </li>
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item  {{ Route::current()->getName() == 'manager.employers.create' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.employers.create')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">Add Employer </span>
+                                <span class="menu-text"> @lang('dashboard.new_employers') </span>
                             </a>
                         </li>
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.employers.index' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.employers.index')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">View Employers</span>
+                                <span class="menu-text"> @lang('dashboard.employers_list')</span>
                             </a>
                         </li>
                     </ul>
@@ -113,7 +113,7 @@
             </li>
 
 
-            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+            <li class="menu-item menu-item-submenu {{ Route::current()->getName() == 'manager.tenants.index' ? 'menu-item-open menu-item-here' : '' }} {{ Route::current()->getName() == 'manager.tenants.create' ? 'menu-item-open menu-item-here' : '' }}" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
             <span class="svg-icon menu-icon">
             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
@@ -143,27 +143,27 @@
             <span class="menu-text">Tenants</span>
             </span>
                         </li>
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.tenants.create' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.tenants.create')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">Register Tenant </span>
+                                <span class="menu-text"> @lang('dashboard.new_tenants') </span>
                             </a>
                         </li>
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.tenants.index' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.tenants.index')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">View Tenants</span>
+                                <span class="menu-text">@lang('dashboard.tenants_list') </span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </li>
 
-            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+            <li class="menu-item menu-item-submenu {{ Route::current()->getName() == 'manager.owners.index' ? 'menu-item-open menu-item-here' : '' }} {{ Route::current()->getName() == 'manager.owners.create' ? 'menu-item-open menu-item-here' : '' }}" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
             <span class="svg-icon menu-icon">
             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
@@ -193,7 +193,7 @@
             <span class="menu-text">Owners</span>
             </span>
                         </li>
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.owners.create' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.owners.create')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
@@ -201,7 +201,7 @@
                                 <span class="menu-text">Register Owner </span>
                             </a>
                         </li>
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.owners.index' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.owners.index')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
@@ -213,7 +213,7 @@
                 </div>
             </li>
 
-            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+            <li class="menu-item menu-item-submenu {{ Route::current()->getName() == 'manager.estates.index' ? 'menu-item-open menu-item-here' : '' }} {{ Route::current()->getName() == 'manager.estates.create' ? 'menu-item-open menu-item-here' : '' }}" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
             <span class="svg-icon menu-icon">
             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
@@ -243,7 +243,7 @@
             <span class="menu-text">Estate</span>
             </span>
                         </li>
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.estates.create' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.estates.create')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
@@ -251,7 +251,7 @@
                                 <span class="menu-text">Create Estate </span>
                             </a>
                         </li>
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.estates.index' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.estates.index')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
@@ -263,7 +263,7 @@
                 </div>
             </li>
 
-            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+            <li class="menu-item menu-item-submenu {{ Route::current()->getName() == 'manager.apartments.index' ? 'menu-item-open menu-item-here' : '' }} {{ Route::current()->getName() == 'manager.apartments.create' ? 'menu-item-open menu-item-here' : '' }}" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
                     <span class="svg-icon svg-icon-primary menu-icon"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Home/Home.svg--><svg
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
@@ -291,7 +291,7 @@
             </span>
                         </li>
 
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.apartments.index' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.apartments.index')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
@@ -299,7 +299,7 @@
                                 <span class="menu-text">Apartment List </span>
                             </a>
                         </li>
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.apartments.create' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.apartments.create')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
@@ -311,8 +311,7 @@
                 </div>
             </li>
 
-
-            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+            <li class="menu-item menu-item-submenu {{ Route::current()->getName() == 'manager.contracts.index' ? 'menu-item-open menu-item-here' : '' }} {{ Route::current()->getName() == 'manager.contracts.create' ? 'menu-item-open menu-item-here' : '' }}" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
             <span class="svg-icon menu-icon">
             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
@@ -342,7 +341,7 @@
             <span class="menu-text">Owners</span>
             </span>
                         </li>
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.contracts.index' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.contracts.index')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
@@ -351,7 +350,7 @@
                             </a>
                         </li>
 
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ Route::current()->getName() == 'manager.contracts.create' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                             <a href="{{route('manager.contracts.create')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
@@ -364,8 +363,7 @@
                 </div>
             </li>
 
-
-            <li class="menu-item" aria-haspopup="true">
+            <li class="menu-item {{ Route::current()->getName() == 'manager.invoices.index' ? 'menu-item-open menu-item-here' : '' }}" aria-haspopup="true">
                 <a href="{{route('manager.invoices.index')}}"
                    class="menu-link">
 
@@ -386,7 +384,7 @@
                 </a>
             </li>
 
-            <li class="menu-item" aria-haspopup="true">
+            <li class="menu-item {{ Route::current()->getName() == 'manager.appointments.index' ? 'menu-item-open menu-item-here' : '' }}" aria-haspopup="true">
                 <a href="{{route('manager.appointments.index')}}"
                    class="menu-link">
 
@@ -407,7 +405,6 @@
                     <span class="menu-text">@lang('dashboard.appointments')</span>
                 </a>
             </li>
-
 
             <li class="menu-item menu-item-submenu  {{ Route::current()->getName() == 'manager.properties.index' ? 'menu-item-open menu-item-here' : '' }} {{ Route::current()->getName() == 'manager.properties.create' ? 'menu-item-open menu-item-here' : '' }}"
                 aria-haspopup="true" data-menu-toggle="hover">
@@ -461,6 +458,7 @@
                     </ul>
                 </div>
             </li>
+
             <li class="menu-item menu-item-submenu {{ Route::current()->getName() == 'manager.tags.index' ? 'menu-item-open menu-item-here' : '' }} {{ Route::current()->getName() == 'manager.tags.create' ? 'menu-item-open menu-item-here' : '' }}"
                 aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">

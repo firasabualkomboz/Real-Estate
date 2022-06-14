@@ -39,7 +39,7 @@
                         <!--begin::Card-->
                         <div class="card card-custom example example-compact">
                             <div class="card-header">
-                                <h3 class="card-title">Register New Tenant </h3>
+                                <h3 class="card-title">@lang('dashboard.new_tenants')  </h3>
                             </div>
 
                             <!--begin::Form-->
