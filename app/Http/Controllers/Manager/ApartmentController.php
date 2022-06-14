@@ -98,17 +98,18 @@ class ApartmentController extends Controller
                 $data_photos[] = $image->store('/', 'uploads');
             }
         }
+
         $apartment = new Apartment([
 
-            'name' => $request->name,
-            'description' => $request->description,
-            'features' => $request->features,
-            'rent' => $request->rent,
-            'commission' => $request->commission,
-            'space' => $request->space,
-            'rooms' => $request->rooms,
-            'bathroom' => $request->bathroom,
-            'on_floor' => $request->on_floor,
+            'name'          => $request->name,
+            'description'   => $request->description,
+            'features'      => $request->features,
+            'rent'          => $request->rent,
+            'commission'    => $request->commission,
+            'space'         => $request->space,
+            'rooms'         => $request->rooms,
+            'bathroom'      => $request->bathroom,
+            'on_floor'      => $request->on_floor,
             'image' => $data['image'],
             'property_id' => $request->property_id,
             'estate_id' => $request->estate_id,

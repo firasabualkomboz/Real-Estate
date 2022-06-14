@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Estate extends Model
 {
-    use HasFactory , ActionButtons;
+    use HasFactory, ActionButtons;
 
 
-    protected $fillable = ['name', 'rent', 'property_id', 'owner_id', 'area',
-        'commission', 'description', 'location', 'notes', 'estate_age', 'rooms', '
-        bedrooms', 'bathrooms', 'images', 'status'];
+    protected $fillable = ['name', 'property_id', 'owner_id', 'area',
+        'commission', 'description', 'location', 'notes', 'estate_age',
+        'images', 'status'];
 
     protected $casts = [
         'images' => 'json'

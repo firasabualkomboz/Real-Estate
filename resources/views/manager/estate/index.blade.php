@@ -78,7 +78,7 @@
                                 <th>Id</th>
                                 <th>Name Estate</th>
                                 <th>Type Property</th>
-                                <th>Rent / per : month</th>
+{{--                                <th>Rent / per : month</th>--}}
                                 <th>status</th>
                                 <th>Owner Name</th>
                                 <th>Units For Estate</th>
@@ -88,74 +88,6 @@
 
                         </table>
 
-
-                        {{--                                    <!-- Modal-->--}}
-                        {{--                                    <div class="modal fade" id="exampleModalLong" data-backdrop="static"--}}
-                        {{--                                         tabindex="-1" role="dialog" aria-labelledby="staticBackdrop"--}}
-                        {{--                                         aria-hidden="true">--}}
-                        {{--                                        <div class="modal-dialog" role="document">--}}
-                        {{--                                            <form method="post"--}}
-                        {{--                                                  action="{{route('manager.estates.update' , $estate->id)}}">--}}
-                        {{--                                                @csrf--}}
-                        {{--                                                @method('PATCH')--}}
-
-                        {{--                                                <div class="modal-content">--}}
-                        {{--                                                    <div class="modal-header">--}}
-                        {{--                                                        <h5 class="modal-title" id="exampleModalLabel">--}}
-                        {{--                                                            Update Status For Estate - {{$estate->name }}</h5>--}}
-                        {{--                                                        <button type="button" class="close"--}}
-                        {{--                                                                data-dismiss="modal" aria-label="Close">--}}
-                        {{--                                                            <i aria-hidden="true"--}}
-                        {{--                                                               class="ki ki-close"></i>--}}
-                        {{--                                                        </button>--}}
-                        {{--                                                    </div>--}}
-                        {{--                                                    <div class="modal-body">--}}
-
-                        {{--                                                        <div class="form-group row">--}}
-                        {{--                                                            <label for="example-time-input"--}}
-                        {{--                                                                   class="col-3 col-form-label"> Update Status--}}
-                        {{--                                                            </label>--}}
-                        {{--                                                            <div class="col-8">--}}
-
-                        {{--                                                                <select name="status"--}}
-                        {{--                                                                        class="form-control"--}}
-                        {{--                                                                >--}}
-
-                        {{--                                                                    <option value="available"> Available</option>--}}
-                        {{--                                                                    <option value="unavailable"> Un Available</option>--}}
-                        {{--                                                                    <option value="rent"> Rent</option>--}}
-
-                        {{--                                                                </select>--}}
-                        {{--                                                            </div>--}}
-                        {{--                                                        </div>--}}
-
-                        {{--                                                    </div>--}}
-                        {{--                                                    <div class="modal-footer">--}}
-                        {{--                                                        <button type="button"--}}
-                        {{--                                                                class="btn btn-light-primary font-weight-bold"--}}
-                        {{--                                                                data-dismiss="modal">Close--}}
-                        {{--                                                        </button>--}}
-                        {{--                                                        <button type="submit"--}}
-                        {{--                                                                class="btn btn-primary font-weight-bold">--}}
-                        {{--                                                            Update--}}
-                        {{--                                                        </button>--}}
-                        {{--                                                    </div>--}}
-
-                        {{--                                                </div>--}}
-                        {{--                                            </form>--}}
-
-                        {{--                                        </div>--}}
-                        {{--                                    </div>--}}
-
-
-                        {{--                                @endforeach--}}
-
-
-                        {{--                                </tbody>--}}
-                        {{--                            </table>--}}
-
-
-                        <!--end: Datatable-->
                     </div>
                 </div>
 
@@ -213,7 +145,6 @@
                         {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                         {data: 'name', name: 'name'},
                         {data: 'property', name: 'property'},
-                        {data: 'rent', name: 'rent'},
                         {data: 'status', name: 'status'},
                         {data: 'owner', name: 'owner'},
                         {data: 'units', name: 'units'},

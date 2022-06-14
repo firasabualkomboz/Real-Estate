@@ -25,10 +25,10 @@ class OwnerRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
+            'email' => 'required|unique:users,email',
+            'phone' => 'required|numeric|digits:10',
             'address' => 'required',
-            'document' => 'required',
+            'document' => 'required|image',
         ];
     }
 }

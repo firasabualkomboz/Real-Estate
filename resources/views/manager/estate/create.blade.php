@@ -232,18 +232,19 @@
                                                             </div>
 
                                                         </div>
-
                                                         <div class="col-xl-6">
                                                             <!--begin::Input-->
                                                             <div class="form-group fv-plugins-icon-container">
-                                                                <label>Rent</label>
+                                                                <label>Estate Age </label>
                                                                 <input type="number"
                                                                        class="form-control form-control-solid form-control-lg"
-                                                                       name="rent" placeholder="100$/month">
+                                                                       name="estate_age">
                                                                 <div class="fv-plugins-message-container"></div>
                                                             </div>
                                                             <!--end::Input-->
                                                         </div>
+
+
 
 
                                                     </div>
@@ -303,53 +304,7 @@
                                                         </div>
 
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-xl-3">
-                                                            <!--begin::Input-->
-                                                            <div class="form-group fv-plugins-icon-container">
-                                                                <label>Estate Age </label>
-                                                                <input type="number"
-                                                                       class="form-control form-control-solid form-control-lg"
-                                                                       name="estate_age">
-                                                                <div class="fv-plugins-message-container"></div>
-                                                            </div>
-                                                            <!--end::Input-->
-                                                        </div>
-                                                        <div class="col-xl-3">
-                                                            <!--begin::Input-->
-                                                            <div class="form-group fv-plugins-icon-container">
-                                                                <label>Rooms </label>
-                                                                <input type="number"
-                                                                       class="form-control form-control-solid form-control-lg"
-                                                                       name="rooms">
-                                                                <div class="fv-plugins-message-container"></div>
-                                                            </div>
-                                                            <!--end::Input-->
-                                                        </div>
-                                                        <div class="col-xl-3">
-                                                            <!--begin::Input-->
-                                                            <div class="form-group fv-plugins-icon-container">
-                                                                <label>BadRooms</label>
-                                                                <input type="number"
-                                                                       class="form-control form-control-solid form-control-lg"
-                                                                       name="bedrooms">
-                                                                <div class="fv-plugins-message-container"></div>
-                                                            </div>
-                                                            <!--end::Input-->
-                                                        </div>
-                                                        <div class="col-xl-3">
-                                                            <!--begin::Input-->
-                                                            <div class="form-group fv-plugins-icon-container">
-                                                                <label>BathRooms</label>
-                                                                <input type="number"
-                                                                       class="form-control form-control-solid form-control-lg"
-                                                                       name="bathrooms">
-                                                                <div class="fv-plugins-message-container"></div>
-                                                            </div>
-                                                            <!--end::Input-->
-                                                        </div>
 
-                                                    </div>
                                                     <div class="row">
                                                         <div class="col-xl-12">
                                                             <div class="form-group">

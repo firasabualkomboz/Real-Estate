@@ -11,6 +11,7 @@ use App\Models\Invoice;
 use App\Models\Property;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Response;
 use Symfony\Component\Console\Input\Input;
 use function app\Helper\apisuccess;
@@ -55,10 +56,10 @@ class ContractController extends Controller
                     return $contract->end_at;
                 })
                 ->editColumn('rent', function (Contract $contract) {
-                    return $contract->estate_id ?  : $contract->apartment->rent . ' $ / Per Month ';
+                    return $contract->estate_id ?: $contract->apartment->rent . ' $ / Per Month ';
                 })
                 ->editColumn('commission', function (Contract $contract) {
-                    return $contract->estate_id ?  : $contract->apartment->commission . '%';
+                    return $contract->estate_id ?: $contract->apartment->commission . '%';
                 })
                 ->addColumn('record_select', 'manager.contracts.data_table.record_select')
                 ->addColumn('actions', 'manager.contracts.data_table.actions')
@@ -70,7 +71,7 @@ class ContractController extends Controller
     public function show($id)
     {
         $contract = Contract::find($id);
-        return view('manager.contracts.show' , compact('contract'));
+        return view('manager.contracts.show', compact('contract'));
     }
 
     public function create()
@@ -147,6 +148,20 @@ class ContractController extends Controller
 
     }
 
+    public function getNumberOfMonth($id)
+    {
+
+        $contract = Contract::find($id);
+        $start_date = new \DateTime($contract->start_at);
+//        dd($start_date);
+        $end_date = new \DateTime($contract->end_at);
+        $interval = $start_date->diff($end_date);
+//        dd ($interval->format('%y years, %m month, %d the count of period contract .. '));
+        $result = $interval->format('%m');
+          dd( $result * $contract->apartment->rent);
+
+    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -169,11 +184,9 @@ class ContractController extends Controller
 
     public function getAjaxApartment($id)
     {
-        $apartments = Apartment::where('estate_id', $id)->where('status' , 'available')->pluck('name', 'id');
+        $apartments = Apartment::where('estate_id', $id)->where('status', 'available')->pluck('name', 'id');
         return json_encode($apartments);
     }
-
-
 
 
 }

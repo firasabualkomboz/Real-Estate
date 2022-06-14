@@ -16,7 +16,6 @@ class CreateEstatesTable extends Migration
         Schema::create('estates', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('rent');
             $table->foreignId('property_id')->constrained('properties')->cascadeOnDelete();
             $table->foreignId('owner_id')->constrained('users')->cascadeOnDelete();
             $table->integer('area');
@@ -25,9 +24,13 @@ class CreateEstatesTable extends Migration
             $table->string('location');
             $table->text('notes');
             $table->integer('estate_age')->nullable();
-            $table->integer('rooms')->nullable();
-            $table->integer('bedrooms')->nullable();
-            $table->integer('bathrooms')->nullable();
+            // $table->integer('rent');
+//            $table->integer('rooms')->nullable();
+//            $table->integer('bedrooms')->nullable();
+//            $table->integer('bathrooms')->nullable();
+            /*
+             * add count floor
+             */
             $table->longText('images');
             $table->enum('status', ['available', 'rent', 'unavailable'])->default('unavailable');
 

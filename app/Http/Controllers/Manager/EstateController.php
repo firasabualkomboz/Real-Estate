@@ -103,7 +103,6 @@ class EstateController extends Controller
 
         $estate = new Estate([
             'name' => $request->name,
-            'rent' => $request->rent,
             'property_id' => $request->property_id,
             'owner_id' => $request->owner_id,
             'area' => $request->area,
@@ -112,13 +111,11 @@ class EstateController extends Controller
             'location' => $request->location,
             'notes' => $request->notes,
             'estate_age' => $request->estate_age,
-            'bathrooms' => $request->bathrooms,
-            'bedrooms' => $request->bedrooms,
-            'rooms' => $request->rooms,
             'images' => json_encode($data_images),
             'status' => 'available'
-
         ]);
+
+
         $estate->save();
         $tags = $request->post('tags', []);
 
