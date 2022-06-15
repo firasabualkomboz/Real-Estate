@@ -42,11 +42,9 @@ class EmployerController extends Controller
                 ->addIndexColumn()
                 ->addColumn('roles', function (User $employer) {
                     if (!empty($employer->getRoleNames()))
-                        foreach ($employer->getRoleNames() as $v){
+                        foreach ($employer->getRoleNames() as $v) {
                             return $v;
                         }
-
-
 
                 })
                 ->addColumn('record_select', 'manager.employers.data_table.record_select')

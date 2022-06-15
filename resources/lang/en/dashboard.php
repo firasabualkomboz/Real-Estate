@@ -29,6 +29,14 @@ return [
     'confirm_password'      => 'Confirm Password',
     'roles'                 => 'Roles',
 
+    // settings page
+
+    'settings' =>  'Settings',
+    'about_us' =>  'About Us',
+    'features' =>  'Features',
+    'url'      =>  'Url',
+    'logo'     =>  'Logo',
+
 
     'actions' => 'Actions',
     'submit' => 'submit',

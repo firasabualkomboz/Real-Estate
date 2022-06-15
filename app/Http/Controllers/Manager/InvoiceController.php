@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Manager;
 use App\Http\Controllers\Controller;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use phpDocumentor\Reflection\Types\Never_;
 use function app\Helper\successMessage;
 use DataTables;
@@ -54,20 +55,19 @@ class InvoiceController extends Controller
 
         $start_date = new \DateTime($getStartDate);
         $end_date = new \DateTime($getEndtDate);
-        dd($end_date);
-        die();
+
         $interval = $start_date->diff($end_date);
-        return view('manager.invoices.show', compact('invoice'));
+        $countMonth = $interval->format('%m');
+        return view('manager.invoices.show', compact('invoice', 'countMonth'));
     }
 
-    function getMonth(){
-        $contract = Contract::find($id);
-        $start_date = new \DateTime($contract->start_at);
-        $end_date = new \DateTime($contract->end_at);
-        $interval = $start_date->diff($end_date);
-//        dd ($interval->format('%y years, %m month, %d the count of period contract .. '));
-        $result = $interval->format('%m');
-        dd($result * $contract->apartment->rent);
+    public function uploadInvoice()
+    {
+        $invoice = asset('uploads/' . "/download/info.pdf");
+        $headers = array(
+            'Content-Type: application/pdf',
+        );
+        return Response::download($invoice, 'filename.pdf', $headers);
     }
 
     public function edit($id)
