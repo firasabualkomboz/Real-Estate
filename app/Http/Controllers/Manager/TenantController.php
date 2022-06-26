@@ -138,5 +138,4 @@ class TenantController extends Controller
 
     }
 
-
 }

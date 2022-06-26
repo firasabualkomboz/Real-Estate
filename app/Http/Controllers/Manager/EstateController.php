@@ -102,17 +102,17 @@ class EstateController extends Controller
         }
 
         $estate = new Estate([
-            'name' => $request->name,
-            'property_id' => $request->property_id,
-            'owner_id' => $request->owner_id,
-            'area' => $request->area,
-            'commission' => $request->commission,
-            'description' => $request->description,
-            'location' => $request->location,
-            'notes' => $request->notes,
-            'estate_age' => $request->estate_age,
-            'images' => json_encode($data_images),
-            'status' => 'available'
+            'name'          => $request->name,
+            'property_id'   => $request->property_id,
+            'owner_id'      => $request->owner_id,
+            'area'          => $request->area,
+            'commission'    => $request->commission,
+            'description'   => $request->description,
+            'location'      => $request->location,
+            'notes'         => $request->notes,
+            'estate_age'    => $request->estate_age,
+            'images'        => json_encode($data_images),
+            'status'        => 'available'
         ]);
 
 
@@ -122,7 +122,6 @@ class EstateController extends Controller
         $estate->tags()->attach($tags);
 
         return $this->successMsg();
-
 
     }
 

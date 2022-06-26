@@ -10,17 +10,9 @@
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline mr-5">
                         <!--begin::Page Title-->
-                        <h2 class="subheader-title text-dark font-weight-bold my-2 mr-3">Real Estate </h2>
+                        <h2 class="subheader-title text-dark font-weight-bold my-2 mr-3"> Invoices </h2>
                         <!--end::Page Title-->
-                        <!--begin::Breadcrumb-->
-                        <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold my-2 p-0">
-                            <li class="breadcrumb-item">
-                                <a href="" class="text-muted">Invoices</a>
-                            </li>
 
-
-                        </ul>
-                        <!--end::Breadcrumb-->
                     </div>
                     <!--end::Page Heading-->
                 </div>
@@ -35,14 +27,6 @@
             <div class="container">
 
                 <div class="card card-custom">
-                    <div class="card-header flex-wrap border-0 pt-6 pb-0">
-                        <div class="card-title">
-                            <h3 class="card-label">invoices List
-
-                            </h3>
-                        </div>
-
-                    </div>
                     <div class="card-body">
 
 

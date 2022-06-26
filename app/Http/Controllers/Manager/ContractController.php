@@ -10,6 +10,7 @@ use App\Models\Estate;
 use App\Models\Invoice;
 use App\Models\Property;
 use App\Models\User;
+use Illuminate\Container\RewindableGenerator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Response;
@@ -125,7 +126,9 @@ class ContractController extends Controller
             ]);
             $invoice->save();
 
-        } elseif ($request->type == 'apartment') {
+        }
+
+        if ($request->type == 'apartment') {
 
             $apartment = Apartment::where('id', $request->apartment_id)->first();
             $apartment->status = 'rent';
@@ -135,27 +138,11 @@ class ContractController extends Controller
             $invoice = Invoice::create([
                 'contract_id' => $contract->id,
                 'tenant_id' => $contract->tenant_id,
-                'status' => 'pending'
+                'status' => 'pending',
             ]);
             $invoice->save();
-        }
 
-//        if ($request->type == 'apartment') {
-//
-//            $apartment = Apartment::where('id', $request->apartment_id)->first();
-//
-//            $apartment->status = 'rent';
-//            $apartment->update();
-//            $contract->save();
-//
-//            $invoice = Invoice::create([
-//                'contract_id' => $contract->id,
-//                'tenant_id' => $contract->tenant_id,
-//                'status' => 'pending',
-//            ]);
-//            $invoice->save();
-//
-//        }
+        }
 
         return successMessage();
 
@@ -211,7 +198,4 @@ class ContractController extends Controller
         $apartments = Apartment::where('estate_id', $id)->where('status', 'available')->pluck('name', 'id');
         return json_encode($apartments);
     }
-
-
-
 }

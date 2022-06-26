@@ -141,6 +141,7 @@ class EmployerController extends Controller
         return successMessage();
     }
 
+
     /**
      * Remove the specified resource from storage.
      *

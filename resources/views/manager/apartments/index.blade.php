@@ -10,21 +10,8 @@
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline mr-5">
                         <!--begin::Page Title-->
-                        <h2 class="subheader-title text-dark font-weight-bold my-2 mr-3">Real Estate</h2>
-                        <!--end::Page Title-->
-                        <!--begin::Breadcrumb-->
-                        <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold my-2 p-0">
-                            <li class="breadcrumb-item">
-                                <a href="" class="text-muted">Apartments</a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="" class="text-muted">Apartments List</a>
-                            </li>
+                        <h2 class="subheader-title text-dark font-weight-bold my-2 mr-3">Apartments</h2>
 
-
-                        </ul>
-
-                        <!--end::Breadcrumb-->
                     </div>
                     <!--end::Page Heading-->
                 </div>

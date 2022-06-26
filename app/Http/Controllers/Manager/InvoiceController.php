@@ -45,6 +45,7 @@ class InvoiceController extends Controller
         }
     }
 
+
     public function show($id)
     {
         $invoice = Invoice::with('contract', 'tenant')->find($id);

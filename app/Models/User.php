@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\ActionButtons;
+use http\Env\Request;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -89,5 +90,6 @@ class User extends Authenticatable
     }
 
     const manager_route = 'tenants';
+
 
 }

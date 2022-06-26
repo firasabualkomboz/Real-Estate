@@ -24,11 +24,12 @@ class TenantRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'address' => 'required',
-            'document' => 'required',
+            'name'      => 'required',
+            'email'     => 'required',
+            'phone'     => 'required',
+            'address'   => 'required',
+            'document'  => 'required',
         ];
     }
+
 }
